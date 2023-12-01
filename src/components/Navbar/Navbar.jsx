@@ -1,5 +1,7 @@
 import React from "react";
 import "./Navbar.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 const Navbar = () => {
   return (
     <nav>
@@ -24,11 +26,13 @@ const Navbar = () => {
       </div>
       <div className="nav_right">
         <div className="nav_right_button_login">
-        <button >Login</button>
+        <button >Log in</button>
         </div>
         <div className="nav_right_button_sign_up">
          <button>Sing up</button>
+
           </div>
+          <FontAwesomeIcon icon={faBars} />
       </div>
     </nav>
   );

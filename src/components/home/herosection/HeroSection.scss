@@ -1,0 +1,68 @@
+#hero {
+  padding: 48px 0px;
+  background-color: #edf7f8;
+  .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    .hero {
+      .hero_text {
+        .hero_input {
+          padding: 5px 10px 5px 20px;
+          margin-top: 20px;
+          background-color: white;
+          width: 45%;
+          height: 58px;
+          border-radius: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          input{
+            width: 100%;
+            height: 100%;
+            outline: none;
+            border:  none;
+          }
+          .glass {
+            background-color: #daf0f2;
+            color: #389ba7;
+            border-radius: 50%;
+            padding: 15px;
+          }
+        }
+        .hero_text_line {
+          margin-top: 4px;
+          display: flex;
+          max-width: 300px;
+          justify-content: space-around;
+          .line1 {
+            width: 90px;
+            background-color: black;
+            height: 2px;
+          }
+          .line2 {
+            width: 100px;
+            // background-color: black;
+            height: 2px;
+          }
+        }
+        .hero_text_wanted_jobs {
+          display: flex;
+
+          gap: 15px;
+          align-items: center;
+        }
+        .hero_text_title {
+          width: 50%;
+          margin-bottom: 24px;
+          p {
+            font-size: 32px;
+            font-weight: 500;
+            span {
+              color: #389ba7;
+            }
+          }
+        }
+      }
+    }
+  }
+}
