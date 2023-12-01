@@ -20,11 +20,7 @@ const Cards = () => {
             <Swiper
               onSwiper={setSwiperRef}
               slidesPerView={5}
-              // centeredSlides={true}
               spaceBetween={30}
-              pagination={{
-                type: "fraction",
-              }}
               navigation={true}
               modules={[Pagination, Navigation]}
               className="mySwiper"
@@ -253,6 +249,14 @@ const Cards = () => {
                 </div>
               </SwiperSlide>
             </Swiper>
+          </div>
+        </div>
+        <div className="cards_footer">
+          <div className="links_see">
+            <a href="">See all 11,344 active babysitters</a>
+            <div className="view_button">
+              <button>View all babysitting jobs</button>
+            </div>
           </div>
         </div>
       </section>
