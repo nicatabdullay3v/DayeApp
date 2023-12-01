@@ -5,6 +5,7 @@ import HeroSection from "../../components/home/herosection/HeroSection";
 import FindBaby from "../../components/home/findbaby/FindBaby";
 import WeKnow from "../../components/home/weknow/WeKnow";
 import Support from "../../components/home/support/Support";
+import Childcare from "../../components/home/childcare/Childcare";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <WeKnow/>
       <FindBaby/>
       <Support/>
+      <Childcare/>
     </>
   );
 };
