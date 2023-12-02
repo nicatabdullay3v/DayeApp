@@ -23,26 +23,27 @@
 
     h3 {
       font-size: 35px;
-      width: 600px;
+      max-width: 600px;
     }
   }
   .baby_learn {
     display: flex;
-    padding: 100px 0px;
+    padding: 100px 30px;
     justify-content: center;
     gap: 10px;
   }
   .line_bottom {
     border-bottom: 1px solid lightgray;
-}
-.families_text_pricing {
+  }
+  .families_text_pricing {
+    padding: 0px 30px;
     .h3h {
-        margin-top: 100px;
-        margin-bottom: 30px;
-        font-size: 25px;
+      margin-top: 100px;
+      margin-bottom: 30px;
+      font-size: 25px;
     }
     .pp {
-        width: 810px;
+      max-width: 810px;
     }
     display: flex;
     justify-content: center;
@@ -75,7 +76,7 @@
           background-color: #389ba7;
           border-radius: 15px;
           color: white;
-         
+
           margin: 20px 20px;
         }
         h3 {
@@ -92,15 +93,13 @@
           margin-bottom: 10px;
           margin-top: 10px;
         }
-        .hrrr{
-           
-                border-bottom: 1px solid lightgray;
-                padding: 10px;
-                width: 90%;
-                margin-left: 15px;
-                margin-bottom: 10px;
-                margin-top: 30px;
-              
+        .hrrr {
+          border-bottom: 1px solid lightgray;
+          padding: 10px;
+          width: 90%;
+          margin-left: 15px;
+          margin-bottom: 10px;
+          margin-top: 30px;
         }
         .hr {
           border-bottom: 1px solid lightgray;
@@ -131,7 +130,7 @@
     margin-bottom: 20px;
     margin-top: 20px;
     p {
-      width: 840px;
+      max-width: 840px;
     }
     a {
       color: black;
@@ -178,7 +177,7 @@
         .simple_effective,
         .automatic_payouts {
           padding: 20px 0px;
-          width: 400px;
+          max-width: 400px;
         }
         .automatic_payouts {
           padding-top: 100px;
@@ -188,7 +187,7 @@
         .simple_effective,
         .automatic_payouts {
           padding: 20px 0px;
-          width: 400px;
+          max-width: 400px;
           a {
             color: black;
           }
@@ -199,6 +198,7 @@
   .satisfaction_and_guarantee {
     padding: 70px 0px;
     .side_side {
+      max-width: 900px;
       display: flex;
       justify-content: center;
       padding-top: 30px;
@@ -211,7 +211,7 @@
         background-size: cover;
       }
       .text_right {
-        width: 730px;
+        max-width: 730px;
       }
     }
     .links_customer {
@@ -222,75 +222,72 @@
     }
   }
 }
-.ready_to_join{
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    h3{
-        padding: 70px 0px;
+.ready_to_join {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  h3 {
+    padding: 70px 0px;
+  }
+  .baby_image {
+    background-image: url("../../assets/images/birinci.webp");
+    width: 100px;
+    height: 120px;
+    background-size: cover;
+    margin-left: 20px;
+  }
+  .button_sign_me_join {
+    padding: 50px 0px;
+    button {
+      padding: 10px 12px;
+      border: none;
+      background-color: #389ba7;
+      color: white;
+      border-radius: 15px;
+      font-size: 16px;
+      font-weight: 500;
     }
-    .baby_image{
-background-image: url('../../assets/images/birinci.webp');
-width: 100px;
-height: 120px;
-background-size: cover;
-margin-left: 20px;
-
-    }
-    .button_sign_me_join{
-padding: 50px 0px;
-        button{
-            padding: 10px 12px;
-            border: none;
-            background-color: #389ba7;
-            color: white;
-            border-radius: 15px;
-            font-size: 16px;
-            font-weight: 500;
-    
-        }
-    }
+  }
 }
 
 @media screen and (max-width: 767px) {
-    .pricing_media {
-      flex-direction: column;
-      align-items: center;
-      .babysits_card_classic,
-      .babysits_card_premium {
-        margin-top: 60px;
-      }
+  .pricing_media {
+    flex-direction: column;
+    align-items: center;
+    .babysits_card_classic,
+    .babysits_card_premium {
+      margin-top: 60px;
     }
   }
-  @media screen and (max-width: 992px) {
-    .childcare_media {
-      flex-direction: column;
-      align-items: center;
-      .babysits_card_classic,
-      .babysits_card_premium {
-        margin-top: 60px;
-      }
+}
+@media screen and (max-width: 992px) {
+  .childcare_media {
+    flex-direction: column;
+    align-items: center;
+    .babysits_card_classic,
+    .babysits_card_premium {
+      margin-top: 60px;
     }
   }
+}
 
-  
 @media screen and (max-width: 767px) {
-    .bookandpay_media {
-      flex-direction: column;
-      align-items: center;
-      .left_side_book,
-      .right_side_book {
-        margin-top: 60px;
-      }
+  .bookandpay_media {
+    flex-direction: column;
+    align-items: center;
+    .left_side_book,
+    .right_side_book {
+      margin-top: 60px;
     }
   }
-  @media screen and (max-width: 992px) {
-    .bookandpay_media {
-      flex-direction: column;
-      align-items: center;
-      .left_side_book,
-      .right_side_book {
-        margin-top: 60px;
-      }
+}
+@media screen and (max-width: 992px) {
+  .bookandpay_media {
+    flex-direction: column;
+    align-items: center;
+    .left_side_book,
+    .right_side_book {
+      margin-top: 60px;
     }
   }
+}
