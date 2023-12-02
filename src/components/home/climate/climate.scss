@@ -2,6 +2,7 @@
   margin-bottom: 50px;
   .container {
     display: flex;
+    justify-content: space-between;
     .left_side {
       width: 500px;
       h3 {
@@ -25,6 +26,7 @@
       }
     }
     .right_side {
+      width: 325px;
       .climate_cards {
         display: flex;
         .climate_card {
@@ -52,3 +54,5 @@
     }
   }
 }
+
+

@@ -1,12 +1,14 @@
 import React, { useRef, useState } from "react";
-import { Virtual, Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay,Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import "./climate.scss";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
 const Climate = () => {
   const [swiperRef, setSwiperRef] = useState(null);
+
   return (
     <section id="climate_babysits">
       <div className="container">
@@ -143,14 +145,18 @@ const Climate = () => {
 
         <div className="right_side">
           <div className="climate_cards">
-            <Swiper
-              onSwiper={setSwiperRef}
-              slidesPerView={1}
-              spaceBetween={20}
-              navigation={true}
-              modules={[Pagination, Navigation]}
-              className="mySwiper"
-            >
+          <Swiper
+
+        spaceBetween={30}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
+        
+        navigation={true}
+        modules={[ Autoplay,Navigation]}
+        className="mySwiper"
+      >
               <SwiperSlide>
                 <div className="climate_card">
                   <p>Our CO2 removal is equal to the daily energy use of</p>
