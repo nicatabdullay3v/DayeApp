@@ -5,6 +5,9 @@ import Howitworks from "../pages/Howitworks/Howitworks";
 import Pricing from "../pages/Pricing/Pricing";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Babysitters from "../pages/Babysitters";
+import BabySittingJobs from "../pages/BabysittingJobs";
+
 import BabySittersDetailPage from "../pages/BabySittersDetailPage/BabySittersDetailPage";
 const router = createBrowserRouter([
   {
@@ -28,8 +31,16 @@ const router = createBrowserRouter([
     element: <Register />,
   },
   {
-    path:"/babysittersDetail",
-    element: <BabySittersDetailPage/>
-  }
+    path: "/BabySitters",
+    element: <Babysitters />,
+  },
+  {
+    path: "/BabySittingJobs",
+    element: <BabySittingJobs />,
+  },
+  {
+    path: "/babysittersDetail",
+    element: <BabySittersDetailPage />,
+  },
 ]);
 export default router;

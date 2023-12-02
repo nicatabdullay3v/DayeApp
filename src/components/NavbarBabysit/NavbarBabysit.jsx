@@ -1,37 +1,39 @@
 import React from "react";
-import "./Navbar.scss";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { Link, Outlet } from "react-router-dom";
-
-const Navbar = () => {
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import "./NavbarBabysit.scss";
+const NavbarBabysit = () => {
   return (
-    <nav>
+    <nav
+      style={{
+        backgroundColor: "white",
+        borderBottom: "1px solid lightgray",
+        marginBottom: "20px",
+      }}
+    >
       <div className="nav_left">
         <div className="nav_logo">
           <img src="./../../../src/assets/images/logo.main.png" alt="" />
         </div>
       </div>
-      <div className="nav_center">
-        <div className="nav_center_text">
-          <Link to="/BabySitters">Babysitters</Link>
-        </div>
-        <div className="nav_center_text">
-          <Link to="/BabySittingJobs">Babysitting jobs</Link>
-        </div>
-        <div className="nav_center_text">
-          <Link className="link" to="/Howitworks">
-            {" "}
-            How it works
-          </Link>
-        </div>
-        <div className="nav_center_text">
-          <Link className="link" to="/Pricing">Pricing</Link>
+      <div className="nav-center">
+        <input placeholder="Start your search" type="text" />
+        <div className="search-icon">
+          <FontAwesomeIcon
+            icon={faMagnifyingGlass}
+            style={{ color: "#389ba7" }}
+          />
         </div>
       </div>
+
       <div className="nav_right">
         <div className="nav_right_button_login">
-          <Link to="/Login">Log in</Link>
+          <button style={{ backgroundColor: "white" }}>
+            <Link to="/Login">Log in</Link>
+          </button>
         </div>
         <div className="nav_right_button_sign_up">
           <Link to="/Register">
@@ -45,4 +47,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarBabysit;

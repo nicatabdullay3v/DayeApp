@@ -1,0 +1,86 @@
+.babysitter {
+  .babysitter-card {
+    background-color: #f7f9fa;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    padding: 13px 0 45px 0;
+    gap: 13px;
+    .card-left {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      align-items: center;
+      .image {
+        width: 100px;
+        overflow: hidden;
+        border-radius: 10px;
+        img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      .rating {
+      }
+    }
+    .card-right {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      .name {
+        display: flex;
+        position: relative;
+        gap: 5px;
+        .heart {
+          position: absolute;
+          right: 10px;
+          cursor: pointer;
+          font-size: 20px;
+        }
+        p {
+          color: black;
+        }
+      }
+      .supersitter {
+        border: 1px solid #389ba7;
+        width: fit-content;
+        border-radius: 25px;
+        padding: 2px 4px;
+        p {
+          font-size: 10px;
+          font-weight: bold;
+          color: #389ba7;
+        }
+      }
+      .description {
+        color: #89939b;
+        font-size: 13px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+      .experience {
+        display: flex;
+        gap: 8px;
+        p {
+          color: #89939b;
+          font-weight: 500;
+
+          font-size: 13px;
+        }
+      }
+    }
+    .price {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      color: black;
+      font-weight: 500;
+      font-size: 16px;
+    }
+  }
+}
