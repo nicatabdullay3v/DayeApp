@@ -36,10 +36,9 @@
         bottom: 0px;
         right: 250px;
         z-index: 2;
-        @media (max-width:767px) {
+        @media (max-width: 767px) {
           width: 175px;
           height: 175px;
-          
         }
         img {
           width: 100%;
@@ -47,8 +46,8 @@
         }
       }
       .hero_text {
-position: relative;
-z-index: 10;
+        position: relative;
+        z-index: 10;
         .hero_text_star {
           margin-top: 20px;
           display: flex;
@@ -61,9 +60,8 @@ z-index: 10;
           white-space: nowrap;
           width: 600px;
           overflow: hidden;
-          @media (max-width:767px) {
+          @media (max-width: 767px) {
             width: 400px;
-            
           }
         }
         .slider:hover .hero_text_slider {

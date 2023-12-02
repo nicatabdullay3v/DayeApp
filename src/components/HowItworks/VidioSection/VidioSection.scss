@@ -1,0 +1,14 @@
+#vidio_section {
+  background-color: #eff7f8;
+  padding: 64px 30px;
+  .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    .vidio_section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 400px;
+    }
+  }
+}
