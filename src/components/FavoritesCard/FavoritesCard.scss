@@ -1,0 +1,59 @@
+.fav-card {
+  display: flex;
+  padding: 16px 40px 27px 22px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #f7f9fa;
+  position: relative;
+  .card-left {
+    .image {
+      width: 100px;
+      overflow: hidden;
+      border-radius: 10px;
+      img {
+        object-fit: contain;
+        width: 100%;
+      }
+    }
+  }
+  .card-right {
+    padding: 0 20px;
+    .name {
+      color: #323940;
+      font-weight: 600;
+      padding-bottom: 22px;
+      width: 100%;
+      .icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+    }
+    .information {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      .city {
+        font-weight: 600;
+        color: #323940;
+
+        font-size: small;
+      }
+      .review {
+        font-size: 14px;
+        display: flex;
+        gap: 4px;
+        align-items: center;
+        font-weight: 600;
+        span {
+          color: #323940;
+        }
+      }
+      .ref {
+        color: #323940;
+        font-size: small;
+        font-weight: 600;
+      }
+    }
+  }
+}

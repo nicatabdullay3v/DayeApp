@@ -7,7 +7,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Babysitters from "../pages/Babysitters";
 import BabySittingJobs from "../pages/BabysittingJobs";
-
+import Favorites from "../pages/Favorites";
 import BabySittersDetailPage from "../pages/BabySittersDetailPage/BabySittersDetailPage";
 const router = createBrowserRouter([
   {
@@ -41,6 +41,10 @@ const router = createBrowserRouter([
   {
     path: "/babysittersDetail",
     element: <BabySittersDetailPage />,
+  },
+  {
+    path: "/favorites",
+    element: <Favorites />,
   },
 ]);
 export default router;
