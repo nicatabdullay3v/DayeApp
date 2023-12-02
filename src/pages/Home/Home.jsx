@@ -7,6 +7,7 @@ import WeKnow from "../../components/home/weknow/WeKnow";
 import Support from "../../components/home/support/Support";
 import Childcare from "../../components/home/childcare/Childcare";
 import Discover from "../../components/home/discover/Discover";
+import Climate from "../../components/home/climate/Climate";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <Support/>
       <Childcare/>
       <Discover/>
+      <Climate/>
     </>
   );
 };
