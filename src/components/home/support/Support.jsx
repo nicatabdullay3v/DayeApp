@@ -29,11 +29,25 @@ const Support = () => {
         <div className="support_cards">
           <Swiper
             onSwiper={setSwiperRef}
-            slidesPerView={4}
+            slidesPerView={'auto'}
             spaceBetween={30}
             navigation={true}
             modules={[Pagination, Navigation]}
-            className="mySwiper"
+            className="mySwiper hidden"
+            breakpoints={{
+              600: {
+                slidesPerView: 2
+              },
+              767: {
+                slidesPerView: 3
+              },
+              992: {
+                slidesPerView: 4
+              },
+              1200: {
+                slidesPerView: 5
+              }
+            }}
           >
             <SwiperSlide>
               <div className="support_card">

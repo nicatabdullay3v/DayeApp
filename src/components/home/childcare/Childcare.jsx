@@ -5,7 +5,7 @@ import './childcare.scss'
 const Childcare = () => {
   return (
     <section id="childcare_app">
-      <div className="container">
+      <div className="container childcare_media">
         <div className="left_side">
           <h3>Childcare is always within reach with our app</h3>
           <p>

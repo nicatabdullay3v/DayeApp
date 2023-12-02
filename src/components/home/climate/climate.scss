@@ -1,10 +1,11 @@
 #climate_babysits {
   margin-bottom: 50px;
+  padding: 0px 30px;
   .container {
     display: flex;
     justify-content: space-between;
     .left_side {
-      width: 500px;
+      max-width: 500px;
       h3 {
         margin-bottom: 25px;
       }
@@ -30,17 +31,17 @@
       .climate_cards {
         display: flex;
         .climate_card {
-            width: 320px;
-            height: 290px;
+          width: 320px;
+          height: 290px;
           text-align: center;
           border-radius: 15px;
           padding: 10px;
           background-color: #eff7f8;
-          p{
+          p {
             margin-bottom: 20px;
             height: 70px;
           }
-          h3{
+          h3 {
             height: 30px;
             margin-bottom: 30px;
           }
@@ -55,4 +56,23 @@
   }
 }
 
-
+@media screen and (max-width: 767px) {
+  .climate_media {
+    flex-direction: column;
+    align-items: center;
+    .left_side,
+    .right_side {
+      margin-top: 60px;
+    }
+  }
+}
+@media screen and (max-width: 992px) {
+  .climate_media {
+    flex-direction: column;
+    align-items: center;
+    .left_side,
+    .right_side {
+      margin-top: 60px;
+    }
+  }
+}

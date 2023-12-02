@@ -33,11 +33,25 @@ const Discover = () => {
         <div className="discover_cards">
           <Swiper
             onSwiper={setSwiperRef}
-            slidesPerView={5}
-            spaceBetween={30}
+            slidesPerView={"auto"}
+            spaceBetween={10}
             navigation={true}
             modules={[Pagination, Navigation]}
-            className="mySwiper"
+            className="mySwiper hidden"
+            breakpoints={{
+              600: {
+                slidesPerView: 2,
+              },
+              767: {
+                slidesPerView: 3,
+              },
+              992: {
+                slidesPerView: 4,
+              },
+              1200: {
+                slidesPerView: 5,
+              },
+            }}
           >
             <SwiperSlide>
               <div className="discover_card">
