@@ -48,3 +48,26 @@
     }
   }
 }
+
+@media screen and (max-width: 767px) {
+  .we_know_details {
+    flex-direction: column;
+    align-items: center;
+    .one_detail,
+    .two_detail,
+    .three_detail {
+      margin-top: 60px;
+    }
+  }
+}
+@media screen and (max-width: 992px) {
+  .we_know_details {
+    flex-direction: column;
+    align-items: center;
+    .one_detail,
+    .two_detail,
+    .three_detail {
+      margin-top: 60px;
+    }
+  }
+}
