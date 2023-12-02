@@ -3,6 +3,8 @@ import Home from "../pages/Home/Home";
 import Navbar from "../components/Navbar/Navbar";
 import Howitworks from "../pages/Howitworks/Howitworks";
 import Pricing from "../pages/Pricing/Pricing";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -14,7 +16,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/Pricing",
-    element: <Pricing/>,
+    element: <Pricing />,
+  },
+  {
+    path: "/Login",
+    element: <Login />,
+  },
+  {
+    path: "/Register",
+    element: <Register />,
   },
 ]);
 export default router;

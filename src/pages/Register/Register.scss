@@ -1,0 +1,123 @@
+.SignUpBox {
+  border-radius: 10px;
+  width: 40%;
+  margin: 0 auto;
+  border: 2px solid #e3e8ec;
+  .BoxHeader {
+    .header {
+      display: flex;
+      padding: 13px 10px;
+      align-items: center;
+      border-bottom: 2px solid #e3e8ec;
+      .icon {
+        font-size: large;
+      }
+      .sign-up-text {
+        margin: 0 auto;
+        p {
+          font-size: large;
+          text-align: center;
+          color: #323940;
+          font-weight: bold;
+        }
+      }
+    }
+    .elements {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      padding: 25px 0 0 0;
+      .element {
+        border-radius: 10px;
+        padding: 10px 12px 7px 12px;
+        width: 60px;
+
+        border: 1px solid #89939b;
+        overflow: hidden;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    .or {
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+    }
+  }
+  .inputs-button {
+    padding: 0 10px;
+
+    .first-last-name-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      input {
+        color: #89939b;
+        padding: 0.7rem 0.75rem;
+        // min-height: calc(2.9rem + 2px);
+        border-radius: 10px;
+        border: 1px solid #f1f4f6;
+      }
+    }
+    .lastname-info {
+      color: #89939b;
+      width: 100%;
+      font-size: 0.8em;
+      padding: 3px 0;
+      margin-bottom: 13px;
+    }
+    .email-input {
+      width: 100%;
+      input {
+        width: 100%;
+        color: #89939b;
+        padding: 0.7rem 0.75rem;
+        // min-height: calc(2.9rem + 2px);
+        border-radius: 10px;
+        border: 1px solid #f1f4f6;
+      }
+    }
+    .email-info {
+      color: #89939b;
+      width: 100%;
+      font-size: 0.8em;
+      padding: 3px 0;
+      margin-bottom: 13px;
+    }
+    .pass-input {
+      margin-bottom: 20px;
+      input {
+        width: 100%;
+        padding: 0.7rem 0.75rem;
+        // min-height: calc(2.9rem + 2px);
+        border-radius: 10px;
+        border: 1px solid #f1f4f6;
+      }
+    }
+    .button-signUp {
+      width: 100%;
+      padding-bottom: 15px;
+
+      button {
+        width: 100%;
+        background-color: #389ba7;
+        padding: 10px 0;
+        text-align: center;
+        font-size: large;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .SignUpBox {
+    width: 90%;
+    margin: 0 auto;
+  }
+}

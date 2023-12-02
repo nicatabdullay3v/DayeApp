@@ -20,7 +20,10 @@ const Navbar = () => {
           <p>Babysitting jobs</p>
         </div>
         <div className="nav_center_text">
-        <Link className="link" to="/Howitworks"> How it works</Link>
+          <Link className="link" to="/Howitworks">
+            {" "}
+            How it works
+          </Link>
         </div>
         <div className="nav_center_text">
           <Link className="link" to="/Pricing">Pricing</Link>
@@ -28,16 +31,16 @@ const Navbar = () => {
       </div>
       <div className="nav_right">
         <div className="nav_right_button_login">
-        <button >Log in</button>
+          <Link to="/Login">Log in</Link>
         </div>
         <div className="nav_right_button_sign_up">
-         <button>Sing up</button>
-
-          </div>
-          <FontAwesomeIcon icon={faBars} />
+          <Link to="/Register">
+            <button>Sing up</button>
+          </Link>
+        </div>
+        <FontAwesomeIcon icon={faBars} />
       </div>
-    <Outlet/>
-
+      <Outlet />
     </nav>
   );
 };
