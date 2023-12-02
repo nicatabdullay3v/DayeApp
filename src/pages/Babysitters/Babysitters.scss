@@ -48,7 +48,9 @@
     width: 50%;
     padding-right: 15px;
     padding-top: 20px;
-
+    @media (max-width: 992px) {
+      width: 100%;
+    }
     .left-head {
       display: flex;
       flex-direction: column;
@@ -156,5 +158,8 @@
     // position: fixed;
     // z-index: 1000;
     // right: 0;
+    @media (max-width: 992px) {
+      display: none;
+    }
   }
 }
