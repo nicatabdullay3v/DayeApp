@@ -1,34 +1,21 @@
 import React from "react";
-import "./Navbar.scss";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { Link, Outlet } from "react-router-dom";
 
-const Navbar = () => {
+const NavbarSecond = () => {
   return (
-    <nav>
+    <nav style={{backgroundColor:"white",borderBottom:"1px solid lightgray"}}>
       <div className="nav_left">
         <div className="nav_logo">
           <img src="./../../../src/assets/images/logo.main.png" alt="" />
         </div>
       </div>
-      <div className="nav_center">
-        <div className="nav_center_text">
-          <p>Babysitters</p>
-        </div>
-        <div className="nav_center_text">
-          <p>Babysitting jobs</p>
-        </div>
-        <div className="nav_center_text">
-        <Link className="link" to="/Howitworks"> How it works</Link>
-        </div>
-        <div className="nav_center_text">
-          <p>Pricing</p>
-        </div>
-      </div>
+     
       <div className="nav_right">
         <div className="nav_right_button_login">
-        <button >Log in</button>
+        <button  style={{backgroundColor:"white"}} >Log in</button>
         </div>
         <div className="nav_right_button_sign_up">
          <button>Sing up</button>
@@ -42,4 +29,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarSecond;

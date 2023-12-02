@@ -36,7 +36,11 @@ nav {
       display: none;
     }
     .nav_center_text {
-      p {
+      .link {
+        color: #4d565e;
+        text-decoration: none;
+      }
+      p{
         color: #4d565e;
       }
       padding: 6px 12px;
