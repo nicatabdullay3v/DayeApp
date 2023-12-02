@@ -1,0 +1,50 @@
+#child_care {
+  padding: 48px 0px;
+  background-color: #EDF7F8;
+  .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0px 32px;
+    .child_care {
+      .child_care_boxs {
+
+        display: flex;
+        justify-content: space-between;
+        .child_care_box {
+          width: 383px;
+          height: 312px;
+          .child_care_box_text {
+            .child_care_box_text_title {
+              margin-bottom: 16px;
+              h2 {
+                color: #323940;
+                font-size: 18px;
+                font-weight: 600;
+              }
+            }
+            .child_care_box_text_description {
+              margin-bottom: 16px;
+
+              p {
+
+                color: #323940;
+line-height: 1.5;
+                font-size: 16px;
+              }
+            }
+          }
+          .child_care_box_image {
+            margin: 0 auto;
+            width: 112px;
+            height: 112px;
+            margin-bottom: 24px;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
