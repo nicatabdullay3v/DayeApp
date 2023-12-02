@@ -1,0 +1,48 @@
+#how_it_works_hero{
+    padding: 0px 30px;
+    background-image: url(./../../../../src/assets/images/Howitwoks/how_it_works.jpg);
+    background-position: center ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 10px;
+    position: relative;
+    &::before {
+        content: "";
+position: absolute;
+background-color: rgba(22, 19, 19, 0.254);
+top: 0;
+right: 0;
+width: 100%;
+height: 100%;
+    }
+    .container{
+        max-width: 1300px;
+        margin: 0 auto;
+        .how_it_works_hero{
+            padding: 150px 0px;
+            .how_it_works_hero_text{
+                position: relative;
+                z-index: 1;
+                text-align: center;
+                .how_it_works_hero_text_title{
+                    h1{
+                        font-weight: 500;
+                   
+                        color: white;
+                        font-size: 32px;
+                    }
+                }
+                .how_it_works_hero_text_description{
+                    margin: 8px 0px 16px 0px;
+                    h2{
+                        font-weight: 500;
+                        color: white;
+                        font-size: 19.2px;
+                        
+
+                    }
+                }
+            }
+        }
+    }
+}

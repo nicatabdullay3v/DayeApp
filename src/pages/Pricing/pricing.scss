@@ -1,12 +1,296 @@
-#pricing_section{
-    .li_links{
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        a{
-           text-decoration: none;
-           color: black;
+#pricing_section {
+  .li_links {
+    padding: 10px 0px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+  .pricing_image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url(../../assets/images/affordable.jpg);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-shadow: 1px 1px 5px black;
+    padding: 190px 0px;
+    background-size: cover;
+    opacity: 0.92;
+
+    h3 {
+      font-size: 35px;
+      width: 600px;
+    }
+  }
+  .baby_learn {
+    display: flex;
+    padding: 100px 0px;
+    justify-content: center;
+    gap: 10px;
+  }
+  .line_bottom {
+    border-bottom: 1px solid lightgray;
+}
+.families_text_pricing {
+    .h3h {
+        margin-top: 100px;
+        margin-bottom: 30px;
+        font-size: 25px;
+    }
+    .pp {
+        width: 810px;
+    }
+    display: flex;
+    justify-content: center;
+  }
+  .pricing_for_families {
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+    .cards_pricing {
+      display: flex;
+      gap: 65px;
+      a {
+        color: black;
+        padding: 10px 15px;
+      }
+      .babysits_card_classic,
+      .babysits_card_premium {
+        border: 1px solid lightgray;
+        border-radius: 15px;
+        .get_free_button {
+          padding: 10px 130px;
+          border: 1px solid #389ba7;
+          background-color: white;
+          border-radius: 15px;
+          color: #389ba7;
+          margin: 20px 20px;
+        }
+        .premium_button {
+          padding: 10px 130px;
+          background-color: #389ba7;
+          border-radius: 15px;
+          color: white;
+         
+          margin: 20px 20px;
+        }
+        h3 {
+          padding: 15px;
+        }
+        span {
+          padding: 0px 15px;
+        }
+        .hrr {
+          border-bottom: 1px solid lightgray;
+          padding: 10px;
+          width: 90%;
+          margin-left: 15px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+        }
+        .hrrr{
            
+                border-bottom: 1px solid lightgray;
+                padding: 10px;
+                width: 90%;
+                margin-left: 15px;
+                margin-bottom: 10px;
+                margin-top: 30px;
+              
+        }
+        .hr {
+          border-bottom: 1px solid lightgray;
+        }
+        .svg_texts {
+          padding: 0px 15px;
+        }
+        .svg_text {
+          display: flex;
+          margin-bottom: 10px;
+          gap: 5px;
+          .color {
+            color: #8bc7d1;
+          }
+          .graycolor {
+            color: gray;
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
+  }
+  .fair_policy,
+  .when_using {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    p {
+      width: 840px;
+    }
+    a {
+      color: black;
+    }
+  }
+  .agency {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding-bottom: 50px;
+    a {
+      color: black;
+    }
+  }
+  .free_for_baby {
+    .button_sign_up {
+      padding-top: 20px;
+      padding-bottom: 80px;
+      button {
+        padding: 10px 12px;
+        border: none;
+        background-color: #389ba7;
+        color: white;
+        border-radius: 15px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+  }
+  .link_average_ask {
+    padding-top: 20px;
+    padding-bottom: 100px;
+  }
+  .book_and_pay {
+    padding-bottom: 100px;
+    .side_to_side {
+      display: flex;
+      justify-content: center;
+      h4 {
+        padding-bottom: 20px;
+      }
+      .left_side_book {
+        .simple_effective,
+        .automatic_payouts {
+          padding: 20px 0px;
+          width: 400px;
+        }
+        .automatic_payouts {
+          padding-top: 100px;
+        }
+      }
+      .right_side_book {
+        .simple_effective,
+        .automatic_payouts {
+          padding: 20px 0px;
+          width: 400px;
+          a {
+            color: black;
+          }
+        }
+      }
+    }
+  }
+  .satisfaction_and_guarantee {
+    padding: 70px 0px;
+    .side_side {
+      display: flex;
+      justify-content: center;
+      padding-top: 30px;
+      gap: 30px;
+      padding-bottom: 50px;
+      .imageguarantee {
+        background-image: url("../../assets/images/guarantee.png");
+        width: 70px;
+        height: 70px;
+        background-size: cover;
+      }
+      .text_right {
+        width: 730px;
+      }
+    }
+    .links_customer {
+      padding-bottom: 20px;
+    }
+    a {
+      color: black;
+    }
+  }
+}
+.ready_to_join{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    h3{
+        padding: 70px 0px;
+    }
+    .baby_image{
+background-image: url('../../assets/images/birinci.webp');
+width: 100px;
+height: 120px;
+background-size: cover;
+margin-left: 20px;
+
+    }
+    .button_sign_me_join{
+padding: 50px 0px;
+        button{
+            padding: 10px 12px;
+            border: none;
+            background-color: #389ba7;
+            color: white;
+            border-radius: 15px;
+            font-size: 16px;
+            font-weight: 500;
+    
         }
     }
 }
+
+@media screen and (max-width: 767px) {
+    .pricing_media {
+      flex-direction: column;
+      align-items: center;
+      .babysits_card_classic,
+      .babysits_card_premium {
+        margin-top: 60px;
+      }
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .childcare_media {
+      flex-direction: column;
+      align-items: center;
+      .babysits_card_classic,
+      .babysits_card_premium {
+        margin-top: 60px;
+      }
+    }
+  }
+
+  
+@media screen and (max-width: 767px) {
+    .bookandpay_media {
+      flex-direction: column;
+      align-items: center;
+      .left_side_book,
+      .right_side_book {
+        margin-top: 60px;
+      }
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .bookandpay_media {
+      flex-direction: column;
+      align-items: center;
+      .left_side_book,
+      .right_side_book {
+        margin-top: 60px;
+      }
+    }
+  }

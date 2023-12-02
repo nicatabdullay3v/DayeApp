@@ -4,8 +4,13 @@
   margin-bottom: 80px;
   .container {
     .we_know_details {
+      p{
+        line-height: 1.5;
+
+      }
       display: flex;
       justify-content: center;
+      gap: 20px;
       .justify_center {
         display: flex;
         justify-content: center;
