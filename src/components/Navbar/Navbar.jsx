@@ -2,6 +2,8 @@ import React from "react";
 import "./Navbar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { Link, Outlet } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <nav>
@@ -18,7 +20,7 @@ const Navbar = () => {
           <p>Babysitting jobs</p>
         </div>
         <div className="nav_center_text">
-          <p>How it works</p>
+    <Link to="/Howitworks"> How it works</Link>
         </div>
         <div className="nav_center_text">
           <p>Pricing</p>

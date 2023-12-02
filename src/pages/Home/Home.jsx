@@ -26,8 +26,8 @@ const Home = () => {
       <Discover />
       <Climate />
       <FooterUp />
-      <FooterMiddle/>
-<FooterDown/>
+      <FooterMiddle />
+      <FooterDown />
     </>
   );
 };
