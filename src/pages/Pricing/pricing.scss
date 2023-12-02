@@ -251,3 +251,46 @@ padding: 50px 0px;
         }
     }
 }
+
+@media screen and (max-width: 767px) {
+    .pricing_media {
+      flex-direction: column;
+      align-items: center;
+      .babysits_card_classic,
+      .babysits_card_premium {
+        margin-top: 60px;
+      }
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .childcare_media {
+      flex-direction: column;
+      align-items: center;
+      .babysits_card_classic,
+      .babysits_card_premium {
+        margin-top: 60px;
+      }
+    }
+  }
+
+  
+@media screen and (max-width: 767px) {
+    .bookandpay_media {
+      flex-direction: column;
+      align-items: center;
+      .left_side_book,
+      .right_side_book {
+        margin-top: 60px;
+      }
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .bookandpay_media {
+      flex-direction: column;
+      align-items: center;
+      .left_side_book,
+      .right_side_book {
+        margin-top: 60px;
+      }
+    }
+  }

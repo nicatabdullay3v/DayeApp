@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import  { Virtual, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
@@ -11,19 +13,60 @@ import {
 import { faMartiniGlass } from "@fortawesome/free-solid-svg-icons";
 import "./pricing.scss";
 import NavbarSecond from "../../components/NavbarSecond/NavbarSecond";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 const Pricing = () => {
+  const [swiperRef, setSwiperRef] = useState(null);
+
   return (
     <>
       <section id="pricing_section">
         <NavbarSecond />
         <div className="container">
           <div className="li_links">
+          <Swiper
+              onSwiper={setSwiperRef}
+              slidesPerView={'auto'}
+              spaceBetween={0}
+              navigation={true}
+              modules={[Pagination, Navigation]}
+              className="mySwiper hidden"
+              breakpoints={{
+                600: {
+                  slidesPerView: 3
+                },
+                767: {
+                  slidesPerView: 4
+                },
+                992: {
+                  slidesPerView: 5
+                },
+                1200: {
+                  slidesPerView: 6
+                }
+              }}
+            >
+               <SwiperSlide>
+
             <a href="">About us</a>
+               </SwiperSlide>
+               <SwiperSlide>
             <a href="">How it works</a>
+            </SwiperSlide>
+               <SwiperSlide>
             <a href="">Company details</a>
+            </SwiperSlide>
+               <SwiperSlide>
             <a href="">Dispute policy</a>
+            </SwiperSlide>
+               <SwiperSlide>
             <a href="">Partners</a>
+            </SwiperSlide>
+               <SwiperSlide>
             <a href="">For the press</a>
+            </SwiperSlide>
+               </Swiper>
           </div>
         </div>
         <div className="pricing_image">
@@ -109,7 +152,7 @@ const Pricing = () => {
             </div>
           </div>
           <div className="pricing_for_families">
-            <div className="cards_pricing">
+            <div className="cards_pricing pricing_media">
               <div className="babysits_card_classic">
                 <h3>Babysits</h3>
                 <span className="free_span">Free</span>
@@ -524,7 +567,7 @@ const Pricing = () => {
                 Booking and paying through Babysits is simple, safe and highly
                 recommended. Here's how:
               </p>
-              <div className="side_to_side">
+              <div className="side_to_side bookandpay_media">
                 <div className="left_side_book">
                   <div className="simple_effective">
                     <h4>Simple & effective</h4>
