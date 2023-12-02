@@ -34,15 +34,15 @@
   }
   .line_bottom {
     border-bottom: 1px solid lightgray;
-  }
-  .families_text_pricing {
+}
+.families_text_pricing {
     .h3h {
-      margin-top: 100px;
-      margin-bottom: 30px;
-      font-size: 25px;
+        margin-top: 100px;
+        margin-bottom: 30px;
+        font-size: 25px;
     }
     .pp {
-      width: 810px;
+        width: 810px;
     }
     display: flex;
     justify-content: center;
@@ -62,20 +62,21 @@
       .babysits_card_premium {
         border: 1px solid lightgray;
         border-radius: 15px;
-        button {
+        .get_free_button {
           padding: 10px 130px;
           border: 1px solid #389ba7;
           background-color: white;
           border-radius: 15px;
           color: #389ba7;
-          margin: 10px 20px;
+          margin: 20px 20px;
         }
         .premium_button {
           padding: 10px 130px;
           background-color: #389ba7;
           border-radius: 15px;
           color: white;
-          margin: 10px 20px;
+         
+          margin: 20px 20px;
         }
         h3 {
           padding: 15px;
@@ -90,6 +91,16 @@
           margin-left: 15px;
           margin-bottom: 10px;
           margin-top: 10px;
+        }
+        .hrrr{
+           
+                border-bottom: 1px solid lightgray;
+                padding: 10px;
+                width: 90%;
+                margin-left: 15px;
+                margin-bottom: 10px;
+                margin-top: 30px;
+              
         }
         .hr {
           border-bottom: 1px solid lightgray;

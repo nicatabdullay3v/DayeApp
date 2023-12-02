@@ -112,8 +112,8 @@ const Pricing = () => {
             <div className="cards_pricing">
               <div className="babysits_card_classic">
                 <h3>Babysits</h3>
-                <span>Free</span>
-                <div className="hrr"></div>
+                <span className="free_span">Free</span>
+                <div className="hrrr"></div>
                 <div className="svg_texts">
                   <div className="svg_text">
                     <svg
@@ -271,7 +271,7 @@ const Pricing = () => {
                   </div>
                 </div>
                 <div className="hr"></div>
-                <button>Get Free</button>
+                <button className="get_free_button">Get Free</button>
               </div>
               <div className="babysits_card_premium">
                 <h3>Babysits Premium</h3>
