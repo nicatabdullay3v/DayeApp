@@ -23,7 +23,7 @@ const Navbar = () => {
         <Link className="link" to="/Howitworks"> How it works</Link>
         </div>
         <div className="nav_center_text">
-          <Link to="/Pricing">Pricing</Link>
+          <Link className="link" to="/Pricing">Pricing</Link>
         </div>
       </div>
       <div className="nav_right">
