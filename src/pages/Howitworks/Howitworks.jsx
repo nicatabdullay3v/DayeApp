@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from '../../components/Navbar/Navbar'
 import NavbarSecond from '../../components/NavbarSecond/NavbarSecond'
 import Header from '../../components/HowItworks/Header/Header'
 import HowItworksHero from '../../components/HowItworks/HowitworksHero/Howitworkshero'

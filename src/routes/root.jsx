@@ -5,6 +5,7 @@ import Howitworks from "../pages/Howitworks/Howitworks";
 import Pricing from "../pages/Pricing/Pricing";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import BabySittersDetailPage from "../pages/BabySittersDetailPage/BabySittersDetailPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,5 +27,9 @@ const router = createBrowserRouter([
     path: "/Register",
     element: <Register />,
   },
+  {
+    path:"/babysittersDetail",
+    element: <BabySittersDetailPage/>
+  }
 ]);
 export default router;

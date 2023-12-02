@@ -1,0 +1,32 @@
+header {
+
+  .container {
+    .baby_sitters_header {
+      padding: 7px 0px;
+      display: flex;
+      justify-content: space-between;
+      .header_left {
+        display: flex;
+        gap: 5px;
+        span {
+          font-size: 14.4px;
+          color: #7d8185;
+        }
+      }
+      .header_right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        span {
+          color: #389ba7;
+          margin-left: 5px;
+          text-decoration: underline;
+          color: #389ba7;
+        }
+        .icon {
+          color: #389ba7;
+        }
+      }
+    }
+  }
+}

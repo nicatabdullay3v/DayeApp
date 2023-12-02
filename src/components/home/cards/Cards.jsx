@@ -7,11 +7,12 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { useNavigate } from "react-router-dom";
 
 
 const Cards = () => {
   const [swiperRef, setSwiperRef] = useState(null);
-
+const navigate = useNavigate()
   return (
     <>
       <section id="cards">
@@ -41,7 +42,9 @@ const Cards = () => {
               }}
             >
               <SwiperSlide>
-                <div className="card">
+                <div onClick={()=>{
+                  navigate("/babysittersDetail")
+                }} className="card">
                   <div className="card_image"></div>
                   <div className="card_detail">
                     <p>Name</p>
