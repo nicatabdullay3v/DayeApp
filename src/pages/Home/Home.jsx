@@ -9,23 +9,21 @@ import Support from "../../components/home/support/Support";
 import Childcare from "../../components/home/childcare/Childcare";
 import Discover from "../../components/home/discover/Discover";
 import Climate from "../../components/home/climate/Climate";
-
+import FooterUp from "../../components/home/footerup/FooterUp";
 
 const Home = () => {
   return (
     <>
       <Navbar />
-      <HeroSection/>
+      <HeroSection />
       <Cards />
-
-
-      <WeKnow/>
-      <FindBaby/>
-      <Support/>
-      <Childcare/>
-      <Discover/>
-      <Climate/>
-
+      <WeKnow />
+      <FindBaby />
+      <Support />
+      <Childcare />
+      <Discover />
+      <Climate />
+      <FooterUp />
     </>
   );
 };

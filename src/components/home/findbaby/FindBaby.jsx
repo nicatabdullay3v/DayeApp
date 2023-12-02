@@ -17,35 +17,35 @@ const FindBaby = () => {
           <div className="search">
             <div>
               <div className="circle_search"></div>
-              {/* <div className="boxs_details">
+              <div className="boxs_details">
                 <p>Search</p>
                 <span>
                   Filter based on your needs and review detailed profiles.
                 </span>
-              </div> */}
+              </div>
             </div>
           </div>
           <div className="connect">
             <div>
               <div className="circle_connect"></div>
-              {/* <div className="boxs_details">
+              <div className="boxs_details">
                 <p>Connect</p>
                 <span>
                   Send messages, screen users and have an introductory meeting.
                 </span>
-              </div> */}
+              </div>
             </div>
           </div>
           <div className="book">
             <div>
               <div className="circle_book"></div>
-              {/* <div className="boxs_details">
+              <div className="boxs_details">
                 <p>Book</p>
                 <span>
                   Book a babysitting appointment, pay or get paid and download
                   receipts for expenses.
                 </span>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
