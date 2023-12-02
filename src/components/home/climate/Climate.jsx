@@ -146,7 +146,7 @@ const Climate = () => {
             <Swiper
               onSwiper={setSwiperRef}
               slidesPerView={1}
-              spaceBetween={10}
+              spaceBetween={20}
               navigation={true}
               modules={[Pagination, Navigation]}
               className="mySwiper"
