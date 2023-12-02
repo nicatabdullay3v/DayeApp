@@ -1,0 +1,160 @@
+.topics {
+  padding: 0 40px;
+  display: flex;
+  gap: 7px;
+  border-bottom: 2px solid #e3e8ec;
+  padding-bottom: 20px;
+  .topic {
+    border: 1px solid #389ba7;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 25px;
+    transition: 0.1s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    p {
+      font-size: 15px;
+
+      color: #389ba7;
+    }
+    span {
+      background-color: #59bec9;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      padding: 5px;
+      border-radius: 50%;
+      font-size: small;
+    }
+  }
+  .topic:hover {
+    background-color: #389ba7;
+    p {
+      color: white;
+    }
+  }
+}
+.find-babysitter {
+  padding-left: 40px;
+  padding-bottom: 50px;
+  display: flex;
+  // position: relative;
+
+  .left {
+    width: 50%;
+    padding-right: 15px;
+    padding-top: 20px;
+
+    .left-head {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #cccdcf;
+      h1 {
+        color: #323940;
+      }
+      p {
+        color: #68727a;
+      }
+    }
+    .direction {
+      padding: 10px 0;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      .signUpForFree {
+        background-color: #389ba7;
+        color: white;
+        padding: 10px;
+        border-radius: 14px;
+      }
+    }
+    .babysitterCards {
+      display: flex;
+      flex-direction: column;
+      gap: 17px;
+    }
+    .pagesDiv {
+      padding: 20px 0;
+      border-bottom: 1px solid #cccdcf;
+      .pages {
+        display: flex;
+        text-decoration: none;
+        border-radius: 15px;
+        border: 1px solid #e3e8ec;
+        width: fit-content;
+
+        .page {
+          padding: 10px 20px;
+          border-right: 1px solid #e3e8ec;
+          color: black;
+        }
+        .pagee {
+          padding: 10px 20px;
+          color: black;
+        }
+      }
+    }
+
+    .babysitLink {
+      display: flex;
+      gap: 10px;
+      color: black;
+      padding: 17px 0;
+      border-bottom: 1px solid #cccdcf;
+    }
+    .Information {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      padding: 20px 0;
+      .info-header {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #cccdcf;
+
+        h1 {
+          color: #323940;
+          font-size: 23px;
+        }
+        p {
+          color: #89939b;
+        }
+      }
+      .babysitter-sort1 {
+        color: #222222;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #cccdcf;
+      }
+      .text {
+        font-weight: 500;
+      }
+      .babysitter-sort2 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3px;
+        padding: 20px 0;
+        .region {
+          display: flex;
+          cursor: pointer;
+          width: fit-content;
+        }
+      }
+    }
+  }
+  .right {
+    width: 50%;
+    height: 600px;
+    // position: fixed;
+    // z-index: 1000;
+    // right: 0;
+  }
+}

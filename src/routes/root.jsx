@@ -5,6 +5,8 @@ import Howitworks from "../pages/Howitworks/Howitworks";
 import Pricing from "../pages/Pricing/Pricing";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Babysitters from "../pages/Babysitters";
+import BabySittingJobs from "../pages/BabysittingJobs";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
   {
     path: "/Register",
     element: <Register />,
+  },
+  {
+    path: "/BabySitters",
+    element: <Babysitters />,
+  },
+  {
+    path: "/BabySittingJobs",
+    element: <BabySittingJobs />,
   },
 ]);
 export default router;
