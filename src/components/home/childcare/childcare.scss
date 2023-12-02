@@ -1,0 +1,34 @@
+#childcare_app {
+  padding: 70px 0px;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    .left_side {
+        width: 600px;
+      h3 {
+        margin-bottom: 20px;
+      }
+      p {
+        margin-bottom: 20px;
+      }
+      .childcare_buttons {
+        display: flex;
+          gap: 5px;
+        button{
+            padding: 10px;
+            border-radius: 15px;
+            background-color: #389ba7;
+            border: none;
+            color: #f7f9fa;
+        }
+      }
+    }
+    .right_side{
+        background-image: url("../../../assets/images/phones.webp");
+       width: 600px;
+       height: 470px;
+       background-size: 500px;
+       background-repeat: no-repeat;
+    }
+  }
+}

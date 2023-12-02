@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Virtual, Navigation, Pagination } from "swiper/modules";
+import  { Virtual, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./cards.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,6 +7,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
 
 const Cards = () => {
   const [swiperRef, setSwiperRef] = useState(null);
