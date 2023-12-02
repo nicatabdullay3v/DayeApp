@@ -45,13 +45,15 @@
       gap: 20px;
 
       .search {
-        width: 500px;
+        max-width: 500px;
         height: 200px;
         background-color: #eff7f8;
         border-radius: 18px;
         display: flex;
         justify-content: center;
         .boxs_details {
+          max-width: 500px;
+
           padding: 16px 16px 48px;
           text-align: center;
           p {
@@ -79,13 +81,16 @@
         }
       }
       .connect {
-        width: 500px;
+        max-width: 500px;
+
         height: 200px;
         background-color: #eff7f8;
         border-radius: 18px;
         display: flex;
         justify-content: center;
         .boxs_details {
+          max-width: 500px;
+
           padding: 16px 16px 48px;
           text-align: center;
           p {
@@ -112,13 +117,14 @@
         }
       }
       .book {
-        width: 500px;
+        max-width: 500px;
         height: 200px;
         border-radius: 18px;
         background-color: #eff7f8;
         display: flex;
         justify-content: center;
         .boxs_details {
+          max-width: 500px;
           padding: 16px 16px 48px;
           text-align: center;
           p {

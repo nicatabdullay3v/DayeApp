@@ -8,7 +8,32 @@
     .footer_middles {
       display: flex;
       justify-content: space-between;
+      @media (max-width: 767px) {
+        display: block;
+        .flags_baby {
+          display: block;
+        }
+        .babysists {
+          display: flex;
+          gap: 40px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .footer_middle_select {
+          margin: 0 auto;
+          margin-bottom: 20px;
+        }
 
+        .discover {
+          display: none;
+        }
+        .popular {
+          display: none;
+        }
+        h2 {
+          display: none;
+        }
+      }
       .footer_middle_select {
         display: flex;
         justify-content: center;
@@ -46,4 +71,8 @@
       }
     }
   }
+}
+.flags_baby {
+  display: flex;
+  gap: 30px;
 }

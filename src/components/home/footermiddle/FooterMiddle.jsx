@@ -5,7 +5,8 @@ const FooterMiddle = () => {
     <section id="footer_middle">
       <div className="container">
         <div className="footer_middles">
-          <div className="footer_middle_select">
+       <div className="flags_baby">
+       <div className="footer_middle_select">
             <div className="flags">
               <img
                 src="./../../../../src/assets/images/Flags/germany.png"
@@ -13,10 +14,11 @@ const FooterMiddle = () => {
               />
             </div>
             <p>▼</p>
+            
           </div>
           <div className="footer_middle babysists">
             <h2>Babysits</h2>
-            <p>How it works Babysits Shop</p>
+            <p>How it work</p>
             <p>Help</p>
             <p>Terms & Privacy</p>
             <p>Pricing</p>
@@ -24,6 +26,8 @@ const FooterMiddle = () => {
             <p>Babysits for Work</p>
             <p>Babysits Shop</p>
           </div>
+       </div>
+          
           <div className="footer_middle discover">
             <h2>Discover</h2>
             <p>About us</p>
