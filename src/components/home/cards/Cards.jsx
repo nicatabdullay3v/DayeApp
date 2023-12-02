@@ -20,11 +20,11 @@ const Cards = () => {
           <div className="cards">
             <Swiper
               onSwiper={setSwiperRef}
-              slidesPerView={5}
+              slidesPerView={'auto'}
               spaceBetween={30}
               navigation={true}
               modules={[Pagination, Navigation]}
-              className="mySwiper"
+              className="mySwiper hidden"
             >
               <SwiperSlide>
                 <div className="card">

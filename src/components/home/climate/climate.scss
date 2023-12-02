@@ -56,4 +56,23 @@
   }
 }
 
-
+@media screen and (max-width: 767px) {
+  .climate_media {
+    flex-direction: column;
+    align-items: center;
+    .left_side,
+    .right_side {
+      margin-top: 60px;
+    }
+  }
+}
+@media screen and (max-width: 992px) {
+  .climate_media {
+    flex-direction: column;
+    align-items: center;
+    .left_side,
+    .right_side {
+      margin-top: 60px;
+    }
+  }
+}

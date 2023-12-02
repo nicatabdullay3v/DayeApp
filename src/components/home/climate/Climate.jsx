@@ -11,7 +11,7 @@ const Climate = () => {
 
   return (
     <section id="climate_babysits">
-      <div className="container">
+      <div className="container climate_media">
         <div className="left_side">
           <h3>Babysits cares about the future of children</h3>
           <p>
@@ -146,7 +146,6 @@ const Climate = () => {
         <div className="right_side">
           <div className="climate_cards">
           <Swiper
-
         spaceBetween={30}
         autoplay={{
           delay: 2000,
