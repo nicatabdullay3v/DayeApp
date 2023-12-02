@@ -10,6 +10,8 @@ import Childcare from "../../components/home/childcare/Childcare";
 import Discover from "../../components/home/discover/Discover";
 import Climate from "../../components/home/climate/Climate";
 import FooterUp from "../../components/home/footerup/FooterUp";
+import FooterMiddle from "../../components/home/footermiddle/FooterMiddle";
+import FooterDown from "../../components/home/footerdown/FooterDown";
 
 const Home = () => {
   return (
@@ -24,6 +26,8 @@ const Home = () => {
       <Discover />
       <Climate />
       <FooterUp />
+      <FooterMiddle/>
+<FooterDown/>
     </>
   );
 };

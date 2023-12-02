@@ -1,6 +1,7 @@
 #find_baby {
   margin-top: 10px;
   margin-bottom: 70px;
+  padding: 0px 30px;
   .container {
     margin: 0 auto;
     max-width: 1300px;
@@ -44,21 +45,20 @@
       gap: 20px;
 
       .search {
-
         width: 500px;
         height: 200px;
         background-color: #eff7f8;
         border-radius: 18px;
         display: flex;
         justify-content: center;
-        .boxs_details{
+        .boxs_details {
           padding: 16px 16px 48px;
           text-align: center;
-          p{
+          p {
             font-size: 21px;
             margin-bottom: 20px;
           }
-          span{
+          span {
             color: #323940;
           }
         }
@@ -85,14 +85,14 @@
         border-radius: 18px;
         display: flex;
         justify-content: center;
-        .boxs_details{
+        .boxs_details {
           padding: 16px 16px 48px;
           text-align: center;
-          p{
+          p {
             font-size: 21px;
             margin-bottom: 20px;
           }
-          span{
+          span {
             color: #323940;
           }
         }
@@ -118,14 +118,14 @@
         background-color: #eff7f8;
         display: flex;
         justify-content: center;
-        .boxs_details{
+        .boxs_details {
           padding: 16px 16px 48px;
           text-align: center;
-          p{
+          p {
             font-size: 21px;
             margin-bottom: 20px;
           }
-          span{
+          span {
             color: #323940;
           }
         }
