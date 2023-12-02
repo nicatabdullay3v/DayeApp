@@ -1,8 +1,10 @@
 import React from "react";
 import "./Login.scss";
+import NavbarSecond from "../../components/NavbarSecond/NavbarSecond";
 function index() {
   return (
     <>
+      <NavbarSecond />
       <div className="LoginBox">
         <div className="BoxHeader">
           <div className="header">

@@ -32,7 +32,7 @@
 .SignUpBox .BoxHeader .elements .element {
   border-radius: 10px;
   padding: 10px 12px 7px 12px;
-  width: 10%;
+  width: 60px;
   border: 1px solid #89939b;
   overflow: hidden;
 }

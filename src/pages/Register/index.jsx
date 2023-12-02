@@ -3,9 +3,11 @@ import "./Register.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+import NavbarSecond from "../../components/NavbarSecond/NavbarSecond";
 function index() {
   return (
     <div>
+      <NavbarSecond />
       <div className="SignUpBox">
         <div className="BoxHeader">
           <div className="header">

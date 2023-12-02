@@ -31,7 +31,8 @@
       .element {
         border-radius: 10px;
         padding: 10px 12px 7px 12px;
-        width: 10%;
+        width: 60px;
+
         border: 1px solid #89939b;
         overflow: hidden;
         img {
@@ -112,5 +113,11 @@
         cursor: pointer;
       }
     }
+  }
+}
+@media screen and (max-width: 768px) {
+  .SignUpBox {
+    width: 90%;
+    margin: 0 auto;
   }
 }
