@@ -1,0 +1,102 @@
+.LoginBox {
+  border-radius: 10px;
+  width: 40%;
+  padding-bottom: 20px;
+  margin: 0 auto;
+  border: 2px solid #e3e8ec;
+  .BoxHeader {
+    .header {
+      display: flex;
+      padding: 13px 10px;
+      align-items: center;
+      border-bottom: 2px solid #e3e8ec;
+      .icon {
+        font-size: large;
+      }
+      .sign-up-text {
+        margin: 0 auto;
+        p {
+          font-size: large;
+          text-align: center;
+          color: #323940;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .inputs-button {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 10px;
+    .LoginText {
+      font-weight: bold;
+      color: #323940;
+    }
+
+    .email-input {
+      width: 100%;
+      input {
+        width: 100%;
+        color: #89939b;
+        padding: 0.7rem 0.75rem;
+        // min-height: calc(2.9rem + 2px);
+        border-radius: 10px;
+        border: 1px solid #f1f4f6;
+      }
+    }
+    .email-info {
+      color: #89939b;
+      width: 100%;
+      font-size: 0.8em;
+      padding: 3px 0;
+      margin-bottom: 13px;
+    }
+    .pass-input {
+      margin-bottom: 20px;
+      input {
+        width: 100%;
+        padding: 0.7rem 0.75rem;
+        // min-height: calc(2.9rem + 2px);
+        border-radius: 10px;
+        border: 1px solid #f1f4f6;
+      }
+    }
+    .button-signUp {
+      width: 100%;
+
+      button {
+        width: 100%;
+        background-color: #389ba7;
+        padding: 10px 0;
+        text-align: center;
+        font-size: large;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+      }
+    }
+  }
+  .elements {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    .element {
+      border-radius: 10px;
+      padding: 10px 12px 7px 12px;
+      width: 10%;
+      border: 1px solid #89939b;
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .text {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 15px 0;
+  }
+}

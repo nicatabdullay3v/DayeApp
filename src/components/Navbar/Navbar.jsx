@@ -26,13 +26,12 @@ const Navbar = () => {
       </div>
       <div className="nav_right">
         <div className="nav_right_button_login">
-        <button >Log in</button>
+          <button>Log in</button>
         </div>
         <div className="nav_right_button_sign_up">
-         <button>Sing up</button>
-
-          </div>
-          <FontAwesomeIcon icon={faBars} />
+          <button>Sing up</button>
+        </div>
+        <FontAwesomeIcon icon={faBars} />
       </div>
     </nav>
   );

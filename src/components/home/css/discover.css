@@ -1,0 +1,81 @@
+#discover_more {
+  background-color: #eff7f8;
+  padding: 80px 0px;
+  margin-bottom: 70px;
+}
+#discover_more .container h3 {
+  margin-bottom: 25px;
+}
+#discover_more .container .discover_cards {
+  display: flex;
+  gap: 20px;
+}
+#discover_more .container .discover_cards .discover_card {
+  width: 230px;
+  height: 230px;
+  border-radius: 10px;
+  background-color: white;
+  overflow: hidden;
+  text-align: center;
+}
+#discover_more .container .discover_cards .discover_card p {
+  padding-top: 25px;
+  padding-left: 15px;
+  width: 200px;
+}
+#discover_more .container .discover_cards .discover_card .discover_card_image1 {
+  background-image: url("../../../assets/images/boy.webp");
+  width: 230px;
+  height: 150px;
+  background-size: cover;
+}
+#discover_more .container .discover_cards .discover_card .discover_card_image2 {
+  background-image: url("../../../assets/images/turustsafety.webp");
+  width: 230px;
+  height: 150px;
+  background-size: cover;
+}
+#discover_more .container .discover_cards .discover_card .discover_card_image3 {
+  background-image: url("../../../assets/images/family.webp");
+  width: 230px;
+  height: 150px;
+  background-size: cover;
+}
+#discover_more .container .discover_cards .discover_card .discover_card_image4 {
+  background-image: url("../../../assets/images/mother.webp");
+  width: 230px;
+  height: 150px;
+  background-size: cover;
+}
+#discover_more .container .discover_cards .discover_card .discover_card_image5 {
+  background-image: url("../../../assets/images/children.webp");
+  width: 230px;
+  height: 150px;
+  background-size: cover;
+}
+#discover_more .container .discover_cards .discover_card .discover_card_image6 {
+  background-image: url("../../../assets/images/babysit.webp");
+  width: 230px;
+  height: 150px;
+  background-size: cover;
+}
+#discover_more .container .discover_cards .discover_card .discover_card_image7 {
+  background-image: url("../../../assets/images/climateaction.webp");
+  width: 230px;
+  height: 150px;
+  background-size: cover;
+}
+
+.card {
+  width: 220px;
+  height: 310px;
+  border-radius: 10px;
+  background-color: #f7f9fa;
+  overflow: hidden;
+}
+.card .card_image {
+  width: 220px;
+  height: 220px;
+  background-image: url("https://picsum.photos/200/220");
+  background-size: cover;
+}/*# sourceMappingURL=discover.css.map */
