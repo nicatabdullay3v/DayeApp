@@ -2,7 +2,7 @@ import React from 'react'
 
 const DeletePage = () => {
   return (
-    <h1>Delete BabySitter</h1>
+    <h1>Delete Parent</h1>
   )
 }
 

@@ -2,7 +2,7 @@ import React from 'react'
 
 const CreatePage = () => {
   return (
-    <h1>Create BabySitter</h1>
+    <h1>Create Parent</h1>
   )
 }
 
