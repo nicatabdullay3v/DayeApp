@@ -1,0 +1,24 @@
+{
+  "babysitters": [
+    { 
+      "name": "Sindi",
+      "age": 19,
+      "password": "Sindi123",
+      "country": "London",
+      "price": 99,
+      "experience": 6,
+      "reviews": [],
+      "references": [],
+      "provided":[],
+      "activities":[],
+      "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg"
+
+     }
+  ],
+  "babysitterswanted": [
+    { 
+
+     }
+  ]
+ 
+}
