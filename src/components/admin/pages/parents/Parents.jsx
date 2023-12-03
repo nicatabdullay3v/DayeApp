@@ -1,11 +1,18 @@
-import React from 'react'
+import React from "react";
+import NavbarAdmin from "../../../NavbarAdmin/NavbarAdmin";
+import CardsAdmin from "../babysitters/CardsAdmin/CardsAdmin";
 
 const Parents = () => {
   return (
-    <div>
+    <section className="admin_babysitters">
+      <NavbarAdmin />
+      <div className="container">
         <h1>Parents</h1>
-    </div>
-  )
-}
 
-export default Parents
+        <CardsAdmin/>
+      </div>
+    </section>
+  );
+};
+
+export default Parents;

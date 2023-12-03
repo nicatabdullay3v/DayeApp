@@ -1,11 +1,36 @@
-import React from 'react'
+import React, { useRef, useState } from "react";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import NavbarAdmin from "../../../NavbarAdmin/NavbarAdmin";
+import CardsAdmin from "./CardsAdmin/CardsAdmin";
+import ButtonsAdmin from "./buttonsAdmin/ButtonsAdmin";
+import EditPage from "./EditPage/EditPage";
+import DeletePage from "./DeletePage/DeletePage";
+import CreatePage from './CreatePage/CreatePage'
 
 const BabysittersEmployee = () => {
-  return (
-    <div>
-        <h1>BabySitters employee</h1>
-    </div>
-  )
-}
+  const [editPage, seteditPage] = useState(false);
+  const [deletePage, setdeletePage] = useState(false);
+  const [createPage, setcreatePage] = useState(false);
 
-export default BabysittersEmployee
+
+  return (
+    <section className="admin_babysitters">
+      <NavbarAdmin />
+      <div className="container">
+        <h1>BabySitters</h1>
+
+        <CardsAdmin />
+        <ButtonsAdmin seteditPage={seteditPage} setdeletePage={setdeletePage} setcreatePage={setcreatePage}/>
+        {editPage ? <EditPage /> : null}
+        {deletePage ? <DeletePage /> : null}
+        {createPage ? <CreatePage /> : null}
+
+      </div>
+    </section>
+  );
+};
+
+export default BabysittersEmployee;

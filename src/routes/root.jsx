@@ -12,6 +12,7 @@ import BabySittersDetailPage from "../pages/BabySittersDetailPage/BabySittersDet
 import Admin from "../pages/Admin/Admin";
 import Parents from "../components/admin/pages/parents/Parents";
 import BabysittersEmployee from "../components/admin/pages/babysitters/BabysittersEmployee";
+import EditPage from "../components/admin/pages/babysitters/EditPage/EditPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -51,17 +52,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/Admin",
-    element: <Admin/>,
+    element: <Admin />,
   },
   {
     path: "/Parents",
-    element: <Parents/>,
+    element: <Parents />,
   },
   {
     path: "/Babysittersemployee",
-    element: <BabysittersEmployee/>
+    element: <BabysittersEmployee />,
   },
-
-  
 ]);
 export default router;
