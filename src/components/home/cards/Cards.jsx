@@ -1,8 +1,8 @@
-import React, { useRef, useState,useEffect } from "react";
-import  { Virtual, Navigation, Pagination } from "swiper/modules";
+import React, { useRef, useState, useEffect } from "react";
+import { Virtual, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./cards.scss";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "swiper/css";
@@ -13,19 +13,15 @@ import { fetchUserById } from "../../../redux/Slice/BabySittersSlice/BabySitters
 import { useDispatch, useSelector } from "react-redux";
 
 const Cards = () => {
-const babysittersData = useSelector((state)=> state.babysitters.babysitters)
+  const babysittersData = useSelector((state) => state.babysitters.babysitters);
 
-
-const dispatch = useDispatch()
-useEffect(() => {
-  
-dispatch(fetchUserById())
-}, [])
-
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchUserById());
+  }, []);
 
   const [swiperRef, setSwiperRef] = useState(null);
-const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <>
       <section id="cards">
@@ -34,69 +30,69 @@ const navigate = useNavigate()
           <div className="cards">
             <Swiper
               onSwiper={setSwiperRef}
-              slidesPerView={'auto'}
+              slidesPerView={"auto"}
               spaceBetween={30}
               navigation={true}
               modules={[Pagination, Navigation]}
               className="mySwiper hidden"
               breakpoints={{
                 600: {
-                  slidesPerView: 2
+                  slidesPerView: 2,
                 },
                 767: {
-                  slidesPerView: 3
+                  slidesPerView: 3,
                 },
                 992: {
-                  slidesPerView: 4
+                  slidesPerView: 4,
                 },
                 1200: {
-                  slidesPerView: 5
-                }
+                  slidesPerView: 5,
+                },
               }}
             >
-              {babysittersData.map(elem=>{
-                return elem.map((elem)=>{
-                  return  <SwiperSlide key={uuidv4()} >
-                  <div onClick={()=>{
-                    navigate(`/babysittersDetail/${elem.id}`)
-                  }} className="card">
-                    <div className="card_image">
-                      <img src={elem.image} alt="" />
+              {babysittersData.map((elem) => {
+                return (
+                  <SwiperSlide key={uuidv4()}>
+                    <div
+                      onClick={() => {
+                        navigate(`/babysittersDetail/${elem.id}`);
+                      }}
+                      className="card"
+                    >
+                      <div className="card_image">
+                        <img src={elem.image} alt="" />
+                      </div>
+                      <div className="card_detail">
+                        <p>{elem.name}</p>
+                        <span>City</span>
+                      </div>
+                      <div className="raiting_stars">
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          style={{ color: "#c7f75e" }}
+                        />
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          style={{ color: "#c7f75e" }}
+                        />
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          style={{ color: "#c7f75e" }}
+                        />
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          style={{ color: "#c7f75e" }}
+                        />
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          style={{ color: "#c7f75e" }}
+                        />
+                      </div>
                     </div>
-                    <div className="card_detail">
-                      <p>{elem.name}</p>
-                      <span>City</span>
-                    </div>
-                    <div className="raiting_stars">
-                      <FontAwesomeIcon
-                        icon={faStar}
-                        style={{ color: "#c7f75e" }}
-                      />
-                      <FontAwesomeIcon
-                        icon={faStar}
-                        style={{ color: "#c7f75e" }}
-                      />
-                      <FontAwesomeIcon
-                        icon={faStar}
-                        style={{ color: "#c7f75e" }}
-                      />
-                      <FontAwesomeIcon
-                        icon={faStar}
-                        style={{ color: "#c7f75e" }}
-                      />
-                      <FontAwesomeIcon
-                        icon={faStar}
-                        style={{ color: "#c7f75e" }}
-                      />
-                    </div>
-                  </div>
-                </SwiperSlide>
-                })
-                
+                  </SwiperSlide>
+                );
               })}
-              
-
-          
+              )}
             </Swiper>
           </div>
         </div>

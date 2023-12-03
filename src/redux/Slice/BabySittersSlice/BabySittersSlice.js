@@ -29,7 +29,7 @@ export const BabySitters = createSlice({
       state.loading = true;
     });
     builder.addCase(fetchUserById.fulfilled, (state, action) => {
-      state.babysitters.push(action.payload);
+      state.babysitters= action.payload
       state.loading = false;
     });
     builder.addCase(fetchUserById.rejected, (state, action) => {
