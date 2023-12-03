@@ -53,7 +53,7 @@ const EditPage = () => {
                 <textarea
                   name="description"
                   id="description"
-                  cols="35"
+                  cols="40"
                   rows="5"
                   placeholder="At least 200 characters"
                 ></textarea>
@@ -64,7 +64,7 @@ const EditPage = () => {
                 <textarea
                   name="comments"
                   id="comments"
-                  cols="35"
+                  cols="40"
                   rows="5"
                   placeholder="Your commit here"
                 ></textarea>
