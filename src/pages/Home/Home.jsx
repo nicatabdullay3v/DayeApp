@@ -12,11 +12,13 @@ import Climate from "../../components/home/climate/Climate";
 import FooterUp from "../../components/home/footerup/FooterUp";
 import FooterMiddle from "../../components/home/footermiddle/FooterMiddle";
 import FooterDown from "../../components/home/footerdown/FooterDown";
+import NavbarFourth from "../../components/NavbarFourth/NavbarFourth";
 
 const Home = () => {
   return (
     <>
-      <Navbar />
+      <NavbarFourth />
+      {/* <Navbar /> */}
       <HeroSection />
       <Cards />
       <WeKnow />

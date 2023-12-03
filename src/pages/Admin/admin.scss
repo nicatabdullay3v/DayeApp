@@ -1,0 +1,55 @@
+#admin_page {
+  .admin_page {
+    padding: 0px 180px;
+  }
+  .your_profile {
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    background-color: #f7f9fa;
+    padding: 20px;
+   
+    .admin_side_to_side {
+      .first_side,
+      .second_side,
+      .third_side,
+      .fourth_side {
+        display: flex;
+     padding-bottom: 20px;
+
+        .for_one,
+        .for_two,
+        .for_three,
+        .for_four {
+          padding-left: 20px;
+          p {
+            padding-bottom: 10px;
+          }
+          .button_for_one {
+            padding-top: 18px;
+            button {
+              padding: 10px 13px;
+              border-radius: 15px;
+              background-color: #389ba7;
+              border: none;
+              color: #f7f9fa;
+            }
+          }
+          span {
+            width: 120px;
+          }
+        }
+      }
+
+      .circle {
+        background-color: #74bcc7;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        border-radius: 50%;
+        color: white;
+        padding-top: 2px;
+      }
+    }
+  }
+}
