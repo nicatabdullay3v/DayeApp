@@ -4,6 +4,7 @@ header {
     .baby_sitters_header {
       padding: 7px 0px;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       .header_left {
         display: flex;

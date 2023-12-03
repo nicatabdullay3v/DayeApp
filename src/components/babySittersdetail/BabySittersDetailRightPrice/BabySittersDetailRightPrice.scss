@@ -1,0 +1,46 @@
+#price_left {
+  padding: 30px 30px;
+
+  .price_left {
+    position: relative;
+    .price_left_box {
+      position: sticky;
+      top: 0;
+      max-width: 352px;
+      border-radius: 12px;
+      padding: 10px 20px;
+      background-color: #edf7f8;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      .price {
+        p {
+          font-size: 18px;
+          font-weight: 700;
+          color: #323940;
+        }
+      }
+      .text {
+        margin-bottom: 20px;
+        p {
+          font-size: 15.4px;
+          font-weight: 500;
+        }
+      }
+      .button {
+        width: 320px;
+        margin: 0 auto;
+        text-align: center;
+
+        button {
+          width: 320px;
+          border-radius: 23px;
+
+          background-color: #389ba7;
+          border: none;
+          font-size: 16px;
+          color: white;
+          padding: 13px 0px;
+        }
+      }
+    }
+  }
+}

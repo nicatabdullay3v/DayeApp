@@ -1,0 +1,64 @@
+#baby_sitters_availability {
+  padding: 60px 30px;
+  border-top: 1px solid lightgray;
+  h1 {
+    margin-bottom: 20px;
+  }
+  .baby_sitters_availability {
+    display: flex;
+    gap: 50px;
+flex-wrap: wrap;
+    .times_of_day {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .days {
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+      .day {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .morning {
+          border-radius: 4px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 17px;
+          height: 17px;
+          background-color: #389ba7;
+        }
+        .afternoon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 17px;
+          height: 17px;
+          background-color: #389ba7;
+          border-radius: 4px;
+        }
+        .evening {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 17px;
+          height: 17px;
+          background-color: #389ba7;
+          border-radius: 4px;
+        }
+        .night {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 17px;
+          height: 17px;
+          background-color: #389ba7;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
+}
