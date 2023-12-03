@@ -34,7 +34,6 @@
     }
     .change_to {
       .card_parent {
-        
         .name_input {
           display: flex;
           gap: 10px;
@@ -46,71 +45,77 @@
             border: 1px solid #4d565e;
             border-radius: 10px;
           }
-
         }
 
-        .email_input{
+        .email_input {
+          display: flex;
+          gap: 13px;
+          padding-top: 15px;
 
-            display: flex;
-            gap: 13px;
-            padding-top: 15px;
-
-            input {
-                width: 245px;
-                height: 28px;
-                border: none;
-                border: 1px solid #4d565e;
-                border-radius: 10px;
-
-              }
+          input {
+            width: 245px;
+            height: 28px;
+            border: none;
+            border: 1px solid #4d565e;
+            border-radius: 10px;
+          }
         }
 
-.price_input{
-    display: flex;
-    gap: 20px;
-    padding-top: 15px;
-    input {
-        width: 245px;
-        height: 28px;
-        border: none;
-        border: 1px solid #4d565e;
-        border-radius: 10px;
+        .price_input {
+          display: flex;
+          gap: 20px;
+          padding-top: 15px;
+          input {
+            width: 245px;
+            height: 28px;
+            border: none;
+            border: 1px solid #4d565e;
+            border-radius: 10px;
+          }
+        }
+
+        .description_input,
+        .comments_input {
+          label {
+            display: block;
+            padding-top: 20px;
+          }
+        }
       }
-
-}
-
-        .description_input, .comments_input{
-            label{
-                display: block;
-                padding-top: 20px;
-            }
-        }
+      .edit_btn{
+        padding-top: 20px;
+          button {
+            padding: 10px 15px;
+            border-radius: 15px;
+            background-color: #389ba7;
+            border: none;
+            color: #f7f9fa;
+            cursor: pointer;
+          }
       }
     }
   }
 }
 @media screen and (max-width: 992px) {
-    .sides_edit {
-      flex-direction: column;
-      align-items: center;
-      .currently_data,
-      .change_to {
-        margin-top: 60px;
+  .sides_edit {
+    flex-direction: column;
+    align-items: center;
+    .currently_data,
+    .change_to {
+      margin-top: 60px;
       width: 600px;
-
-      }
     }
   }
-  
-  @media screen and (max-width: 767px) {
-    .sides_edit {
-      flex-direction: column;
-      align-items: center;
-      .currently_data,
-      .change_to {
-        margin-top: 60px;
-      width: 600px;
+}
 
-      }
+@media screen and (max-width: 767px) {
+  .sides_edit {
+    flex-direction: column;
+    align-items: center;
+    .currently_data,
+    .change_to {
+      margin-top: 60px;
+      width: 600px;
     }
   }
+}

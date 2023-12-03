@@ -10,8 +10,18 @@
     display: flex;
     justify-content: center;
     .right_side_create {
-        
-      .change_to {
+        .create_btn {
+            padding-top: 20px;
+            button {
+              padding: 10px 15px;
+              border-radius: 15px;
+              background-color: #389ba7;
+              border: none;
+              color: #f7f9fa;
+              cursor: pointer;
+            }
+          }
+      .create_to {
         .card_parent {
           .name_input {
             display: flex;

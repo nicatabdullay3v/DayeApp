@@ -11,7 +11,7 @@ const CreatePage = () => {
         <div className="create_sides">
         
           <div className="right_side_create">
-            <div className="change_to">
+            <div className="create_to">
               <div className="card_parent">
                 <div className="name_input">
                   <label htmlFor="name">Name:</label>
@@ -71,6 +71,9 @@ const CreatePage = () => {
                   ></textarea>
                 </div>
               </div>
+            </div>
+            <div className="create_btn">
+              <button>Create</button>
             </div>
           </div>
         </div>

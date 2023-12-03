@@ -70,6 +70,9 @@ const EditPage = () => {
                 ></textarea>
               </div>
             </div>
+            <div className="edit_btn">
+              <button>Edit</button>
+            </div>
           </div>
         </div>
       </div>
