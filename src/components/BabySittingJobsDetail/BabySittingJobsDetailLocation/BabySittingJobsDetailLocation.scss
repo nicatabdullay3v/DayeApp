@@ -1,0 +1,35 @@
+#baby_sitters_location {
+  .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    border-top: 1px solid lightgray;
+
+    padding: 60px 30px;
+    .baby_sitters_location {
+      .baby_sitters_location_text {
+        .baby_sitters_location_text_title {
+          h2 {
+            margin-bottom: 20px;
+          }
+        }
+        .baby_sitters_location_text_description {
+          margin-bottom: 20px;
+          p {
+            span {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+      .baby_sitters_location_map {
+        width: 100%;
+        height: 292px;
+        iframe {
+          width: 100%;
+          height: 100%;
+          border: none;
+        }
+      }
+    }
+  }
+}

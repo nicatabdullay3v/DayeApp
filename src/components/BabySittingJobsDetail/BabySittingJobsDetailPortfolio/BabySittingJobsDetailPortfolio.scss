@@ -1,0 +1,51 @@
+#baby_sitters_portfolio {
+  padding: 30px 30px;
+  background-color: rgba(240, 235, 235, 0.551);
+  .container {
+    .baby_sitters_portfolio {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      .baby_sitters_portfolio_country {
+        font-weight: 500;
+        font-size: 17px;
+        color: #323940;
+      }
+      .baby_sitters_portfolio_name_age_icon {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        margin-bottom: 15px;
+        .baby_sitters_portfolio_age {
+          p {
+            font-size: 32px;
+            color: #323940;
+          }
+        }
+        .baby_sitters_portfolio_name {
+          p {
+            font-size: 32px;
+            color: #323940;
+          }
+        }
+        .baby_sitters_portfolio_icon {
+          color: rgb(9, 175, 175);
+          font-size: 20px;
+        }
+      }
+      .baby_sitters_portfolio_image {
+        max-width: 176px;
+        max-height: 176px;
+        overflow: hidden;
+        border-radius: 18px;
+
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

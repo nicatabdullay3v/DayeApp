@@ -1,0 +1,82 @@
+#baby_sitters_skills_com {
+  padding: 60px 30px;
+  border-top: 1px solid lightgray;
+  .baby_sitters_skills_com {
+    border-radius: 20px;
+    flex-wrap: wrap;
+    display: flex;
+    gap: 20px;
+    .baby_sitters_skills_com_left {
+      background-color: #f7f9fa;
+      border-radius: 12px;
+
+      padding: 20px;
+      width: 400px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 35px;
+      @media (max-width: 767px) {
+        max-width: 300px;
+      }
+      .yes_no {
+        text-align: end;
+        font-size: 18px;
+      }
+      .icon {
+        font-size: 26px;
+        color: #bdc6ce;
+      }
+      .crafting {
+        display: flex;
+        justify-content: space-between;
+      }
+      .reading {
+        display: flex;
+        justify-content: space-between;
+      }
+      .education {
+        display: flex;
+        justify-content: space-between;
+      }
+      .has_children {
+        display: flex;
+        justify-content: space-between;
+      }
+      .icon_text {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+    }
+    .baby_sitters_skills_com_right {
+      background-color: #f7f9fa;
+      border-radius: 12px;
+      padding: 20px;
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      max-height: 250px;
+      gap: 35px;
+      @media (max-width: 767px) {
+        width: 300px;
+      }
+
+      .yes_no {
+        text-align: end;
+        font-size: 18px;
+      }
+      .icon {
+        font-size: 26px;
+        color: #bdc6ce;
+      }
+      .icon_text {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+    }
+  }
+}

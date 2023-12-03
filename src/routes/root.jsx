@@ -12,6 +12,7 @@ import BabySittersDetailPage from "../pages/BabySittersDetailPage/BabySittersDet
 import Admin from "../pages/Admin/Admin";
 import Parents from "../components/admin/pages/parents/Parents";
 import BabysittersEmployee from "../components/admin/pages/babysitters/BabysittersEmployee";
+import BabySittingJobsDetail from "../pages/BabySittingJobsDetail/BabySittingJobsDetail";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
     path: "/Babysittersemployee",
     element: <BabysittersEmployee/>
   },
+  {
+    path : '/BabySittingJobsDetail',
+    element:<BabySittingJobsDetail/>
+  }
 
   
 ]);
