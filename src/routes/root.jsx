@@ -43,7 +43,7 @@ const router = createBrowserRouter([
     element: <BabySittingJobs />,
   },
   {
-    path: "/babysittersDetail",
+    path: "/babysittersDetail/:id",
     element: <BabySittersDetailPage />,
   },
   {

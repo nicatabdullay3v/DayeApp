@@ -1,16 +1,29 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState,useEffect } from "react";
 import  { Virtual, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./cards.scss";
+import { v4 as uuidv4 } from 'uuid';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { useNavigate } from "react-router-dom";
-
+import { fetchUserById } from "../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Cards = () => {
+const babysittersData = useSelector((state)=> state.babysitters.babysitters)
+
+
+const dispatch = useDispatch()
+useEffect(() => {
+  
+dispatch(fetchUserById())
+}, [])
+
+
+
   const [swiperRef, setSwiperRef] = useState(null);
 const navigate = useNavigate()
   return (
@@ -41,231 +54,49 @@ const navigate = useNavigate()
                 }
               }}
             >
-              <SwiperSlide>
-                <div onClick={()=>{
-                  navigate("/babysittersDetail")
-                }} className="card">
-                  <div className="card_image"></div>
-                  <div className="card_detail">
-                    <p>Name</p>
-                    <span>City</span>
+              {babysittersData.map(elem=>{
+                return elem.map((elem)=>{
+                  return  <SwiperSlide key={uuidv4()} >
+                  <div onClick={()=>{
+                    navigate(`/babysittersDetail/${elem.id}`)
+                  }} className="card">
+                    <div className="card_image">
+                      <img src={elem.image} alt="" />
+                    </div>
+                    <div className="card_detail">
+                      <p>{elem.name}</p>
+                      <span>City</span>
+                    </div>
+                    <div className="raiting_stars">
+                      <FontAwesomeIcon
+                        icon={faStar}
+                        style={{ color: "#c7f75e" }}
+                      />
+                      <FontAwesomeIcon
+                        icon={faStar}
+                        style={{ color: "#c7f75e" }}
+                      />
+                      <FontAwesomeIcon
+                        icon={faStar}
+                        style={{ color: "#c7f75e" }}
+                      />
+                      <FontAwesomeIcon
+                        icon={faStar}
+                        style={{ color: "#c7f75e" }}
+                      />
+                      <FontAwesomeIcon
+                        icon={faStar}
+                        style={{ color: "#c7f75e" }}
+                      />
+                    </div>
                   </div>
-                  <div className="raiting_stars">
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                  </div>
-                </div>
-              </SwiperSlide>
+                </SwiperSlide>
+                })
+                
+              })}
+              
 
-              <SwiperSlide>
-                <div className="card">
-                  <div className="card_image"></div>
-                  <div className="card_detail">
-                    <p>Name</p>
-                    <span>City</span>
-                  </div>
-                  <div className="raiting_stars">
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                  </div>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div className="card">
-                  <div className="card_image"></div>
-                  <div className="card_detail">
-                    <p>Name</p>
-                    <span>City</span>
-                  </div>
-                  <div className="raiting_stars">
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                  </div>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div className="card">
-                  <div className="card_image"></div>
-                  <div className="card_detail">
-                    <p>Name</p>
-                    <span>City</span>
-                  </div>
-                  <div className="raiting_stars">
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                  </div>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div className="card">
-                  <div className="card_image"></div>
-                  <div className="card_detail">
-                    <p>Name</p>
-                    <span>City</span>
-                  </div>
-                  <div className="raiting_stars">
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                  </div>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div className="card">
-                  <div className="card_image"></div>
-                  <div className="card_detail">
-                    <p>Name</p>
-                    <span>City</span>
-                  </div>
-                  <div className="raiting_stars">
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                  </div>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div className="card">
-                  <div className="card_image"></div>
-                  <div className="card_detail">
-                    <p>Name</p>
-                    <span>City</span>
-                  </div>
-                  <div className="raiting_stars">
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faStar}
-                      style={{ color: "#c7f75e" }}
-                    />
-                  </div>
-                </div>
-              </SwiperSlide>
+          
             </Swiper>
           </div>
         </div>

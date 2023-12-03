@@ -1,24 +1,51 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-const fetchUserById = createAsyncThunk(
+
+import axios from "axios";
+export const fetchUserById = createAsyncThunk(
   "users/fetchByIdStatus",
   async () => {
-    const response = await userAPI.fetchById(userId);
+    const response = await axios("http://localhost:3000/babysitters");
+    return response.data;
+  }
+);
+export const fetchUserByIdDetail = createAsyncThunk(
+  "users/fetchByIdFDetailStatus",
+  async (id) => {
+    const response = await axios(`http://localhost:3000/babysitters/${id}`);
     return response.data;
   }
 );
 export const BabySitters = createSlice({
-  name: "counter",
+  name: "babysittersData",
   initialState: {
     babysitters: [],
+    babysitter:{},
+    loading: false,
+    error: "",
   },
-  reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(fetchUserById.pending, (state, action) => {
+      state.loading = true;
+    });
     builder.addCase(fetchUserById.fulfilled, (state, action) => {
-      state.entities.push(action.payload);
+      state.babysitters.push(action.payload);
+      state.loading = false;
+    });
+    builder.addCase(fetchUserById.rejected, (state, action) => {
+      state.error = action.payload;
+      state.loading = false;
+    });
+    builder.addCase(fetchUserByIdDetail.pending, (state, action) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchUserByIdDetail.fulfilled, (state, action) => {
+      state.babysitter= action.payload
+      state.loading = false;
+    });
+    builder.addCase(fetchUserByIdDetail.rejected, (state, action) => {
+      state.error = action.payload;
+      state.loading = false;
     });
   },
 });
