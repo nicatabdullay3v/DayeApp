@@ -1,0 +1,74 @@
+#edit_page_parent {
+  background-color: #eff7f8;
+  margin-top: 40px;
+
+  .change_size {
+    font-size: 30px;
+  }
+  .sides_edit {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 80px;
+    padding-bottom: 50px;
+    .currently_data {
+      width: 600px;
+      .card_parent_currently {
+        padding-top: 10px;
+        .currently_p {
+          padding-top: 7.5px;
+          display: flex;
+          gap: 5px;
+        }
+        .currently_span {
+          padding-top: 19px;
+          display: flex;
+          gap: 5px;
+        }
+        .description_span {
+          padding-top: 33px;
+        }
+        .comments_span {
+          padding-top: 42px;
+        }
+      }
+    }
+    .change_to {
+      .card_parent {
+        
+        .name_input {
+          display: flex;
+          gap: 10px;
+          padding-top: 15px;
+          input {
+            width: 246px;
+            height: 28px;
+            border: none;
+            border: 1px solid #4d565e;
+            border-radius: 10px;
+          }
+
+        }
+        .email_input{
+
+            display: flex;
+            gap: 10px;
+            padding-top: 15px;
+
+            input {
+                width: 250px;
+                height: 28px;
+                border: none;
+                border: 1px solid #4d565e;
+                border-radius: 10px;
+              }
+        }
+        .description_input, .comments_input{
+            label{
+                display: block;
+                padding-top: 20px;
+            }
+        }
+      }
+    }
+  }
+}

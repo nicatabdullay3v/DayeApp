@@ -25,10 +25,12 @@ const Parents = () => {
 
         <CardsAdmin/>
         <ButtonsAdmin seteditPage={seteditPage} setdeletePage={setdeletePage} setcreatePage={setcreatePage}/>
+        </div>
+
         {editPage ? <EditPage /> : null}
         {deletePage ? <DeletePage /> : null}
         {createPage ? <CreatePage /> : null}
-      </div>
+      
     </section>
   );
 };
