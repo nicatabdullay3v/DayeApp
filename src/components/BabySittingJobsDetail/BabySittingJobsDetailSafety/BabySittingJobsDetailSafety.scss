@@ -1,0 +1,15 @@
+#safety {
+  padding: 40px 30px;
+  border-top: 1px solid lightgray;
+  .safety {
+    .safety_text {
+      background-color: rgb(203, 199, 199);
+      font-size: 15px;
+      padding: 15px;
+      border-radius: 10px;
+      p {
+        line-height: 1.5;
+      }
+    }
+  }
+}

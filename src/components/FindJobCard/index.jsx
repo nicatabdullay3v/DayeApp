@@ -11,7 +11,7 @@ import "./FindJobCard.scss";
 function index() {
   return (
     <div className="babysitter">
-      <Link className="card-link" style={{ textDecoration: "none" }}>
+      <Link to="/BabySittingJobsDetail" className="card-link" style={{ textDecoration: "none" }}>
         <div className="babysitter-card">
           <div className="card-left">
             <div className="image">

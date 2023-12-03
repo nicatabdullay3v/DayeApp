@@ -1,0 +1,28 @@
+#baby_sitters_detail_rating {
+  padding: 30px 30px;
+
+  .baby_sitters_detail_rating {
+    .baby_sitters_detail_rating_text {
+      p {
+        line-height: 1.5;
+      }
+    }
+    .rew {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    .icon {
+      color: aquamarine;
+    }
+    .baby_sitters_detail_rate {
+      margin-bottom: 20px;
+      .medal {
+        margin-left: 10px;
+      }
+
+      span {
+        margin-left: 10px;
+      }
+    }
+  }
+}

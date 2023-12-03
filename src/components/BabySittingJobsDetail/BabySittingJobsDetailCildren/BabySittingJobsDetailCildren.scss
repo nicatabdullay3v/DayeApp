@@ -1,0 +1,28 @@
+#experince {
+  padding: 60px 30px;
+  border-top: 1px solid lightgray;
+  .experince {
+    .experience_babysitting {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      .experience_babysitting_icon {
+        font-size: 20px;
+
+        color: #389ba7;
+      }
+      .experince_babysitting_text {
+        .experience_babysitting_title {
+          h2 {
+            font-size: 16px;
+            color: #323940;
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+.sa {
+  margin-bottom: 30px;
+}

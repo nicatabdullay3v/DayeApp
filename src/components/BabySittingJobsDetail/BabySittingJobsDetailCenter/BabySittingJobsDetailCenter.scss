@@ -1,0 +1,17 @@
+div {
+  .container {
+    max-width: 1300px;
+    .baby_sttiers_datail_center {
+      display: flex;
+      justify-content: space-between;
+      @media (max-width: 767px) {
+        display: block;
+      }
+      .baby_sttiers_datail_center_right {
+        @media (max-width: 767px) {
+          display: none;
+        }
+      }
+    }
+  }
+}
