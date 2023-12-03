@@ -1,0 +1,67 @@
+#create_page {
+  background-color: #eff7f8;
+  margin-top: 40px;
+  padding-bottom: 50px;
+  .change_size {
+    font-size: 30px;
+    padding-bottom: 30px;
+  }
+  .create_sides {
+    display: flex;
+    justify-content: center;
+    .right_side_create {
+        
+      .change_to {
+        .card_parent {
+          .name_input {
+            display: flex;
+            gap: 20px;
+            padding-top: 15px;
+            input {
+              width: 266px;
+              height: 34px;
+              border: none;
+              border: 1px solid #4d565e;
+              border-radius: 10px;
+            }
+          }
+
+          .email_input {
+            display: flex;
+            gap: 23px;
+            padding-top: 15px;
+
+            input {
+                width: 266px;
+                height: 34px;
+              border: none;
+              border: 1px solid #4d565e;
+              border-radius: 10px;
+            }
+          }
+
+          .price_input {
+            display: flex;
+            gap: 30px;
+            padding-top: 15px;
+            input {
+                width: 266px;
+                height: 34px;
+              border: none;
+              border: 1px solid #4d565e;
+              border-radius: 10px;
+            }
+          }
+
+          .description_input,
+          .comments_input {
+            label {
+              display: block;
+              padding-top: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
