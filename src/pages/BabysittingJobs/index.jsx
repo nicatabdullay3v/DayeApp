@@ -9,7 +9,11 @@ import Discover from "../../components/home/discover/Discover";
 import FooterMiddle from "../../components/home/footermiddle/FooterMiddle";
 import FooterDown from "../../components/home/footerdown/FooterDown";
 import FindJobCard from "../../components/FindJobCard";
+import { useSelector } from "react-redux";
+
 function index() {
+  const babysitter = useSelector((state)=> state.babysitters.babysitters)
+  console.log(babysitter);
   return (
     <div>
       <NavbarBabysit />

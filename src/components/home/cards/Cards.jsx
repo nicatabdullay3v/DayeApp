@@ -92,7 +92,6 @@ const Cards = () => {
                   </SwiperSlide>
                 );
               })}
-              )}
             </Swiper>
           </div>
         </div>

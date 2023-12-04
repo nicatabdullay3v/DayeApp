@@ -1,6 +1,7 @@
 import React from "react";
 import "./BabySittersAbout.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useSelector } from "react-redux";
 import {
   faCarSide,
   faGraduationCap,
@@ -11,11 +12,23 @@ import {
   faPerson,
   faSmoking,
 } from "@fortawesome/free-solid-svg-icons";
+
 const BabySittersAbout = () => {
+  let babysitters = useSelector((state)=> state.babysitters.babysitters)
+  let name = useSelector((state)=> state.babysitters)
+
   return (
     <section id="baby_sitters_about">
+         <button onClick={()=>{
+          console.log(babysitters);
+          console.log(name);
+
+        }}>
+          asdavsd
+        </button>
       <h1 style={{ backgroundColor: "white", marginBottom: "20px" }}>
         About Me
+     
       </h1>
       <div className="baby_sitters_about">
         <div className="baby_sitters_about_left">

@@ -1,6 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 import axios from "axios";
+export const PatchWishList = createAsyncThunk(
+  "users/fetchByIdStatus",
+  async (id,obj) => {
+    const response = await axios.patch(`http://localhost:3000/babysitters/${id}`, obj);
+    return response.data;
+  }
+);
 export const fetchUserById = createAsyncThunk(
   "users/fetchByIdStatus",
   async () => {
@@ -22,6 +29,7 @@ export const BabySitters = createSlice({
     babysitter:{},
     loading: false,
     error: "",
+
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -29,6 +37,7 @@ export const BabySitters = createSlice({
       state.loading = true;
     });
     builder.addCase(fetchUserById.fulfilled, (state, action) => {
+      
       state.babysitters= action.payload
       state.loading = false;
     });

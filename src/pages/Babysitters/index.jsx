@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavbarBabysit from "../../components/NavbarBabysit/NavbarBabysit";
 import "./Babysitters.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,7 +9,19 @@ import FindBaby from "../../components/home/findbaby/FindBaby";
 import Discover from "../../components/home/discover/Discover";
 import FooterMiddle from "../../components/home/footermiddle/FooterMiddle";
 import FooterDown from "../../components/home/footerdown/FooterDown";
+import { useSelector,useDispatch } from "react-redux";
+import { v4 as uuidv4 } from 'uuid';
+import { fetchUserById } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
 function index() {
+  const dispatch = useDispatch()
+  const babysitters = useSelector((state)=> state.babysitters.babysitters)
+  console.log(babysitters);
+useEffect(() => {
+  dispatch(fetchUserById())
+
+ 
+}, [])
+
   return (
     <div>
       <NavbarBabysit />
@@ -47,15 +59,10 @@ function index() {
             </div>
           </div>
           <div className="babysitterCards">
-            <BabysittersCard />
-            <BabysittersCard />
-            <BabysittersCard />
-            <BabysittersCard />
-            <BabysittersCard />
-            <BabysittersCard />
-            <BabysittersCard />
-            <BabysittersCard />
-            <BabysittersCard />
+           {babysitters && babysitters.map((elem)=>{
+            return  <BabysittersCard key={uuidv4()} elem={elem} />
+      
+           })}
           </div>
           <div className="pagesDiv">
             <div className="pages">

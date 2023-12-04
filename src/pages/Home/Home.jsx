@@ -17,8 +17,8 @@ import NavbarFourth from "../../components/NavbarFourth/NavbarFourth";
 const Home = () => {
   return (
     <>
-      <NavbarFourth />
-      {/* <Navbar /> */}
+      {/* <NavbarFourth /> */}
+      <Navbar />
       <HeroSection />
       <Cards />
       <WeKnow />

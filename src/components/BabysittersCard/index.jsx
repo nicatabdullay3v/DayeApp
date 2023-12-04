@@ -7,7 +7,8 @@ import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { faSuitcaseRolling } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import "./BabysittersCard.scss";
-function index() {
+import axios from "axios";
+function index({elem}) {
   return (
     <div className="babysitter">
       <Link className="card-link" style={{ textDecoration: "none" }}>
@@ -15,7 +16,7 @@ function index() {
           <div className="card-left">
             <div className="image">
               <img
-                src="https://cdn.babysits.com/users/4/0/e/5257240/babysitter-5257240-1695824808-rc-w350-h350.avif"
+                src={elem.image}
                 alt=""
               />
             </div>
@@ -52,7 +53,11 @@ function index() {
                 style={{ color: "#59bec9" }}
               />
               <div className="heart">
-                <FontAwesomeIcon icon={faHeart} style={{ color: "#bdc6ce" }} />
+                <FontAwesomeIcon id={elem.id} onClick={(e)=>{
+                  console.log(e.currentTarget.id);
+                  
+
+                }} icon={faHeart} style={{ color: "#bdc6ce" }} />
               </div>
             </div>
             <div className="supersitter">
