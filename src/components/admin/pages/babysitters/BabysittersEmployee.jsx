@@ -5,10 +5,10 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import NavbarAdmin from "../../../NavbarAdmin/NavbarAdmin";
 import CardsAdmin from "./CardsAdmin/CardsAdmin";
-import ButtonsAdmin from "./buttonsAdmin/ButtonsAdmin";
 import EditPage from "./EditPage/EditPage";
 import DeletePage from "./DeletePage/DeletePage";
 import CreatePage from './CreatePage/CreatePage'
+import ButtonsAdmin from "./buttonsAdmin/ButtonsAdmin";
 
 const BabysittersEmployee = () => {
   const [editPage, seteditPage] = useState(false);
@@ -20,10 +20,11 @@ const BabysittersEmployee = () => {
     <section className="admin_babysitters">
       <NavbarAdmin />
       <div className="container">
-        <h1>BabySitters</h1>
-
-        <CardsAdmin />
-        <ButtonsAdmin seteditPage={seteditPage} setdeletePage={setdeletePage} setcreatePage={setcreatePage}/>
+      <div className="justify" style={{display: 'flex', gap:"20px"}}>
+      <h1>BabySitters</h1>
+<ButtonsAdmin seteditPage={seteditPage} setdeletePage={setdeletePage} setcreatePage={setcreatePage}/>
+      </div>
+        <CardsAdmin seteditPage={seteditPage} setdeletePage={setdeletePage} setcreatePage={setcreatePage}/>
       </div>
         {editPage ? <EditPage /> : null}
         {deletePage ? <DeletePage /> : null}
