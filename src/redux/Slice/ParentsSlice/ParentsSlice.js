@@ -31,6 +31,20 @@ export const PatchSitters = createAsyncThunk(
     }
   );
 
+
+
+
+  export const PushParent = createAsyncThunk(
+    "users/fetcParentPush",
+    async (newObject) => {
+      const response = await axios.post(`http://localhost:3000/babysitterswanted/`, newObject);
+      return response.data;
+    }
+  );
+
+
+
+
 export const PatchParents = createAsyncThunk(
   "users/fetchUserStatus",
   async ({ id, data }) => {
@@ -88,6 +102,20 @@ export const parents = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
+
+    builder.addCase(PushParent.pending, (state) => {
+        state.loading = true;
+      });
+      builder.addCase(PushParent.fulfilled, (state, action) => {
+        state.babysitterswanted.push(action.payload); 
+        state.loading = false;
+      });
+      builder.addCase(PushParent.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
+
+
     builder.addCase(DeleteParent.pending, (state) => {
         state.loading = true;
       });

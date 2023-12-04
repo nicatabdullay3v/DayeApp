@@ -1,6 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { PushParent } from '../../../../../redux/Slice/ParentsSlice/ParentsSlice';
+
 
 const CreatePage = () => {
+
+  const dispatch = useDispatch();
+  const [formData, setFormData] = useState({
+    firstName: '',
+    email: '',
+    age: 0,
+    numberofChildren: 0,
+    childrenAge: '',
+    description: '',
+    references: '',
+    activities: '',
+  });  
+  
+
+  const handleCreate = () => {
+    const newObject = {
+      firstName: formData.firstName,
+      email: formData.email,
+      age: formData.age,
+      numberofChildren: formData.numberofChildren,
+      childrenAge: formData.childrenAge,
+      description: formData.description,
+      references: formData.references,
+      activities: formData.activities,
+    };
+
+    dispatch(PushParent(newObject));
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
   return (
 
     <section id="create_page">
@@ -13,8 +48,9 @@ const CreatePage = () => {
           <div className="create_to">
             <div className="card_parent">
               <div className="name_input">
-                <label htmlFor="name">Name:</label>
-                <input type="text" name="name" id="name" placeholder="Name" />
+                <label htmlFor="firstName">Name:</label>
+                <input type="text" name="firstName" id="firstName" placeholder="Name" value={formData.firstName}
+                    onChange={handleChange} />
               </div>
 
               <div className="email_input">
@@ -24,37 +60,45 @@ const CreatePage = () => {
                   name="email"
                   id="email"
                   placeholder="Email"
+                  value={formData.email}
+                  onChange={handleChange}
                 />
               </div>
 
-              <div className="price_input">
-                <label htmlFor="price">Price:</label>
+              <div className="age_input">
+                <label htmlFor="age">Age:</label>
                 <input
                   type="number"
-                  name="price"
-                  id="price"
-                  placeholder="Price"
+                  name="age"
+                  id="age"
+                  placeholder="Age Parent"
+                  value={formData.age}
+                  onChange={handleChange}
                 />
               </div>
 
               <div className="child_input">
-                <label htmlFor="child">Child:</label>
+                <label htmlFor="numberofChildren">Child:</label>
                 <input
                   type="number"
-                  name="child"
-                  id="child"
+                  name="numberofChildren"
+                  id="numberofChildren"
                   placeholder="Child"
+                  value={formData.numberofChildren}
+                  onChange={handleChange}
                 />
               </div>
 
               
               <div className="age_input">
-                <label htmlFor="age">Age: </label>
+                <label htmlFor="childrenAge">Age: </label>
                 <input
                   type="number"
-                  name="age"
-                  id="age"
-                  placeholder="Age"
+                  name="childrenAge"
+                  id="childrenAge"
+                  placeholder="Age Children"
+                  value={formData.childrenAge}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -66,34 +110,40 @@ const CreatePage = () => {
                   cols="40"
                   rows="5"
                   placeholder="At least 200 characters"
+                  value={formData.description}
+                  onChange={handleChange}
                 ></textarea>
               </div>
 
               <div className="comments_input">
-                <label htmlFor="comments">References:</label>
+                <label htmlFor="references">References:</label>
                 <textarea
-                  name="comments"
-                  id="comments"
+                  name="references"
+                  id="references"
                   cols="40"
                   rows="5"
                   placeholder="Your reference here"
+                  value={formData.references}
+                  onChange={handleChange}
                 ></textarea>
               </div>
 
               <div className="comments_input">
-                <label htmlFor="comments">Activities:</label>
+                <label htmlFor="activities">Activities:</label>
                 <textarea
-                  name="comments"
-                  id="comments"
+                  name="activities"
+                  id="activities"
                   cols="40"
                   rows="5"
                   placeholder="Your activity here"
+                  value={formData.activities}
+                  onChange={handleChange}
                 ></textarea>
               </div>
             </div>
           </div>
           <div className="create_btn">
-            <button>Create</button>
+          <button onClick={handleCreate}>Create</button>
           </div>
         </div>
       </div>
