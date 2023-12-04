@@ -7,12 +7,14 @@ import { useParams } from "react-router-dom";
 import { fetchUserByIdDetail } from "../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { useDispatch } from "react-redux";
 const BabySittersPortfolio = () => {
+  
   const babysittersData = useSelector((state) => state.babysitters.babysitter);
   const dispatch = useDispatch();
   let { id } = useParams();
   useEffect(() => {
     dispatch(fetchUserByIdDetail(id));
   }, []);
+  
 
   return (
     <section id="baby_sitters_portfolio">

@@ -1,6 +1,9 @@
-import React from "react";
+import React,{useEffect} from "react";
 import "./BabySittingJobsDetailCom.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useParams } from "react-router-dom";
+import { fetcBabysitterJobsDeatil } from "../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import { useSelector, useDispatch } from "react-redux";
 import {
   faBookOpenReader,
   faBroom,
@@ -20,7 +23,15 @@ import {
   faSwatchbook,
   faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
+
 const BabiSittersDeatilSkillsCom = () => {
+  const babysitterswantedData = useSelector(
+  (state) => state.babysitters.babysitterwanted
+);
+console.log(babysitterswantedData);
+const dispatch = useDispatch();
+
+console.log(babysitterswantedData);
   return (
     <section id="baby_sitters_skills_com">
       <div className="baby_sitters_skills_com">
@@ -32,7 +43,7 @@ const BabiSittersDeatilSkillsCom = () => {
             <div className="pets">
               <div className="pets_icon_text icon_text">
                 <FontAwesomeIcon className="icon" icon={faPaw} />
-                <p>Pets</p>
+                <p>{babysitterswantedData.comfortableWith} </p>
               </div>
             </div>
           </div>
