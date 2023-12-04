@@ -1,17 +1,23 @@
 import React, { useRef, useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import '../buttonsAdmin/ButtonsAdmin.scss'
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import "../buttonsAdmin/ButtonsAdmin.scss";
 import { fetchUserById } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const CardsAdmin = ({ seteditPage, setdeletePage, setcreatePage ,seteditID, editID}) => {
+const CardsAdmin = ({
+  seteditPage,
+  setdeletePage,
+  setcreatePage,
+  seteditID,
+  editID,
+}) => {
   const babysittersData = useSelector((state) => state.babysitters.babysitters);
 
   const dispatch = useDispatch();
@@ -31,18 +37,14 @@ const CardsAdmin = ({ seteditPage, setdeletePage, setcreatePage ,seteditID, edit
             <TableCell align="right">Price</TableCell>
             <TableCell align="right">Edit</TableCell>
             <TableCell align="right">Delete</TableCell>
-
           </TableRow>
         </TableHead>
         <TableBody>
           {babysittersData.map((elem) => {
             return (
-
-
-
               <TableRow
                 key={uuidv4()}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
                   {elem.name}
@@ -54,45 +56,35 @@ const CardsAdmin = ({ seteditPage, setdeletePage, setcreatePage ,seteditID, edit
                 <TableCell align="right">
                   <button
                     className="button_employee"
-                    id="{elem.id}"
+                    id={elem.id}
                     onClick={() => {
                       seteditPage(true);
                       setdeletePage(false);
                       setcreatePage(false);
                       seteditID(elem.id);
-                      console.log(elem.id)
                     }}
                   >
                     Edit
                   </button>
                 </TableCell>
                 <TableCell align="right">
-
                   <button
                     className="button_employee"
                     onClick={() => {
-
                       seteditPage(false);
                       setcreatePage(false);
-
-
                     }}
                   >
                     Delete
                   </button>
                 </TableCell>
-
-
-
-
               </TableRow>
-            )
+            );
           })}
-
         </TableBody>
       </Table>
     </TableContainer>
-  )
-}
+  );
+};
 
-export default CardsAdmin
+export default CardsAdmin;
