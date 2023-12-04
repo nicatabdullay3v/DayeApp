@@ -33,7 +33,6 @@ export const PatchParents = createAsyncThunk(
   }
 );
 
-
 export const fetcBabysitterJobs = createAsyncThunk(
   "users/fetcBabysitterJobsStatus",
   async () => {
@@ -64,6 +63,17 @@ export const fetchUserByIdDetail = createAsyncThunk(
     return response.data;
   }
 );
+
+export const DeleteBabysitter = createAsyncThunk(
+  "users/fetcBabysittersDelete",
+  async (id) => {
+    const response = await axios.delete(
+      `http://localhost:3000/babysitters/${id}`
+    );
+    return response.data;
+  }
+);
+
 export const BabySitters = createSlice({
   name: "babysittersData",
   initialState: {
@@ -76,6 +86,16 @@ export const BabySitters = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(DeleteBabysitter.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(DeleteBabysitter.fulfilled, (state, action) => {
+      state.loading = false;
+    });
+    builder.addCase(DeleteBabysitter.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    });
 
     builder.addCase(fetchUserById.pending, (state, action) => {
       state.loading = true;
@@ -123,7 +143,6 @@ export const BabySitters = createSlice({
       state.error = action.payload;
       state.loading = false;
     });
-
   },
 });
 export const {} = BabySitters.actions;

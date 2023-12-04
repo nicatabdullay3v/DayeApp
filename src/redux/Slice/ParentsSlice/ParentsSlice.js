@@ -22,6 +22,15 @@ export const PatchSitters = createAsyncThunk(
     return response.data;
   }
 );
+
+  export const DeleteParent = createAsyncThunk(
+    "users/fetcParentDelete",
+    async (id) => {
+      const response = await axios.delete(`http://localhost:3000/babysitterswanted/${id}`);
+      return response.data;
+    }
+  );
+
 export const PatchParents = createAsyncThunk(
   "users/fetchUserStatus",
   async ({ id, data }) => {
@@ -79,6 +88,16 @@ export const parents = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(DeleteParent.pending, (state) => {
+        state.loading = true;
+      });
+      builder.addCase(DeleteParent.fulfilled, (state, action) => {
+        state.loading = false;
+    });
+    builder.addCase(DeleteParent.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+    });
 
     builder.addCase(fetchUserById.pending, (state, action) => {
       state.loading = true;

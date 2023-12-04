@@ -8,12 +8,14 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "../buttonsAdmin/ButtonsAdmin.scss";
-import { fetchUserById } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import {
+  fetchUserById,
+  DeleteBabysitter,
+} from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const CardsAdmin = ({
   seteditPage,
-
   setcreatePage,
   seteditID,
   editID,
@@ -21,6 +23,11 @@ const CardsAdmin = ({
   const babysittersData = useSelector((state) => state.babysitters.babysitters);
 
   const dispatch = useDispatch();
+
+  const handleDelete = (id) => {
+    dispatch(DeleteBabysitter(id));
+  };
+
   useEffect(() => {
     dispatch(fetchUserById());
   }, []);
@@ -59,7 +66,7 @@ const CardsAdmin = ({
                     id={elem.id}
                     onClick={() => {
                       seteditPage(true);
-                    
+
                       setcreatePage(false);
                       seteditID(elem.id);
                     }}
@@ -68,15 +75,12 @@ const CardsAdmin = ({
                   </button>
                 </TableCell>
                 <TableCell align="right">
-                  <button
-                    className="button_employee"
-                    onClick={() => {
-                      seteditPage(false);
-                      setcreatePage(false);
-                    }}
-                  >
-                    Delete
-                  </button>
+                <button
+                className="button_employee"
+                onClick={() => handleDelete(elem.id)}
+              >
+                Delete
+              </button>
                 </TableCell>
               </TableRow>
             );
