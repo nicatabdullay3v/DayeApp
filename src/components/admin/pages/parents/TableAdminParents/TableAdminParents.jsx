@@ -32,10 +32,11 @@ const TableAdminParents = ({
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell>Parents Username</TableCell>
+            <TableCell>Parents ID</TableCell>
             <TableCell align="right">firstName</TableCell>
             <TableCell align="right">lastName</TableCell>
             <TableCell align="right">Email</TableCell>
+            <TableCell align="right">Adress</TableCell>
             <TableCell align="right">Child</TableCell>
             <TableCell align="right">Edit</TableCell>
             <TableCell align="right">Delete</TableCell>
@@ -49,11 +50,12 @@ const TableAdminParents = ({
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                {elem.firstName}
+                {elem.id}
                 </TableCell>
                 <TableCell align="right"> {elem.firstName}</TableCell>
                 <TableCell align="right"> {elem.lastName}</TableCell>
                 <TableCell align="right"> {elem.email}</TableCell>
+                <TableCell align="right"> {elem.address?.country}, {elem.address?.city}  {elem.address?.region}</TableCell>
                 <TableCell align="right">{elem.numberofChildren}</TableCell>
                 <TableCell align="right">
                   <button

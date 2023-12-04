@@ -14,12 +14,7 @@ import {
 } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const CardsAdmin = ({
-  seteditPage,
-  setcreatePage,
-  seteditID,
-  editID,
-}) => {
+const CardsAdmin = ({ seteditPage, setcreatePage, seteditID, editID }) => {
   const babysittersData = useSelector((state) => state.babysitters.babysitters);
 
   const dispatch = useDispatch();
@@ -37,10 +32,11 @@ const CardsAdmin = ({
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell>BabySitters Username</TableCell>
+            <TableCell>BabySitters ID</TableCell>
             <TableCell align="right">Name</TableCell>
-            <TableCell align="right">Surname</TableCell>
+            <TableCell align="right">Age</TableCell>
             <TableCell align="right">Email</TableCell>
+            <TableCell align="right">Country</TableCell>
             <TableCell align="right">Price</TableCell>
             <TableCell align="right">Edit</TableCell>
             <TableCell align="right">Delete</TableCell>
@@ -54,11 +50,13 @@ const CardsAdmin = ({
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {elem.name}
+                  {elem.id}
                 </TableCell>
                 <TableCell align="right">{elem.name}</TableCell>
-                <TableCell align="right">{elem.name}</TableCell>
-                <TableCell align="right">{elem.name}</TableCell>
+                <TableCell align="right">{elem.age}</TableCell>
+                <TableCell align="right">{elem.email}</TableCell>
+                <TableCell align="right">{elem.country}</TableCell>
+
                 <TableCell align="right">{elem.price}$</TableCell>
                 <TableCell align="right">
                   <button
@@ -75,12 +73,12 @@ const CardsAdmin = ({
                   </button>
                 </TableCell>
                 <TableCell align="right">
-                <button
-                className="button_employee"
-                onClick={() => handleDelete(elem.id)}
-              >
-                Delete
-              </button>
+                  <button
+                    className="button_employee"
+                    onClick={() => handleDelete(elem.id)}
+                  >
+                    Delete
+                  </button>
                 </TableCell>
               </TableRow>
             );

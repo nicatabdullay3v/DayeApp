@@ -136,15 +136,6 @@
       "smoker": false,
       "Languages": "English",
       "Favorited": 15
-    },
-    {
-      "name": "Dustin Pugh",
-      "email": "pyrulituke@mailinator.com",
-      "price": "69",
-      "description": "Et ducimus tempore",
-      "references": "Consequatur Eos adi",
-      "activities": "Officia deserunt dol",
-      "id": 6
     }
   ],
   "babysitterswanted": [
@@ -251,18 +242,6 @@
       "provided": [],
       "about": "Hello to all inquires. My name is Jaida Morris, I am 19 years old and I am passionate about reading, painting, writing, music and even photography. I love children and believe that they are the gateway to heaven. I spent time watching kids for most of my life that includes cousins, nieces, nephews and even kids I didn’t know. I love children … any child is a safe child with me.",
       "wishList": []
-    },
-    {
-      "firstName": "Eliana",
-      "lastName": "Eliana",
-      "email": "fefaju@mailinator.com",
-      "age": "57",
-      "numberofChildren": "7",
-      "childrenAge": "8",
-      "description": "Quo non saepe aliqua",
-      "references": "Dolores similique et",
-      "activities": "Pariatur Nostrum ni",
-      "id": 5
     }
   ]
 }
