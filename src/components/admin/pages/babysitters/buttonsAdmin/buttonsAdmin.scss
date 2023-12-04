@@ -1,8 +1,4 @@
-#buttons_admin{
-    .edit_delete{
-        display: flex;
-        gap: 20px;
-        padding-top: 50px;
+
         button{
             padding: 10px 15px;
             border-radius: 15px;
@@ -10,5 +6,3 @@
             border: none;
             color: #f7f9fa;
         }
-    }
-}

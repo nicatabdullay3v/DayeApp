@@ -25,7 +25,7 @@
         .card_parent {
           .name_input {
             display: flex;
-            gap: 20px;
+            gap: 23px;
             padding-top: 15px;
             input {
               width: 266px;
@@ -38,7 +38,7 @@
 
           .email_input {
             display: flex;
-            gap: 23px;
+            gap: 26px;
             padding-top: 15px;
 
             input {
@@ -62,6 +62,37 @@
               border-radius: 10px;
             }
           }
+
+
+          .age_input {
+            display: flex;
+            gap: 36px;
+            padding-top: 15px;
+            input {
+                width: 266px;
+                height: 34px;
+              border: none;
+              border: 1px solid #4d565e;
+              border-radius: 10px;
+            }
+          }
+
+          .child_input {
+            display: flex;
+            gap: 27px;
+            padding-top: 15px;
+            input {
+                width: 266px;
+                height: 34px;
+              border: none;
+              border: 1px solid #4d565e;
+              border-radius: 10px;
+            }
+          }
+
+      
+
+
 
           .description_input,
           .comments_input {
