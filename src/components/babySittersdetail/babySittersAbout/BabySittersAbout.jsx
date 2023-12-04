@@ -14,21 +14,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const BabySittersAbout = () => {
-  let babysitters = useSelector((state)=> state.babysitters.babysitters)
-  let name = useSelector((state)=> state.babysitters)
+  let babysitter = useSelector((state) => state.babysitters.babysitter);
 
   return (
     <section id="baby_sitters_about">
-         <button onClick={()=>{
-          console.log(babysitters);
-          console.log(name);
-
-        }}>
-          asdavsd
-        </button>
       <h1 style={{ backgroundColor: "white", marginBottom: "20px" }}>
         About Me
-     
       </h1>
       <div className="baby_sitters_about">
         <div className="baby_sitters_about_left">
@@ -46,7 +37,9 @@ const BabySittersAbout = () => {
 
               <p> Has children</p>
             </div>
-            <div className="has_children_yes_no yes_no">No</div>
+            <div className="has_children_yes_no yes_no">
+              {babysitter.Haschildren ? "yes" : "NO"}
+            </div>
           </div>
           <div className="location">
             <div className="location_icon_text icon_text">
@@ -54,14 +47,16 @@ const BabySittersAbout = () => {
 
               <p> Preferred babysitting location</p>
             </div>
-            <div className="location_yes_no yes_no">At the babysitters's</div>
+            <div className="location_yes_no yes_no">{babysitter.location}</div>
           </div>
           <div className="education">
             <div className="education_icon_text icon_text">
               <FontAwesomeIcon className="icon" icon={faGraduationCap} />
               <p> Education</p>
             </div>
-            <div className="education_yes_no yes_no">In High School</div>
+            <div className="education_yes_no yes_no">
+              {babysitter.Education}
+            </div>
           </div>
         </div>
         <div className="baby_sitters_about_right">
@@ -70,28 +65,34 @@ const BabySittersAbout = () => {
               <FontAwesomeIcon className="icon" icon={faCarSide} />
               <p>Car</p>
             </div>
-            <div className="car_yes_no yes_no">No</div>
+            <div className="car_yes_no yes_no">
+              {babysitter.car ? "Yes" : "No"}
+            </div>
           </div>
           <div className="smoker">
             <div className="smoker_icon_text icon_text">
               <FontAwesomeIcon className="icon" icon={faSmoking} />
               <p>Smoker</p>
             </div>
-            <div className="smoker_yes_no yes_no">No</div>
+            <div className="smoker_yes_no yes_no">
+              {babysitter.smoker ? "Yes" : "NO"}
+            </div>
           </div>
           <div className="language">
             <div className="language_icon_text icon_text">
               <FontAwesomeIcon className="icon" icon={faLanguage} />
               <p>Languages that i speak</p>
             </div>
-            <div className="language_yes_no yes_no">English</div>
+            <div className="language_yes_no yes_no">{babysitter.Languages}</div>
           </div>
           <div className="favorited">
             <div className="favorited_icon_text icon_text">
               <FontAwesomeIcon className="icon" icon={faHeart} />
               <p>Favorited</p>
             </div>
-            <div className="favorited_yes_no yes_no">15times</div>
+            <div className="favorited_yes_no yes_no">
+              {babysitter.Favorited}times
+            </div>
           </div>
         </div>
       </div>
