@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import NavbarFourth from "../../components/NavbarFourth/NavbarFourth";
 import "../Favorites/Favorites.scss";
 import FavoritesCard from "../../components/FavoritesCard";
+import { fetcBabysitterJobs } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import { useSelector, useDispatch } from "react-redux";
 function index() {
+  const loginParent = JSON.parse(localStorage.getItem("login"));
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetcBabysitterJobs());
+  }, []);
+
+  let parents = useSelector((state) => state.babysitters.babysitterswanted);
+  let parent = parents.find((x) => x.id == loginParent.id);
+  console.log(parent);
   return (
     <div>
       <NavbarFourth />
@@ -19,14 +30,10 @@ function index() {
         <div className="my-favorites">
           <div className="text">My Favorites</div>
           <div className="favorites-box">
-            <FavoritesCard />
-            <FavoritesCard />
-            <FavoritesCard />
-            <FavoritesCard />
-            <FavoritesCard />
-            <FavoritesCard />
-            <FavoritesCard />
-            <FavoritesCard />
+            {parent?.wishList &&
+              parent?.wishList.map((elem) => {
+                return <FavoritesCard elem={elem} />;
+              })}
           </div>
         </div>
       </div>

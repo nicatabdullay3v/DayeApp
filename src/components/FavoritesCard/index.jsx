@@ -1,10 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
 import "../FavoritesCard/FavoritesCard.scss";
-function index() {
+import { fetcBabysitterJobs } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import { useSelector,useDispatch } from "react-redux";
+import axios from "axios";
+function index({elem}) {
+  let dispatch = useDispatch()
+ let loginParent =JSON.parse(localStorage.getItem("login"))
+  const parents = useSelector((state)=> state.babysitters.babysitterswanted)
+let parent =parents.find(x => x.id == loginParent.id);
   return (
     <div>
       <Link style={{ textDecoration: "none" }}>
@@ -12,7 +19,7 @@ function index() {
           <div className="card-left">
             <div className="image">
               <img
-                src="https://cdn.babysits.com/users/a/5/6/3896224/babysitter-3896224-1697038409-rc-w350-h350.avif"
+                src={elem.image}
                 alt=""
               />
             </div>
@@ -20,16 +27,21 @@ function index() {
 
           <dv className="card-right">
             <div className="name">
-              Amanda
+            {elem.firstName}
               <div className="icon">
                 <FontAwesomeIcon
+                onClick={()=>{
+                  axios.patch(`http://localhost:3000/babysitterswanted/${loginParent.id}`,{
+                    wishList : parent.wishList.filter(x => x.id != elem.id)
+                  }).then(dispatch(fetcBabysitterJobs()))
+                }}
                   icon={faHeart}
                   style={{ color: "#59bec9", fontSize: "19px" }}
                 />
               </div>
             </div>
             <div className="information">
-              <div className="city">Dodge City</div>
+              <div className="city">{elem.country}</div>
               <div className="review">
                 <FontAwesomeIcon
                   icon={faStar}
