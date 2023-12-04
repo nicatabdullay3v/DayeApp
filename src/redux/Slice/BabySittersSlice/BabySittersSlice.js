@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 import axios from "axios";
 export const PatchWishList = createAsyncThunk(
-  "users/fetchByIdStatus",
+  "users/PatchWishListStatus",
   async (id, obj) => {
     const response = await axios.patch(
       `http://localhost:3000/babysitters/${id}`,
@@ -123,6 +123,7 @@ export const BabySitters = createSlice({
       state.error = action.payload;
       state.loading = false;
     });
+
   },
 });
 export const {} = BabySitters.actions;

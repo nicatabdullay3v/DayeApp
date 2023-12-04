@@ -16,10 +16,16 @@ import {
 } from "../../../redux/Slice/RegisterSlice/RegisterSlice";
 import NavbarSecond from "../../../components/NavbarSecond/NavbarSecond";
 function RegisterStepOne() {
+  const dispatch = useDispatch();
   const isParent = useSelector((state) => state.babysitterswanted.isParent);
   const userParent = useSelector((state) => state.babysitterswanted.userParent);
+  const userBabysitter = useSelector(
+    (state) => state.babysitterswanted.userBabysitter
+  );
   console.log(userParent);
+  console.log(userBabysitter);
   const [parents, setParents] = useState([]);
+
   useEffect(() => {
     axios("http://localhost:3000/babysitterswanted").then((res) => {
       setParents(res.data);
@@ -36,10 +42,15 @@ function RegisterStepOne() {
     },
     onSubmit: (values) => {
       // alert(JSON.stringify(values, null, 2));
-      console.log(values.email);
+      console.log(values.firstName);
       let findEmail = parents.find((elem) => elem.email == values.email);
       if (isParent) {
         if (!findEmail) {
+          dispatch(getFirstName(values.firstName));
+          dispatch(getLastName(values.lastName));
+          dispatch(getEmail(values.email));
+          dispatch(getPassword(values.password));
+          console.log(userParent);
           navigate("/Register/CreateProfile/ComplateSignUp");
 
           ///

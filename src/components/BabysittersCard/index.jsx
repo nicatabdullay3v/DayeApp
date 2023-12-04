@@ -1,21 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, json } from "react-router-dom";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { faSuitcaseRolling } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import "./BabysittersCard.scss";
-import { useDispatch } from "react-redux";
-import { PatchWishList } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  PatchWishList,
+  fetcBabysitterJobsDeatil,
+} from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import axios from "axios";
+import { fetchUserById } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import { fetcBabysitterJobs } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
+
 function index({ elem }) {
+  let babysitters = useSelector((state) => state.babysitters.babysitters);
+  let parents = useSelector((state) => state.babysitters.babysitterswanted);
+
+  let loginParent = JSON.parse(localStorage.getItem("login"))|| [];
+
   let dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetcBabysitterJobs());
+  }, []);
+  let parent = parents.find((x) => x.id == loginParent.id);
+  console.log(parent?.wishList);
+  let color = parent?.wishList.find((x) => x.id == elem.id) ? "blue" : "gray";
+
   return (
     <div className="babysitter">
       <Link
-        to={`/babysittersDetail/${elem.id}`}
+        // to={`/babysittersDetail/${elem.id}`}
         className="card-link"
         style={{ textDecoration: "none" }}
       >
@@ -58,12 +77,29 @@ function index({ elem }) {
               />
               <div className="heart">
                 <FontAwesomeIcon
-                  id={elem.id}
-                  onClick={(e) => {
-                    console.log(e.currentTarget.id);
+                  onClick={() => {
+                    console.log("salam");
+                    if (parent.wishList.find((x) => x.id == elem.id)) {
+                      axios.patch(`http://localhost:3000/babysitterswanted/${loginParent.id}`,{
+                    wishList : parent.wishList.filter(x => x.id != elem.id)
+                  }).then(dispatch(fetcBabysitterJobs()))
+                    } else {
+                      axios
+                        .patch(
+                          `http://localhost:3000/babysitterswanted/${loginParent.id}`,
+                          {
+                            wishList: [
+                              ...parent?.wishList,
+                              elem
+                             ,
+                            ],
+                          }
+                        )
+                        .then(dispatch(fetcBabysitterJobs()));
+                    }
                   }}
                   icon={faHeart}
-                  style={{ color: "#bdc6ce" }}
+                  style={{ color: color }}
                 />
               </div>
             </div>
