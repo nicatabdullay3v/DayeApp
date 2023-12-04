@@ -7,18 +7,22 @@ import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { faSuitcaseRolling } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import "./BabysittersCard.scss";
+import { useDispatch } from "react-redux";
+import { PatchWishList } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import axios from "axios";
-function index({elem}) {
+function index({ elem }) {
+  let dispatch = useDispatch();
   return (
     <div className="babysitter">
-      <Link className="card-link" style={{ textDecoration: "none" }}>
+      <Link
+        to={`/babysittersDetail/${elem.id}`}
+        className="card-link"
+        style={{ textDecoration: "none" }}
+      >
         <div className="babysitter-card">
           <div className="card-left">
             <div className="image">
-              <img
-                src={elem.image}
-                alt=""
-              />
+              <img src={elem.image} alt="" />
             </div>
             <div className="rating">
               <FontAwesomeIcon
@@ -46,18 +50,21 @@ function index({elem}) {
           </div>
           <div className="card-right">
             <div className="name">
-              <p>Jaida</p>
+              <p>{elem.name}</p>
 
               <FontAwesomeIcon
                 icon={faCircleCheck}
                 style={{ color: "#59bec9" }}
               />
               <div className="heart">
-                <FontAwesomeIcon id={elem.id} onClick={(e)=>{
-                  console.log(e.currentTarget.id);
-                  
-
-                }} icon={faHeart} style={{ color: "#bdc6ce" }} />
+                <FontAwesomeIcon
+                  id={elem.id}
+                  onClick={(e) => {
+                    console.log(e.currentTarget.id);
+                  }}
+                  icon={faHeart}
+                  style={{ color: "#bdc6ce" }}
+                />
               </div>
             </div>
             <div className="supersitter">
@@ -66,25 +73,21 @@ function index({elem}) {
 
             <div className="description">
               <p>Babysitter in Raleigh</p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-                a repudiandae tenetur quos ex eos recusandae praesentium ullam
-                perferendis iure.
-              </p>
+              <p>{elem.about}</p>
             </div>
             <div className="experience">
               <FontAwesomeIcon
                 icon={faSuitcaseRolling}
                 style={{ color: "#59bac9" }}
               />
-              <p>Experience: 6 years</p>
+              <p>Experience: {elem.experience}</p>
             </div>
             <div className="experience">
               <FontAwesomeIcon icon={faCalendar} style={{ color: "#59bac9" }} />
-              <p>Bookings: 1</p>
+              <p>Bookings: {elem.bookings}</p>
             </div>
           </div>
-          <div className="price">$14.00/hr</div>
+          <div className="price">${elem.price}/hr</div>
         </div>
       </Link>
     </div>

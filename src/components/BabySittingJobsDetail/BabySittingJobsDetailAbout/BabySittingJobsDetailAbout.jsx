@@ -1,6 +1,9 @@
-import React from "react";
+import React,{useEffect} from "react";
 import "./BabySittingJobsDetailAbout.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useParams } from "react-router-dom";
+import { fetcBabysitterJobsDeatil } from "../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import { useSelector,useDispatch } from "react-redux";
 import {
   faCarSide,
   faGraduationCap,
@@ -11,7 +14,15 @@ import {
   faPerson,
   faSmoking,
 } from "@fortawesome/free-solid-svg-icons";
+
 const BabySittersAbout = () => {
+  const babysitterswantedData = useSelector((state) => state.babysitters.babysitterwanted);
+  const dispatch = useDispatch();
+  let { id } = useParams();
+  useEffect(() => {
+    dispatch(fetcBabysitterJobsDeatil(id));
+  }, []);
+
   return (
     <section id="baby_sitters_about">
       <h1 style={{ backgroundColor: "white", marginBottom: "20px" }}>

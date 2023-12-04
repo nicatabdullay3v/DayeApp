@@ -63,7 +63,7 @@ const router = createBrowserRouter([
     element: <BabysittersEmployee />,
   },
   {
-    path: "/BabySittingJobsDetail",
+    path: "/BabySittingJobsDetail/:id",
     element: <BabySittingJobsDetail />,
   },
 ]);

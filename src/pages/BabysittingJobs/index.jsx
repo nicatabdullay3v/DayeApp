@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavbarBabysit from "../../components/NavbarBabysit/NavbarBabysit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BabysittersCard from "../../components/BabysittersCard";
@@ -9,11 +9,17 @@ import Discover from "../../components/home/discover/Discover";
 import FooterMiddle from "../../components/home/footermiddle/FooterMiddle";
 import FooterDown from "../../components/home/footerdown/FooterDown";
 import FindJobCard from "../../components/FindJobCard";
-import { useSelector } from "react-redux";
 
+import { fetcBabysitterJobs } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import { useSelector,useDispatch } from "react-redux";
 function index() {
-  const babysitter = useSelector((state)=> state.babysitters.babysitters)
-  console.log(babysitter);
+  const babysitterswanted = useSelector((state)=> state.babysitters.babysitterswanted)
+
+  const dispatch = useDispatch()
+useEffect(() => {
+dispatch(fetcBabysitterJobs())
+}, [])
+
   return (
     <div>
       <NavbarBabysit />
@@ -51,16 +57,12 @@ function index() {
             </div>
           </div>
           <div className="babysitterCards">
-            <FindJobCard />
-            <FindJobCard />
-            <FindJobCard />
-            <FindJobCard />
-            <FindJobCard />
-            <FindJobCard />
-            <FindJobCard />
-            <FindJobCard />
-            <FindJobCard />
-            <FindJobCard />
+            {babysitterswanted.map((elem)=>{
+              return    <FindJobCard elem={elem} />
+
+
+            })}
+  
           </div>
           <div className="pagesDiv">
             <div className="pages">
