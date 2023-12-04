@@ -13,6 +13,9 @@ import Admin from "../pages/Admin/Admin";
 import Parents from "../components/admin/pages/parents/Parents";
 import BabysittersEmployee from "../components/admin/pages/babysitters/BabysittersEmployee";
 import BabySittingJobsDetail from "../pages/BabySittingJobsDetail/BabySittingJobsDetail";
+import RegisterStepTwo from "../pages/Register/RegisterStepTwo/RegisterStepTwo";
+import ParentRegisterStepOne from "../pages/Register/ParentRegisterStepOne/ParentRegisterStepOne";
+import RegisterStepOne from "../pages/Register/RegisterStepOne/RegisterStepOne";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,7 +35,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/Register",
-    element: <Register />,
+    element: <RegisterStepTwo />,
   },
   {
     path: "/BabySitters",
@@ -63,8 +66,16 @@ const router = createBrowserRouter([
     element: <BabysittersEmployee />,
   },
   {
-    path: "/BabySittingJobsDetail/:id",
+    path: "/BabySittingJobsDetail",
     element: <BabySittingJobsDetail />,
+  },
+  {
+    path: "/Register/CreateProfile",
+    element: <RegisterStepOne />,
+  },
+  {
+    path: "/Register/CreateProfile/ComplateSignUp",
+    element: <ParentRegisterStepOne />,
   },
 ]);
 export default router;
