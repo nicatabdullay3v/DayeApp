@@ -14,10 +14,10 @@ const Navbar = () => {
       </div>
       <div className="nav_center">
         <div className="nav_center_text">
-          <Link to="/BabySitters">Babysitters</Link>
+          <Link to="/BabySitters" className="link">Babysitters</Link>
         </div>
         <div className="nav_center_text">
-          <Link to="/BabySittingJobs">Babysitting jobs</Link>
+          <Link to="/BabySittingJobs" className="link">Babysitting jobs</Link>
         </div>
         <div className="nav_center_text">
           <Link className="link" to="/Howitworks">
@@ -31,7 +31,7 @@ const Navbar = () => {
       </div>
       <div className="nav_right">
         <div className="nav_right_button_login">
-          <Link to="/Login">Log in</Link>
+          <Link to="/Login" className="link">Log in</Link>
         </div>
         <div className="nav_right_button_sign_up">
           <Link to="/Register">

@@ -9,7 +9,6 @@ import ButtonsAdmin from "../babysitters/buttonsAdmin/ButtonsAdmin";
 import EditPage from "./EditPage/EditPage";
 import CreatePage from './CreatePage/CreatePage'
 
-
 const Parents = () => {
   const [editPage, seteditPage] = useState(false);
   const [deletePage, setdeletePage] = useState(false);

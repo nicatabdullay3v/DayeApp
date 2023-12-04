@@ -26,9 +26,9 @@ const NavbarAdmin = () => {
         </div>
       </div>
       <div className="nav_right">
-        <div className="nav_right_button_login">
-          <Link to="/Parents">
-            <button className="button_parents">Parents</button>
+        <div className="nav_right_button_login"> 
+          <Link to="/Parents" className="link">
+            <button className="button_parent">Parents</button>
           </Link>
         </div>
         <div className="nav_right_button_sign_up">

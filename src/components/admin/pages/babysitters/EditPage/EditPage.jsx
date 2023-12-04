@@ -1,55 +1,77 @@
-import React from "react";
+import React, {  useEffect } from "react";
+import { fetchUserById } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import { useDispatch, useSelector } from "react-redux";
+const EditPage = ({ seteditID, editID }) => {
 
-const EditPage = () => {
+  console.log(editID);
+
+  const babysittersData = useSelector((state) => state.babysitters.babysitters);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchUserById());
+  }, []);
+
+  let currentlySister;
+  if (babysittersData.find((elem) => elem.id == editID)) {
+       currentlySister = elem;
+  }
+
+  console.log(currentlySister)
   return (
     <section id="edit_page_parent">
       <div className="container">
         <h1 className="change_size">Edit BabySitters</h1>
         <div className="sides_edit">
-          <div className="currently_data">
-            <h2>Currently</h2>
-            <div className="card_parent_currently">
-              <div className="currently_p">
-                <b>Name:</b>
-                <span>John Doe</span>
-              </div>
 
-              <div className="currently_span">
-                <b>Email:</b>
-                <span>JohnDoe2000@gmail.com</span>
-              </div>
+          {
+            currentlySister ?
+              <div className="currently_data">
+                <h2>Currently</h2>
+                <div className="card_parent_currently">
+                  <div className="currently_p">
+                    <b>Name:</b>
+                    <span>{currentlySister.name}</span>
+                  </div>
 
-              <div className="currently_span">
-                <b>Price:</b>
-                <span>Hour 17$</span>
-              </div>
+                  <div className="currently_span">
+                    <b>Email:</b>
+                    <span>JohnDoe2000@gmail.com</span>
+                  </div>
 
-              <div className="description_span">
-                <b>Description:</b>
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Repellendus facere ipsa fugiat. Aspernatur, placeat.
-                  Temporibus sed exercitationem voluptatum placeat iure.
-                </p>
-              </div>
-              <div className="comments_span">
-                <b>References:</b>
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Expedita unde quas velit eveniet blanditiis.
-                </p>
-              </div>
+                  <div className="currently_span">
+                    <b>Price:</b>
+                    <span>Hour {currentlySister.price}$</span>
+                  </div>
 
-              <div className="comments_span">
-                <b>Activities:</b>
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Expedita unde quas velit eveniet blanditiis.
-                </p>
-              </div>
+                  <div className="description_span">
+                    <b>Description:</b>
+                    <p>
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      Repellendus facere ipsa fugiat. Aspernatur, placeat.
+                      Temporibus sed exercitationem voluptatum placeat iure.
+                    </p>
+                  </div>
+                  <div className="comments_span">
+                    <b>References:</b>
+                    <p>
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      Expedita unde quas velit eveniet blanditiis.
+                    </p>
+                  </div>
 
-            </div>
-          </div>
+                  <div className="comments_span">
+                    <b>Activities:</b>
+                    <p>
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      Expedita unde quas velit eveniet blanditiis.
+                    </p>
+                  </div>
+
+                </div>
+              </div> : console.log("not found sister")
+          }
+
           <div className="change_to">
             <h2>Change to</h2>
             <div className="card_parent">
