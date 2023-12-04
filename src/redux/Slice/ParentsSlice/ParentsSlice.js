@@ -41,6 +41,9 @@ export const fetcBabysitterJobs = createAsyncThunk(
     return response.data;
   }
 );
+
+
+
 export const fetcBabysitterJobsDeatil = createAsyncThunk(
   "users/fetcBabysitterJobsDeatilStatus",
   async (id) => {
@@ -64,8 +67,8 @@ export const fetchUserByIdDetail = createAsyncThunk(
     return response.data;
   }
 );
-export const BabySitters = createSlice({
-  name: "babysittersData",
+export const parents = createSlice({
+  name: "ParentsData",
   initialState: {
     babysitterwanted: [],
     babysitterswanted: [],
@@ -125,6 +128,6 @@ export const BabySitters = createSlice({
     });
   },
 });
-export const {} = BabySitters.actions;
+export const {} = parents.actions;
 
-export default BabySitters.reducer;
+export default parents.reducer;

@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const CardsAdmin = ({
   seteditPage,
-  setdeletePage,
+
   setcreatePage,
   seteditID,
   editID,
@@ -59,7 +59,7 @@ const CardsAdmin = ({
                     id={elem.id}
                     onClick={() => {
                       seteditPage(true);
-                      setdeletePage(false);
+                    
                       setcreatePage(false);
                       seteditID(elem.id);
                     }}
