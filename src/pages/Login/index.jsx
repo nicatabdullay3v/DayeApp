@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.scss";
+import axios from "axios";
 import NavbarSecond from "../../components/NavbarSecond/NavbarSecond";
+import { useNavigate } from "react-router-dom";
 function index() {
+  const [parents, setParents] = useState([]);
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+  const navigate = useNavigate();
+  useEffect(() => {
+    axios("http://localhost:3000/babysitterswanted").then((res) => {
+      setParents(res.data);
+    });
+  }, []);
   return (
     <>
       <NavbarSecond />
@@ -17,16 +28,41 @@ function index() {
           <div className="LoginText">Log in or sign up</div>
 
           <div className="email-input">
-            <input placeholder="Email" type="text" />
+            <input
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              placeholder="Email"
+              type="text"
+            />
           </div>
 
           <div className="pass-input">
-            <input placeholder="Password " type="text" />
+            <input
+              onChange={(e) => {
+                setPass(e.target.value);
+              }}
+              placeholder="Password "
+              type="text"
+            />
             {/* <FontAwesomeIcon icon={faEye} /> */}
           </div>
 
           <div className="button-signUp">
-            <button>Log in</button>
+            <button
+              onClick={() => {
+                let find = parents.find(
+                  (elem) => elem.email == email && elem.password == pass
+                );
+                console.log(find);
+                if (find) {
+                  localStorage.setItem("login", JSON.stringify(find));
+                  navigate("/");
+                }
+              }}
+            >
+              Log in
+            </button>
           </div>
         </div>
         <div className="text">or continue with</div>

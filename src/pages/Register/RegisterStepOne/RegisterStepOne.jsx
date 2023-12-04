@@ -8,7 +8,12 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
-
+import {
+  getFirstName,
+  getEmail,
+  getLastName,
+  getPassword,
+} from "../../../redux/Slice/RegisterSlice/RegisterSlice";
 import NavbarSecond from "../../../components/NavbarSecond/NavbarSecond";
 function RegisterStepOne() {
   const isParent = useSelector((state) => state.babysitterswanted.isParent);
@@ -17,7 +22,6 @@ function RegisterStepOne() {
   const [parents, setParents] = useState([]);
   useEffect(() => {
     axios("http://localhost:3000/babysitterswanted").then((res) => {
-      console.log(res.data);
       setParents(res.data);
     });
   }, []);
@@ -36,10 +40,11 @@ function RegisterStepOne() {
       let findEmail = parents.find((elem) => elem.email == values.email);
       if (isParent) {
         if (!findEmail) {
+          navigate("/Register/CreateProfile/ComplateSignUp");
+
           ///
         }
       }
-      // navigate("/Register/CreateProfile/ComplateSignUp");
     },
   });
   return (
