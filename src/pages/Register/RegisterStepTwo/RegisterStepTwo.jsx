@@ -13,6 +13,8 @@ function RegisterStepTwo() {
   const navigate = useNavigate();
   const [selected, setSelected] = useState("");
   const isParent = useSelector((state) => state.babysitterswanted.isParent);
+
+  console.log(isParent);
   console.log(selected);
   const handleChange = (event) => {
     setSelected(event.target.value);
@@ -52,6 +54,7 @@ function RegisterStepTwo() {
         <div className="button">
           <button
             onClick={() => {
+
               if (selected && selected === "lookingforabysitter") {
                 dispatch(getIsParent(true));
                 navigate("/Register/CreateProfile");
@@ -60,6 +63,8 @@ function RegisterStepTwo() {
                 dispatch(getIsBabysitter(true));
                 navigate("/Register/CreateProfile");
               }
+
+
             }}
           >
             Next

@@ -6,6 +6,6 @@ export default configureStore({
   reducer: {
     babysitters: babysitter,
     babysitterswanted: babysitterswanted,
-    babysitterswanted:parents,
+    // babysitterswanted:parents
   },
 });

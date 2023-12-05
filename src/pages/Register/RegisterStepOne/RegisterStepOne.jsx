@@ -48,7 +48,6 @@ function RegisterStepOne() {
     },
     onSubmit: (values) => {
       // alert(JSON.stringify(values, null, 2));
-      console.log(values.email);
       let findEmail = parents.find((elem) => elem.email == values.email);
       console.log(findEmail);
       if (isParent) {
