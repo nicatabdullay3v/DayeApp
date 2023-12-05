@@ -21,7 +21,7 @@ const BabySittingJobsDetailCenter = () => {
               <BabySittingJobsDetailCildren />
               <BabySittingJobsDetailAchievements />
               <BabySittingJobsDetailSafety/>
-              <BabySittingJobsDetailAvailability/>
+              {/* <BabySittingJobsDetailAvailability/> */}
               <BabySittingJobDetailAbout/>
               <BabySittingJobsDetailCom/>
               <BabySittingJobsDetailReview/>
