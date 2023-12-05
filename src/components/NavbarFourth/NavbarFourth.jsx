@@ -33,12 +33,18 @@ function NavbarFourth() {
         </div>
 
         <div className="nav_right_button_books">
-          <Link to='/Admin'>
+          <Link to="/Admin">
             <FontAwesomeIcon
               icon={faCalendar}
               style={{ color: "#323940", fontSize: "19px" }}
             />
           </Link>
+        </div>
+        <div className="comment-icon">
+          <FontAwesomeIcon
+            style={{ color: "#323940", fontSize: "19px" }}
+            icon={faComment}
+          />
         </div>
         <div className="comment-icon">
           <FontAwesomeIcon

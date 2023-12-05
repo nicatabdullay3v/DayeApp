@@ -15,10 +15,10 @@ import FooterDown from "../../components/home/footerdown/FooterDown";
 import NavbarFourth from "../../components/NavbarFourth/NavbarFourth";
 
 const Home = () => {
+  let login = JSON.parse(localStorage.getItem("login"));
   return (
     <>
-      {/* <NavbarFourth /> */}
-      <Navbar />
+      {login ? <NavbarFourth /> : <Navbar />}
       <HeroSection />
       <Cards />
       <WeKnow />

@@ -53,6 +53,7 @@ function BabysitterStepOne() {
         Babysitter.experienceChildrenAge = selectedAge;
         Babysitter.price = values.money;
         Babysitter.about = values.about;
+        Babysitter.wishList = [];
         axios
           .post("http://localhost:3000/babysitters", Babysitter)
           .then((res) => {

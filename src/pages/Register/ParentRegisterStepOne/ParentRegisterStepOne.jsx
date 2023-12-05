@@ -43,6 +43,7 @@ function ParentRegisterStepOne() {
         Parent.numberofChildren = values.numberofchildren;
         Parent.about = values.about;
         Parent.childrenAge = selected;
+        Parent.wishList = [];
         axios
           .post("http://localhost:3000/babysitterswanted", Parent)
           .then((res) => console.log(res.data));
