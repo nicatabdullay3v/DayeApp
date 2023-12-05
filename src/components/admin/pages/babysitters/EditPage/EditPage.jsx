@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import {
   fetchUserById,
-  PatchSitters,
+
 } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 const EditPage = ({ seteditID, editID }) => {
   const babysittersData = useSelector((state) => state.babysitters.babysitters);
@@ -35,7 +36,7 @@ const EditPage = ({ seteditID, editID }) => {
     }
   }, [currentlySister]);
 
-  const handleEdit = async () => {
+  const handleEdit = () => {
     const updatedData = {
       name: formData.name,
       email: formData.email,
@@ -44,8 +45,11 @@ const EditPage = ({ seteditID, editID }) => {
       references: formData.references,
       activities: formData.activities,
     };
+    axios.patch(
+      `http://localhost:3000/babysitters/${editID}`,
+      updatedData
+    ).then(dispatch(fetchUserById()))
 
-    await dispatch(PatchSitters({ id: editID, data: updatedData }));
   };
 
   return (

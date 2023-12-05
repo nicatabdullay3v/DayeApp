@@ -8,9 +8,10 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "../buttonsAdmin/ButtonsAdmin.scss";
+import axios from "axios";
 import {
   fetchUserById,
-  DeleteBabysitter,
+ 
 } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -20,7 +21,9 @@ const CardsAdmin = ({ seteditPage, setcreatePage, seteditID, editID }) => {
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {
-    dispatch(DeleteBabysitter(id));
+    axios.delete(
+      `http://localhost:3000/babysitters/${id}`
+    ).then(dispatch(fetchUserById()))
   };
 
   useEffect(() => {

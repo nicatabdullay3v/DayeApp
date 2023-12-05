@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from "react";
 import {
   fetcBabysitterJobs,
-  PatchParents,
-} from "../../../../../redux/Slice/ParentsSlice/ParentsSlice";
+  
+} from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { useDispatch, useSelector } from "react-redux";
 import "./editpage.scss";
-
+import axios from "axios";
 const EditPage = ({editID}) => {
 
 
-  const ParentsData = useSelector((state) => state.babysitterswanted.babysitterswanted);
+  const ParentsData = useSelector((state) => state.babysitters.babysitterswanted);
   const currentlySister = ParentsData.find((elem) => elem.id === editID);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetcBabysitterJobs(editID));
   }, [dispatch, editID]);
+
+
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -36,15 +38,18 @@ const EditPage = ({editID}) => {
     }
   }, [currentlySister]);
 
-  const handleEdit = async () => {
+  const handleEdit =  () => {
     const updatedData = {
       firstName: formData.firstName,
       email: formData.email,
       about: formData.about,
       description: formData.description,
     };
-
-    await dispatch(PatchParents({ id: editID, data: updatedData }));
+    axios.patch(
+      `http://localhost:3000/babysitterswanted/${editID}`,
+      updatedData
+    ).then(dispatch(fetcBabysitterJobs()))
+ 
   };
 
   return (

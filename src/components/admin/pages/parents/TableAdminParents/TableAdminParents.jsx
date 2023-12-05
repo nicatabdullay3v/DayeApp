@@ -9,7 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "../../../pages/babysitters/buttonsAdmin/ButtonsAdmin.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { fetcBabysitterJobs, DeleteParent } from "../../../../../redux/Slice/ParentsSlice/ParentsSlice";
+import { fetcBabysitterJobs } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 
 const TableAdminParents = ({
   seteditPage,
@@ -17,7 +17,7 @@ const TableAdminParents = ({
   seteditID,
   editID,
 }) => {
-  const ParentsData = useSelector((state) => state.babysitterswanted.babysitterswanted);
+  const ParentsData = useSelector((state) => state.babysitters.babysitterswanted);
 
   const dispatch = useDispatch();
 

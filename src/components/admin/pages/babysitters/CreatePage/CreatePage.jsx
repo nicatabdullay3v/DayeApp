@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { PushBabySitters } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+// import { PushBabySitters } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import "./createPage.scss";
+import axios from "axios";
+import { fetchUserById } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 const CreatePage = () => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
@@ -22,8 +24,9 @@ const CreatePage = () => {
       references: formData.references,
       activities: formData.activities,
     };
+    axios.post(`http://localhost:3000/babysitters/`, newObject).then(dispatch(fetchUserById()))
 
-    dispatch(PushBabySitters(newObject));
+    // dispatch(PushBabySitters(newObject));
   };
 
   const handleChange = (e) => {
