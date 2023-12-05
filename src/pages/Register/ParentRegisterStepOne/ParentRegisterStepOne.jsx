@@ -5,23 +5,28 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  getParentAdress,
+  getAdress,
   getNumberofChildren,
   getChildrenAge,
-  getParentAbout,
+  getAbout,
 } from "../../../redux/Slice/RegisterSlice/RegisterSlice";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 function ParentRegisterStepOne() {
+  const [[post], setPost] = useState(false);
   const dispatch = useDispatch();
   const userParent = useSelector((state) => state.babysitterswanted.userParent);
+
+  const isParent = useSelector((state) => state.babysitterswanted.isParent);
+  const isBabysitter = useSelector(
+    (state) => state.babysitterswanted.isBabysitter
+  );
   const [selected, setSelected] = useState("");
   useEffect(() => {
     axios
       .post("http://localhost:3000/babysitterswanted", userParent)
       .then((res) => console.log(res.data));
-  }, [userParent]);
-  console.log(userParent);
+  }, [post]);
   let navigate = useNavigate();
   const handleChange = (event) => {
     setSelected(event.target.value);
@@ -35,12 +40,15 @@ function ParentRegisterStepOne() {
     },
     onSubmit: (values) => {
       // alert(JSON.stringify(values, null, 2));
-      dispatch(getParentAdress(values.address));
-      dispatch(getNumberofChildren(values.numberofchildren));
-      dispatch(getParentAbout(values.about));
-      dispatch(getChildrenAge(selected));
+      if (isParent) {
+        dispatch(getAdress(values.address));
+        dispatch(getNumberofChildren(values.numberofchildren));
+        dispatch(getAbout(values.about));
+        dispatch(getChildrenAge(selected));
+        setPost((post) => !post);
 
-      navigate("/");
+        navigate("/");
+      }
     },
   });
 

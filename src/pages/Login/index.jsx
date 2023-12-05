@@ -5,6 +5,7 @@ import NavbarSecond from "../../components/NavbarSecond/NavbarSecond";
 import { useNavigate } from "react-router-dom";
 function index() {
   const [parents, setParents] = useState([]);
+  const [babysitters, setBabysitters] = useState([]);
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const navigate = useNavigate();
@@ -12,7 +13,11 @@ function index() {
     axios("http://localhost:3000/babysitterswanted").then((res) => {
       setParents(res.data);
     });
+    axios("http://localhost:3000/babysitters").then((res) => {
+      setBabysitters(res.data);
+    });
   }, []);
+
   return (
     <>
       <NavbarSecond />
@@ -51,13 +56,27 @@ function index() {
           <div className="button-signUp">
             <button
               onClick={() => {
-                let find = parents.find(
+               
+                let findParent = parents.find(
                   (elem) => elem.email == email && elem.password == pass
                 );
-                console.log(find);
-                if (find) {
-                  localStorage.setItem("login", JSON.stringify(find));
-                  navigate("/");
+                let findBabysitter = babysitters.find(
+                  (elem) => elem.email == email && elem.password == pass
+                );
+                if (findParent || findBabysitter) {
+                  console.log("salam");
+                  if (findParent) {
+                    localStorage.setItem("login", JSON.stringify(findParent));
+                    localStorage.setItem("isParent", true);
+                    navigate("/");
+                  } else if (findBabysitter) {
+                    localStorage.setItem(
+                      "login",
+                      JSON.stringify(findBabysitter)
+                    );
+                    localStorage.setItem("isBabysitter", true);
+                    navigate("/");
+                  }
                 }
               }}
             >

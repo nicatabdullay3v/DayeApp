@@ -20,13 +20,15 @@ function index({ elem }) {
   let babysitters = useSelector((state) => state.babysitters.babysitters);
   let parents = useSelector((state) => state.babysitters.babysitterswanted);
 
-  let loginParent = JSON.parse(localStorage.getItem("login"))|| [];
+  let loginParent = JSON.parse(localStorage.getItem("login")) || [];
 
   let dispatch = useDispatch();
-
+  let isBabysitter = JSON.parse(localStorage.getItem("isBabysitter")) || [];
   useEffect(() => {
     dispatch(fetcBabysitterJobs());
+    // dispatch(fetchUserById())
   }, []);
+  let isParent = JSON.parse(localStorage.getItem("isParent")) || []
   let parent = parents.find((x) => x.id == loginParent.id);
   console.log(parent?.wishList);
   let color = parent?.wishList.find((x) => x.id == elem.id) ? "blue" : "gray";
@@ -79,27 +81,32 @@ function index({ elem }) {
                 <FontAwesomeIcon
                   onClick={() => {
                     console.log("salam");
-                    if (parent.wishList.find((x) => x.id == elem.id)) {
-                      axios.patch(`http://localhost:3000/babysitterswanted/${loginParent.id}`,{
-                    wishList : parent.wishList.filter(x => x.id != elem.id)
-                  }).then(dispatch(fetcBabysitterJobs()))
-                    } else {
-                      axios
-                        .patch(
-                          `http://localhost:3000/babysitterswanted/${loginParent.id}`,
-                          {
-                            wishList: [
-                              ...parent?.wishList,
-                              elem
-                             ,
-                            ],
-                          }
-                        )
-                        .then(dispatch(fetcBabysitterJobs()));
+                    if (isParent) {
+                      if (parent.wishList.find((x) => x.id == elem.id)) {
+                        axios
+                          .patch(
+                            `http://localhost:3000/babysitterswanted/${loginParent.id}`,
+                            {
+                              wishList: parent.wishList.filter(
+                                (x) => x.id != elem.id
+                              ),
+                            }
+                          )
+                          .then(dispatch(fetcBabysitterJobs()));
+                      } else {
+                        axios
+                          .patch(
+                            `http://localhost:3000/babysitterswanted/${loginParent.id}`,
+                            {
+                              wishList: [...parent?.wishList, elem],
+                            }
+                          )
+                          .then(dispatch(fetcBabysitterJobs()));
+                      }
                     }
                   }}
                   icon={faHeart}
-                  style={{ color: color }}
+                  style={{ color: isBabysitter ?"gray"  : color  }}
                 />
               </div>
             </div>

@@ -18,12 +18,18 @@ import NavbarSecond from "../../../components/NavbarSecond/NavbarSecond";
 function RegisterStepOne() {
   const dispatch = useDispatch();
   const isParent = useSelector((state) => state.babysitterswanted.isParent);
+  console.log(isParent);
+  const isBabysitter = useSelector(
+    (state) => state.babysitterswanted.isBabysitter
+  );
+  console.log(isBabysitter);
+
   const userParent = useSelector((state) => state.babysitterswanted.userParent);
   const userBabysitter = useSelector(
     (state) => state.babysitterswanted.userBabysitter
   );
-  console.log(userParent);
-  console.log(userBabysitter);
+  // console.log(userParent);
+  // console.log(userBabysitter);
   const [parents, setParents] = useState([]);
 
   useEffect(() => {
@@ -42,8 +48,8 @@ function RegisterStepOne() {
     },
     onSubmit: (values) => {
       // alert(JSON.stringify(values, null, 2));
-      console.log(values.firstName);
       let findEmail = parents.find((elem) => elem.email == values.email);
+      console.log(findEmail);
       if (isParent) {
         if (!findEmail) {
           dispatch(getFirstName(values.firstName));
@@ -54,6 +60,21 @@ function RegisterStepOne() {
           navigate("/Register/CreateProfile/ComplateSignUp");
 
           ///
+        } else {
+          alert("this email already used!");
+        }
+      } else if (isBabysitter) {
+        if (!findEmail) {
+          dispatch(getFirstName(values.firstName));
+          dispatch(getLastName(values.lastName));
+          dispatch(getEmail(values.email));
+          dispatch(getPassword(values.password));
+          console.log(userParent);
+          navigate("/Register/CreateProfile/ComplateSignUpLikeBabysitter");
+
+          ///
+        } else {
+          alert("this email already used!");
         }
       }
     },
