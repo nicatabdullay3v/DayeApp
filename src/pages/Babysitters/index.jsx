@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
 import NavbarBabysit from "../../components/NavbarBabysit/NavbarBabysit";
+import NavbarBabysitters from "../../components/NavbarBabysitters/NavbarBabysitters";
+import NavbarParents from "../../components/NavbarParents/NavbarParents";
+
 import "./Babysitters.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BabysittersCard from "../../components/BabysittersCard";
@@ -13,6 +16,9 @@ import { useSelector,useDispatch } from "react-redux";
 import { v4 as uuidv4 } from 'uuid';
 import { fetchUserById } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
 function index() {
+  let isParent = JSON.parse(localStorage.getItem("isParent"));
+
+
   const dispatch = useDispatch()
   const babysitters = useSelector((state)=> state.babysitters.babysitters)
   console.log(babysitters);
@@ -24,7 +30,13 @@ useEffect(() => {
 
   return (
     <div>
-      <NavbarBabysit />
+  {isParent ? (
+        <NavbarParents />
+      ) : (
+        <NavbarBabysit />
+      )}
+
+
       <div className="topics">
         <div className="topic">
           <p>Type</p> <span>1</span>

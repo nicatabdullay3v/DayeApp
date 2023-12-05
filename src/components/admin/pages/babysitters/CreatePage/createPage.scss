@@ -10,17 +10,17 @@
     display: flex;
     justify-content: center;
     .right_side_create {
-        .create_btn {
-            padding-top: 20px;
-            button {
-              padding: 10px 15px;
-              border-radius: 15px;
-              background-color: #389ba7;
-              border: none;
-              color: #f7f9fa;
-              cursor: pointer;
-            }
-          }
+      .create_btn {
+        padding-top: 20px;
+        button {
+          padding: 10px 15px;
+          border-radius: 15px;
+          background-color: #389ba7;
+          border: none;
+          color: #f7f9fa;
+          cursor: pointer;
+        }
+      }
       .create_to {
         .card_parent {
           .name_input {
@@ -36,14 +36,28 @@
             }
           }
 
+          .agesister_input {
+            display: flex;
+            gap: 39px;
+            padding-top: 15px;
+
+            input {
+              width: 266px;
+              height: 34px;
+              border: none;
+              border: 1px solid #4d565e;
+              border-radius: 10px;
+            }
+          }
+
           .email_input {
             display: flex;
             gap: 26px;
             padding-top: 15px;
 
             input {
-                width: 266px;
-                height: 34px;
+              width: 266px;
+              height: 34px;
               border: none;
               border: 1px solid #4d565e;
               border-radius: 10px;
@@ -52,25 +66,37 @@
 
           .price_input {
             display: flex;
-            gap: 30px;
+            gap: 31px;
             padding-top: 15px;
             input {
-                width: 266px;
-                height: 34px;
+              width: 266px;
+              height: 34px;
               border: none;
               border: 1px solid #4d565e;
               border-radius: 10px;
             }
           }
 
-
           .age_input {
             display: flex;
             gap: 36px;
             padding-top: 15px;
             input {
-                width: 266px;
-                height: 34px;
+              width: 266px;
+              height: 34px;
+              border: none;
+              border: 1px solid #4d565e;
+              border-radius: 10px;
+            }
+          }
+
+          .country_input {
+            display: flex;
+            gap: 7px;
+            padding-top: 15px;
+            input {
+              width: 266px;
+              height: 34px;
               border: none;
               border: 1px solid #4d565e;
               border-radius: 10px;
@@ -82,23 +108,25 @@
             gap: 27px;
             padding-top: 15px;
             input {
-                width: 266px;
-                height: 34px;
+              width: 266px;
+              height: 34px;
               border: none;
               border: 1px solid #4d565e;
               border-radius: 10px;
             }
           }
 
-      
-
-
-
           .description_input,
           .comments_input {
             label {
               display: block;
               padding-top: 20px;
+
+            }
+            textarea{
+              padding: 0px;
+              width: 300px;
+              height: 80px;
             }
           }
         }

@@ -3,11 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 import { DataGrid } from "@mui/x-data-grid";
 import "../buttonsAdmin/ButtonsAdmin.scss";
 import axios from "axios";
-import './CardsAdmin.scss'
-import {
-  fetchUserById,
- 
-} from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import "./CardsAdmin.scss";
+import { fetchUserById } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const CardsAdmin = ({ seteditPage, setcreatePage, seteditID, editID }) => {
@@ -16,15 +13,14 @@ const CardsAdmin = ({ seteditPage, setcreatePage, seteditID, editID }) => {
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {
-    axios.delete(
-      `http://localhost:3000/babysitters/${id}`
-    ).then(dispatch(fetchUserById()))
+    axios
+      .delete(`http://localhost:3000/babysitters/${id}`)
+      .then(dispatch(fetchUserById()));
   };
 
   useEffect(() => {
     dispatch(fetchUserById());
   }, []);
-
 
   const columns = [
     { field: "id", headerName: "BabySitters ID", flex: 1 },
@@ -57,7 +53,11 @@ const CardsAdmin = ({ seteditPage, setcreatePage, seteditID, editID }) => {
       renderCell: (params) => (
         <button
           className="button_employee"
-          onClick={() => handleDelete(params.row.id)}
+          onClick={() => {
+            seteditPage(false);
+            setcreatePage(false);
+            handleDelete(params.row.id);
+          }}
         >
           Delete
         </button>
@@ -65,16 +65,15 @@ const CardsAdmin = ({ seteditPage, setcreatePage, seteditID, editID }) => {
     },
   ];
 
-
   return (
     <div className="CardsAdmin" style={{ height: 400, width: "100%" }}>
-    <DataGrid
-      rows={babysittersData}
-      columns={columns}
-      pageSize={10}
-      checkboxSelection
-    />
-  </div>
+      <DataGrid
+        rows={babysittersData}
+        columns={columns}
+        pageSize={10}
+        checkboxSelection
+      />
+    </div>
   );
 };
 

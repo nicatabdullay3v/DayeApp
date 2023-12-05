@@ -10,7 +10,6 @@ import CreatePage from "./CreatePage/CreatePage";
 
 const Parents = () => {
   const [editPage, seteditPage] = useState(false);
-
   const [createPage, setcreatePage] = useState(false);
   const [editID, seteditID] = useState(0);
   return (
@@ -33,8 +32,14 @@ const Parents = () => {
         />
       </div>
 
-      {editPage ? <EditPage seteditID={seteditID} editID={editID}/> : null}
-      {createPage ? <CreatePage /> : null}
+      {editPage ? (
+        <EditPage
+          seteditID={seteditID}
+          editID={editID}
+          seteditPage={seteditPage}
+        />
+      ) : null}
+      {createPage ? <CreatePage setcreatePage={setcreatePage} /> : null}
     </section>
   );
 };

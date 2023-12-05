@@ -2,7 +2,6 @@ import React from "react";
 import Cards from "../../components/home/cards/Cards";
 import Navbar from "../../components/Navbar/Navbar";
 import HeroSection from "../../components/home/herosection/HeroSection";
-
 import FindBaby from "../../components/home/findbaby/FindBaby";
 import WeKnow from "../../components/home/weknow/WeKnow";
 import Support from "../../components/home/support/Support";
@@ -12,13 +11,33 @@ import Climate from "../../components/home/climate/Climate";
 import FooterUp from "../../components/home/footerup/FooterUp";
 import FooterMiddle from "../../components/home/footermiddle/FooterMiddle";
 import FooterDown from "../../components/home/footerdown/FooterDown";
-import NavbarFourth from "../../components/NavbarFourth/NavbarFourth";
+import NavbarBabysitters from "../../components/NavbarBabysitters/NavbarBabysitters";
+import NavbarParents from "../../components/NavbarParents/NavbarParents";
+
+// import NavBarThird from "../../components/NavBarThird/NavBarThird";
+// import NavbarBabysit from "../../components/NavbarBabysit/NavbarBabysit";
 
 const Home = () => {
   let login = JSON.parse(localStorage.getItem("login"));
+  let isBabySitters = JSON.parse(localStorage.getItem("isBabysitter"));
+  let isParent = JSON.parse(localStorage.getItem("isParent"));
+
   return (
     <>
-      {login ? <NavbarFourth /> : <Navbar />}
+      {isBabySitters ? (
+        <NavbarBabysitters />
+      ) : isParent ? (
+        <NavbarParents />
+      ) : (
+        <Navbar />
+      )}
+
+{/* <NavBarThird/>
+<NavbarBabysit />
+<Navbar />
+<NavbarBabysitters /> */}
+
+
       <HeroSection />
       <Cards />
       <WeKnow />

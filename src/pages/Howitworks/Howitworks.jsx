@@ -1,5 +1,6 @@
 import React from 'react'
 import NavbarSecond from '../../components/NavbarSecond/NavbarSecond'
+import NavbarParents from "../../components/NavbarParents/NavbarParents";
 import Header from '../../components/HowItworks/Header/Header'
 import HowItworksHero from '../../components/HowItworks/HowitworksHero/Howitworkshero'
 import Why from '../../components/HowItworks/Why/Why'
@@ -14,9 +15,16 @@ import Discover from "../../components/home/discover/Discover"
 import FooterMiddle from "./../../components/home/footermiddle/FooterMiddle"
 import FooterDown from "./../../components/home/footerdown/FooterDown"
 const Howitworks = () => {
+  let isParent = JSON.parse(localStorage.getItem("isParent"));
   return (
 <>
-<NavbarSecond/>
+
+{isParent ? (
+        <NavbarParents />
+      ) : (
+        <NavbarSecond />
+      )}
+
 <Header/>
 <HowItworksHero/>
 <Why/>

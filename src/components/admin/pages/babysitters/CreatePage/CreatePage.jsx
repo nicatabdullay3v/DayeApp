@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-// import { PushBabySitters } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import "./createPage.scss";
 import axios from "axios";
 import { fetchUserById } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
-const CreatePage = () => {
+const CreatePage = ({setcreatePage}) => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: "",
@@ -18,15 +17,18 @@ const CreatePage = () => {
   const handleCreate = () => {
     const newObject = {
       name: formData.name,
+      age: formData.age,
       email: formData.email,
+      country: formData.country,
       price: formData.price,
       description: formData.description,
       references: formData.references,
       activities: formData.activities,
     };
-    axios.post(`http://localhost:3000/babysitters/`, newObject).then(dispatch(fetchUserById()))
-
-    // dispatch(PushBabySitters(newObject));
+    axios
+      .post(`http://localhost:3000/babysitters/`, newObject)
+      .then(dispatch(fetchUserById()));
+      setcreatePage(false);
   };
 
   const handleChange = (e) => {
@@ -54,6 +56,18 @@ const CreatePage = () => {
                   />
                 </div>
 
+                <div className="agesister_input">
+                  <label htmlFor="age">Age:</label>
+                  <input
+                    type="number"
+                    name="age"
+                    id="age"
+                    placeholder="Age"
+                    value={formData.age}
+                    onChange={handleChange}
+                  />
+                </div>
+
                 <div className="email_input">
                   <label htmlFor="emal">Email:</label>
                   <input
@@ -62,6 +76,18 @@ const CreatePage = () => {
                     id="email"
                     placeholder="Email"
                     value={formData.email}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div className="country_input">
+                  <label htmlFor="country">Country:</label>
+                  <input
+                    type="text"
+                    name="country"
+                    id="country"
+                    placeholder="Country"
+                    value={formData.country}
                     onChange={handleChange}
                   />
                 </div>
@@ -96,8 +122,8 @@ const CreatePage = () => {
                   <textarea
                     name="references"
                     id="references"
-                    cols="40"
-                    rows="5"
+                    cols="32"
+                    rows="1"
                     placeholder="Your reference here"
                     value={formData.references}
                     onChange={handleChange}

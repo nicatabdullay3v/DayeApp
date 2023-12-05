@@ -29,14 +29,13 @@ const BabysittersEmployee = () => {
         </div>
         <CardsAdmin
           seteditPage={seteditPage}
-       
           setcreatePage={setcreatePage}
           seteditID={seteditID}
           editID={editID}
         />
       </div>
-      {editPage ? <EditPage seteditID={seteditID} editID={editID} /> : null}
-      {createPage ? <CreatePage /> : null}
+      {editPage ? <EditPage  editID={editID}  seteditPage={seteditPage}/> : null}
+      {createPage ? <CreatePage  setcreatePage={setcreatePage}/> : null}
     </section>
   );
 };

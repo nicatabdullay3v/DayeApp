@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import  { Virtual, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import NavbarParents from "../../components/NavbarParents/NavbarParents";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
@@ -17,12 +18,21 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 const Pricing = () => {
+  let isParent = JSON.parse(localStorage.getItem("isParent"));
   const [swiperRef, setSwiperRef] = useState(null);
-
+  let login = JSON.parse(localStorage.getItem("login"));
   return (
     <>
       <section id="pricing_section">
+
+
+      {isParent ? (
+        <NavbarParents />
+      ) : (
         <NavbarSecond />
+      )}
+
+
         <div className="container">
           <div className="li_links">
           <Swiper

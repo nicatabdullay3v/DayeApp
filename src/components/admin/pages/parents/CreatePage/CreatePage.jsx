@@ -1,45 +1,48 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-
-import { PushParent } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import axios from "axios";
+import "./CreatePage.scss";
+
 import { fetcBabysitterJobs } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 
-const CreatePage = () => {
+const CreatePage = ({ setcreatePage }) => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     firstName: "",
+    lastName: "",
     email: "",
-    age: 0,
+    address: "",
     numberofChildren: 0,
     childrenAge: "",
     description: "",
-    references: "",
-    activities: "",
+    // references: "",
+    // activities: "",
   });
 
   const handleCreate = () => {
     const newObject = {
       firstName: formData.firstName,
+      lastName: formData.lastName,
       email: formData.email,
-      age: formData.age,
+      address: formData.address,
       numberofChildren: formData.numberofChildren,
       childrenAge: formData.childrenAge,
       description: formData.description,
-      references: formData.references,
-      activities: formData.activities,
+      // references: formData.references,
+      // activities: formData.activities,
     };
 
     axios
       .post(`http://localhost:3000/babysitterswanted/`, newObject)
       .then(dispatch(fetcBabysitterJobs()));
+    setcreatePage(false);
   };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   return (
-    <section id="create_page">
+    <section id="create_pagee">
       <div className="container">
         <h1 className="change_size">Create Parent</h1>
 
@@ -47,14 +50,26 @@ const CreatePage = () => {
           <div className="right_side_create">
             <div className="create_to">
               <div className="card_parent">
-                <div className="name_input">
-                  <label htmlFor="firstName">Name:</label>
+                <div className="firstname_input">
+                  <label htmlFor="firstName">firstName:</label>
                   <input
                     type="text"
                     name="firstName"
                     id="firstName"
                     placeholder="Name"
                     value={formData.firstName}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div className="lastname_input">
+                  <label htmlFor="lastName">lastName:</label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    id="lastName"
+                    placeholder="lastName"
+                    value={formData.lastName}
                     onChange={handleChange}
                   />
                 </div>
@@ -71,14 +86,14 @@ const CreatePage = () => {
                   />
                 </div>
 
-                <div className="age_input">
-                  <label htmlFor="age">Age:</label>
+                <div className="address_input">
+                  <label htmlFor="address">Address:</label>
                   <input
-                    type="number"
-                    name="age"
-                    id="age"
-                    placeholder="Age Parent"
-                    value={formData.age}
+                    type="text"
+                    name="address"
+                    id="address"
+                    placeholder="Address"
+                    value={formData.address}
                     onChange={handleChange}
                   />
                 </div>
@@ -98,7 +113,7 @@ const CreatePage = () => {
                 <div className="age_input">
                   <label htmlFor="childrenAge">Age: </label>
                   <input
-                    type="number"
+                    type="text"
                     name="childrenAge"
                     id="childrenAge"
                     placeholder="Age Children"
@@ -120,7 +135,7 @@ const CreatePage = () => {
                   ></textarea>
                 </div>
 
-                <div className="comments_input">
+                {/* <div className="comments_input">
                   <label htmlFor="references">References:</label>
                   <textarea
                     name="references"
@@ -131,9 +146,9 @@ const CreatePage = () => {
                     value={formData.references}
                     onChange={handleChange}
                   ></textarea>
-                </div>
+                </div> */}
 
-                <div className="comments_input">
+                {/* <div className="comments_input">
                   <label htmlFor="activities">Activities:</label>
                   <textarea
                     name="activities"
@@ -144,7 +159,7 @@ const CreatePage = () => {
                     value={formData.activities}
                     onChange={handleChange}
                   ></textarea>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="create_btn">

@@ -1,3 +1,150 @@
-#edit_page_parent {
-  background-color: red;
-}
+#edit_page_sister {
+    background-color: #eff7f8;
+    margin-top: 40px;
+  
+    .change_size {
+      font-size: 30px;
+    }
+    .sides_edit {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 80px;
+      padding-bottom: 50px;
+      .currently_data {
+        width: 600px;
+        .card_parent_currently {
+          padding-top: 10px;
+          .currently_p {
+            padding-top: 7.5px;
+            display: flex;
+            gap: 5px;
+          }
+          .currently_span {
+            padding-top: 19px;
+            display: flex;
+            gap: 5px;
+          }
+          .description_span {
+            padding-top: 33px;
+          }
+          .comments_span {
+            padding-top: 42px;
+          }
+        }
+      }
+      .change_to {
+        .card_parent {
+          .name_input {
+            display: flex;
+            gap: 25px;
+            padding-top: 15px;
+            input {
+              width: 246px;
+              height: 28px;
+              border: none;
+              border: 1px solid #4d565e;
+              border-radius: 10px;
+            }
+          }
+  
+          .email_input {
+            display: flex;
+            gap: 28px;
+            padding-top: 15px;
+  
+            input {
+              width: 245px;
+              height: 28px;
+              border: none;
+              border: 1px solid #4d565e;
+              border-radius: 10px;
+            }
+          }
+  
+          .price_input {
+            display: flex;
+            gap: 33px;
+            padding-top: 15px;
+            input {
+              width: 245px;
+              height: 28px;
+              border: none;
+              border: 1px solid #4d565e;
+              border-radius: 10px;
+            }
+          }
+  
+          .countrys_input {
+            display: flex;
+            gap: 9px;
+            padding-top: 15px;
+            input {
+              width: 245px;
+              height: 28px;
+              border: none;
+              border: 1px solid #4d565e;
+              border-radius: 10px;
+            }
+          }
+  
+  
+          .agesisters_input {
+            display: flex;
+            gap: 42px;
+            padding-top: 15px;
+        
+            input {
+              width: 245px;
+              height: 28px;
+              border: none;
+              border: 1px solid #4d565e;
+              border-radius: 10px;
+            }
+          }
+  
+          .description_input,
+          .comments_input {
+            label {
+              display: block;
+              padding-top: 20px;
+            }
+          }
+        }
+        .edit_btn{
+          padding-top: 20px;
+            button {
+              padding: 10px 15px;
+              border-radius: 15px;
+              background-color: #389ba7;
+              border: none;
+              color: #f7f9fa;
+              cursor: pointer;
+            }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .sides_edit {
+      flex-direction: column;
+      align-items: center;
+      .currently_data,
+      .change_to {
+        margin-top: 60px;
+        width: 600px;
+      }
+    }
+  }
+  
+  @media screen and (max-width: 767px) {
+    .sides_edit {
+      flex-direction: column;
+      align-items: center;
+      .currently_data,
+      .change_to {
+        margin-top: 60px;
+        width: 600px;
+      }
+    }
+  }
+  

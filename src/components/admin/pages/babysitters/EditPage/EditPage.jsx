@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import {
-  fetchUserById,
-
-} from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import { fetchUserById } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import axios from "axios";
+import "./EditPage.scss";
 import { useDispatch, useSelector } from "react-redux";
-const EditPage = ({ seteditID, editID }) => {
+const EditPage = ({ editID, seteditPage }) => {
   const babysittersData = useSelector((state) => state.babysitters.babysitters);
   const currentlySister = babysittersData.find((elem) => elem.id === editID);
 
@@ -27,7 +25,9 @@ const EditPage = ({ seteditID, editID }) => {
     if (currentlySister) {
       setFormData({
         name: currentlySister.name,
+        age: currentlySister.age,
         email: currentlySister.email,
+        country: currentlySister.country,
         price: currentlySister.price,
         description: currentlySister.description,
         references: currentlySister.references,
@@ -39,21 +39,23 @@ const EditPage = ({ seteditID, editID }) => {
   const handleEdit = () => {
     const updatedData = {
       name: formData.name,
+      age: formData.age,
       email: formData.email,
+      country: formData.country,
       price: formData.price,
       description: formData.description,
       references: formData.references,
       activities: formData.activities,
     };
-    axios.patch(
-      `http://localhost:3000/babysitters/${editID}`,
-      updatedData
-    ).then(dispatch(fetchUserById()))
+    axios
+      .patch(`http://localhost:3000/babysitters/${editID}`, updatedData)
+      .then(dispatch(fetchUserById()));
 
+      seteditPage(false);
   };
 
   return (
-    <section id="edit_page_parent">
+    <section id="edit_page_sister">
       <div className="container">
         <h1 className="change_size">Edit BabySitters</h1>
         <div className="sides_edit">
@@ -67,8 +69,18 @@ const EditPage = ({ seteditID, editID }) => {
                 </div>
 
                 <div className="currently_span">
+                  <b>Age:</b>
+                  <span>{currentlySister.age}</span>
+                </div>
+
+                <div className="currently_span">
                   <b>Email:</b>
                   <span>JohnDoe2000@gmail.com</span>
+                </div>
+
+                <div className="currently_span">
+                  <b>Country:</b>
+                  <span>{currentlySister.country}</span>
                 </div>
 
                 <div className="currently_span">
@@ -79,9 +91,7 @@ const EditPage = ({ seteditID, editID }) => {
                 <div className="description_span">
                   <b>Description:</b>
                   <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Repellendus facere ipsa fugiat. Aspernatur, placeat.
-                    Temporibus sed exercitationem voluptatum placeat iure.
+                   {currentlySister.description}
                   </p>
                 </div>
                 <div className="comments_span">
@@ -122,6 +132,21 @@ const EditPage = ({ seteditID, editID }) => {
                 />
               </div>
 
+              <div className="agesisters_input">
+
+                <label htmlFor="age">Age:</label>
+                <input
+                  type="number"
+                  name="age"
+                  id="age"
+                  placeholder="Age"
+                  value={formData.age}
+                  onChange={(e) =>
+                    setFormData({ ...formData, age: e.target.value })
+                  }
+                />
+              </div>
+
               <div className="email_input">
                 <label htmlFor="emal">Email:</label>
                 <input
@@ -132,6 +157,20 @@ const EditPage = ({ seteditID, editID }) => {
                   value={formData.email}
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
+                  }
+                />
+              </div>
+
+              <div className="countrys_input">
+                <label htmlFor="country">Country:</label>
+                <input
+                  type="text"
+                  name="country"
+                  id="country"
+                  placeholder="Country"
+                  value={formData.country}
+                  onChange={(e) =>
+                    setFormData({ ...formData, country: e.target.value })
                   }
                 />
               </div>

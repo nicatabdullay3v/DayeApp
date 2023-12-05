@@ -67,6 +67,7 @@ function index() {
                   if (findParent) {
                     if (findParent.isAdmin == true) {
                       navigate("/Admin");
+                      
                     } else {
                       localStorage.setItem("login", JSON.stringify(findParent));
                       localStorage.setItem("isParent", true);

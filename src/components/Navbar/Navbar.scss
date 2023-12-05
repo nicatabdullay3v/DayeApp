@@ -32,19 +32,13 @@ nav {
   }
 
   .nav_center {
-
-   
-
     display: flex;
     align-items: center;
 
     @media (max-width: 992px) {
       display: none;
     }
-
     .nav_center_text {
-
-     
       .link {
         color: #4d565e;
         text-decoration: none;
@@ -53,10 +47,8 @@ nav {
       p {
         color: #4d565e;
       }
-
       padding: 6px 12px;
     }
-
   }
 
   .nav_right {
@@ -69,7 +61,6 @@ nav {
       color: #4d565e;
       text-decoration: none;
     }
-
 
     .nav_right_button_sign_up {
       margin-right: 25px;

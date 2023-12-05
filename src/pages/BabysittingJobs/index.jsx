@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import NavbarBabysit from "../../components/NavbarBabysit/NavbarBabysit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BabysittersCard from "../../components/BabysittersCard";
+import NavbarBabysitters from "../../components/NavbarBabysitters/NavbarBabysitters";
+import NavbarParents from "../../components/NavbarParents/NavbarParents";
 import { Link } from "react-router-dom";
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import FindBaby from "../../components/home/findbaby/FindBaby";
@@ -13,6 +15,8 @@ import FindJobCard from "../../components/FindJobCard";
 import { fetcBabysitterJobs } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { useSelector,useDispatch } from "react-redux";
 function index() {
+  let isBabySitters = JSON.parse(localStorage.getItem("isBabysitter"));
+  let isParent = JSON.parse(localStorage.getItem("isParent"));
   const babysitterswanted = useSelector((state)=> state.babysitters.babysitterswanted)
 
   const dispatch = useDispatch()
@@ -22,7 +26,11 @@ dispatch(fetcBabysitterJobs())
 
   return (
     <div>
-      <NavbarBabysit />
+       {isBabySitters ? (
+        <NavbarBabysitters />
+      ) : (
+        <NavbarBabysit />
+      )}
       <div className="topics">
         <div className="topic">
           <p>Type of babysitter needed</p>

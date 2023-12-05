@@ -34,9 +34,21 @@
     }
     .change_to {
       .card_parent {
-        .name_input {
+        .firstName_input {
           display: flex;
           gap: 10px;
+          padding-top: 15px;
+          input {
+            width: 246px;
+            height: 28px;
+            border: none;
+            border: 1px solid #4d565e;
+            border-radius: 10px;
+          }
+        }
+        .lastName_input {
+          display: flex;
+          gap: 12px;
           padding-top: 15px;
           input {
             width: 246px;
@@ -49,7 +61,7 @@
 
         .email_input {
           display: flex;
-          gap: 13px;
+          gap: 43px;
           padding-top: 15px;
 
           input {
@@ -61,9 +73,23 @@
           }
         }
 
-        .price_input {
+        .address_input {
           display: flex;
-          gap: 20px;
+          gap: 25px;
+          padding-top: 15px;
+
+          input {
+            width: 245px;
+            height: 28px;
+            border: none;
+            border: 1px solid #4d565e;
+            border-radius: 10px;
+          }
+        }
+
+        .children_input {
+          display: flex;
+          gap: 47px;
           padding-top: 15px;
           input {
             width: 245px;
@@ -74,11 +100,29 @@
           }
         }
 
-        .description_input,
-        .comments_input {
+        .childAge_input {
+          display: flex;
+          gap: 15px;
+          padding-top: 15px;
+          input {
+            width: 245px;
+            height: 28px;
+            border: none;
+            border: 1px solid #4d565e;
+            border-radius: 10px;
+          }
+        }
+
+
+        .description_input {
+          display: inline;
+          gap: 15px;
           label {
             display: block;
             padding-top: 20px;
+          }
+          textarea{
+            margin-top: 5px;
           }
         }
       }

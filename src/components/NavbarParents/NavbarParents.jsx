@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import "../NavbarFourth/NavbarFourth.scss";
 function NavbarFourth() {
@@ -24,6 +23,25 @@ function NavbarFourth() {
         </div>
       </div>
 
+      <div className="nav_center">
+        <div className="nav_center_text">
+          <Link to="/BabySitters" className="link">
+            Babysitters
+          </Link>
+        </div>
+        <div className="nav_center_text">
+          <Link className="link" to="/Howitworks">
+            {" "}
+            How it works
+          </Link>
+        </div>
+        <div className="nav_center_text">
+          <Link className="link" to="/Pricing">
+            Pricing
+          </Link>
+        </div>
+      </div>
+
       <div className="nav_right">
         <div className="nav_right_button_login">
           <Link to="/Favorites">
@@ -34,14 +52,6 @@ function NavbarFourth() {
           </Link>
         </div>
 
-        {/* <div className="nav_right_button_books">
-          <Link to="/Admin">
-            <FontAwesomeIcon
-              icon={faCalendar}
-              style={{ color: "#323940", fontSize: "19px" }}
-            />
-          </Link>
-        </div> */}
         <div className="comment-icon">
           <FontAwesomeIcon
             style={{ color: "#323940", fontSize: "19px" }}
