@@ -9,7 +9,7 @@ import Discover from "../../components/home/discover/Discover";
 import FooterMiddle from "../../components/home/footermiddle/FooterMiddle";
 import FooterDown from "../../components/home/footerdown/FooterDown";
 import FindJobCard from "../../components/FindJobCard";
-
+import { v4 as uuidv4 } from 'uuid';
 import { fetcBabysitterJobs } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { useSelector,useDispatch } from "react-redux";
 function index() {
@@ -58,7 +58,7 @@ dispatch(fetcBabysitterJobs())
           </div>
           <div className="babysitterCards">
             {babysitterswanted.map((elem)=>{
-              return    <FindJobCard elem={elem} />
+              return    <FindJobCard key={uuidv4()} elem={elem} />
 
 
             })}

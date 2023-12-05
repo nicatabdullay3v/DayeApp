@@ -1,33 +1,33 @@
 import React, { useEffect } from "react";
-import "./babySittersHeader.scss";
+import "./BabySittingJobsDetailHeader.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShare } from "@fortawesome/free-solid-svg-icons";
 import { faShareFromSquare, faHeart } from "@fortawesome/free-solid-svg-icons";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { Link, json, useParams } from "react-router-dom";
-import { faCalendar } from "@fortawesome/free-solid-svg-icons";
-import { faSuitcaseRolling } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { fetchUserById } from "../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { fetcBabysitterJobs } from "../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 const BabySittersHeader = () => {
   let { id } = useParams();
-  let babysitters = useSelector((state) => state.babysitters.babysitters);
-  let parents = useSelector((state) => state.babysitters.babysitterswanted);
-  let babysitter = babysitters.find((x) => x.id == id);
-  let loginParent = JSON.parse(localStorage.getItem("login")) || [];
-
+console.log(id);
   let dispatch = useDispatch();
-  let isBabysitter = JSON.parse(localStorage.getItem("isBabysitter")) || [];
+
   useEffect(() => {
+    dispatch(fetchUserById());
     dispatch(fetcBabysitterJobs());
-    // dispatch(fetchUserById())
   }, []);
-  let isParent = JSON.parse(localStorage.getItem("isParent")) || [];
-  let parent = parents?.find((x) => x.id == loginParent.id);
-  console.log(parent?.wishList);
-  let color = parent?.wishList?.find((x) => x.id == id) ? "blue" : "gray";
+
+  let parents = useSelector((state) => state.babysitters.babysitterswanted);
+console.log(parents);
+  let parent = parents.find((x) => x.id == id);
+  console.log(parent);
+  let isBabysitter = JSON.parse(localStorage.getItem("isBabysitter")) || [];
+  const babysitters = useSelector((state) => state.babysitters.babysitters);
+
+  let loginBabysitter = JSON.parse(localStorage.getItem("login")) || [];
+  let babysitter = babysitters?.find((x) => x.id == loginBabysitter.id);
+
+  let color = babysitter?.wishList?.find((x) => x.id == id) ? "blue" : "gray";
   return (
     <header>
       <div className="container">
@@ -45,30 +45,32 @@ const BabySittersHeader = () => {
             <div className="header_right_save">
               <FontAwesomeIcon
                 onClick={() => {
-                  if (isParent === true) {
-                    if (parent.wishList.find((x) => x.id == id)) {
+                  if (isBabysitter === true) {
+                    if (babysitter?.wishList.find((x) => x.id == id)) {
                       axios
                         .patch(
-                          `http://localhost:3000/babysitterswanted/${loginParent.id}`,
+                          `http://localhost:3000/babysitters/${loginBabysitter.id}`,
                           {
-                            wishList: parent.wishList.filter((x) => x.id != id),
+                            wishList: babysitter?.wishList.filter(
+                              (x) => x.id != id
+                            ),
                           }
                         )
-                        .then(dispatch(fetcBabysitterJobs()));
+                        .then(dispatch(fetchUserById()));
                     } else {
                       axios
                         .patch(
-                          `http://localhost:3000/babysitterswanted/${loginParent.id}`,
+                          `http://localhost:3000/babysitters/${loginBabysitter.id}`,
                           {
-                            wishList: [...parent?.wishList, babysitter],
+                            wishList: [...babysitter?.wishList, parent],
                           }
                         )
-                        .then(dispatch(fetcBabysitterJobs()));
+                        .then(dispatch(fetchUserById()));
                     }
                   }
                 }}
                 className="icon"
-                style={{ color: isParent === true ? color : "gray" }}
+                style={{ color: isBabysitter === true ? color : "gray" }}
                 icon={faHeart}
               />
               <span>Save</span>

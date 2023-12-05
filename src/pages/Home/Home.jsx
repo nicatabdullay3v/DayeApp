@@ -18,7 +18,8 @@ const Home = () => {
   let login = JSON.parse(localStorage.getItem("login"));
   return (
     <>
-      {login ? <NavbarFourth /> : <Navbar />}
+      {/* {login ? <NavbarFourth /> : <Navbar />} */}
+      <Navbar/>
       <HeroSection />
       <Cards />
       <WeKnow />

@@ -7,10 +7,12 @@ import  BabySittingJobsDetailActivities from "./../../components/BabySittingJobs
 import BabySittingJobsDetailShare from "./../../components/BabySittingJobsDetail/BabySittingJobsDetailShare/BabySittingJobsDetailShare"
 import FooterMiddle from "./../../components/home/footermiddle/FooterMiddle"
 import FooterDown from "./../../components/home/footerdown/FooterDown"
+import BabySittersHeader from '../../components/BabySittingJobsDetail/BabySittingJobsDetailHeader/BabySittingJobsDetailHeader';
 const BabySittingJobsDetail = () => {
   return (
 <>
 <NavBarThird/>
+<BabySittersHeader/>
 <BabySittersPortfolio/>
 <BabySittingJobsDetailCenter/>
 <BabySittingJobsDetailLocation/>

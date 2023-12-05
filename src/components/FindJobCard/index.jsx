@@ -8,20 +8,23 @@ import { faChildren } from "@fortawesome/free-solid-svg-icons";
 import { faChartLine } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import "./FindJobCard.scss";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { fetchUserById } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import axios from "axios";
 function index({ elem }) {
-  let isBabysitter = JSON.parse(localStorage.getItem("isBabysitter")) || []
-let dispatch = useDispatch()
-const babysitters = useSelector((state)=> state.babysitters.babysitters)
-let loginBabysitter = JSON.parse(localStorage.getItem("login")) || []
-let babysitter = babysitters.find((x)=> x.id == loginBabysitter.id )
+  let isBabysitter = JSON.parse(localStorage.getItem("isBabysitter")) || [];
+  let dispatch = useDispatch();
+  const babysitters = useSelector((state) => state.babysitters.babysitters);
+  let loginBabysitter = JSON.parse(localStorage.getItem("login")) || [];
+  let babysitter = babysitters.find((x) => x.id == loginBabysitter.id);
 
-useEffect(() => {
-  dispatch(fetchUserById())
-}, [])
-let color = babysitter?.wishList.find((x) => x.id == elem.id) ? "blue" : "gray";
+  useEffect(() => {
+    dispatch(fetchUserById());
+  }, []);
+  console.log(babysitter?.wishList);
+  let color = babysitter?.wishList?.find((x) => x.id == elem.id)
+    ? "blue"
+    : "gray";
   return (
     <div className="babysitter">
       <Link
@@ -43,7 +46,8 @@ let color = babysitter?.wishList.find((x) => x.id == elem.id) ? "blue" : "gray";
                 style={{ color: "#59bec9" }}
               />
               <div className="heart">
-                <FontAwesomeIcon onClick={()=>{
+                <FontAwesomeIcon
+                  onClick={() => {
                     if (isBabysitter === true) {
                       if (babysitter?.wishList.find((x) => x.id == elem.id)) {
                         axios
@@ -67,7 +71,10 @@ let color = babysitter?.wishList.find((x) => x.id == elem.id) ? "blue" : "gray";
                           .then(dispatch(fetchUserById()));
                       }
                     }
-                }} icon={faHeart} style={{ color: isBabysitter=== true? color: "gray" }} />
+                  }}
+                  icon={faHeart}
+                  style={{ color: isBabysitter === true ? color : "gray" }}
+                />
               </div>
             </div>
 
