@@ -1,12 +1,13 @@
 import React, { useRef, useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+import { DataGrid } from "@mui/x-data-grid";
+// import Table from "@mui/material/Table";
+// import TableBody from "@mui/material/TableBody";
+// import TableCell from "@mui/material/TableCell";
+// import TableContainer from "@mui/material/TableContainer";
+// import TableHead from "@mui/material/TableHead";
+// import TableRow from "@mui/material/TableRow";
+// import Paper from "@mui/material/Paper";
 import "../buttonsAdmin/ButtonsAdmin.scss";
 import axios from "axios";
 import {
@@ -30,65 +31,56 @@ const CardsAdmin = ({ seteditPage, setcreatePage, seteditID, editID }) => {
     dispatch(fetchUserById());
   }, []);
 
+
+  const columns = [
+    { field: "id", headerName: "BabySitters ID", flex: 1 },
+    { field: "name", headerName: "Name", flex: 1 },
+    { field: "age", headerName: "Age", flex: 1 },
+    { field: "email", headerName: "Email", flex: 1 },
+    { field: "country", headerName: "Country", flex: 1 },
+    { field: "price", headerName: "Price", flex: 1 },
+    {
+      field: "edit",
+      headerName: "Edit",
+      flex: 1,
+      renderCell: (params) => (
+        <button
+          className="button_employee"
+          onClick={() => {
+            seteditPage(true);
+            setcreatePage(false);
+            seteditID(params.row.id);
+          }}
+        >
+          Edit
+        </button>
+      ),
+    },
+    {
+      field: "delete",
+      headerName: "Delete",
+      flex: 1,
+      renderCell: (params) => (
+        <button
+          className="button_employee"
+          onClick={() => handleDelete(params.row.id)}
+        >
+          Delete
+        </button>
+      ),
+    },
+  ];
+
+
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-        <TableHead>
-          <TableRow>
-            <TableCell>BabySitters ID</TableCell>
-            <TableCell align="right">Name</TableCell>
-            <TableCell align="right">Age</TableCell>
-            <TableCell align="right">Email</TableCell>
-            <TableCell align="right">Country</TableCell>
-            <TableCell align="right">Price</TableCell>
-            <TableCell align="right">Edit</TableCell>
-            <TableCell align="right">Delete</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {babysittersData.map((elem) => {
-            return (
-              <TableRow
-                key={uuidv4()}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {elem.id}
-                </TableCell>
-                <TableCell align="right">{elem.name}</TableCell>
-                <TableCell align="right">{elem.age}</TableCell>
-                <TableCell align="right">{elem.email}</TableCell>
-                <TableCell align="right">{elem.country}</TableCell>
-
-                <TableCell align="right">{elem.price}$</TableCell>
-                <TableCell align="right">
-                  <button
-                    className="button_employee"
-                    id={elem.id}
-                    onClick={() => {
-                      seteditPage(true);
-
-                      setcreatePage(false);
-                      seteditID(elem.id);
-                    }}
-                  >
-                    Edit
-                  </button>
-                </TableCell>
-                <TableCell align="right">
-                  <button
-                    className="button_employee"
-                    onClick={() => handleDelete(elem.id)}
-                  >
-                    Delete
-                  </button>
-                </TableCell>
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <div style={{ height: 400, width: "100%" }}>
+    <DataGrid
+      rows={babysittersData}
+      columns={columns}
+      pageSize={10}
+      checkboxSelection
+    />
+  </div>
   );
 };
 

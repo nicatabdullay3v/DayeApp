@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { DataGrid } from "@mui/x-data-grid";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -13,6 +14,8 @@ import { DeleteParent } from "../../../../../redux/Slice/BabySittersSlice/BabySi
 
 import { fetcBabysitterJobs } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import axios from "axios";
+import 'swiper/css';
+import 'swiper/css/pagination';
 const TableAdminParents = ({
   seteditPage,
   setcreatePage,
@@ -25,15 +28,72 @@ const TableAdminParents = ({
 
   const dispatch = useDispatch();
 
+<<<<<<< HEAD
+console.log(ParentsData)
+=======
+>>>>>>> 630c4bf8441cd1e5f20b797060986b6d0c538335
   const handleDelete = (id) => {
     axios
       .delete(`http://localhost:3000/babysitterswanted/${id}`)
       .then(dispatch(fetcBabysitterJobs()));
   };
-
+  console.log(ParentsData);
   useEffect(() => {
     dispatch(fetcBabysitterJobs());
   }, []);
+<<<<<<< HEAD
+
+
+  const columns = [
+    { field: "id", headerName: "Parents ID", flex: 1 },
+    { field: "firstName", headerName: "First Name", flex: 1 },
+    { field: "lastName", headerName: "Last Name", flex: 1 },
+    { field: "email", headerName: "Email", flex: 1 },
+    { field: "address", headerName: "Address", flex: 1 },
+    { field: "numberofChildren", headerName: "Child", flex: 1 },
+    {
+      field: "edit",
+      headerName: "Edit",
+      flex: 1,
+      renderCell: (params) => (
+        <button
+          className="button_employee"
+          onClick={() => {
+            seteditPage(true);
+            setcreatePage(false);
+            seteditID(params.row.id);
+          }}
+        >
+          Edit
+        </button>
+      ),
+    },
+    {
+      field: "delete",
+      headerName: "Delete",
+      flex: 1,
+      renderCell: (params) => (
+        <button
+          className="button_employee"
+          onClick={() => handleDelete(params.row.id)}
+        >
+          Delete
+        </button>
+      ),
+    },
+  ];
+  
+  return (
+  
+    <div style={{ height: 400, width: "100%" }}>
+    <DataGrid
+      rows={ParentsData}
+      columns={columns}
+      pageSize={10}
+      checkboxSelection
+    />
+  </div>
+=======
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
@@ -96,6 +156,7 @@ const TableAdminParents = ({
         </TableBody>
       </Table>
     </TableContainer>
+>>>>>>> 630c4bf8441cd1e5f20b797060986b6d0c538335
   );
 };
 
