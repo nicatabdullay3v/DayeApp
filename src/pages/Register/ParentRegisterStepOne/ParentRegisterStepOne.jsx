@@ -13,7 +13,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 function ParentRegisterStepOne() {
-  const [[post], setPost] = useState(false);
+  const [post, setPost] = useState(false);
   const dispatch = useDispatch();
   const userParent = useSelector((state) => state.babysitterswanted.userParent);
 

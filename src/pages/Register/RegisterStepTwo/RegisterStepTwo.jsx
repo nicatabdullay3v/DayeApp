@@ -54,17 +54,13 @@ function RegisterStepTwo() {
         <div className="button">
           <button
             onClick={() => {
-
               if (selected && selected === "lookingforabysitter") {
                 dispatch(getIsParent(true));
                 navigate("/Register/CreateProfile");
               } else if (selected && selected === "babysitter") {
-                console.log("salam");
                 dispatch(getIsBabysitter(true));
                 navigate("/Register/CreateProfile");
               }
-
-
             }}
           >
             Next

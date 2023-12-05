@@ -35,7 +35,7 @@ export const babysitterswanted = createSlice({
       experienceChildrenAge: "",
       about: "",
       price: "",
-      wishlist: [],
+      wishList: [],
     },
     userParent: {
       firstName: "",
@@ -46,7 +46,7 @@ export const babysitterswanted = createSlice({
       numberofChildren: "",
       childrenAge: "",
       about: "",
-      wishlist: [],
+      wishList: [],
     },
   },
   reducers: {
@@ -54,6 +54,7 @@ export const babysitterswanted = createSlice({
       state.userParent.firstName = action.payload;
       state.userBabysitter.firstName = action.payload;
     },
+    //
     getLastName: (state, action) => {
       state.userParent.lastName = action.payload;
       state.userBabysitter.lastName = action.payload;

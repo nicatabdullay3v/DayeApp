@@ -18,11 +18,9 @@ import NavbarSecond from "../../../components/NavbarSecond/NavbarSecond";
 function RegisterStepOne() {
   const dispatch = useDispatch();
   const isParent = useSelector((state) => state.babysitterswanted.isParent);
-  console.log(isParent);
   const isBabysitter = useSelector(
     (state) => state.babysitterswanted.isBabysitter
   );
-  console.log(isBabysitter);
 
   const userParent = useSelector((state) => state.babysitterswanted.userParent);
   const userBabysitter = useSelector(
@@ -38,6 +36,31 @@ function RegisterStepOne() {
     });
   }, []);
 
+  const validate = (values) => {
+    const errors = {};
+    if (!values.firstName) {
+      errors.firstName = "Required";
+    } else if (values.firstName.length > 15) {
+      errors.firstName = "Must be 15 characters or less";
+    }
+
+    if (!values.lastName) {
+      errors.lastName = "Required";
+    } else if (values.lastName.length > 20) {
+      errors.lastName = "Must be 20 characters or less";
+    }
+
+    if (!values.email) {
+      errors.email = "Required";
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+    ) {
+      errors.email = "Invalid email address";
+    }
+
+    return errors;
+  };
+
   let navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -46,6 +69,7 @@ function RegisterStepOne() {
       email: "",
       password: "",
     },
+    validate,
     onSubmit: (values) => {
       // alert(JSON.stringify(values, null, 2));
       let findEmail = parents.find((elem) => elem.email == values.email);
@@ -125,6 +149,13 @@ function RegisterStepOne() {
                 placeholder="First name"
                 type="text"
               />
+              {formik.errors.firstName ? (
+                <div style={{ textAlign: "center", color: "red" }}>
+                  {formik.errors.firstName}
+                </div>
+              ) : (
+                <div style={{ color: "white" }}>sadasd</div>
+              )}
               <input
                 id="lastName"
                 onChange={formik.handleChange}
@@ -137,6 +168,21 @@ function RegisterStepOne() {
             <div className="lastname-info">
               Make sure it matches the name on your government ID.
             </div>
+            {formik.errors.lastName ? (
+              <div
+                style={{
+                  textAlign: "center",
+                  color: "red",
+                  paddingBottom: "15px",
+                }}
+              >
+                {formik.errors.lastName}
+              </div>
+            ) : (
+              <div style={{ color: "white", paddingBottom: "15px" }}>
+                sadasd
+              </div>
+            )}
             <div className="email-input">
               <input
                 id="email"
@@ -151,6 +197,13 @@ function RegisterStepOne() {
               We'll email you updates about your account, messaging, and
               support.
             </div>
+            {formik.errors.email ? (
+              <div style={{ textAlign: "center", color: "red" }}>
+                {formik.errors.email}
+              </div>
+            ) : (
+              <div style={{ color: "white" }}>sadasd</div>
+            )}
             <div className="pass-input">
               <input
                 id="password"
@@ -160,6 +213,21 @@ function RegisterStepOne() {
                 placeholder="Password "
                 type="password"
               />
+              {formik.errors.password ? (
+                <div
+                  style={{
+                    textAlign: "center",
+                    color: "red",
+                    paddingBottom: "15px",
+                  }}
+                >
+                  {formik.errors.password}
+                </div>
+              ) : (
+                <div style={{ color: "white", paddingBottom: "15px" }}>
+                  sadasd
+                </div>
+              )}
               {/* <FontAwesomeIcon icon={faEye} /> */}
             </div>
             <div className="button-signUp">

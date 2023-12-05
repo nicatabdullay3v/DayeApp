@@ -28,7 +28,7 @@ function index({ elem }) {
     dispatch(fetcBabysitterJobs());
     // dispatch(fetchUserById())
   }, []);
-  let isParent = JSON.parse(localStorage.getItem("isParent")) || []
+  let isParent = JSON.parse(localStorage.getItem("isParent")) || [];
   let parent = parents.find((x) => x.id == loginParent.id);
   console.log(parent?.wishList);
   let color = parent?.wishList.find((x) => x.id == elem.id) ? "blue" : "gray";
@@ -36,7 +36,7 @@ function index({ elem }) {
   return (
     <div className="babysitter">
       <Link
-        // to={`/babysittersDetail/${elem.id}`}
+        to={`/babysittersDetail/${elem.id}`}
         className="card-link"
         style={{ textDecoration: "none" }}
       >
@@ -106,7 +106,7 @@ function index({ elem }) {
                     }
                   }}
                   icon={faHeart}
-                  style={{ color: isBabysitter ?"gray"  : color  }}
+                  style={{ color: isBabysitter ? "gray" : color }}
                 />
               </div>
             </div>
