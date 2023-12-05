@@ -9,10 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "../../../pages/babysitters/buttonsAdmin/ButtonsAdmin.scss";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetcBabysitterJobs,
-  DeleteParent,
-} from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import { DeleteParent } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 
 import { fetcBabysitterJobs } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import axios from "axios";

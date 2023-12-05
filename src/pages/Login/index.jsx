@@ -56,7 +56,6 @@ function index() {
           <div className="button-signUp">
             <button
               onClick={() => {
-               
                 let findParent = parents.find(
                   (elem) => elem.email == email && elem.password == pass
                 );
@@ -66,16 +65,24 @@ function index() {
                 if (findParent || findBabysitter) {
                   console.log("salam");
                   if (findParent) {
-                    localStorage.setItem("login", JSON.stringify(findParent));
-                    localStorage.setItem("isParent", true);
-                    navigate("/");
+                    if (findParent.isAdmin == true) {
+                      navigate("/Admin");
+                    } else {
+                      localStorage.setItem("login", JSON.stringify(findParent));
+                      localStorage.setItem("isParent", true);
+                      navigate("/");
+                    }
                   } else if (findBabysitter) {
-                    localStorage.setItem(
-                      "login",
-                      JSON.stringify(findBabysitter)
-                    );
-                    localStorage.setItem("isBabysitter", true);
-                    navigate("/");
+                    if (findBabysitter.isAdmin == true) {
+                      navigate("/Admin");
+                    } else {
+                      localStorage.setItem(
+                        "login",
+                        JSON.stringify(findBabysitter)
+                      );
+                      localStorage.setItem("isBabysitter", true);
+                      navigate("/");
+                    }
                   }
                 }
               }}
