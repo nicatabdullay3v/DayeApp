@@ -55,10 +55,17 @@ function RegisterStepTwo() {
           <button
             onClick={() => {
               if (selected && selected === "lookingforabysitter") {
-                dispatch(getIsParent(true));
+                let obj = {
+                  isParent: true,
+                };
+                localStorage.setItem("userParent", JSON.stringify(obj));
                 navigate("/Register/CreateProfile");
               } else if (selected && selected === "babysitter") {
-                dispatch(getIsBabysitter(true));
+                let obj = {
+                  isBabysitter: true,
+                };
+                localStorage.setItem("userBabysitter", JSON.stringify(obj));
+
                 navigate("/Register/CreateProfile");
               }
             }}

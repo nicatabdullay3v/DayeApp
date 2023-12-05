@@ -64,51 +64,26 @@ export const fetchUserByIdDetail = createAsyncThunk(
   }
 );
 
-
-
 export const DeleteParent = createAsyncThunk(
   "users/fetcParentDelete",
   async (id) => {
-    const response = await axios.delete(`http://localhost:3000/babysitterswanted/${id}`);
+    const response = await axios.delete(
+      `http://localhost:3000/babysitterswanted/${id}`
+    );
     return response.data;
   }
 );
-
-
-
 
 export const PushParent = createAsyncThunk(
   "users/fetcParentPush",
   async (newObject) => {
-    const response = await axios.post(`http://localhost:3000/babysitterswanted/`, newObject);
+    const response = await axios.post(
+      `http://localhost:3000/babysitterswanted/`,
+      newObject
+    );
     return response.data;
   }
 );
-
-
-
-
-
-
-// export const DeleteBabysitter = createAsyncThunk(
-//   "users/fetcBabysittersDelete",
-//   async (id) => {
-//     const response = await axios.delete(
-//       `http://localhost:3000/babysitters/${id}`
-//     );
-//     return response.data;
-//   }
-// );
-
-
-// export const PushBabySitters = createAsyncThunk(
-//   "users/fetcParentPush",
-//   async (newObject) => {
-//     const response = await axios.post(`http://localhost:3000/babysitters/`, newObject);
-//     return response.data;
-//   }
-// );
-
 
 export const BabySitters = createSlice({
   name: "babysittersData",
@@ -122,12 +97,11 @@ export const BabySitters = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
-
     // builder.addCase(PushBabySitters.pending, (state) => {
     //   state.loading = true;
     // });
     // builder.addCase(PushBabySitters.fulfilled, (state, action) => {
-    //   state.babysitters.push(action.payload); 
+    //   state.babysitters.push(action.payload);
     //   state.loading = false;
     // });
     // builder.addCase(PushBabySitters.rejected, (state, action) => {
@@ -135,6 +109,16 @@ export const BabySitters = createSlice({
     //   state.error = action.payload;
     // });
 
+    // builder.addCase(DeleteBabysitter.pending, (state) => {
+    //   state.loading = true;
+    // });
+    // builder.addCase(DeleteBabysitter.fulfilled, (state, action) => {
+    //   state.loading = false;
+    // });
+    // builder.addCase(DeleteBabysitter.rejected, (state, action) => {
+    //   state.loading = false;
+    //   state.error = action.payload;
+    // });
 
     // builder.addCase(DeleteBabysitter.pending, (state) => {
     //   state.loading = true;
@@ -158,6 +142,7 @@ export const BabySitters = createSlice({
       state.error = action.payload;
       state.loading = false;
     });
+
     builder.addCase(fetchUserByIdDetail.pending, (state, action) => {
       state.loading = true;
     });
