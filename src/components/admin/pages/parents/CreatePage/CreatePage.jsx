@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { PushParent } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import axios from "axios";
+import { fetcBabysitterJobs } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 
 const CreatePage = () => {
   const dispatch = useDispatch();
@@ -28,7 +30,9 @@ const CreatePage = () => {
       activities: formData.activities,
     };
 
-    dispatch(PushParent(newObject));
+    axios
+      .post(`http://localhost:3000/babysitterswanted/`, newObject)
+      .then(dispatch(fetcBabysitterJobs()));
   };
 
   const handleChange = (e) => {

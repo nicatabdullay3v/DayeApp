@@ -64,26 +64,6 @@ export const fetchUserByIdDetail = createAsyncThunk(
   }
 );
 
-// export const DeleteBabysitter = createAsyncThunk(
-//   "users/fetcBabysittersDelete",
-//   async (id) => {
-//     const response = await axios.delete(
-//       `http://localhost:3000/babysitters/${id}`
-//     );
-//     return response.data;
-//   }
-// );
-
-// export const PushBabySitters = createAsyncThunk(
-//   "users/fetcParentPush",
-//   async (newObject) => {
-//     const response = await axios.post(`http://localhost:3000/babysitters/`, newObject);
-//     return response.data;
-//   }
-// );
-
-// parentsler
-
 export const DeleteParent = createAsyncThunk(
   "users/fetcParentDelete",
   async (id) => {

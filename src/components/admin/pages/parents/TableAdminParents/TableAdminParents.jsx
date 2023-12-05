@@ -14,6 +14,8 @@ import {
   DeleteParent,
 } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 
+import { fetcBabysitterJobs } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import axios from "axios";
 const TableAdminParents = ({
   seteditPage,
   setcreatePage,
@@ -27,8 +29,11 @@ const TableAdminParents = ({
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {
-    dispatch(DeleteParent(id));
+    axios
+      .delete(`http://localhost:3000/babysitterswanted/${id}`)
+      .then(dispatch(fetcBabysitterJobs()));
   };
+
   useEffect(() => {
     dispatch(fetcBabysitterJobs());
   }, []);
