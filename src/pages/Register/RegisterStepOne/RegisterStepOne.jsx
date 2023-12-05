@@ -18,9 +18,12 @@ import NavbarSecond from "../../../components/NavbarSecond/NavbarSecond";
 function RegisterStepOne() {
   const dispatch = useDispatch();
   const isParent = useSelector((state) => state.babysitterswanted.isParent);
+  console.log(isParent);
   const isBabysitter = useSelector(
     (state) => state.babysitterswanted.isBabysitter
   );
+  console.log(isBabysitter);
+
   const userParent = useSelector((state) => state.babysitterswanted.userParent);
   const userBabysitter = useSelector(
     (state) => state.babysitterswanted.userBabysitter
@@ -45,8 +48,9 @@ function RegisterStepOne() {
     },
     onSubmit: (values) => {
       // alert(JSON.stringify(values, null, 2));
-      console.log(values.firstName);
+      console.log(values.email);
       let findEmail = parents.find((elem) => elem.email == values.email);
+      console.log(findEmail);
       if (isParent) {
         if (!findEmail) {
           dispatch(getFirstName(values.firstName));
