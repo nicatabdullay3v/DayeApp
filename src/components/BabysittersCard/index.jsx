@@ -20,7 +20,6 @@ function index({ elem }) {
   let babysitters = useSelector((state) => state.babysitters.babysitters);
   let parents = useSelector((state) => state.babysitters.babysitterswanted);
 
-
   let loginParent = JSON.parse(localStorage.getItem("login")) || [];
 
   let dispatch = useDispatch();
@@ -37,7 +36,7 @@ function index({ elem }) {
   return (
     <div className="babysitter">
       <Link
-        to={`/babysittersDetail/${elem.id}`}
+        // to={`/babysittersDetail/${elem.id}`}
         className="card-link"
         style={{ textDecoration: "none" }}
       >
@@ -107,7 +106,7 @@ function index({ elem }) {
                     }
                   }}
                   icon={faHeart}
-                  style={{ color: isBabysitter ? "gray" : color }}
+                  style={{ color: isParent === true ? color : "gray" }}
                 />
               </div>
             </div>
