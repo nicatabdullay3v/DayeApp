@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 import axios from "axios";
 export const PatchWishList = createAsyncThunk(
-  "users/PatchWishListStatus",
+  "users/fetchByIdStatus",
   async (id, obj) => {
     const response = await axios.patch(
       `http://localhost:3000/babysitters/${id}`,
@@ -22,6 +22,29 @@ export const PatchSitters = createAsyncThunk(
     return response.data;
   }
 );
+
+  export const DeleteParent = createAsyncThunk(
+    "users/fetcParentDelete",
+    async (id) => {
+      const response = await axios.delete(`http://localhost:3000/babysitterswanted/${id}`);
+      return response.data;
+    }
+  );
+
+
+
+
+  export const PushParent = createAsyncThunk(
+    "users/fetcParentPush",
+    async (newObject) => {
+      const response = await axios.post(`http://localhost:3000/babysitterswanted/`, newObject);
+      return response.data;
+    }
+  );
+
+
+
+
 export const PatchParents = createAsyncThunk(
   "users/fetchUserStatus",
   async ({ id, data }) => {
@@ -33,6 +56,7 @@ export const PatchParents = createAsyncThunk(
   }
 );
 
+
 export const fetcBabysitterJobs = createAsyncThunk(
   "users/fetcBabysitterJobsStatus",
   async () => {
@@ -40,6 +64,9 @@ export const fetcBabysitterJobs = createAsyncThunk(
     return response.data;
   }
 );
+
+
+
 export const fetcBabysitterJobsDeatil = createAsyncThunk(
   "users/fetcBabysitterJobsDeatilStatus",
   async (id) => {
@@ -63,29 +90,8 @@ export const fetchUserByIdDetail = createAsyncThunk(
     return response.data;
   }
 );
-
-export const DeleteBabysitter = createAsyncThunk(
-  "users/fetcBabysittersDelete",
-  async (id) => {
-    const response = await axios.delete(
-      `http://localhost:3000/babysitters/${id}`
-    );
-    return response.data;
-  }
-);
-
-
-export const PushBabySitters = createAsyncThunk(
-  "users/fetcParentPush",
-  async (newObject) => {
-    const response = await axios.post(`http://localhost:3000/babysitters/`, newObject);
-    return response.data;
-  }
-);
-
-
-export const BabySitters = createSlice({
-  name: "babysittersData",
+export const parents = createSlice({
+  name: "ParentsData",
   initialState: {
     babysitterwanted: [],
     babysitterswanted: [],
@@ -97,28 +103,28 @@ export const BabySitters = createSlice({
   reducers: {},
   extraReducers: (builder) => {
 
-    builder.addCase(PushBabySitters.pending, (state) => {
-      state.loading = true;
-    });
-    builder.addCase(PushBabySitters.fulfilled, (state, action) => {
-      state.babysitters.push(action.payload); 
-      state.loading = false;
-    });
-    builder.addCase(PushBabySitters.rejected, (state, action) => {
-      state.loading = false;
-      state.error = action.payload;
-    });
+    builder.addCase(PushParent.pending, (state) => {
+        state.loading = true;
+      });
+      builder.addCase(PushParent.fulfilled, (state, action) => {
+        state.babysitterswanted.push(action.payload); 
+        state.loading = false;
+      });
+      builder.addCase(PushParent.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
 
 
-    builder.addCase(DeleteBabysitter.pending, (state) => {
-      state.loading = true;
+    builder.addCase(DeleteParent.pending, (state) => {
+        state.loading = true;
+      });
+      builder.addCase(DeleteParent.fulfilled, (state, action) => {
+        state.loading = false;
     });
-    builder.addCase(DeleteBabysitter.fulfilled, (state, action) => {
-      state.loading = false;
-    });
-    builder.addCase(DeleteBabysitter.rejected, (state, action) => {
-      state.loading = false;
-      state.error = action.payload;
+    builder.addCase(DeleteParent.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
     });
 
     builder.addCase(fetchUserById.pending, (state, action) => {
@@ -169,6 +175,6 @@ export const BabySitters = createSlice({
     });
   },
 });
-export const {} = BabySitters.actions;
+export const {} = parents.actions;
 
-export default BabySitters.reducer;
+export default parents.reducer;

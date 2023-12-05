@@ -1,21 +1,53 @@
-import React, { useEffect } from "react";
-import { fetchUserById } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import React, { useEffect, useState } from "react";
+import {
+  fetchUserById,
+  PatchSitters,
+} from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { useDispatch, useSelector } from "react-redux";
 const EditPage = ({ seteditID, editID }) => {
-  // console.log(editID);
-
   const babysittersData = useSelector((state) => state.babysitters.babysitters);
+  const currentlySister = babysittersData.find((elem) => elem.id === editID);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchUserById(editID));
   }, [dispatch, editID]);
 
-  const currentlySister = babysittersData.find((elem) => elem.id === editID);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    price: "",
+    description: "",
+    references: "",
+    activities: "",
+  });
 
+  useEffect(() => {
+    if (currentlySister) {
+      setFormData({
+        name: currentlySister.name,
+        email: currentlySister.email,
+        price: currentlySister.price,
+        description: currentlySister.description,
+        references: currentlySister.references,
+        activities: currentlySister.activities,
+      });
+    }
+  }, [currentlySister]);
 
+  const handleEdit = async () => {
+    const updatedData = {
+      name: formData.name,
+      email: formData.email,
+      price: formData.price,
+      description: formData.description,
+      references: formData.references,
+      activities: formData.activities,
+    };
 
-  // console.log(currentlySister)
+    await dispatch(PatchSitters({ id: editID, data: updatedData }));
+  };
+
   return (
     <section id="edit_page_parent">
       <div className="container">
@@ -74,7 +106,16 @@ const EditPage = ({ seteditID, editID }) => {
             <div className="card_parent">
               <div className="name_input">
                 <label htmlFor="name">Name:</label>
-                <input type="text" name="name" id="name" placeholder="Name" />
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Name"
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                />
               </div>
 
               <div className="email_input">
@@ -84,6 +125,10 @@ const EditPage = ({ seteditID, editID }) => {
                   name="email"
                   id="email"
                   placeholder="Email"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                 />
               </div>
 
@@ -94,6 +139,10 @@ const EditPage = ({ seteditID, editID }) => {
                   name="price"
                   id="price"
                   placeholder="Price"
+                  value={formData.price}
+                  onChange={(e) =>
+                    setFormData({ ...formData, price: e.target.value })
+                  }
                 />
               </div>
 
@@ -105,33 +154,45 @@ const EditPage = ({ seteditID, editID }) => {
                   cols="40"
                   rows="5"
                   placeholder="At least 200 characters"
+                  value={formData.description}
+                  onChange={(e) =>
+                    setFormData({ ...formData, description: e.target.value })
+                  }
                 ></textarea>
               </div>
 
               <div className="comments_input">
-                <label htmlFor="comments">References:</label>
+                <label htmlFor="reference">References:</label>
                 <textarea
-                  name="comments"
-                  id="comments"
+                  name="reference"
+                  id="reference"
                   cols="40"
                   rows="5"
                   placeholder="Your reference here"
+                  value={formData.references}
+                  onChange={(e) =>
+                    setFormData({ ...formData, references: e.target.value })
+                  }
                 ></textarea>
               </div>
 
               <div className="comments_input">
-                <label htmlFor="comments">Activities:</label>
+                <label htmlFor="activity">Activities:</label>
                 <textarea
-                  name="comments"
-                  id="comments"
+                  name="activity"
+                  id="activity"
                   cols="40"
                   rows="5"
                   placeholder="Your activity here"
+                  value={formData.activities}
+                  onChange={(e) =>
+                    setFormData({ ...formData, activities: e.target.value })
+                  }
                 ></textarea>
               </div>
             </div>
             <div className="edit_btn">
-            <button >Edit</button>
+              <button onClick={handleEdit}>Edit</button>
             </div>
           </div>
         </div>
