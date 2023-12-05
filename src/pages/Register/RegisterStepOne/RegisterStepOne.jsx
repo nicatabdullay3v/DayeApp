@@ -17,10 +17,8 @@ import {
 import NavbarSecond from "../../../components/NavbarSecond/NavbarSecond";
 function RegisterStepOne() {
   const dispatch = useDispatch();
-  const isParent = useSelector((state) => state.babysitterswanted.isParent);
-  const isBabysitter = useSelector(
-    (state) => state.babysitterswanted.isBabysitter
-  );
+  const Parent = JSON.parse(localStorage.getItem("userParent"));
+  const Babysitter = JSON.parse(localStorage.getItem("userBabysitter"));
 
   const userParent = useSelector((state) => state.babysitterswanted.userParent);
   const userBabysitter = useSelector(
@@ -74,27 +72,25 @@ function RegisterStepOne() {
       // alert(JSON.stringify(values, null, 2));
       let findEmail = parents.find((elem) => elem.email == values.email);
       console.log(findEmail);
-      if (isParent) {
+      if (Parent && Parent.isParent == true) {
         if (!findEmail) {
-          dispatch(getFirstName(values.firstName));
-          dispatch(getLastName(values.lastName));
-          dispatch(getEmail(values.email));
-          dispatch(getPassword(values.password));
-          console.log(userParent);
-          navigate("/Register/CreateProfile/ComplateSignUp");
-
-          ///
+          console.log(Parent);
+          Parent.firstName = values.firstName;
+          Parent.lastName = values.lastName;
+          Parent.email = values.email;
+          Parent.password = values.password;
+          localStorage.setItem("userParent");
         } else {
           alert("this email already used!");
         }
-      } else if (isBabysitter) {
+      } else if (Babysitter && Babysitter.isBabysitter == true) {
         if (!findEmail) {
           dispatch(getFirstName(values.firstName));
           dispatch(getLastName(values.lastName));
           dispatch(getEmail(values.email));
           dispatch(getPassword(values.password));
           console.log(userParent);
-          navigate("/Register/CreateProfile/ComplateSignUpLikeBabysitter");
+          // navigate("/Register/CreateProfile/ComplateSignUpLikeBabysitter");
 
           ///
         } else {
