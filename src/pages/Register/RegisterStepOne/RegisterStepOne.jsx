@@ -79,18 +79,19 @@ function RegisterStepOne() {
           Parent.lastName = values.lastName;
           Parent.email = values.email;
           Parent.password = values.password;
-          localStorage.setItem("userParent");
+          localStorage.setItem("userParent", JSON.stringify(Parent));
+          navigate("/Register/CreateProfile/ComplateSignUp");
         } else {
           alert("this email already used!");
         }
       } else if (Babysitter && Babysitter.isBabysitter == true) {
         if (!findEmail) {
-          dispatch(getFirstName(values.firstName));
-          dispatch(getLastName(values.lastName));
-          dispatch(getEmail(values.email));
-          dispatch(getPassword(values.password));
-          console.log(userParent);
-          // navigate("/Register/CreateProfile/ComplateSignUpLikeBabysitter");
+          Babysitter.firstName = values.firstName;
+          Babysitter.lastName = values.lastName;
+          Babysitter.email = values.email;
+          Babysitter.password = values.password;
+          localStorage.setItem("userBabysitter", JSON.stringify(Babysitter));
+          navigate("/Register/CreateProfile/ComplateSignUpLikeBabysitter");
 
           ///
         } else {

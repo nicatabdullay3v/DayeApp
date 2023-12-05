@@ -16,6 +16,8 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 function BabysitterStepOne() {
+  const Babysitter = JSON.parse(localStorage.getItem("userBabysitter"));
+
   const [post, setPost] = useState(false);
 
   const [selected, setSelected] = useState("");
@@ -29,14 +31,6 @@ function BabysitterStepOne() {
   const isBabysitter = useSelector(
     (state) => state.babysitterswanted.isBabysitter
   );
-  useEffect(() => {
-    axios
-      .post("http://localhost:3000/babysitters", userBabysitter)
-      .then((res) => {
-        console.log(res.data);
-      });
-  }, [post]);
-  console.log(userBabysitter);
 
   let navigate = useNavigate();
   const handleChangeRadio = (event) => {
@@ -52,14 +46,19 @@ function BabysitterStepOne() {
       childrenAge: "",
     },
     onSubmit: (values) => {
-      if (isBabysitter) {
-        dispatch(getAdress(values.address));
-        dispatch(getBabysitterEducation(values.education));
-        dispatch(getExperienceYear(selected));
-        dispatch(getChildrenAge(selectedAge));
-        dispatch(getPrice(values.money));
-        dispatch(getAbout(values.about));
-        setPost((post) => !post);
+      if (Babysitter && Babysitter.isBabysitter == true) {
+        Babysitter.address == values.address;
+        Babysitter.education = values.education;
+        Babysitter.experienceYear = selected;
+        Babysitter.experienceChildrenAge = selectedAge;
+        Babysitter.price = values.money;
+        Babysitter.about = values.about;
+        axios
+          .post("http://localhost:3000/babysitters", Babysitter)
+          .then((res) => {
+            console.log(res.data);
+          });
+        localStorage.removeItem("userBabysitter");
 
         navigate("/");
       }

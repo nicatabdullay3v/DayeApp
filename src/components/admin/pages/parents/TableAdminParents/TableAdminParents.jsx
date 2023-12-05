@@ -10,15 +10,19 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "../../../pages/babysitters/buttonsAdmin/ButtonsAdmin.scss";
 import { useDispatch, useSelector } from "react-redux";
+<<<<<<< HEAD
 // import {
 //   fetcBabysitterJobs,
 //   DeleteParent,
 // } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+=======
+import { DeleteParent } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+>>>>>>> 60feaa969fe31c2599d674255a8a09181647cdcc
 
 import { fetcBabysitterJobs } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import axios from "axios";
-import 'swiper/css';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/pagination";
 const TableAdminParents = ({
   seteditPage,
   setcreatePage,
@@ -31,6 +35,10 @@ const TableAdminParents = ({
 
   const dispatch = useDispatch();
 
+<<<<<<< HEAD
+=======
+  console.log(ParentsData);
+>>>>>>> 60feaa969fe31c2599d674255a8a09181647cdcc
   const handleDelete = (id) => {
     axios
       .delete(`http://localhost:3000/babysitterswanted/${id}`)
@@ -40,7 +48,10 @@ const TableAdminParents = ({
   useEffect(() => {
     dispatch(fetcBabysitterJobs());
   }, []);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 60feaa969fe31c2599d674255a8a09181647cdcc
 
   const columns = [
     { field: "id", headerName: "Parents ID", flex: 1 },
@@ -80,6 +91,7 @@ const TableAdminParents = ({
       ),
     },
   ];
+<<<<<<< HEAD
   
   return (
   
@@ -91,6 +103,18 @@ const TableAdminParents = ({
       checkboxSelection
     />
   </div>
+=======
+
+  return (
+    <div style={{ height: 400, width: "100%" }}>
+      <DataGrid
+        rows={ParentsData}
+        columns={columns}
+        pageSize={10}
+        checkboxSelection
+      />
+    </div>
+>>>>>>> 60feaa969fe31c2599d674255a8a09181647cdcc
   );
 };
 
