@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <>
-      {isBabySitters ? (
+        {isBabySitters ? (
         <NavbarBabysitters />
       ) : isParent ? (
         <NavbarParents />
@@ -36,8 +36,6 @@ const Home = () => {
 <NavbarBabysit />
 <Navbar />
 <NavbarBabysitters /> */}
-
-
       <HeroSection />
       <Cards />
       <WeKnow />

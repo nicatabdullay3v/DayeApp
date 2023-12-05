@@ -31,7 +31,7 @@ function index({ elem }) {
   let isParent = JSON.parse(localStorage.getItem("isParent")) || [];
   let parent = parents.find((x) => x.id == loginParent.id);
   console.log(parent?.wishList);
-  let color = parent?.wishList.find((x) => x.id == elem.id) ? "blue" : "gray";
+  let color = parent?.wishList?.find((x) => x.id == elem.id) ? "blue" : "gray";
 
   return (
     <div className="babysitter">
