@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import "../NavbarFourth/NavbarFourth.scss";
 function NavbarFourth() {
+  const [situation, setsituation] = useState(true);
+  const navigate = useNavigate();
   return (
     <nav
       className="fourth"
@@ -47,10 +49,17 @@ function NavbarFourth() {
           />
         </div>
         <div className="comment-icon">
-          <FontAwesomeIcon
-            style={{ color: "#323940", fontSize: "19px" }}
-            icon={faComment}
-          />
+          <button
+            onClick={() => {
+              navigate("/Login");
+              localStorage.removeItem("login");
+              localStorage.removeItem("isParent");
+              localStorage.removeItem("isBabysitter");
+              setsituation((state) => !state);
+            }}
+          >
+            Log Out
+          </button>
         </div>
 
         <FontAwesomeIcon icon={faBars} />
