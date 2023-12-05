@@ -14,8 +14,8 @@ import { DeleteParent } from "../../../../../redux/Slice/BabySittersSlice/BabySi
 
 import { fetcBabysitterJobs } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import axios from "axios";
-import 'swiper/css';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/pagination";
 const TableAdminParents = ({
   seteditPage,
   setcreatePage,
@@ -28,10 +28,7 @@ const TableAdminParents = ({
 
   const dispatch = useDispatch();
 
-<<<<<<< HEAD
-console.log(ParentsData)
-=======
->>>>>>> 630c4bf8441cd1e5f20b797060986b6d0c538335
+  console.log(ParentsData);
   const handleDelete = (id) => {
     axios
       .delete(`http://localhost:3000/babysitterswanted/${id}`)
@@ -41,8 +38,6 @@ console.log(ParentsData)
   useEffect(() => {
     dispatch(fetcBabysitterJobs());
   }, []);
-<<<<<<< HEAD
-
 
   const columns = [
     { field: "id", headerName: "Parents ID", flex: 1 },
@@ -82,81 +77,16 @@ console.log(ParentsData)
       ),
     },
   ];
-  
-  return (
-  
-    <div style={{ height: 400, width: "100%" }}>
-    <DataGrid
-      rows={ParentsData}
-      columns={columns}
-      pageSize={10}
-      checkboxSelection
-    />
-  </div>
-=======
-  return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Parents ID</TableCell>
-            <TableCell align="right">firstName</TableCell>
-            <TableCell align="right">lastName</TableCell>
-            <TableCell align="right">Email</TableCell>
-            <TableCell align="right">Adress</TableCell>
-            <TableCell align="right">Child</TableCell>
-            <TableCell align="right">Edit</TableCell>
-            <TableCell align="right">Delete</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {ParentsData.map((elem) => {
-            return (
-              <TableRow
-                key={uuidv4()}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {elem.id}
-                </TableCell>
-                <TableCell align="right"> {elem.firstName}</TableCell>
-                <TableCell align="right"> {elem.lastName}</TableCell>
-                <TableCell align="right"> {elem.email}</TableCell>
-                <TableCell align="right">
-                  {" "}
-                  {elem.address?.country}, {elem.address?.city}{" "}
-                  {elem.address?.region}
-                </TableCell>
-                <TableCell align="right">{elem.numberofChildren}</TableCell>
-                <TableCell align="right">
-                  <button
-                    className="button_employee"
-                    id={elem.id}
-                    onClick={() => {
-                      seteditPage(true);
 
-                      setcreatePage(false);
-                      seteditID(elem.id);
-                    }}
-                  >
-                    Edit
-                  </button>
-                </TableCell>
-                <TableCell align="right">
-                  <button
-                    className="button_employee"
-                    onClick={() => handleDelete(elem.id)}
-                  >
-                    Delete
-                  </button>
-                </TableCell>
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
-    </TableContainer>
->>>>>>> 630c4bf8441cd1e5f20b797060986b6d0c538335
+  return (
+    <div style={{ height: 400, width: "100%" }}>
+      <DataGrid
+        rows={ParentsData}
+        columns={columns}
+        pageSize={10}
+        checkboxSelection
+      />
+    </div>
   );
 };
 
