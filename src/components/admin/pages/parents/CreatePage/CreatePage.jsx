@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { PushParent } from "../../../../../redux/Slice/ParentsSlice/ParentsSlice";
+<<<<<<< HEAD
+
+=======
+import { PushParent } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+>>>>>>> 61e8899bc81ba5d2f8544b23fb75afcc3447eaf8
 
 const CreatePage = () => {
   const dispatch = useDispatch();

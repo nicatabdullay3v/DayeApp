@@ -15,6 +15,51 @@ export const fetchUserByIdDetail = createAsyncThunk(
   }
 );
 
+
+// parentsler
+
+export const DeleteParent = createAsyncThunk(
+  "users/fetcParentDelete",
+  async (id) => {
+    const response = await axios.delete(`http://localhost:3000/babysitterswanted/${id}`);
+    return response.data;
+  }
+);
+
+
+
+
+export const PushParent = createAsyncThunk(
+  "users/fetcParentPush",
+  async (newObject) => {
+    const response = await axios.post(`http://localhost:3000/babysitterswanted/`, newObject);
+    return response.data;
+  }
+);
+
+
+
+
+export const PatchParents = createAsyncThunk(
+"users/fetchUserStatus",
+async ({ id, data }) => {
+  const response = await axios.patch(
+    `http://localhost:3000/babysitterswanted/${id}`,
+    data
+  );
+  return response.data;
+}
+);
+
+
+export const fetcBabysitterJobs = createAsyncThunk(
+"users/fetcBabysitterJobsStatus",
+async () => {
+  const response = await axios(`http://localhost:3000/babysitterswanted`);
+  return response.data;
+}
+);
+
 export const babysitterswanted = createSlice({
   name: "babysitterswanted",
   initialState: {
@@ -100,6 +145,48 @@ export const babysitterswanted = createSlice({
     },
   },
   extraReducers: (builder) => {
+  //   builder.addCase(PushParent.pending, (state) => {
+  //     state.loading = true;
+  //   });
+  //   builder.addCase(PushParent.fulfilled, (state, action) => {
+  //     state.babysittersWanteds.push(action.payload); 
+  //     state.loading = false;
+  //   });
+  //   builder.addCase(PushParent.rejected, (state, action) => {
+  //     state.loading = false;
+  //     state.error = action.payload;
+  //   });
+
+
+  // builder.addCase(DeleteParent.pending, (state) => {
+  //     state.loading = true;
+  //   });
+  //   builder.addCase(DeleteParent.fulfilled, (state, action) => {
+  //     state.loading = false;
+  // });
+  // builder.addCase(DeleteParent.rejected, (state, action) => {
+  //     state.loading = false;
+  //     state.error = action.payload;
+  // });
+
+
+
+  builder.addCase(fetcBabysitterJobs.pending, (state, action) => {
+    state.loading = true;
+  });
+  builder.addCase(fetcBabysitterJobs.fulfilled, (state, action) => {
+    state.babysittersWanteds = action.payload;
+    state.loading = false;
+  });
+  builder.addCase(fetcBabysitterJobs.rejected, (state, action) => {
+    state.error = action.payload;
+    state.loading = false;
+  });
+
+
+
+
+
     builder.addCase(fetchUserById.pending, (state, action) => {
       state.loading = true;
     });
