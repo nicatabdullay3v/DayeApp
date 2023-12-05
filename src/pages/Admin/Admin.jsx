@@ -1,13 +1,15 @@
 import React from "react";
 import "./admin.scss";
-import Navbar from "../../components/NavbarAdmin/NavbarAdmin";
-import AdminPage from "../../components/admin/pages/AdminPage/AdminPage";
-
+// import AdminPage from "../../components/admin/pages/AdminPage/AdminPage";
+import NavbarAdmin from "../../components/NavbarAdmin/NavbarAdmin";
 const Admin = () => {
   return (
     <>
-      <Navbar />
-      <AdminPage />
+     <NavbarAdmin/>
+     <div className="container">
+
+     <h1>Admin</h1>
+     </div>
     </>
   );
 };

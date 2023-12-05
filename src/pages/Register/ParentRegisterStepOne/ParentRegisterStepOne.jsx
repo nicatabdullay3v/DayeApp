@@ -13,6 +13,8 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 function ParentRegisterStepOne() {
+  const Parent = JSON.parse(localStorage.getItem("userParent"));
+
   const [post, setPost] = useState(false);
   const dispatch = useDispatch();
   const userParent = useSelector((state) => state.babysitterswanted.userParent);
@@ -22,11 +24,7 @@ function ParentRegisterStepOne() {
     (state) => state.babysitterswanted.isBabysitter
   );
   const [selected, setSelected] = useState("");
-  useEffect(() => {
-    axios
-      .post("http://localhost:3000/babysitterswanted", userParent)
-      .then((res) => console.log(res.data));
-  }, [post]);
+  useEffect(() => {}, [post]);
   let navigate = useNavigate();
   const handleChange = (event) => {
     setSelected(event.target.value);
@@ -40,12 +38,17 @@ function ParentRegisterStepOne() {
     },
     onSubmit: (values) => {
       // alert(JSON.stringify(values, null, 2));
-      if (isParent) {
-        dispatch(getAdress(values.address));
-        dispatch(getNumberofChildren(values.numberofchildren));
-        dispatch(getAbout(values.about));
-        dispatch(getChildrenAge(selected));
+      if (Parent && Parent.isParent == true) {
+        Parent.address = values.address;
+        Parent.numberofChildren = values.numberofchildren;
+        Parent.about = values.about;
+        Parent.childrenAge = selected;
+        Parent.wishList = [];
+        axios
+          .post("http://localhost:3000/babysitterswanted", Parent)
+          .then((res) => console.log(res.data));
         setPost((post) => !post);
+        localStorage.removeItem("userParent");
 
         navigate("/");
       }
