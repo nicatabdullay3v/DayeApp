@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import {
   fetcBabysitterJobs,
   PatchParents,
-} from "../../../../../redux/Slice/ParentsSlice/ParentsSlice";
+} from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { useDispatch, useSelector } from "react-redux";
 import "./editpage.scss";
 
 const EditPage = ({editID}) => {
 
 
-  const ParentsData = useSelector((state) => state.babysitterswanted.babysitterswanted);
+  const ParentsData = useSelector((state) => state.babysitters.babysitterswanted);
   const currentlySister = ParentsData.find((elem) => elem.id === editID);
 
   const dispatch = useDispatch();

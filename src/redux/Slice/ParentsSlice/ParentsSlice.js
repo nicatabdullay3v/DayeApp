@@ -150,6 +150,8 @@ export const parents = createSlice({
       state.loading = false;
     });
 
+    
+
     builder.addCase(fetcBabysitterJobs.pending, (state, action) => {
       state.loading = true;
     });
@@ -161,6 +163,10 @@ export const parents = createSlice({
       state.error = action.payload;
       state.loading = false;
     });
+
+
+
+
 
     builder.addCase(fetcBabysitterJobsDeatil.pending, (state, action) => {
       state.loading = true;
