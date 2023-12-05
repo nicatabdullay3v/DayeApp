@@ -9,7 +9,7 @@ function index() {
   const [pass, setPass] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
-    axios("http://localhost:3000/babysitterswanted").then((res) => {
+    axios("http://localhost:3000/babysitters").then((res) => {
       setParents(res.data);
     });
   }, []);

@@ -17,8 +17,6 @@ function RegisterStepTwo() {
   const handleChange = (event) => {
     setSelected(event.target.value);
   };
-  console.log(isParent);
-
   return (
     <div>
       <Navbar />
@@ -56,6 +54,10 @@ function RegisterStepTwo() {
             onClick={() => {
               if (selected && selected === "lookingforabysitter") {
                 dispatch(getIsParent(true));
+                navigate("/Register/CreateProfile");
+              } else if (selected && selected === "babysitter") {
+                console.log("salam");
+                dispatch(getIsBabysitter(true));
                 navigate("/Register/CreateProfile");
               }
             }}

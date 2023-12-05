@@ -1,0 +1,159 @@
+.babysitter-step-one {
+  width: 700px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  @media (max-width: 700px) {
+    width: 100%;
+  }
+  @media (max-width: 360px) {
+    width: 100%;
+    margin: auto;
+  }
+  .head-img {
+    padding: 10px 0;
+    .text {
+      padding-bottom: 40px;
+      p {
+        font-size: 25px;
+        font-weight: 600;
+        text-align: center;
+        color: #89939b;
+      }
+    }
+    .img-box {
+      display: flex;
+      gap: 40px;
+      width: 100%;
+      background-image: url("https://cdn.babysits.com/content/wiki/european/tips-for-babysitters.webp");
+      background-color: #edf7f8;
+      height: 340px;
+      background-position: center;
+      align-items: center;
+      padding: 10px;
+      border-radius: 15px;
+    }
+  }
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 50px 0;
+    .addressInp {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      label {
+        font-size: large;
+        font-weight: 500;
+      }
+      input {
+        padding: 8px 20px;
+        outline: none;
+        border-radius: 15px;
+        border: none;
+        border: 1px solid #89939b8b;
+      }
+      p {
+        font-size: smaller;
+        color: #89939b;
+      }
+    }
+    .numberChildren {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      label {
+        font-size: large;
+        font-weight: 500;
+      }
+      input {
+        padding: 8px 20px;
+        outline: none;
+        border-radius: 15px;
+        border: none;
+        border: 1px solid #89939b8b;
+      }
+    }
+    .age-children {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .input {
+        display: flex;
+        gap: 4px;
+        input {
+          width: 20px;
+        }
+        label {
+          font-size: 17px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  .description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+    label {
+      font-weight: 500;
+    }
+    .input {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      textarea {
+        border-radius: 10px;
+        border: 1px solid #89939b8b;
+
+        outline: none;
+        width: 100%;
+        height: 200px;
+        padding: 10px;
+        font-size: 16px;
+      }
+    }
+  }
+  .moneyInp {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    label {
+      font-size: large;
+      font-weight: 500;
+    }
+    input {
+      padding: 8px 20px;
+      outline: none;
+      border-radius: 15px;
+      border: none;
+      border: 1px solid #89939b8b;
+    }
+    p {
+      font-size: smaller;
+      color: #89939b;
+    }
+  }
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #edf7f8;
+    align-items: center;
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #389ba7;
+
+      color: white;
+      cursor: pointer;
+      border-radius: 15px;
+      font-size: 15px;
+    }
+  }
+}

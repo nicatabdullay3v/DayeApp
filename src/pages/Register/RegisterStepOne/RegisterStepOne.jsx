@@ -18,12 +18,15 @@ import NavbarSecond from "../../../components/NavbarSecond/NavbarSecond";
 function RegisterStepOne() {
   const dispatch = useDispatch();
   const isParent = useSelector((state) => state.babysitterswanted.isParent);
+  const isBabysitter = useSelector(
+    (state) => state.babysitterswanted.isBabysitter
+  );
   const userParent = useSelector((state) => state.babysitterswanted.userParent);
   const userBabysitter = useSelector(
     (state) => state.babysitterswanted.userBabysitter
   );
-  console.log(userParent);
-  console.log(userBabysitter);
+  // console.log(userParent);
+  // console.log(userBabysitter);
   const [parents, setParents] = useState([]);
 
   useEffect(() => {
@@ -54,6 +57,21 @@ function RegisterStepOne() {
           navigate("/Register/CreateProfile/ComplateSignUp");
 
           ///
+        } else {
+          alert("this email already used!");
+        }
+      } else if (isBabysitter) {
+        if (!findEmail) {
+          dispatch(getFirstName(values.firstName));
+          dispatch(getLastName(values.lastName));
+          dispatch(getEmail(values.email));
+          dispatch(getPassword(values.password));
+          console.log(userParent);
+          navigate("/Register/CreateProfile/ComplateSignUpLikeBabysitter");
+
+          ///
+        } else {
+          alert("this email already used!");
         }
       }
     },

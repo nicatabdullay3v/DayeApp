@@ -29,6 +29,13 @@ export const babysitterswanted = createSlice({
       lastName: "",
       email: "",
       password: "",
+      address: "",
+      education: "",
+      experienceYear: "",
+      experienceChildrenAge: "",
+      about: "",
+      price: "",
+      wishlist: [],
     },
     userParent: {
       firstName: "",
@@ -66,17 +73,29 @@ export const babysitterswanted = createSlice({
     getIsBabysitter: (state, action) => {
       state.isBabysitter = action.payload;
     },
-    getParentAdress: (state, action) => {
+    getAdress: (state, action) => {
       state.userParent.address = action.payload;
+      state.userBabysitter.address = action.payload;
     },
     getNumberofChildren: (state, action) => {
       state.userParent.numberofChildren = action.payload;
     },
     getChildrenAge: (state, action) => {
       state.userParent.childrenAge = action.payload;
+      state.userBabysitter.experienceChildrenAge = action.payload;
     },
-    getParentAbout: (state, action) => {
+    getAbout: (state, action) => {
       state.userParent.about = action.payload;
+      state.userBabysitter.about = action.payload;
+    },
+    getBabysitterEducation: (state, action) => {
+      state.userBabysitter.education = action.payload;
+    },
+    getExperienceYear: (state, action) => {
+      state.userBabysitter.experienceYear = action.payload;
+    },
+    getPrice: (state, action) => {
+      state.userBabysitter.price = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -111,10 +130,13 @@ export const {
   getPassword,
   getIsParent,
   getIsBabysitter,
-  getParentAdress,
+  getAdress,
   getNumberofChildren,
   getChildrenAge,
-  getParentAbout,
+  getAbout,
+  getBabysitterEducation,
+  getExperienceYear,
+  getPrice,
 } = babysitterswanted.actions;
 
 export default babysitterswanted.reducer;
