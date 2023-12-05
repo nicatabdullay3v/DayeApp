@@ -60,7 +60,7 @@ function BabysitterStepOne() {
         dispatch(getAbout(values.about));
         setPost((post) => !post);
 
-        // navigate("/");
+        navigate("/");
       }
     },
   });
