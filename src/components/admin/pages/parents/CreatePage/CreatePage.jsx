@@ -90,8 +90,8 @@ const CreatePage = ({ setcreatePage }) => {
         .min(10, "Must be 10 characters or more")
         .required("Required"),
       description: Yup.string()
-        .max(300, "Must be 300 characters or less")
-        .min(100, "Must be 100 characters or more")
+        .max(200, "Must be 200 characters or less")
+        .min(50, "Must be 50 characters or more")
 
         .required("Required"),
 
@@ -306,7 +306,7 @@ const CreatePage = ({ setcreatePage }) => {
                   <div className="description_input">
                     <label htmlFor="description">Description:</label>
 
-                    <input
+                    <textarea
                       value={formik.values.description}
                       as="textarea"
                       name="description"

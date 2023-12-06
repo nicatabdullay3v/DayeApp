@@ -23,9 +23,21 @@
       }
       .create_to {
         .card_parent {
-          .name_input {
+          .firstName_input {
             display: flex;
-            gap: 35px;
+            gap: 12px;
+            padding-top: 15px;
+            input {
+              width: 266px;
+              height: 34px;
+              border: none;
+              border: 1px solid #4d565e;
+              border-radius: 10px;
+            }
+          }
+          .lastName_input {
+            display: flex;
+            gap: 13.5px;
             padding-top: 15px;
             input {
               width: 266px;
@@ -38,7 +50,7 @@
 
           .agesister_input {
             display: flex;
-            gap: 52px;
+            gap: 59px;
             padding-top: 15px;
 
             input {
@@ -52,7 +64,7 @@
 
           .email_input {
             display: flex;
-            gap: 38px;
+            gap: 45px;
             padding-top: 15px;
 
             input {
@@ -66,7 +78,7 @@
 
           .price_input {
             display: flex;
-            gap: 44px;
+            gap: 51px;
             padding-top: 15px;
             input {
               width: 266px;
@@ -79,7 +91,7 @@
 
           .age_input {
             display: flex;
-            gap: 36px;
+            gap: 43px;
             padding-top: 15px;
             input {
               width: 266px;
@@ -92,7 +104,7 @@
 
           .country_input {
             display: flex;
-            gap: 20px;
+            gap: 27px;
             padding-top: 15px;
             input {
               width: 266px;
@@ -105,7 +117,7 @@
 
           .password_input {
             display: flex;
-            gap: 7px;
+            gap: 14px;
             padding-top: 15px;
             input {
               width: 266px;

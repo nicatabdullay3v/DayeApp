@@ -24,7 +24,8 @@ const CardsAdmin = ({ seteditPage, setcreatePage, seteditID, editID }) => {
 
   const columns = [
     { field: "id", headerName: "BabySitters ID", flex: 1 },
-    { field: "name", headerName: "Name", flex: 1 },
+    { field: "firstName", headerName: "First Name", flex: 1 },
+    { field: "lastName", headerName: "Last Name", flex: 1 },
     { field: "age", headerName: "Age", flex: 1 },
     { field: "email", headerName: "Email", flex: 1 },
     { field: "country", headerName: "Country", flex: 1 },

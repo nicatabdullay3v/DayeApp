@@ -43,7 +43,8 @@ const CreatePage = ({setcreatePage}) => {
 
   const formik = useFormik({
     initialValues: {
-      name: "",
+      firstName: "",
+      lastName: "",
       age: "",
       price: "",
       email: "",
@@ -55,7 +56,11 @@ const CreatePage = ({setcreatePage}) => {
     },
 
     validationSchema: Yup.object({
-      name: Yup.string()
+      firstName: Yup.string()
+        .min(2, "Too Short!")
+        .max(15, "Too Long!")
+        .required("Required"),
+        lastName: Yup.string()
         .min(2, "Too Short!")
         .max(15, "Too Long!")
         .required("Required"),
@@ -86,7 +91,8 @@ const CreatePage = ({setcreatePage}) => {
     }),
     onSubmit: (values) => {
       let obj = {
-        name: values.name,
+        firstName: values.firstName,
+        lastName: values.lastName,
         country: values.country,
         email: values.email,
         age: values.age,
@@ -118,17 +124,17 @@ const CreatePage = ({setcreatePage}) => {
 
               <form onSubmit={formik.handleSubmit} action="">
 
-              <div className="name_input">
-                  <label htmlFor="name">Name:</label>
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    placeholder="Name"
-                    value={formik.values.name}
-                    onChange={formik.handleChange}
-                  />
-                    {formik.touched.name && formik.errors.name ? (
+              <div className="firstName_input">
+                    <label htmlFor="firstName">firstName:</label>
+
+                    <input
+                      value={formik.values.firstName}
+                      onChange={formik.handleChange}
+                      type="text"
+                      name="firstName"
+                      placeholder="Name"
+                    />
+                    {formik.touched.firstName && formik.errors.firstName ? (
                       <div
                         style={{
                           textAlign: "center",
@@ -136,10 +142,34 @@ const CreatePage = ({setcreatePage}) => {
                           fontSize: "small",
                         }}
                       >
-                        {formik.errors.name}
+                        {formik.errors.firstName}
                       </div>
                     ) : null}
-                </div>
+                  </div>
+
+                  
+                  <div className="lastName_input">
+                    <label htmlFor="lastName">lastName:</label>
+
+                    <input
+                      value={formik.values.lastName}
+                      type="text"
+                      onChange={formik.handleChange}
+                      name="lastName"
+                      placeholder="lastName"
+                    />
+                    {formik.touched.lastName && formik.errors.lastName ? (
+                      <div
+                        style={{
+                          textAlign: "center",
+                          color: "red",
+                          fontSize: "small",
+                        }}
+                      >
+                        {formik.errors.lastName}
+                      </div>
+                    ) : null}
+                  </div>
 
                 <div className="agesister_input">
                     <label htmlFor="age">Age: </label>

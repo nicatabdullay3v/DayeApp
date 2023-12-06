@@ -34,9 +34,22 @@
       }
       .change_to {
         .card_parent {
-          .name_input {
+          .firstName_input {
             display: flex;
-            gap: 25px;
+            gap: 13px;
+            padding-top: 15px;
+            input {
+              width: 246px;
+              height: 28px;
+              border: none;
+              border: 1px solid #4d565e;
+              border-radius: 10px;
+            }
+          }
+
+          .lastName_input {
+            display: flex;
+            gap: 15px;
             padding-top: 15px;
             input {
               width: 246px;
@@ -49,7 +62,7 @@
   
           .email_input {
             display: flex;
-            gap: 28px;
+            gap:47px;
             padding-top: 15px;
   
             input {
@@ -63,7 +76,7 @@
   
           .price_input {
             display: flex;
-            gap: 33px;
+            gap: 52px;
             padding-top: 15px;
             input {
               width: 245px;
@@ -76,7 +89,7 @@
   
           .countrys_input {
             display: flex;
-            gap: 9px;
+            gap: 28px;
             padding-top: 15px;
             input {
               width: 245px;
@@ -90,7 +103,7 @@
   
           .agesisters_input {
             display: flex;
-            gap: 42px;
+            gap: 61px;
             padding-top: 15px;
         
             input {

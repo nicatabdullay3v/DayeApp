@@ -13,7 +13,8 @@ const EditPage = ({ editID, seteditPage }) => {
   }, [dispatch, editID]);
 
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     price: "",
     description: "",
@@ -24,7 +25,8 @@ const EditPage = ({ editID, seteditPage }) => {
   useEffect(() => {
     if (currentlySister) {
       setFormData({
-        name: currentlySister.name,
+        firstName: currentlySister.firstName,
+        lastName: currentlySister.lastName,
         age: currentlySister.age,
         email: currentlySister.email,
         country: currentlySister.country,
@@ -38,7 +40,8 @@ const EditPage = ({ editID, seteditPage }) => {
 
   const handleEdit = () => {
     const updatedData = {
-      name: formData.name,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
       age: formData.age,
       email: formData.email,
       country: formData.country,
@@ -63,9 +66,13 @@ const EditPage = ({ editID, seteditPage }) => {
             <div className="currently_data">
               <h2>Currently</h2>
               <div className="card_parent_currently">
-                <div className="currently_p">
-                  <b>Name:</b>
-                  <span>{currentlySister.name}</span>
+              <div className="currently_p">
+                  <b>firstName:</b>
+                  <span>{currentlySister.firstName}</span>
+                </div>
+                <div className="currently_span">
+                  <b>lastName:</b>
+                  <span>{currentlySister.lastName}</span>
                 </div>
 
                 <div className="currently_span">
@@ -118,16 +125,32 @@ const EditPage = ({ editID, seteditPage }) => {
           <div className="change_to">
             <h2>Change to</h2>
             <div className="card_parent">
-              <div className="name_input">
-                <label htmlFor="name">Name:</label>
+            <div className="firstName_input">
+                <label htmlFor="firstName">firstName:</label>
+
                 <input
                   type="text"
-                  name="name"
-                  id="name"
-                  placeholder="Name"
-                  value={formData.name}
+                  name="firstName"
+                  id="firstName"
+                  placeholder="firstName"
+                  value={formData.firstName}
                   onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
+                    setFormData({ ...formData, firstName: e.target.value })
+                  }
+                />
+              </div>
+
+              <div className="lastName_input">
+                <label htmlFor="lastName">lastName:</label>
+
+                <input
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  placeholder="lastName"
+                  value={formData.lastName}
+                  onChange={(e) =>
+                    setFormData({ ...formData, lastName: e.target.value })
                   }
                 />
               </div>
