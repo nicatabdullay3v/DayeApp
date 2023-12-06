@@ -42,7 +42,7 @@ function index({ elem }) {
       >
         <div className="babysitter-card">
           <div className="card-left">
-            <div className="image">
+            <div className="images">
               <img src={elem.image} alt="" />
             </div>
             <div className="rating">
@@ -50,6 +50,7 @@ function index({ elem }) {
                 icon={faStar}
                 style={{ color: "#59bec9", fontSize: "13px" }}
               />
+
               <FontAwesomeIcon
                 icon={faStar}
                 style={{ color: "#59bec9", fontSize: "13px" }}
