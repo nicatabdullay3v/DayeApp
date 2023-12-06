@@ -1,4 +1,8 @@
 .babysitter {
+  width: 100%;
+  @media (max-width: 450px) {
+    min-width: 200px;
+  }
   .babysitter-card {
     background-color: #f7f9fa;
     border-radius: 10px;
@@ -14,12 +18,24 @@
       gap: 4px;
       align-items: center;
       .image {
-        width: 100px;
+        max-width: 260px;
+        min-width: 260px;
         overflow: hidden;
         border-radius: 10px;
+        padding-left: 10px;
+        @media (max-width: 450px) {
+          min-width: 230px;
+        }
+        @media (max-width: 400px) {
+          min-width: 200px;
+        }
+        @media (max-width: 400px) {
+          min-width: 200px;
+        }
         img {
           width: 100%;
           object-fit: cover;
+          border-radius: 10px;
         }
       }
       .rating {

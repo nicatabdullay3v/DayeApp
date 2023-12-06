@@ -36,12 +36,12 @@ function index({ elem }) {
   return (
     <div className="babysitter">
       <Link
-        // to={`/babysittersDetail/${elem.id}`}
+        to={`/babysittersDetail/${elem.id}`}
         className="card-link"
         style={{ textDecoration: "none" }}
       >
         <div className="babysitter-card">
-          <div className="card-left">
+          <div className="card-leftt">
             <div className="images">
               <img src={elem.image} alt="" />
             </div>
@@ -72,12 +72,8 @@ function index({ elem }) {
           </div>
           <div className="card-right">
             <div className="name">
-              <p>{elem.name}</p>
+              <p>{elem.firstName}</p>
 
-              <FontAwesomeIcon
-                icon={faCircleCheck}
-                style={{ color: "#59bec9" }}
-              />
               <div className="heart">
                 <FontAwesomeIcon
                   onClick={(e) => {
@@ -109,7 +105,9 @@ function index({ elem }) {
                     }
                   }}
                   icon={faHeart}
-                  style={{ color: isParent === true ? color : "gray" }}
+                  style={{
+                    color: isParent === true ? color : "gray",
+                  }}
                 />
               </div>
             </div>
