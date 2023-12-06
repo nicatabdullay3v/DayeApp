@@ -5,6 +5,8 @@ import { faBars, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Link, Outlet } from "react-router-dom";
 import "./NavbatThird.scss";
 const NavbarThird = () => {
+  let User = JSON.parse(localStorage.getItem("login"));
+
   return (
     <nav
       style={{
@@ -35,6 +37,8 @@ const NavbarThird = () => {
             <button>Sing up</button>
           </Link>
         </div>
+        {User ? <h2>{User.firstName}</h2> : null}
+
         <FontAwesomeIcon icon={faBars} />
       </div>
       <Outlet />

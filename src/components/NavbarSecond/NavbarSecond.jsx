@@ -5,6 +5,8 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
 const NavbarSecond = () => {
+  let User = JSON.parse(localStorage.getItem("login"));
+
   const navigate = useNavigate();
   const [situation, setsituation] = useState(true);
   let login = JSON.parse(localStorage.getItem("login"));
@@ -13,7 +15,6 @@ const NavbarSecond = () => {
       style={{
         backgroundColor: "#edf7f8",
         borderBottom: "1px solid lightgray",
-
       }}
     >
       <div className="nav_left">
@@ -64,6 +65,7 @@ const NavbarSecond = () => {
             </div>
           </>
         )}
+        {User ? <h2>{User.firstName}</h2> : null}
 
         <FontAwesomeIcon icon={faBars} />
       </div>

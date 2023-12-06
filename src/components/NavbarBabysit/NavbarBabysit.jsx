@@ -8,6 +8,7 @@ import "./NavbarBabysit.scss";
 const NavbarBabysit = () => {
   const navigate = useNavigate();
   const [situation, setsituation] = useState(true);
+  let User = JSON.parse(localStorage.getItem("login"));
   let login = JSON.parse(localStorage.getItem("login"));
   return (
     <nav
@@ -61,6 +62,7 @@ const NavbarBabysit = () => {
             </div>
           </>
         )}
+        {User ? <h2>{User.firstName}</h2> : null}
 
         <FontAwesomeIcon  icon={faBars} />
       </div>

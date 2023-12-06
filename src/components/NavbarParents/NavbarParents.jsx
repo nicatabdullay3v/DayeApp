@@ -9,6 +9,8 @@ import { motion } from "framer-motion";
 
 
 function NavbarFourth() {
+  let User = JSON.parse(localStorage.getItem("login"));
+
   const [situation, setsituation] = useState(true);
   const navigate = useNavigate();
   return (
@@ -84,7 +86,7 @@ function NavbarFourth() {
             Log Out
           </button>
         </div>
-
+        {User ? <h2>{User.firstName}</h2> : null}
         <FontAwesomeIcon icon={faBars} />
       </div>
       <Outlet />
