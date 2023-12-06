@@ -25,7 +25,7 @@
         .card_parent {
           .name_input {
             display: flex;
-            gap: 23px;
+            gap: 35px;
             padding-top: 15px;
             input {
               width: 266px;
@@ -38,7 +38,7 @@
 
           .agesister_input {
             display: flex;
-            gap: 39px;
+            gap: 52px;
             padding-top: 15px;
 
             input {
@@ -52,7 +52,7 @@
 
           .email_input {
             display: flex;
-            gap: 26px;
+            gap: 38px;
             padding-top: 15px;
 
             input {
@@ -66,7 +66,7 @@
 
           .price_input {
             display: flex;
-            gap: 31px;
+            gap: 44px;
             padding-top: 15px;
             input {
               width: 266px;
@@ -91,6 +91,19 @@
           }
 
           .country_input {
+            display: flex;
+            gap: 20px;
+            padding-top: 15px;
+            input {
+              width: 266px;
+              height: 34px;
+              border: none;
+              border: 1px solid #4d565e;
+              border-radius: 10px;
+            }
+          }
+
+          .password_input {
             display: flex;
             gap: 7px;
             padding-top: 15px;

@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import "./createPage.scss";
 import axios from "axios";
+import * as Yup from "yup";
+import { useFormik } from "formik";
+import YupPassword from "yup-password";
+YupPassword(Yup);
 import { fetchUserById } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 const CreatePage = ({setcreatePage}) => {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    password: "",
     price: 0,
     description: "",
     references: "",
@@ -19,6 +24,7 @@ const CreatePage = ({setcreatePage}) => {
       name: formData.name,
       age: formData.age,
       email: formData.email,
+      password: formData.password,
       country: formData.country,
       price: formData.price,
       description: formData.description,
@@ -79,6 +85,20 @@ const CreatePage = ({setcreatePage}) => {
                     onChange={handleChange}
                   />
                 </div>
+
+                <div className="password_input">
+                  <label htmlFor="password">Password:</label>
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                    value={formData.password}
+                    onChange={handleChange}
+                  />
+                </div>
+
+
 
                 <div className="country_input">
                   <label htmlFor="country">Country:</label>
