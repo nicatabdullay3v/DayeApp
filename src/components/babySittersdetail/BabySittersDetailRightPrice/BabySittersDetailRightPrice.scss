@@ -1,12 +1,14 @@
 #price_left {
   padding: 30px 30px;
-
+  // position: fixed;
 
   .price_left {
-    position: relative;
+    // position: relative;
+
+ 
 
     .price_left_box {
-      border: 2px solid red;
+      // border: 2px solid red;
       position: sticky;
       top: 0;
       max-width: 352px;

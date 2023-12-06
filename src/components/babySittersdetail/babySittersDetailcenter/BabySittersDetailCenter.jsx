@@ -24,19 +24,19 @@ const BabySittersDetailCenter = () => {
               <BabySittersExperience />
               <BabySittersAchievements />
               <BabySittersdetailSafety />
-              {/* <BabySittersAvailability /> */}
+              {isLogin ? <BabySittersAvailability /> : null}
+
               <BabySittersAbout />
               <BabiSittersDeatilSkillsCom />
-{
-  isLogin ?   <BabySittersDetailReview /> : null
-}
-            
+              {isLogin ? <BabySittersDetailReview /> : null}
 
-              {/* <BabySittersDetailReferences /> */}
+              {isLogin ? <BabySittersDetailReferences /> : null}
             </div>
             <div className="baby_sttiers_datail_center_right">
               <BabySittersdetailRightPrice />
             </div>
+        
+       
           </div>
         </div>
       </div>
