@@ -1,10 +1,12 @@
 import React, { useRef, useState } from "react";
-import { Autoplay,Navigation } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "./climate.scss";
 import "swiper/css";
 import "swiper/css/pagination";
+
 import "swiper/css/navigation";
+import { motion } from "framer-motion";
 
 const Climate = () => {
   const [swiperRef, setSwiperRef] = useState(null);
@@ -12,7 +14,18 @@ const Climate = () => {
   return (
     <section id="climate_babysits">
       <div className="container climate_media">
-        <div className="left_side">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.2 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 120,
+            duration: 2,
+            delay: 0.1,
+          }}
+          viewport={{ once: true }}
+          className="left_side"
+        >
           <h3>Babysits cares about the future of children</h3>
           <p>
             We dedicate part of our revenue to removing CO2 from the atmosphere.
@@ -141,21 +154,31 @@ const Climate = () => {
               </svg>
             </button>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="right_side">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.2 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{
+            type: "spring",
+            stiffness: 120,
+            duration: 2,
+            delay: 0.1,
+          }}
+          className="right_side"
+        >
           <div className="climate_cards">
-          <Swiper
-        spaceBetween={30}
-        autoplay={{
-          delay: 2000,
-          disableOnInteraction: false,
-        }}
-        
-        navigation={true}
-        modules={[ Autoplay,Navigation]}
-        className="mySwiper"
-      >
+            <Swiper
+              spaceBetween={30}
+              autoplay={{
+                delay: 2000,
+                disableOnInteraction: false,
+              }}
+              navigation={true}
+              modules={[Autoplay, Navigation]}
+              className="mySwiper"
+            >
               <SwiperSlide>
                 <div className="climate_card">
                   <p>Our CO2 removal is equal to the daily energy use of</p>
@@ -210,7 +233,7 @@ const Climate = () => {
               </SwiperSlide>
             </Swiper>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

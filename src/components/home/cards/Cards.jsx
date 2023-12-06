@@ -11,6 +11,7 @@ import "swiper/css/navigation";
 import { useNavigate } from "react-router-dom";
 import { fetchUserById } from "../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { motion } from "framer-motion";
 
 const Cards = () => {
   const babysittersData = useSelector((state) => state.babysitters.babysitters);
