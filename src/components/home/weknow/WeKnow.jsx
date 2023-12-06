@@ -1,5 +1,6 @@
 import React from "react";
 import "./weknow.scss";
+import { motion } from "framer-motion";
 
 const WeKnow = () => {
   return (
@@ -7,7 +8,18 @@ const WeKnow = () => {
       <div className="container">
         {/* <div className="circles">
         </div> */}
-        <div className="we_know_details">
+        <motion.div
+          initial={{ x: -330, opacity: 0 }}
+          whileInView={{
+            x: 0,
+            opacity: 1,
+          }}
+          transition={{
+            duration: 0.5,
+          }}
+          viewport={{ once: true }}
+          className="we_know_details"
+        >
           <div className="one_detail">
             <div className="justify_center">
               <div className="circle_know"></div>
@@ -35,19 +47,20 @@ const WeKnow = () => {
               <a href="">Learn more</a>
             </div>
           </div>
-         <div className="three_detail">
-         <div className="justify_center">
-            <div className="circle_worry"></div>
+          <div className="three_detail">
+            <div className="justify_center">
+              <div className="circle_worry"></div>
+            </div>
+            <div className="detail_three">
+              <h3>Less worry - more peace of mind</h3>
+              <p>
+                Transparent profiles, helpful tools, and our reliable support
+                team help remove childcare related stress and give you peace of
+                mind!
+              </p>
+            </div>
           </div>
-          <div className="detail_three">
-            <h3>Less worry - more peace of mind</h3>
-            <p>
-              Transparent profiles, helpful tools, and our reliable support team
-              help remove childcare related stress and give you peace of mind!
-            </p>
-          </div>
-         </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,10 +1,23 @@
 import React from "react";
 import "./findbaby.scss";
+import { motion } from "framer-motion";
 
 const FindBaby = () => {
   return (
     <section id="find_baby">
-      <div className="container">
+      <motion.div
+        initial={{
+          opacity: 0,
+        }}
+        whileInView={{
+          opacity: 1,
+        }}
+        transition={{
+          duration: 1.6,
+        }}
+        viewport={{ once: true }}
+        className="container"
+      >
         <h3>Find a babysitter or job quick & easy</h3>
         <div className="one_two_three">
           <div className="circle">1</div>
@@ -51,9 +64,18 @@ const FindBaby = () => {
         </div>
 
         <div className="sign_button">
-        <button>Sign up for free</button>
+          <motion.button
+               whileHover={{
+                scale: [1, 1.1, 1], // Staggered scale effect
+                backgroundColor: "#3498dd", // Smooth color transition to a blue shade
+                boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)", // Add a subtle shadow
+                transition: { duration: 0.3 }
+              }}
+          >
+            Sign up for free
+          </motion.button>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
