@@ -12,6 +12,8 @@ import BabySittersDetailReview from "../BabySittersDetailReview/BabySittersDetai
 import BabySittersDetailReferences from "../BabySittersDetailReferences/BabySittersDetailReferences";
 
 const BabySittersDetailCenter = () => {
+  let isLogin = JSON.parse(localStorage.getItem("login"));
+
   return (
     <>
       <div>
@@ -25,7 +27,11 @@ const BabySittersDetailCenter = () => {
               {/* <BabySittersAvailability /> */}
               <BabySittersAbout />
               <BabiSittersDeatilSkillsCom />
-              <BabySittersDetailReview />
+{
+  isLogin ?   <BabySittersDetailReview /> : null
+}
+            
+
               {/* <BabySittersDetailReferences /> */}
             </div>
             <div className="baby_sttiers_datail_center_right">
