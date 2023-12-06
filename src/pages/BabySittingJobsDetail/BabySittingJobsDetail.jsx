@@ -8,10 +8,13 @@ import BabySittingJobsDetailShare from "./../../components/BabySittingJobsDetail
 import FooterMiddle from "./../../components/home/footermiddle/FooterMiddle"
 import FooterDown from "./../../components/home/footerdown/FooterDown"
 import BabySittersHeader from '../../components/BabySittingJobsDetail/BabySittingJobsDetailHeader/BabySittingJobsDetailHeader';
+import NavbarSecond from '../../components/NavbarSecond/NavbarSecond';
 const BabySittingJobsDetail = () => {
   return (
 <>
-<NavBarThird/>
+{/* <NavBarThird/>
+ */}
+ <NavbarSecond/>
 <BabySittersHeader/>
 <BabySittersPortfolio/>
 <BabySittingJobsDetailCenter/>

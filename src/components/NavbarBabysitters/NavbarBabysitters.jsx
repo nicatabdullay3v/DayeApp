@@ -5,6 +5,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import "../NavbarFourth/NavbarFourth.scss";
+import { motion } from "framer-motion";
 function NavbarFourth() {
   const [situation, setsituation] = useState(true);
   const navigate = useNavigate();
@@ -12,9 +13,8 @@ function NavbarFourth() {
     <nav
       className="fourth"
       style={{
-        backgroundColor: "white",
+        backgroundColor: "#edf7f8",
         borderBottom: "1px solid lightgray",
-        marginBottom: "20px",
       }}
     >
       <div className="nav_left">
@@ -32,14 +32,19 @@ function NavbarFourth() {
       </div>
 
       <div className="nav_right">
-        <div className="nav_right_button_login">
+        <motion.div
+          whileHover={{ scale: 1.2 }}
+          animate={{ scale: [1, 1.2, 1] }}
+          transition={{ duration: 1, repeat: Infinity }}
+          className="nav_right_button_login"
+        >
           <Link to="/Favorites">
             <FontAwesomeIcon
               icon={faHeart}
-              style={{ color: "#323940", fontSize: "19px" }}
+              style={{ color: "#389BA7", fontSize: "19px" }}
             />
           </Link>
-        </div>
+        </motion.div>
 
         <div className="comment-icon">
           <FontAwesomeIcon

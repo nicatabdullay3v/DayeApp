@@ -28,7 +28,7 @@ function index({ elem }) {
   return (
     <div className="babysitter">
       <Link
-        // to={`/BabySittingJobsDetail/${elem.id}`}
+        to={`/BabySittingJobsDetail/${elem.id}`}
         className="card-link"
         style={{ textDecoration: "none" }}
       >
@@ -40,14 +40,16 @@ function index({ elem }) {
           </div>
           <div className="card-right">
             <div className="name">
-              <p>{elem.name}</p>
+              <p>{elem.firstName}</p>
               <FontAwesomeIcon
                 icon={faCircleCheck}
                 style={{ color: "#59bec9" }}
               />
               <div className="heart">
                 <FontAwesomeIcon
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
                     if (isBabysitter === true) {
                       if (babysitter?.wishList.find((x) => x.id == elem.id)) {
                         axios

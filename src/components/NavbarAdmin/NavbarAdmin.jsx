@@ -1,7 +1,7 @@
-import React  from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { Link, Outlet ,useNavigate} from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import "./navbaradmin.scss";
 import { useState } from "react";
 
@@ -13,15 +13,9 @@ const NavbarAdmin = () => {
       style={{
         backgroundColor: "white",
         borderBottom: "1px solid lightgray",
-        marginBottom: "20px",
+
       }}
     >
-      <div className="nav_left">
-        <div className="nav_logo">
-          <img src="./../../../src/assets/images/logo.main.png" alt="" />
-        </div>
-      </div>
-
       <div className="nav_center">
         <div className="nav_search">
           <input placeholder="Start your search" type="text" />
@@ -29,7 +23,7 @@ const NavbarAdmin = () => {
         </div>
       </div>
       <div className="nav_right">
-        <div className="nav_right_button_login"> 
+        <div className="nav_right_button_login">
           <Link to="/Parents" className="link">
             <button className="button_parent">Parents</button>
           </Link>

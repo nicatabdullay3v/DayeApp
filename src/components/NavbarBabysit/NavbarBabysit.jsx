@@ -14,7 +14,7 @@ const NavbarBabysit = () => {
       style={{
         backgroundColor: "white",
         borderBottom: "1px solid lightgray",
-        marginBottom: "20px",
+
       }}
     >
       <div className="nav_left">
@@ -62,7 +62,7 @@ const NavbarBabysit = () => {
           </>
         )}
 
-        <FontAwesomeIcon icon={faBars} />
+        <FontAwesomeIcon  icon={faBars} />
       </div>
       <Outlet />
     </nav>
