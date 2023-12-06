@@ -7,12 +7,12 @@ import TableAdminParents from "./TableAdminParents/TableAdminParents";
 import ButtonsAdmin from "../babysitters/buttonsAdmin/ButtonsAdmin";
 import EditPage from "./EditPage/EditPage";
 import CreatePage from "./CreatePage/CreatePage";
-
 const Parents = () => {
+  let IsAdmin = JSON.parse(localStorage.getItem("admin"));
   const [editPage, seteditPage] = useState(false);
   const [createPage, setcreatePage] = useState(false);
   const [editID, seteditID] = useState(0);
-  return (
+  return IsAdmin ? (
     <section className="admin_babysitters">
       <NavbarAdmin />
       <div className="container">
@@ -41,7 +41,7 @@ const Parents = () => {
       ) : null}
       {createPage ? <CreatePage setcreatePage={setcreatePage} /> : null}
     </section>
-  );
+  ) : null;
 };
 
 export default Parents;

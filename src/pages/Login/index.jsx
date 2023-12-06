@@ -8,6 +8,7 @@ function index() {
   const [babysitters, setBabysitters] = useState([]);
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [admins, setAdmins] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
     axios("http://localhost:3000/babysitterswanted").then((res) => {
@@ -15,6 +16,10 @@ function index() {
     });
     axios("http://localhost:3000/babysitters").then((res) => {
       setBabysitters(res.data);
+    });
+
+    axios("http://localhost:3000/admin").then((res) => {
+      setAdmins(res.data);
     });
   }, []);
 
@@ -62,28 +67,29 @@ function index() {
                 let findBabysitter = babysitters.find(
                   (elem) => elem.email == email && elem.password == pass
                 );
-                if (findParent || findBabysitter) {
+                let findAdmin = admins.find(
+                  (elem) => elem.email == email && elem.password == pass
+                );
+                if (findParent || findBabysitter || findAdmin) {
                   console.log("salam");
                   if (findParent) {
-                    if (findParent.isAdmin == true) {
-                      navigate("/Admin");
-                      
-                    } else {
-                      localStorage.setItem("login", JSON.stringify(findParent));
-                      localStorage.setItem("isParent", true);
-                      navigate("/");
-                    }
+                    localStorage.setItem("login", JSON.stringify(findParent));
+                    localStorage.setItem("isParent", true);
+                    navigate("/");
                   } else if (findBabysitter) {
-                    if (findBabysitter.isAdmin == true) {
-                      navigate("/Admin");
-                    } else {
-                      localStorage.setItem(
-                        "login",
-                        JSON.stringify(findBabysitter)
-                      );
-                      localStorage.setItem("isBabysitter", true);
-                      navigate("/");
-                    }
+                    localStorage.setItem(
+                      "login",
+                      JSON.stringify(findBabysitter)
+                    );
+                    localStorage.setItem("isBabysitter", true);
+                    navigate("/");
+                  } else if (findAdmin) {
+                    localStorage.setItem(
+                      "login",
+                      JSON.stringify(findAdmin)
+                    );
+                    navigate("/admin");
+                    localStorage.setItem("admin", JSON.stringify(true));
                   }
                 }
               }}

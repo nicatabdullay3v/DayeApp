@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import "./navbaradmin.scss";
-import { useState } from "react";
 
 const NavbarAdmin = () => {
   const [situation, setsituation] = useState(true);
   const navigate = useNavigate();
+  const [admins, setAdmins] = useState([]);
+
+  let IsAdmin = JSON.parse(localStorage.getItem("admin"));
+  let adminUser = JSON.parse(localStorage.getItem("login"));
+
   return (
     <nav
       style={{
@@ -16,19 +21,18 @@ const NavbarAdmin = () => {
       }}
     >
       <div className="nav_center">
-        <div className="nav_search">
-          <input placeholder="Start your search" type="text" />
-          <FontAwesomeIcon className="search_icon" icon={faMagnifyingGlass} />
-        </div>
+        {IsAdmin ? <h2>{adminUser.firstName}</h2> : null}
+        {/* <input placeholder="Start your search" type="text" /> */}
+        {/* <FontAwesomeIcon className="search_icon" icon={faMagnifyingGlass} /> */}
       </div>
       <div className="nav_right">
         <div className="nav_right_button_login">
-          <Link to="/Parents" className="link">
+          <Link to="/Admin/Parents" className="link">
             <button className="button_parent">Parents</button>
           </Link>
         </div>
         <div className="nav_right_button_sign_up">
-          <Link to="/Babysittersemployee">
+          <Link to="/Admin/Babysittersemployee">
             <button className="button_employee">BabySitters</button>
           </Link>
         </div>

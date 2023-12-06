@@ -59,11 +59,11 @@ const router = createBrowserRouter([
     element: <Admin />,
   },
   {
-    path: "/Parents",
+    path: "/Admin/Parents",
     element: <Parents />,
   },
   {
-    path: "/Babysittersemployee",
+    path: "/Admin/Babysittersemployee",
     element: <BabysittersEmployee />,
   },
   {

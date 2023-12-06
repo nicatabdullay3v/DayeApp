@@ -15,6 +15,9 @@
           "comment": "b",
           "whoSend": "ekas",
           "id": 35
+        },
+        {
+          "comment": "mnbvcvbn"
         }
       ],
       "references": [],
@@ -308,21 +311,6 @@
       "id": 28
     },
     {
-      "firstName": "",
-      "lastName": "",
-      "email": "",
-      "password": "",
-      "address": "",
-      "education": "",
-      "experienceYear": "",
-      "experienceChildrenAge": "",
-      "about": "",
-      "isAdmin": false,
-      "price": "",
-      "wishList": [],
-      "id": 29
-    },
-    {
       "isBabysitter": true,
       "firstName": "saalaaamm",
       "lastName": "Espinoza",
@@ -471,17 +459,6 @@
       "id": 1
     },
     {
-      "firstName": "hemide",
-      "lastName": "hemide",
-      "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
-      "email": "hemide@gmail.com",
-      "password": "hemide",
-      "isAdmin": true,
-      "adminCode": "hemide123",
-      "reviews": [],
-      "id": 2
-    },
-    {
       "firstName": "Melanie",
       "lastName": "Alvarez",
       "email": "nikemo@mailinator.com",
@@ -541,21 +518,6 @@
       "wishlist": [],
       "reviews": [],
       "id": 7
-    },
-    {
-      "firstName": "hemide",
-      "lastName": "hemide",
-      "email": "hemide@gmail.com",
-      "password": "hemide",
-      "address": "Provident animi po",
-      "isAdmin": true,
-      "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
-      "numberofChildren": "408",
-      "childrenAge": "5-7",
-      "about": "Veniam laboriosam ",
-      "reviews": [],
-      "wishlist": [],
-      "id": 8
     },
     {
       "isParent": true,
@@ -639,7 +601,6 @@
       "email": "hemide@gmail.com",
       "password": "hemide",
       "adminCode": "hemide123",
-
       "isAdmin": true,
       "id": 1
     }
