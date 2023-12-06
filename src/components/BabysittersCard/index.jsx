@@ -32,7 +32,7 @@ function index({ elem }) {
   let parent = parents.find((x) => x.id == loginParent.id);
   console.log(parent?.wishList);
   let color = parent?.wishList?.find((x) => x.id == elem.id) ? "blue" : "gray";
-
+console.log(elem);
   return (
     <div className="babysitter">
       <Link
@@ -81,7 +81,7 @@ function index({ elem }) {
                     e.stopPropagation();
                     console.log("salam");
                     if (isParent) {
-                      if (parent.wishList.find((x) => x.id == elem.id)) {
+                      if (parent?.wishList?.find((x) => x.id == elem.id)) {
                         axios
                           .patch(
                             `http://localhost:3000/babysitterswanted/${loginParent.id}`,

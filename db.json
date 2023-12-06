@@ -2,49 +2,6 @@
   "babysitters": [
     {
       "id": 2,
-      "name": "Sindi2",
-      "age": 19,
-      "email": "sindi",
-      "password": "sindi",
-      "country": "London",
-      "price": 99,
-      "experienceYear": 6,
-      "experienceChildrenAge": "",
-      "reviews": [],
-      "references": [],
-      "provided": [],
-      "activities": [],
-      "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
-      "about": "Hello to all inquires. My name is Jaida Morris, I am 19 years old and I am passionate about reading, painting, writing, music and even photography. I love children and believe that they are the gateway to heaven. I spent time watching kids for most of my life that includes cousins, nieces, nephews and even kids I didn’t know. I love children … any child is a safe child with me.",
-      "wishList": [
-        {
-          "firstName": "Lydia",
-          "lastName": "Moreno",
-          "email": "fatime@gmail.com",
-          "password": "Pa$$w0rd!",
-          "isAdmin": false,
-          "address": "Cum minim id ea in ",
-          "numberofChildren": "571",
-          "childrenAge": "0-1",
-          "description": "",
-          "id": 1
-        }
-      ],
-      "bookings": 6,
-      "driverLicense": false,
-      "Haschildren": false,
-      "location": "At the babysitters's",
-      "Education": "In High School",
-      "description": "burada description olacaq",
-      "car": false,
-      "smoker": false,
-      "Languages": "English",
-      "Favorited": 15,
-      "requestId": "O0uZ2gtgHM0pGLIIkACBY",
-      "signal": {}
-    },
-    {
-      "id": 2,
       "firstName": "Sindi2",
       "age": 19,
       "email": "sindi@gmail.com",
@@ -517,7 +474,6 @@
       "firstName": "hemide",
       "lastName": "hemide",
       "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
-
       "email": "hemide@gmail.com",
       "password": "hemide",
       "isAdmin": true,
@@ -529,7 +485,6 @@
       "lastName": "Alvarez",
       "email": "nikemo@mailinator.com",
       "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
-
       "isAdmin": false,
       "password": "Pa$$w0rd!",
       "address": "Repudiandae cupidata",
@@ -547,7 +502,6 @@
       "password": "Pa$$w0rd!",
       "isAdmin": false,
       "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
-
       "address": "Expedit",
       "numberofChildren": "3",
       "childrenAge": "2-4",
@@ -563,7 +517,6 @@
       "email": "jyxid@mailinator.com",
       "password": "Pa$$w0rd!",
       "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
-
       "address": "Blanditiis consequat",
       "numberofChildren": "428",
       "childrenAge": "3-5",
@@ -581,7 +534,6 @@
       "isAdmin": false,
       "address": "Blanditiis consequat",
       "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
-
       "numberofChildren": "428",
       "childrenAge": "3-5",
       "about": "Dolor nostrum harum ",
@@ -597,7 +549,6 @@
       "address": "Provident animi po",
       "isAdmin": true,
       "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
-
       "numberofChildren": "408",
       "childrenAge": "5-7",
       "about": "Veniam laboriosam ",
@@ -612,7 +563,6 @@
       "email": "fatime1@gmail.com",
       "password": "fatime",
       "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
-
       "address": "Sed laborum animi e",
       "numberofChildren": "885",
       "about": "Deserunt est quos e",
@@ -632,116 +582,7 @@
       "about": "Ullamco impedit sin",
       "reviews": [],
       "childrenAge": "5-7",
-      "wishList": [
-        {
-          "id": 2,
-          "name": "Sindi2",
-          "age": 19,
-          "email": "sindi",
-          "password": "sindi",
-          "country": "London",
-          "price": 99,
-          "experienceYear": 6,
-          "experienceChildrenAge": "",
-          "reviews": [],
-          "references": [],
-          "provided": [],
-          "activities": [],
-          "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
-          "about": "Hello to all inquires. My name is Jaida Morris, I am 19 years old and I am passionate about reading, painting, writing, music and even photography. I love children and believe that they are the gateway to heaven. I spent time watching kids for most of my life that includes cousins, nieces, nephews and even kids I didn’t know. I love children … any child is a safe child with me.",
-          "wishList": [
-            {
-              "firstName": "Lydia",
-              "lastName": "Moreno",
-              "email": "fatime@gmail.com",
-              "password": "Pa$$w0rd!",
-              "isAdmin": false,
-              "address": "Cum minim id ea in ",
-              "numberofChildren": "571",
-              "childrenAge": "0-1",
-              "description": "",
-              "id": 2
-            }
-          ],
-          "bookings": 6,
-          "driverLicense": false,
-          "Haschildren": false,
-          "location": "At the babysitters's",
-          "Education": "In High School",
-          "description": "burada description olacaq",
-          "car": false,
-          "smoker": false,
-          "Languages": "English",
-          "Favorited": 15
-        },
-        {
-          "id": 5,
-          "name": "Sindi5",
-          "age": 19,
-          "email": "sindi@gmail.com",
-          "password": "Sindi123",
-          "country": "London",
-          "price": 99,
-          "experienceYear": 6,
-          "experienceChildrenAge": "",
-          "reviews": [],
-          "references": [],
-          "provided": [],
-          "activities": [],
-          "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
-          "about": "Hello to all inquires. My name is Jaida Morris, I am 19 years old and I am passionate about reading, painting, writing, music and even photography. I love children and believe that they are the gateway to heaven. I spent time watching kids for most of my life that includes cousins, nieces, nephews and even kids I didn’t know. I love children … any child is a safe child with me.",
-          "wishList": [],
-          "bookings": 6,
-          "driverLicense": false,
-          "Haschildren": false,
-          "location": "At the babysitters's",
-          "Education": "In High School",
-          "description": "burada description olacaq",
-          "car": false,
-          "smoker": false,
-          "Languages": "English",
-          "Favorited": 15
-        },
-        {
-          "id": 4,
-          "name": "Sindi4",
-          "age": 19,
-          "email": "sindi@gmail.com",
-          "password": "Sindi123",
-          "country": "London",
-          "price": 99,
-          "experienceYear": 6,
-          "experienceChildrenAge": "",
-          "reviews": [
-            {
-              "comment": "asdasd",
-              "whoSend": "nicat",
-              "id": 10
-            },
-            {
-              "comment": "eh adas asbhdkkhuekhkhfelkjekwehukbhuhohieoihfeihefhfehiihowefewffefhuhsufihsuhfus'hgADBASBDhvkhdvk/v/DVJDVAJVHDSADvhhbvhvhvhv.  .kjbKJBdk/jbddkjbdkbjdkjbdjbbjjbdjbdjbddjb",
-              "whoSend": "nicat",
-              "id": 10
-            }
-          ],
-          "references": [],
-          "provided": [],
-          "activities": [],
-          "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
-          "about": "Hello to all inquires. My name is Jaida Morris, I am 19 years old and I am passionate about reading, painting, writing, music and even photography. I love children and believe that they are the gateway to heaven. I spent time watching kids for most of my life that includes cousins, nieces, nephews and even kids I didn’t know. I love children … any child is a safe child with me.",
-          "wishList": [],
-          "bookings": 6,
-          "driverLicense": false,
-          "Haschildren": false,
-          "location": "At the babysitters's",
-          "Education": "In High School",
-          "description": "burada description olacaq",
-          "car": false,
-          "smoker": false,
-          "Languages": "English",
-          "Favorited": 15
-        }
-      ],
+      "wishList": [],
       "id": 10
     },
     {
