@@ -23,7 +23,7 @@ function NavbarFourth() {
       }}
     >
       <div className="nav_left">
-        <div  className="nav_logo">
+        <div  className="nav_logo" >
           <motion.img  whileHover={{ scale: 1.2 }} // Rotate 360 degrees on hover
 
   transition={{ duration: 1, }} onClick={()=>{

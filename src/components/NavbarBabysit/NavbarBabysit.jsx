@@ -19,7 +19,9 @@ const NavbarBabysit = () => {
       }}
     >
       <div className="nav_left">
-        <div className="nav_logo">
+        <div className="nav_logo" onClick={() => {
+              navigate("/")
+              }}>
           <img src="./../../../src/assets/images/logo.main.png" alt="" />
         </div>
       </div>

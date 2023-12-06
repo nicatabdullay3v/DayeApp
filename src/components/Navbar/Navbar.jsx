@@ -2,13 +2,18 @@ import React from "react";
 import "./Navbar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   return (
     <nav>
       <div className="nav_left">
-        <div className="nav_logo">
+        <div className="nav_logo"  onClick={() => {
+              navigate("/")
+              }}>
           <img src="./../../../src/assets/images/logo.main.png" alt="" />
         </div>
       </div>

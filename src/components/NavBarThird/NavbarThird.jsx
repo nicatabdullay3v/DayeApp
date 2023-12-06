@@ -2,9 +2,11 @@ import React from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+
 import "./NavbatThird.scss";
 const NavbarThird = () => {
+  const navigate = useNavigate();
   let User = JSON.parse(localStorage.getItem("login"));
 
   return (
@@ -15,7 +17,9 @@ const NavbarThird = () => {
       }}
     >
       <div className="nav_left">
-        <div className="nav_logo">
+        <div className="nav_logo"  onClick={() => {
+              navigate("/")
+              }}>
           <img src="./../../../src/assets/images/logo.main.png" alt="" />
         </div>
       </div>
