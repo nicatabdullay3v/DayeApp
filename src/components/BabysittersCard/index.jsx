@@ -79,7 +79,9 @@ function index({ elem }) {
               />
               <div className="heart">
                 <FontAwesomeIcon
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
                     console.log("salam");
                     if (isParent) {
                       if (parent.wishList.find((x) => x.id == elem.id)) {
