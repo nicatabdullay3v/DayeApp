@@ -4,13 +4,14 @@ import axios from "axios";
 import "./CreatePage.scss";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import { Formik, Form, Field, ErrorMessage } from "formik";
 import YupPassword from "yup-password";
 YupPassword(Yup);
 
 import { fetcBabysitterJobs } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 
-const SignupSchema = Yup.object().shape({});
+const SignupSchema = Yup.object().shape({
+
+});
 
 const CreatePage = ({ setcreatePage }) => {
   const dispatch = useDispatch();
@@ -95,7 +96,7 @@ const CreatePage = ({ setcreatePage }) => {
         .min(100, "Must be 100 characters or more")
 
         .required("Required"),
-      numberofchildren: Yup.number().required("Required"),
+      // numberofchildren: Yup.string().required("Required"),
       childrenAge: Yup.string().required("Required"),
       password: Yup.string()
         .min(
@@ -135,6 +136,7 @@ const CreatePage = ({ setcreatePage }) => {
           <div className="right_side_create">
             <div className="create_to">
               <div className="card_parent">
+                
                 <form onSubmit={formik.handleSubmit} action="">
                   <div className="firstname_input">
                     <label htmlFor="firstName">firstName:</label>
@@ -260,7 +262,7 @@ const CreatePage = ({ setcreatePage }) => {
 
                     <input
                       value={formik.values.numberofChildren}
-                      type="number"
+                      type="text"
                       onChange={formik.handleChange}
                       name="numberofChildren"
                       placeholder="Child"
