@@ -6,6 +6,10 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import "./editpage.scss";
 import axios from "axios";
+import * as Yup from "yup";
+import { useFormik } from "formik";
+import YupPassword from "yup-password";
+YupPassword(Yup);
 const EditPage = ({ editID, seteditPage }) => {
   const ParentsData = useSelector(
     (state) => state.babysitters.babysitterswanted
@@ -17,46 +21,96 @@ const EditPage = ({ editID, seteditPage }) => {
     dispatch(fetcBabysitterJobs(editID));
   }, [dispatch, editID]);
 
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    address: "",
-    numberofChildren: "",
-    childrenAge: "",
-    description: "",
-    // about: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   firstName: "",
+  //   lastName: "",
+  //   email: "",
+  //   address: "",
+  //   numberofChildren: "",
+  //   childrenAge: "",
+  //   description: "",
+  //   // about: "",
+  // });
 
-  useEffect(() => {
-    if (currentlySister) {
-      setFormData({
-        firstName: currentlySister.firstName,
-        lastName: currentlySister.lastName,
-        email: currentlySister.email,
-        address: currentlySister.address,
-        numberofChildren: currentlySister.numberofChildren,
-        childrenAge: currentlySister.childrenAge,
-        description: currentlySister.description,
+  // useEffect(() => {
+  //   if (currentlySister) {
+  //     setFormData({
+  //       firstName: currentlySister.firstName,
+  //       lastName: currentlySister.lastName,
+  //       email: currentlySister.email,
+  //       address: currentlySister.address,
+  //       numberofChildren: currentlySister.numberofChildren,
+  //       childrenAge: currentlySister.childrenAge,
+  //       description: currentlySister.description,
+  //     });
+  //   }
+  // }, [currentlySister]);
+
+  // const handleEdit = () => {
+  //   const updatedData = {
+  //     firstName: formData.firstName,
+  //     lastName: formData.lastName,
+  //     email: formData.email,
+  //     address: formData.address,
+  //     numberofChildren: formData.numberofChildren,
+  //     childrenAge: formData.childrenAge,
+  //     description: formData.description,
+  //   };
+  //   axios
+  //     .patch(`http://localhost:3000/babysitterswanted/${editID}`, updatedData)
+  //     .then(dispatch(fetcBabysitterJobs()));
+  //   seteditPage(false);
+  // };
+
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      address: "",
+      numberofChildren: "",
+      childrenAge: "",
+      description: "",
+    },
+
+    validationSchema: Yup.object({
+      firstName: Yup.string()
+        .min(2, "Too Short!")
+        .max(15, "Too Long!")
+        .required("Required"),
+      lastName: Yup.string()
+        .min(2, "Too Short!")
+        .max(15, "Too Long!")
+        .required("Required"),
+      email: Yup.string().email("Invalid email").required("Required"),
+      address: Yup.string()
+        .min(10, "Must be 10 characters or more")
+        .required("Required"),
+      description: Yup.string()
+        .max(200, "Must be 200 characters or less")
+        .min(50, "Must be 50 characters or more")
+
+        .required("Required"),
+
+      childrenAge: Yup.string().required("Required"),
+    }),
+    onSubmit: (values) => {
+      let obj = {
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.email,
+        address: values.address,
+        numberofChildren: values.numberofChildren,
+        childrenAge: values.childrenAge,
+        description: values.description,
+      };
+      console.log(obj);
+      axios.post(`http://localhost:3000/babysitterswanted/`, obj).then(() => {
+        dispatch(fetcBabysitterJobs());
+        setcreatePage(false);
       });
-    }
-  }, [currentlySister]);
-
-  const handleEdit = () => {
-    const updatedData = {
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      email: formData.email,
-      address: formData.address,
-      numberofChildren: formData.numberofChildren,
-      childrenAge: formData.childrenAge,
-      description: formData.description,
-    };
-    axios
-      .patch(`http://localhost:3000/babysitterswanted/${editID}`, updatedData)
-      .then(dispatch(fetcBabysitterJobs()));
-    seteditPage(false);
-  };
+    },
+  });
 
   return (
     <section id="edit_page_parent">
@@ -107,113 +161,177 @@ const EditPage = ({ editID, seteditPage }) => {
           <div className="change_to">
             <h2>Change to</h2>
             <div className="card_parent">
-              <div className="firstName_input">
-                <label htmlFor="firstName">firstName:</label>
+              <form onSubmit={formik.handleSubmit} action="">
+                <div className="firstName_input">
+                  <label htmlFor="firstName">firstName:</label>
 
-                <input
-                  type="text"
-                  name="firstName"
-                  id="firstName"
-                  placeholder="firstName"
-                  value={formData.firstName}
-                  onChange={(e) =>
-                    setFormData({ ...formData, firstName: e.target.value })
-                  }
-                />
-              </div>
+                  <input
+                    value={formik.values.firstName}
+                    onChange={formik.handleChange}
+                    type="text"
+                    name="firstName"
+                    placeholder="Name"
+                  />
+                  {formik.touched.firstName && formik.errors.firstName ? (
+                    <div
+                      style={{
+                        textAlign: "center",
+                        color: "red",
+                        fontSize: "small",
+                      }}
+                    >
+                      {formik.errors.firstName}
+                    </div>
+                  ) : null}
+                </div>
 
-              <div className="lastName_input">
-                <label htmlFor="lastName">lastName:</label>
+                <div className="lastName_input">
+                  <label htmlFor="lastName">lastName:</label>
 
-                <input
-                  type="text"
-                  name="lastName"
-                  id="lastName"
-                  placeholder="lastName"
-                  value={formData.lastName}
-                  onChange={(e) =>
-                    setFormData({ ...formData, lastName: e.target.value })
-                  }
-                />
-              </div>
+                  <input
+                    value={formik.values.lastName}
+                    type="text"
+                    onChange={formik.handleChange}
+                    name="lastName"
+                    placeholder="lastName"
+                  />
+                  {formik.touched.lastName && formik.errors.lastName ? (
+                    <div
+                      style={{
+                        textAlign: "center",
+                        color: "red",
+                        fontSize: "small",
+                      }}
+                    >
+                      {formik.errors.lastName}
+                    </div>
+                  ) : null}
+                  {/* <ErrorMessage name="lastName" /> */}
+                </div>
 
-              <div className="email_input">
-                <label htmlFor="emal">Email:</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                />
-              </div>
+                <div className="email_input">
+                  <label htmlFor="email">Email:</label>
 
-              <div className="address_input">
-                <label htmlFor="address">Address:</label>
+                  <input
+                    value={formik.values.email}
+                    type="email"
+                    onChange={formik.handleChange}
+                    name="email"
+                    placeholder="Email"
+                  />
+                  {formik.touched.email && formik.errors.email ? (
+                    <div
+                      style={{
+                        textAlign: "center",
+                        color: "red",
+                        fontSize: "small",
+                      }}
+                    >
+                      {formik.errors.email}
+                    </div>
+                  ) : null}
+                  {/* <ErrorMessage name="email" /> */}
+                </div>
 
-                <input
-                  type="text"
-                  name="address"
-                  id="address"
-                  placeholder="address"
-                  value={formData.address}
-                  onChange={(e) =>
-                    setFormData({ ...formData, address: e.target.value })
-                  }
-                />
-              </div>
+                <div className="address_input">
+                  <label htmlFor="address">Address:</label>
 
-              <div className="children_input">
-                <label htmlFor="numberofChildren">Child:</label>
+                  <input
+                    value={formik.values.address}
+                    type="text"
+                    onChange={formik.handleChange}
+                    name="address"
+                    placeholder="Address"
+                  />
+                  {formik.touched.address && formik.errors.address ? (
+                    <div
+                      style={{
+                        textAlign: "center",
+                        color: "red",
+                        fontSize: "small",
+                      }}
+                    >
+                      {formik.errors.address}
+                    </div>
+                  ) : null}
+                  {/* <ErrorMessage name="address" /> */}
+                </div>
 
-                <input
-                  type="number"
-                  name="numberofChildren"
-                  id="numberofChildren"
-                  placeholder="numberofChildren"
-                  value={formData.numberofChildren}
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      numberofChildren: e.target.value,
-                    })
-                  }
-                />
-              </div>
+                <div className="children_input">
+                  <label htmlFor="numberofChildren">Child:</label>
 
-              <div className="childAge_input">
-                <label htmlFor="childrenAge">ChildAge:</label>
-                <input
-                  type="text"
-                  name="childrenAge"
-                  id="childrenAge"
-                  placeholder="childrenAge"
-                  value={formData.childrenAge}
-                  onChange={(e) =>
-                    setFormData({ ...formData, childrenAge: e.target.value })
-                  }
-                />
-              </div>
+                  <input
+                    value={formik.values.numberofChildren}
+                    type="text"
+                    onChange={formik.handleChange}
+                    name="numberofChildren"
+                    placeholder="Child"
+                  />
+                  {formik.touched.numberofChildren &&
+                  formik.errors.numberofChildren ? (
+                    <div
+                      style={{
+                        textAlign: "center",
+                        color: "red",
+                        fontSize: "small",
+                      }}
+                    >
+                      {formik.errors.numberofChildren}
+                    </div>
+                  ) : null}
+                  {/* <ErrorMessage name="numberofChildren" /> */}
+                </div>
+                <div className="childAge_input">
+                  <label htmlFor="childrenAge">Age: </label>
 
-              <div className="description_input">
-                <label htmlFor="description">Description:</label>
-                <textarea
-                  name="description"
-                  id="description"
-                  cols="40"
-                  rows="5"
-                  placeholder="At least 200 characters"
-                  value={formData.description}
-                  onChange={(e) =>
-                    setFormData({ ...formData, description: e.target.value })
-                  }
-                ></textarea>
-              </div>
+                  <input
+                    value={formik.values.childrenAge}
+                    type="text"
+                    name="childrenAge"
+                    onChange={formik.handleChange}
+                    placeholder="Age Children"
+                  />
+                  {formik.touched.childrenAge && formik.errors.childrenAge ? (
+                    <div
+                      style={{
+                        textAlign: "center",
+                        color: "red",
+                        fontSize: "small",
+                      }}
+                    >
+                      {formik.errors.childrenAge}
+                    </div>
+                  ) : null}
+                  {/* <ErrorMessage name="childrenAge" /> */}
+                </div>
 
-              {/* <div className="comments_input">
+                <div className="description_input">
+                  <label htmlFor="description">Description:</label>
+
+                  <textarea
+                    value={formik.values.description}
+                    as="textarea"
+                    name="description"
+                    onChange={formik.handleChange}
+                    id="description"
+                    cols="40"
+                    rows="5"
+                    placeholder="At least 100 characters"
+                  />
+                  {formik.touched.description && formik.errors.description ? (
+                    <div
+                      style={{
+                        textAlign: "center",
+                        color: "red",
+                        fontSize: "small",
+                      }}
+                    >
+                      {formik.errors.description}
+                    </div>
+                  ) : null}
+                </div>
+
+                {/* <div className="comments_input">
                 <label htmlFor="about">About:</label>
                 <textarea
                   name="about"
@@ -227,9 +345,10 @@ const EditPage = ({ editID, seteditPage }) => {
                   }
                 ></textarea>
               </div> */}
-            </div>
-            <div className="edit_btn">
-              <button onClick={handleEdit}>Edit</button>
+                <div className="edit_btn">
+                  <button type="submit">Edit</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
