@@ -8,14 +8,14 @@
     justify-content: center;
     background-color: #f7f9fa;
     padding: 20px;
-   
+
     .admin_side_to_side {
       .first_side,
       .second_side,
       .third_side,
       .fourth_side {
         display: flex;
-     padding-bottom: 20px;
+        padding-bottom: 20px;
 
         .for_one,
         .for_two,
@@ -50,6 +50,36 @@
         color: white;
         padding-top: 2px;
       }
+    }
+  }
+}
+.containerAdmin {
+  width: 70%;
+  align-items: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 70px 0;
+  .admin-code {
+    padding: 30px 20px;
+    padding-bottom: 60px;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    input {
+      width: 50%;
+      outline: none;
+      border: none;
+      padding: 10px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(128, 128, 128, 0.568);
+      font-size: 16px;
     }
   }
 }

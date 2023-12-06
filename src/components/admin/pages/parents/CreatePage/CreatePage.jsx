@@ -95,7 +95,7 @@ const CreatePage = ({ setcreatePage }) => {
         .min(100, "Must be 100 characters or more")
 
         .required("Required"),
-      numberofchildren: Yup.number().required("Required"),
+      // numberofchildren: Yup.number().required("Required"),
       childrenAge: Yup.string().required("Required"),
       password: Yup.string()
         .min(

@@ -13,7 +13,6 @@ const NavbarAdmin = () => {
       style={{
         backgroundColor: "white",
         borderBottom: "1px solid lightgray",
-
       }}
     >
       <div className="nav_center">
@@ -41,6 +40,7 @@ const NavbarAdmin = () => {
               localStorage.removeItem("isParent");
               localStorage.removeItem("isBabysitter");
               setsituation((state) => !state);
+              localStorage.removeItem("admin");
             }}
           >
             Log Out

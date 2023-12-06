@@ -477,6 +477,7 @@
       "email": "hemide@gmail.com",
       "password": "hemide",
       "isAdmin": true,
+      "adminCode": "hemide123",
       "reviews": [],
       "id": 2
     },
@@ -647,6 +648,16 @@
       "childrenAge": "Ut non debitis vel n",
       "description": "Non et dolore possim",
       "id": 13
+    },
+    {
+      "firstName": "Austin",
+      "lastName": "Duke",
+      "email": "nijamyg@mailinator.com",
+      "address": "Voluptas atque et at",
+      "numberofChildren": 331,
+      "childrenAge": "Tempor id ut accusam",
+      "description": "Nesciunt magna culpNesciunt magna culpNesciunt magna culpNesciunt magna culpNesciunt magna culpNesciunt magna culpNesciunt magna culp",
+      "id": 14
     }
   ],
   "admin": [
@@ -656,8 +667,10 @@
       "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
       "email": "hemide@gmail.com",
       "password": "hemide",
+      "adminCode": "hemide123",
+
       "isAdmin": true,
-      "id": 2
+      "id": 1
     }
   ]
 }
