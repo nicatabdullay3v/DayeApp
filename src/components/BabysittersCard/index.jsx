@@ -36,13 +36,13 @@ function index({ elem }) {
   return (
     <div className="babysitter">
       <Link
-        // to={`/babysittersDetail/${elem.id}`}
+        to={`/babysittersDetail/${elem.id}`}
         className="card-link"
         style={{ textDecoration: "none" }}
       >
         <div className="babysitter-card">
-          <div className="card-left">
-            <div className="image">
+          <div className="card-leftt">
+            <div className="images">
               <img src={elem.image} alt="" />
             </div>
             <div className="rating">
@@ -50,6 +50,7 @@ function index({ elem }) {
                 icon={faStar}
                 style={{ color: "#59bec9", fontSize: "13px" }}
               />
+
               <FontAwesomeIcon
                 icon={faStar}
                 style={{ color: "#59bec9", fontSize: "13px" }}
@@ -71,17 +72,13 @@ function index({ elem }) {
           </div>
           <div className="card-right">
             <div className="name">
-              <p>{elem.name}</p>
+              <p>{elem.firstName}</p>
 
-              <FontAwesomeIcon
-                icon={faCircleCheck}
-                style={{ color: "#59bec9" }}
-              />
               <div className="heart">
                 <FontAwesomeIcon
                   onClick={(e) => {
-                    e.preventDefault()
-                    e.stopPropagation()
+                    e.preventDefault();
+                    e.stopPropagation();
                     console.log("salam");
                     if (isParent) {
                       if (parent.wishList.find((x) => x.id == elem.id)) {
@@ -108,7 +105,9 @@ function index({ elem }) {
                     }
                   }}
                   icon={faHeart}
-                  style={{ color: isParent === true ? color : "gray" }}
+                  style={{
+                    color: isParent === true ? color : "gray",
+                  }}
                 />
               </div>
             </div>
