@@ -7,6 +7,7 @@ import { faComment } from "@fortawesome/free-solid-svg-icons";
 import "../NavbarFourth/NavbarFourth.scss";
 import { motion } from "framer-motion";
 
+
 function NavbarFourth() {
   const [situation, setsituation] = useState(true);
   const navigate = useNavigate();
@@ -20,8 +21,12 @@ function NavbarFourth() {
       }}
     >
       <div className="nav_left">
-        <div className="nav_logo">
-          <img src="./../../../src/assets/images/logo.main.png" alt="" />
+        <div  className="nav_logo">
+          <motion.img  whileHover={{ scale: 1.2 }} // Rotate 360 degrees on hover
+
+  transition={{ duration: 1, }} onClick={()=>{
+            navigate("/")
+          }} src="./../../../src/assets/images/logo.main.png" alt="" />
         </div>
       </div>
 

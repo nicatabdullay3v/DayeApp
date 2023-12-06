@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./HeroSection.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faStar } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   const [indexOfSpan, setIndexOfSpan] = useState(0);
@@ -138,8 +139,28 @@ const HeroSection = () => {
           <div className="babysitter_image">
             <img src="./../../../../src/assets/images/babysits_6.webp" alt="" />
           </div>
-          <div className="circle1"></div>
-          <div className="circle2"></div>
+          <motion.div
+            animate={{
+              scale: [1, 1.5, 1],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="circle1"
+          ></motion.div>
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="circle2"
+          ></motion.div>
         </div>
       </div>
     </section>
