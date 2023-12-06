@@ -145,6 +145,13 @@
     padding: 10px;
     background-color: #edf7f8;
     align-items: center;
+    .back-button {
+      button {
+        background-color: transparent;
+        color: black;
+        font-size: large;
+      }
+    }
     button {
       padding: 10px 20px;
       border: none;

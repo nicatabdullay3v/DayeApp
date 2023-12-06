@@ -3,29 +3,18 @@ import "./Register.scss";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import YupPassword from "yup-password";
+YupPassword(Yup);
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { useFormik } from "formik";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getFirstName,
-  getEmail,
-  getLastName,
-  getPassword,
-} from "../../../redux/Slice/RegisterSlice/RegisterSlice";
+import * as Yup from "yup";
+
 import NavbarSecond from "../../../components/NavbarSecond/NavbarSecond";
 function RegisterStepOne() {
-  const dispatch = useDispatch();
   const Parent = JSON.parse(localStorage.getItem("userParent"));
   const Babysitter = JSON.parse(localStorage.getItem("userBabysitter"));
 
-  const userParent = useSelector((state) => state.babysitterswanted.userParent);
-  const userBabysitter = useSelector(
-    (state) => state.babysitterswanted.userBabysitter
-  );
-  // console.log(userParent);
-  // console.log(userBabysitter);
   const [parents, setParents] = useState([]);
 
   useEffect(() => {
@@ -33,31 +22,6 @@ function RegisterStepOne() {
       setParents(res.data);
     });
   }, []);
-
-  const validate = (values) => {
-    const errors = {};
-    if (!values.firstName) {
-      errors.firstName = "Required";
-    } else if (values.firstName.length > 15) {
-      errors.firstName = "Must be 15 characters or less";
-    }
-
-    if (!values.lastName) {
-      errors.lastName = "Required";
-    } else if (values.lastName.length > 20) {
-      errors.lastName = "Must be 20 characters or less";
-    }
-
-    if (!values.email) {
-      errors.email = "Required";
-    } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-    ) {
-      errors.email = "Invalid email address";
-    }
-
-    return errors;
-  };
 
   let navigate = useNavigate();
   const formik = useFormik({
@@ -67,9 +31,27 @@ function RegisterStepOne() {
       email: "",
       password: "",
     },
-    validate,
+    validationSchema: Yup.object({
+      firstName: Yup.string()
+        .max(15, "Must be 15 characters or less")
+        .min(3, "Must be 3 characters or more")
+        .required("Required"),
+      lastName: Yup.string()
+        .max(20, "Must be 20 characters or less")
+        .required("Required"),
+      email: Yup.string().email("Invalid email address").required("Required"),
+      password: Yup.string()
+        .min(
+          8,
+          "password must contain 8 or more characters with at least one of each: uppercase, lowercase, number and special"
+        )
+        .minLowercase(1, "password must contain at least 1 lower case letter")
+        .minUppercase(1, "password must contain at least 1 upper case letter")
+        .minNumbers(1, "password must contain at least 1 number")
+        .minSymbols(1, "password must contain at least 1 special character")
+        .required("Required"),
+    }),
     onSubmit: (values) => {
-      // alert(JSON.stringify(values, null, 2));
       let findEmail = parents.find((elem) => elem.email == values.email);
       console.log(findEmail);
       if (Parent && Parent.isParent == true) {
@@ -146,13 +128,20 @@ function RegisterStepOne() {
                 placeholder="First name"
                 type="text"
               />
-              {formik.errors.firstName ? (
-                <div style={{ textAlign: "center", color: "red" }}>
+              {formik.touched.firstName && formik.errors.firstName ? (
+                <div
+                  style={{
+                    textAlign: "center",
+                    color: "red",
+                    fontSize: "small",
+                  }}
+                >
                   {formik.errors.firstName}
                 </div>
               ) : (
-                <div style={{ color: "white" }}>sadasd</div>
+                <div style={{ color: "white", fontSize: "small" }}>sadasd</div>
               )}
+
               <input
                 id="lastName"
                 onChange={formik.handleChange}
@@ -165,9 +154,10 @@ function RegisterStepOne() {
             <div className="lastname-info">
               Make sure it matches the name on your government ID.
             </div>
-            {formik.errors.lastName ? (
+            {formik.errors.lastName && formik.touched.firstName ? (
               <div
                 style={{
+                  fontSize: "small",
                   textAlign: "center",
                   color: "red",
                   paddingBottom: "15px",
@@ -176,7 +166,13 @@ function RegisterStepOne() {
                 {formik.errors.lastName}
               </div>
             ) : (
-              <div style={{ color: "white", paddingBottom: "15px" }}>
+              <div
+                style={{
+                  color: "white",
+                  paddingBottom: "15px",
+                  fontSize: "small",
+                }}
+              >
                 sadasd
               </div>
             )}
@@ -195,11 +191,13 @@ function RegisterStepOne() {
               support.
             </div>
             {formik.errors.email ? (
-              <div style={{ textAlign: "center", color: "red" }}>
+              <div
+                style={{ textAlign: "center", color: "red", fontSize: "small" }}
+              >
                 {formik.errors.email}
               </div>
             ) : (
-              <div style={{ color: "white" }}>sadasd</div>
+              <div style={{ color: "white", fontSize: "small" }}>sadasd</div>
             )}
             <div className="pass-input">
               <input
@@ -210,18 +208,26 @@ function RegisterStepOne() {
                 placeholder="Password "
                 type="password"
               />
-              {formik.errors.password ? (
+
+              {formik.errors.password && formik.touched.firstName ? (
                 <div
                   style={{
                     textAlign: "center",
                     color: "red",
                     paddingBottom: "15px",
+                    fontSize: "small",
                   }}
                 >
                   {formik.errors.password}
                 </div>
               ) : (
-                <div style={{ color: "white", paddingBottom: "15px" }}>
+                <div
+                  style={{
+                    color: "white",
+                    paddingBottom: "15px",
+                    fontSize: "small",
+                  }}
+                >
                   sadasd
                 </div>
               )}

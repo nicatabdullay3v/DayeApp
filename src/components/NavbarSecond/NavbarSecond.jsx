@@ -1,4 +1,4 @@
-import React ,{useState}from "react";
+import React, { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
@@ -41,12 +41,25 @@ const NavbarSecond = () => {
           <>
             <div className="nav_right_button_login">
               <button style={{ backgroundColor: "white" }}>
-                <Link to="/Login">Log in</Link>
+                <Link
+                  style={{ color: "black", textDecoration: "none" }}
+                  to="/Login"
+                >
+                  Log in
+                </Link>
               </button>
             </div>
             <div className="nav_right_button_sign_up">
               <Link to="/Register">
-                <button>Sing up</button>
+                <button
+                  onClick={() => {
+                    localStorage.removeItem("login");
+                    localStorage.removeItem("userParent");
+                    localStorage.removeItem("userBabysitter");
+                  }}
+                >
+                  Sing up
+                </button>
               </Link>
             </div>
           </>

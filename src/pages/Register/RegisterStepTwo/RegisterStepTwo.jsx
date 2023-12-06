@@ -2,23 +2,16 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "../../../components/Navbar/Navbar";
-import {
-  getIsParent,
-  getIsBabysitter,
-} from "../../../redux/Slice/RegisterSlice/RegisterSlice";
+
 import "./RegisterStepTwo.scss";
-import { useDispatch, useSelector } from "react-redux";
 function RegisterStepTwo() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [selected, setSelected] = useState("");
-  const isParent = useSelector((state) => state.babysitterswanted.isParent);
 
-  console.log(isParent);
-  console.log(selected);
   const handleChange = (event) => {
     setSelected(event.target.value);
   };
+
   return (
     <div>
       <Navbar />

@@ -4,25 +4,14 @@ import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  getAdress,
-  getNumberofChildren,
-  getChildrenAge,
-  getAbout,
-} from "../../../redux/Slice/RegisterSlice/RegisterSlice";
-import { useDispatch, useSelector } from "react-redux";
+import * as Yup from "yup";
+
+import YupPassword from "yup-password";
+YupPassword(Yup);
 import axios from "axios";
 function ParentRegisterStepOne() {
   const Parent = JSON.parse(localStorage.getItem("userParent"));
-
   const [post, setPost] = useState(false);
-  const dispatch = useDispatch();
-  const userParent = useSelector((state) => state.babysitterswanted.userParent);
-
-  const isParent = useSelector((state) => state.babysitterswanted.isParent);
-  const isBabysitter = useSelector(
-    (state) => state.babysitterswanted.isBabysitter
-  );
   const [selected, setSelected] = useState("");
   useEffect(() => {}, [post]);
   let navigate = useNavigate();
@@ -36,6 +25,28 @@ function ParentRegisterStepOne() {
       about: "",
       childrenAge: "",
     },
+    validationSchema: Yup.object({
+      address: Yup.string()
+
+        .min(10, "Must be 10 characters or more")
+        .required("Required"),
+      about: Yup.string()
+        .max(60, "Must be 60 characters or less")
+        .min(20, "Must be 20 characters or more")
+
+        .required("Required"),
+      numberofchildren: Yup.string().required("Required"),
+      password: Yup.string()
+        .min(
+          8,
+          "password must contain 8 or more characters with at least one of each: uppercase, lowercase, number and special"
+        )
+        .minLowercase(1, "password must contain at least 1 lower case letter")
+        .minUppercase(1, "password must contain at least 1 upper case letter")
+        .minNumbers(1, "password must contain at least 1 number")
+        .minSymbols(1, "password must contain at least 1 special character")
+        .required("Required"),
+    }),
     onSubmit: (values) => {
       // alert(JSON.stringify(values, null, 2));
       if (Parent && Parent.isParent == true) {
@@ -88,6 +99,19 @@ function ParentRegisterStepOne() {
                 type="text"
               />
               <p>Your address will never be shared with anyone</p>
+              {formik.touched.address && formik.errors.address ? (
+                <div
+                  style={{
+                    textAlign: "center",
+                    color: "red",
+                    fontSize: "16px",
+                  }}
+                >
+                  {formik.errors.address}
+                </div>
+              ) : (
+                <div style={{ color: "white", fontSize: "16px" }}>sadasd</div>
+              )}
             </div>
             <div className="numberChildren">
               <label htmlFor="childrenNumber">Number of children</label>
@@ -98,8 +122,31 @@ function ParentRegisterStepOne() {
                 name="numberofchildren"
                 type="text"
               />
+              {formik.touched.numberofchildren &&
+              formik.errors.numberofchildren ? (
+                <div
+                  style={{
+                    textAlign: "center",
+                    color: "red",
+                    fontSize: "16px",
+                  }}
+                >
+                  {formik.errors.numberofchildren}
+                </div>
+              ) : (
+                <div style={{ color: "white", fontSize: "16px" }}>sadasd</div>
+              )}
             </div>
             <div className="age-children">
+              <p
+                style={{
+                  fontWeight: "500",
+                  fontSize: "large",
+                  paddingBottom: "9px",
+                }}
+              >
+                Age of children
+              </p>
               <div className="input">
                 <input
                   name="baby"
@@ -140,6 +187,19 @@ function ParentRegisterStepOne() {
                 />
                 <label htmlFor="grade">Gradeschooler</label>
               </div>
+              {!selected ? (
+                <div
+                  style={{
+                    textAlign: "center",
+                    color: "red",
+                    fontSize: "16px",
+                  }}
+                >
+                  no selected
+                </div>
+              ) : (
+                <div style={{ color: "white", fontSize: "16px" }}>sadasd</div>
+              )}
             </div>
           </div>
           <div className="description">
@@ -158,10 +218,38 @@ function ParentRegisterStepOne() {
                 rows="10"
               ></textarea>
             </div>
+            {formik.touched.about && formik.errors.about ? (
+              <div
+                style={{
+                  textAlign: "center",
+                  color: "red",
+                  fontSize: "16px",
+                  paddingBottom: "20px",
+                }}
+              >
+                {formik.errors.about}
+              </div>
+            ) : (
+              <div
+                style={{
+                  color: "white",
+                  fontSize: "16px",
+                  paddingBottom: "20px",
+                }}
+              >
+                sadasd
+              </div>
+            )}
           </div>
           <div className="buttons">
             <div className="back-button">
-              <Link style={{ color: "black" }}>Back</Link>
+              <button
+                onClick={() => {
+                  navigate(-1);
+                }}
+              >
+                Back
+              </button>
             </div>
             <button type="submit">Finish</button>
           </div>

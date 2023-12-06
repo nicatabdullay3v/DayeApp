@@ -14,10 +14,14 @@ const Navbar = () => {
       </div>
       <div className="nav_center">
         <div className="nav_center_text">
-          <Link to="/BabySitters" className="link">Babysitters</Link>
+          <Link to="/BabySitters" className="link">
+            Babysitters
+          </Link>
         </div>
         <div className="nav_center_text">
-          <Link to="/BabySittingJobs" className="link">Babysitting jobs</Link>
+          <Link to="/BabySittingJobs" className="link">
+            Babysitting jobs
+          </Link>
         </div>
         <div className="nav_center_text">
           <Link className="link" to="/Howitworks">
@@ -26,16 +30,28 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="nav_center_text">
-          <Link className="link" to="/Pricing">Pricing</Link>
+          <Link className="link" to="/Pricing">
+            Pricing
+          </Link>
         </div>
       </div>
       <div className="nav_right">
         <div className="nav_right_button_login">
-          <Link to="/Login" className="link">Log in</Link>
+          <Link to="/Login" className="link">
+            Log in
+          </Link>
         </div>
         <div className="nav_right_button_sign_up">
           <Link to="/Register">
-            <button>Sing up</button>
+            <button
+              onClick={() => {
+                localStorage.removeItem("login");
+                localStorage.removeItem("userParent");
+                localStorage.removeItem("userBabysitter");
+              }}
+            >
+              Sing up
+            </button>
           </Link>
         </div>
         <FontAwesomeIcon icon={faBars} />

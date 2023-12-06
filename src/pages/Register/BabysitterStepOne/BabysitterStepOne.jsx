@@ -4,33 +4,17 @@ import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  getAdress,
-  getNumberofChildren,
-  getChildrenAge,
-  getAbout,
-  getBabysitterEducation,
-  getExperienceYear,
-  getPrice,
-} from "../../../redux/Slice/RegisterSlice/RegisterSlice";
-import { useDispatch, useSelector } from "react-redux";
+import * as Yup from "yup";
+
+import YupPassword from "yup-password";
+YupPassword(Yup);
 import axios from "axios";
 function BabysitterStepOne() {
   const Babysitter = JSON.parse(localStorage.getItem("userBabysitter"));
 
-  const [post, setPost] = useState(false);
-
   const [selected, setSelected] = useState("");
   const [selectedAge, setSelectedAge] = useState("");
-  const dispatch = useDispatch();
   ///
-  const userBabysitter = useSelector(
-    (state) => state.babysitterswanted.userBabysitter
-  );
-  const isParent = useSelector((state) => state.babysitterswanted.isParent);
-  const isBabysitter = useSelector(
-    (state) => state.babysitterswanted.isBabysitter
-  );
 
   let navigate = useNavigate();
   const handleChangeRadio = (event) => {
@@ -44,7 +28,24 @@ function BabysitterStepOne() {
       address: "",
       about: "",
       childrenAge: "",
+      education: "",
+      money: "",
     },
+    validationSchema: Yup.object({
+      address: Yup.string()
+
+        .min(10, "Must be 10 characters or more")
+        .required("Required"),
+      about: Yup.string()
+        .max(60, "Must be 60 characters or less")
+        .min(20, "Must be 20 characters or more")
+
+        .required("Required"),
+      numberofchildren: Yup.string().required("Required"),
+      money: Yup.number().required("Required").min(0, "Must be 0 or more"),
+
+      education: Yup.string().required("Required"),
+    }),
     onSubmit: (values) => {
       if (Babysitter && Babysitter.isBabysitter == true) {
         Babysitter.address == values.address;
@@ -70,7 +71,7 @@ function BabysitterStepOne() {
       <div className="babysitter-step-one">
         <div className="head-img">
           <div className="text">
-            <p>Create you profile</p>
+            <p>Create your profile</p>
           </div>
           <div className="img-box"></div>
         </div>
@@ -85,7 +86,21 @@ function BabysitterStepOne() {
                 name="address"
                 type="text"
               />
+
               <p>Your address will never be shared with anyone</p>
+              {formik.touched.address && formik.errors.address ? (
+                <div
+                  style={{
+                    textAlign: "center",
+                    color: "red",
+                    fontSize: "16px",
+                  }}
+                >
+                  {formik.errors.address}
+                </div>
+              ) : (
+                <div style={{ color: "white", fontSize: "16px" }}>sadasd</div>
+              )}
             </div>
             <div className="numberChildren">
               <label htmlFor="education">
@@ -98,6 +113,19 @@ function BabysitterStepOne() {
                 name="education"
                 type="text"
               />
+              {formik.touched.education && formik.errors.education ? (
+                <div
+                  style={{
+                    textAlign: "center",
+                    color: "red",
+                    fontSize: "16px",
+                  }}
+                >
+                  {formik.errors.education}
+                </div>
+              ) : (
+                <div style={{ color: "white", fontSize: "16px" }}>sadasd</div>
+              )}
             </div>
             <div className="age-children">
               <p>How many years of experience do you have?</p>
@@ -161,6 +189,19 @@ function BabysitterStepOne() {
                 />
                 <label htmlFor="morefive">More than 5 year</label>
               </div>
+              {!selected ? (
+                <div
+                  style={{
+                    textAlign: "center",
+                    color: "red",
+                    fontSize: "16px",
+                  }}
+                >
+                  no selected
+                </div>
+              ) : (
+                <div style={{ color: "white", fontSize: "16px" }}>sadasd</div>
+              )}
             </div>
             <div className="age-children">
               <p>With which ages do you have experience?</p>
@@ -205,6 +246,19 @@ function BabysitterStepOne() {
                 />
                 <label htmlFor="grade">Gradeschooler</label>
               </div>
+              {!selectedAge ? (
+                <div
+                  style={{
+                    textAlign: "center",
+                    color: "red",
+                    fontSize: "16px",
+                  }}
+                >
+                  no selected
+                </div>
+              ) : (
+                <div style={{ color: "white", fontSize: "16px" }}>sadasd</div>
+              )}
             </div>
             <div className="moneyInp">
               <label htmlFor="money">
@@ -217,6 +271,28 @@ function BabysitterStepOne() {
                 name="money"
                 type="number"
               />
+              {formik.touched.money && formik.errors.money ? (
+                <div
+                  style={{
+                    textAlign: "center",
+                    color: "red",
+                    fontSize: "16px",
+                    paddingBottom: "20px",
+                  }}
+                >
+                  {formik.errors.money}
+                </div>
+              ) : (
+                <div
+                  style={{
+                    color: "white",
+                    fontSize: "16px",
+                    paddingBottom: "20px",
+                  }}
+                >
+                  sadasd
+                </div>
+              )}
             </div>
           </div>
           <div className="description">
@@ -234,10 +310,38 @@ function BabysitterStepOne() {
                 rows="10"
               ></textarea>
             </div>
+            {formik.touched.about && formik.errors.about ? (
+              <div
+                style={{
+                  textAlign: "center",
+                  color: "red",
+                  fontSize: "16px",
+                  paddingBottom: "20px",
+                }}
+              >
+                {formik.errors.about}
+              </div>
+            ) : (
+              <div
+                style={{
+                  color: "white",
+                  fontSize: "16px",
+                  paddingBottom: "20px",
+                }}
+              >
+                sadasd
+              </div>
+            )}
           </div>
           <div className="buttons">
             <div className="back-button">
-              <Link style={{ color: "black" }}>Back</Link>
+              <button
+                onClick={() => {
+                  navigate(-1);
+                }}
+              >
+                Back
+              </button>
             </div>
             <button type="submit">Finish</button>
           </div>
