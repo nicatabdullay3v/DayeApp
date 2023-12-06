@@ -23,7 +23,7 @@ function index() {
 useEffect(() => {
 dispatch(fetcBabysitterJobs())
 }, [])
-
+console.log(babysitterswanted);
   return (
     <div>
        {isBabySitters ? (
