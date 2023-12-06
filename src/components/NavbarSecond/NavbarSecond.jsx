@@ -11,9 +11,9 @@ const NavbarSecond = () => {
   return (
     <nav
       style={{
-        backgroundColor: "white",
+        backgroundColor: "#edf7f8",
         borderBottom: "1px solid lightgray",
-        marginBottom: "20px",
+
       }}
     >
       <div className="nav_left">

@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "./support.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -50,7 +51,7 @@ const Support = () => {
             }}
           >
             <SwiperSlide>
-              <div className="support_card">
+              <motion.div className="support_card">
                 <div className="vergul">
                   <svg
                     class="svg-inline--fa fa-quote-left fa-fw fs-1 text-cyan-700"
@@ -77,7 +78,7 @@ const Support = () => {
                   </p>
                   <span>Nerina</span>
                 </div>
-              </div>
+              </motion.div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="support_card">

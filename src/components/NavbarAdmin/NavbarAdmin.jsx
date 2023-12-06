@@ -13,7 +13,7 @@ const NavbarAdmin = () => {
       style={{
         backgroundColor: "white",
         borderBottom: "1px solid lightgray",
-        marginBottom: "20px",
+
       }}
     >
       <div className="nav_center">
