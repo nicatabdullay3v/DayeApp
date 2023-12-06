@@ -12,45 +12,24 @@ import FindBaby from "../../components/home/findbaby/FindBaby";
 import Discover from "../../components/home/discover/Discover";
 import FooterMiddle from "../../components/home/footermiddle/FooterMiddle";
 import FooterDown from "../../components/home/footerdown/FooterDown";
-import { useSelector,useDispatch } from "react-redux";
-import { v4 as uuidv4 } from 'uuid';
+import { useSelector, useDispatch } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 import { fetchUserById } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
 function index() {
   let isParent = JSON.parse(localStorage.getItem("isParent"));
 
-
-  const dispatch = useDispatch()
-  const babysitters = useSelector((state)=> state.babysitters.babysitters)
+  const dispatch = useDispatch();
+  const babysitters = useSelector((state) => state.babysitters.babysitters);
   console.log(babysitters);
-useEffect(() => {
-  dispatch(fetchUserById())
-
- 
-}, [])
+  useEffect(() => {
+    dispatch(fetchUserById());
+  }, []);
 
   return (
     <div>
-  {isParent ? (
-        <NavbarParents />
-      ) : (
-        <NavbarBabysit />
-      )}
+      {isParent ? <NavbarParents /> : <NavbarBabysit />}
 
-
-      <div className="topics">
-        <div className="topic">
-          <p>Type</p> <span>1</span>
-        </div>
-        <div className="topic">
-          <p>Experience</p>
-        </div>
-        <div className="topic">
-          <p>Verification</p>
-        </div>
-        <div className="topic">
-          <p>More Filters</p>
-        </div>
-      </div>
+      <div className="topics"></div>
       <div className="find-babysitter">
         <div className="left">
           <div className="left-head">
@@ -71,10 +50,10 @@ useEffect(() => {
             </div>
           </div>
           <div className="babysitterCards">
-           {babysitters && babysitters.map((elem)=>{
-            return  <BabysittersCard key={uuidv4()} elem={elem} />
-      
-           })}
+            {babysitters &&
+              babysitters.map((elem) => {
+                return <BabysittersCard key={uuidv4()} elem={elem} />;
+              })}
           </div>
           <div className="pagesDiv">
             <div className="pages">
