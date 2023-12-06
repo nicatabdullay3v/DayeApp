@@ -34,7 +34,7 @@ function index({ elem }) {
       >
         <div className="babysitter-card">
           <div className="card-left">
-            <div className="image">
+            <div className="imagess">
               <img src={elem.image} />
             </div>
           </div>
