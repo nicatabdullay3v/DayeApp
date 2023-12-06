@@ -27,31 +27,38 @@ const Support = () => {
           </div>
           <span>1800+reviews</span>
         </div>
-        <div className="support_cards">
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 60 }}
+          transition={{ duration: 2.5 }}
+          viewport={{ once: true }}
+          className="support_cards"
+        >
           <Swiper
             onSwiper={setSwiperRef}
-            slidesPerView={'auto'}
+            slidesPerView={"auto"}
             spaceBetween={30}
             navigation={true}
             modules={[Pagination, Navigation]}
             className="mySwiper hidden"
             breakpoints={{
               600: {
-                slidesPerView: 2
+                slidesPerView: 2,
               },
               767: {
-                slidesPerView: 3
+                slidesPerView: 3,
               },
               992: {
-                slidesPerView: 4
+                slidesPerView: 4,
               },
               1200: {
-                slidesPerView: 5
-              }
+                slidesPerView: 5,
+              },
             }}
           >
             <SwiperSlide>
-              <motion.div className="support_card">
+              <div className="support_card">
                 <div className="vergul">
                   <svg
                     class="svg-inline--fa fa-quote-left fa-fw fs-1 text-cyan-700"
@@ -78,7 +85,7 @@ const Support = () => {
                   </p>
                   <span>Nerina</span>
                 </div>
-              </motion.div>
+              </div>
             </SwiperSlide>
             <SwiperSlide>
               <div className="support_card">
@@ -203,9 +210,18 @@ const Support = () => {
               </div>
             </SwiperSlide>
           </Swiper>
-        </div>
+        </motion.div>
         <div className="support_button">
-          <button>Sign me up!</button>
+          <motion.button
+            initial={{ scale: 1, opacity: 0.7 }}
+            whileHover={{
+              scale: 1.1,
+              opacity: 1,
+              transition: { duration: 0.3, ease: "easeInOut" },
+            }}
+          >
+            Sign me up!
+          </motion.button>
         </div>
       </div>
     </section>
