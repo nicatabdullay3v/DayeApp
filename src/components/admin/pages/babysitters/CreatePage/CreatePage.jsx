@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import TextField from "@mui/material/TextField";
+import InputAdornment from "@mui/material/InputAdornment";
+import IconButton from "@mui/material/IconButton";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import "./createPage.scss";
 import axios from "axios";
 import * as Yup from "yup";
@@ -73,9 +78,12 @@ const CreatePage = ({ setcreatePage }) => {
         .min(2, "Too Short!")
         .max(15, "Too Long!")
         .required("Required"),
+      age: Yup.number().min(0).positive().required("Required"),
       image: Yup.string().url("Invalid URL").required("Image URL is required"),
       email: Yup.string().email("Invalid email").required("Required"),
       country: Yup.string().required("Required"),
+      price: Yup.number().min(0).positive().required("Required"),
+
       description: Yup.string()
         .max(200, "Must be 200 characters or less")
         .min(50, "Must be 50 characters or more")
@@ -121,7 +129,7 @@ const CreatePage = ({ setcreatePage }) => {
           setcreatePage(false);
         });
       } else {
-        alert("this username already used!");
+        alert("this username already in use!");
       }
     },
   });
@@ -136,267 +144,220 @@ const CreatePage = ({ setcreatePage }) => {
             <div className="create_to">
               <div className="card_parent">
                 <form onSubmit={formik.handleSubmit} action="">
-                  <div className="firstName_input">
-                    <label htmlFor="firstName">firstName:</label>
 
-                    <input
+                  <div className="firstName_input">
+                    <TextField
+                      fullWidth
+                      id="firstName"
+                      name="firstName"
+                      label="First Name"
+                      type="text"
                       value={formik.values.firstName}
                       onChange={formik.handleChange}
-                      type="text"
-                      name="firstName"
-                      placeholder="Name"
+                      error={
+                        formik.touched.firstName &&
+                        Boolean(formik.errors.firstName)
+                      }
+                      helperText={
+                        formik.touched.firstName && formik.errors.firstName
+                      }
                     />
-                    {formik.touched.firstName && formik.errors.firstName ? (
-                      <div
-                        style={{
-                          textAlign: "center",
-                          color: "red",
-                          fontSize: "small",
-                        }}
-                      >
-                        {formik.errors.firstName}
-                      </div>
-                    ) : null}
                   </div>
+                  
 
                   <div className="lastName_input">
-                    <label htmlFor="lastName">lastName:</label>
-
-                    <input
-                      value={formik.values.lastName}
-                      type="text"
-                      onChange={formik.handleChange}
+                    <TextField
+                      fullWidth
+                      id="lastName"
                       name="lastName"
-                      placeholder="lastName"
+                      label="Last Name"
+                      type="text"
+                      value={formik.values.lastName}
+                      onChange={formik.handleChange}
+                      error={
+                        formik.touched.lastName &&
+                        Boolean(formik.errors.lastName)
+                      }
+                      helperText={
+                        formik.touched.lastName && formik.errors.lastName
+                      }
                     />
-                    {formik.touched.lastName && formik.errors.lastName ? (
-                      <div
-                        style={{
-                          textAlign: "center",
-                          color: "red",
-                          fontSize: "small",
-                        }}
-                      >
-                        {formik.errors.lastName}
-                      </div>
-                    ) : null}
                   </div>
 
                   <div className="agesister_input">
-                    <label htmlFor="age">Age: </label>
-
-                    <input
-                      value={formik.values.age}
-                      type="text"
+                    <TextField
+                      fullWidth
+                      id="age"
                       name="age"
+                      label="Age"
+                      type="text"
+                      value={formik.values.age}
                       onChange={formik.handleChange}
-                      placeholder="Age"
+                      error={formik.touched.age && Boolean(formik.errors.age)}
+                      helperText={formik.touched.age && formik.errors.age}
                     />
-                    {formik.touched.age && formik.errors.age ? (
-                      <div
-                        style={{
-                          textAlign: "center",
-                          color: "red",
-                          fontSize: "small",
-                        }}
-                      >
-                        {formik.errors.age}
-                      </div>
-                    ) : null}
                   </div>
 
                   <div className="email_input">
-                    <label htmlFor="email">Email:</label>
-
-                    <input
-                      value={formik.values.email}
-                      type="email"
-                      onChange={formik.handleChange}
+                    <TextField
+                      fullWidth
+                      id="email"
                       name="email"
-                      placeholder="Email"
+                      label="Email"
+                      type="email"
+                      value={formik.values.email}
+                      onChange={formik.handleChange}
+                      error={
+                        formik.touched.email && Boolean(formik.errors.email)
+                      }
+                      helperText={formik.touched.email && formik.errors.email}
                     />
-                    {formik.touched.email && formik.errors.email ? (
-                      <div
-                        style={{
-                          textAlign: "center",
-                          color: "red",
-                          fontSize: "small",
-                        }}
-                      >
-                        {formik.errors.email}
-                      </div>
-                    ) : null}
                   </div>
 
                   <div className="password_input">
-                    <label htmlFor="password">Password:</label>
-
-                    <input
-                      value={formik.values.password}
-                      type="password"
+                    <TextField
+                      fullWidth
+                      id="password"
                       name="password"
+                      label="Password"
+                      type={formik.values.showPassword ? "text" : "password"}
+                      value={formik.values.password}
                       onChange={formik.handleChange}
-                      placeholder="Password"
+                      error={
+                        formik.touched.password &&
+                        Boolean(formik.errors.password)
+                      }
+                      helperText={
+                        formik.touched.password && formik.errors.password
+                      }
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton
+                              onClick={() =>
+                                formik.setFieldValue(
+                                  "showPassword",
+                                  !formik.values.showPassword
+                                )
+                              }
+                              onMouseDown={(e) => e.preventDefault()}
+                            >
+                              {formik.values.showPassword ? (
+                                <VisibilityOff />
+                              ) : (
+                                <Visibility />
+                              )}
+                            </IconButton>
+                          </InputAdornment>
+                        ),
+                      }}
                     />
-                    {formik.touched.password && formik.errors.password ? (
-                      <div
-                        style={{
-                          textAlign: "center",
-                          color: "red",
-                          fontSize: "small",
-                        }}
-                      >
-                        {formik.errors.password}
-                      </div>
-                    ) : null}
                   </div>
 
                   <div className="country_input">
-                    <label htmlFor="country">Country:</label>
-
-                    <input
-                      value={formik.values.country}
-                      type="text"
-                      onChange={formik.handleChange}
+                    <TextField
+                      fullWidth
+                      id="country"
                       name="country"
-                      placeholder="country"
+                      label="Country"
+                      type="text"
+                      value={formik.values.country}
+                      onChange={formik.handleChange}
+                      error={
+                        formik.touched.country && Boolean(formik.errors.country)
+                      }
+                      helperText={
+                        formik.touched.country && formik.errors.country
+                      }
                     />
-                    {formik.touched.country && formik.errors.country ? (
-                      <div
-                        style={{
-                          textAlign: "center",
-                          color: "red",
-                          fontSize: "small",
-                        }}
-                      >
-                        {formik.errors.country}
-                      </div>
-                    ) : null}
                   </div>
 
                   <div className="price_input">
-                    <label htmlFor="price">Price:</label>
-
-                    <input
-                      value={formik.values.price}
-                      type="number"
-                      onChange={formik.handleChange}
+                    <TextField
+                      fullWidth
+                      id="price"
                       name="price"
-                      placeholder="price"
+                      label="Price"
+                      type="number"
+                      value={formik.values.price}
+                      onChange={formik.handleChange}
+                      error={
+                        formik.touched.price && Boolean(formik.errors.price)
+                      }
+                      helperText={formik.touched.price && formik.errors.price}
                     />
-                    {formik.touched.price && formik.errors.price ? (
-                      <div
-                        style={{
-                          textAlign: "center",
-                          color: "red",
-                          fontSize: "small",
-                        }}
-                      >
-                        {formik.errors.price}
-                      </div>
-                    ) : null}
                   </div>
 
                   <div className="image_input">
-                    <label htmlFor="image">Image:</label>
-                    <input
-                      type="text"
+                    <TextField
+                      fullWidth
                       id="image"
                       name="image"
-                      accept="image/*"
-                      placeholder="push image address"
+                      label="Image"
+                      type="text"
                       value={formik.values.image}
                       onChange={formik.handleChange}
+                      error={
+                        formik.touched.image && Boolean(formik.errors.image)
+                      }
+                      helperText={formik.touched.image && formik.errors.image}
                     />
-                    {formik.touched.image && formik.errors.image ? (
-                      <div
-                        style={{
-                          textAlign: "center",
-                          color: "red",
-                          fontSize: "small",
-                        }}
-                      >
-                        {formik.errors.image}
-                      </div>
-                    ) : null}
                   </div>
 
                   <div className="description_input">
-                    <label htmlFor="description">Description:</label>
-
-                    <textarea
-                      value={formik.values.description}
-                      as="textarea"
-                      name="description"
-                      onChange={formik.handleChange}
+                    <TextField
+                      fullWidth
                       id="description"
-                      cols="40"
-                      rows="5"
-                      placeholder="At least 100 characters"
-                    />
-                    {formik.touched.description && formik.errors.description ? (
-                      <div
-                        style={{
-                          textAlign: "center",
-                          color: "red",
-                          fontSize: "small",
-                        }}
-                      >
-                        {formik.errors.description}
-                      </div>
-                    ) : null}
-                  </div>
-
-                  <div className="comments_input">
-                    <label htmlFor="references">References:</label>
-
-                    <textarea
-                      value={formik.values.references}
-                      as="textarea"
-                      name="references"
+                      name="description"
+                      label="Description"
+                      type="text"
+                      value={formik.values.description}
                       onChange={formik.handleChange}
+                      error={
+                        formik.touched.description &&
+                        Boolean(formik.errors.description)
+                      }
+                      helperText={
+                        formik.touched.description && formik.errors.description
+                      }
+                    />
+                  </div>
+                  <div className="comments_input">
+                    <TextField
+                      fullWidth
                       id="references"
-                      cols="40"
-                      rows="5"
-                      placeholder="At least 100 characters"
+                      name="references"
+                      label="References"
+                      type="text"
+                      value={formik.values.references}
+                      onChange={formik.handleChange}
+                      error={
+                        formik.touched.references &&
+                        Boolean(formik.errors.references)
+                      }
+                      helperText={
+                        formik.touched.references && formik.errors.references
+                      }
                     />
-                    {formik.touched.references && formik.errors.references ? (
-                      <div
-                        style={{
-                          textAlign: "center",
-                          color: "red",
-                          fontSize: "small",
-                        }}
-                      >
-                        {formik.errors.references}
-                      </div>
-                    ) : null}
                   </div>
 
                   <div className="comments_input">
-                    <label htmlFor="activities">Activities:</label>
-
-                    <textarea
-                      value={formik.values.activities}
-                      as="textarea"
-                      name="activities"
-                      onChange={formik.handleChange}
+                    <TextField
+                      fullWidth
                       id="activities"
-                      cols="40"
-                      rows="5"
-                      placeholder="At least 100 characters"
+                      name="activities"
+                      label="Activities"
+                      type="text"
+                      value={formik.values.activities}
+                      onChange={formik.handleChange}
+                      error={
+                        formik.touched.activities &&
+                        Boolean(formik.errors.activities)
+                      }
+                      helperText={
+                        formik.touched.activities && formik.errors.activities
+                      }
                     />
-                    {formik.touched.activities && formik.errors.activities ? (
-                      <div
-                        style={{
-                          textAlign: "center",
-                          color: "red",
-                          fontSize: "small",
-                        }}
-                      >
-                        {formik.errors.activities}
-                      </div>
-                    ) : null}
                   </div>
 
                   <div className="create_btn">
