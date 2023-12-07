@@ -87,13 +87,24 @@ const BabySittersDetailReview = () => {
             />
           ) : null}
           <div>
-            <button
-              onClick={() => {
-                setInputOpen(inputOpen === true ? false : true);
-              }}
-            >
-              Add Review
-            </button>
+          {inputOpen == false ? (
+              <button
+                onClick={() => {
+                  setInputOpen(true);
+                }}
+              >
+                Add Review
+              </button>
+            ) : null}
+            {inputOpen == true ? (
+              <button
+                onClick={() => {
+                  setInputOpen(false);
+                }}
+              >
+                Cancel
+              </button>
+            ) : null}
           </div>
           {inputOpen === true ? (
             <div>
