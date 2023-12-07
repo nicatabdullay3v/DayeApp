@@ -14,7 +14,7 @@ const BabySittersDetailPage = () => {
   return (
     <>
       {/* <NavbarThird /> */}
-      <NavbarSecond/>
+      <NavbarSecond />
       <BabySittersHeader />
       <BabySittersPortfolio />
       <BabySittersDetailCenter />
