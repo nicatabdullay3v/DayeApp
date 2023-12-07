@@ -14,6 +14,7 @@ import FooterDown from "../../components/home/footerdown/FooterDown";
 import NavbarBabysitters from "../../components/NavbarBabysitters/NavbarBabysitters";
 import NavbarParents from "../../components/NavbarParents/NavbarParents";
 
+
 // import NavBarThird from "../../components/NavBarThird/NavBarThird";
 // import NavbarBabysit from "../../components/NavbarBabysit/NavbarBabysit";
 
@@ -36,6 +37,7 @@ const Home = () => {
 <NavbarBabysit />
 <Navbar />
 <NavbarBabysitters /> */}
+
       <HeroSection />
       <Cards />
       <WeKnow />

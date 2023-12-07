@@ -14,7 +14,7 @@ const Childcare = () => {
       >
         <motion.div
           className="left_side"
-          initial={{ x: -400 }}
+          initial={{ x: -290 }}
           viewport={{ once: true }}
           whileInView={{ x: 0 }}
           transition={{ type: "spring", stiffness: 120 }}

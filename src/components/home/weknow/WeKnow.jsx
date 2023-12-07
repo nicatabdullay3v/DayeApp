@@ -9,7 +9,7 @@ const WeKnow = () => {
         {/* <div className="circles">
         </div> */}
         <motion.div
-          initial={{ x: -330, opacity: 0 }}
+          initial={{ x: -250, opacity: 0 }}
           whileInView={{
             x: 0,
             opacity: 1,

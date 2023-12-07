@@ -5,6 +5,8 @@ import FavoritesCard from "../../components/FavoritesCard";
 import { fetcBabysitterJobs } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchUserById } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import NavbarBabysitters from "./../../components/NavbarBabysitters/NavbarBabysitters"
+import NavbarParents from "./../../components/NavbarParents/NavbarParents"
 function index() {
   const babysisters = useSelector((state)=> state.babysitters.babysitters)
   let loginBabysitter = JSON.parse(localStorage.getItem("login")) || []
@@ -30,7 +32,13 @@ console.log(babysitter?.wishList);
   console.log(parent);
   return (
     <div>
-      <NavbarFourth />
+       {isBabysitter ? (
+        <NavbarBabysitters />
+      ) : isParent ? (
+        <NavbarParents />
+      ) : (
+        <Navbar />
+      )}
       <div className="container">
         <div className="fav-head">
           <div className="head-text">
