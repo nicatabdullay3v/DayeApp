@@ -3,7 +3,11 @@ import { Virtual, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./support.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faStar,
+  faAngleLeft,
+  faAngleRight,
+} from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 
 import "swiper/css";
@@ -35,11 +39,23 @@ const Support = () => {
           viewport={{ once: true }}
           className="support_cards"
         >
+           <button className="my-custom-prev-button">
+              <FontAwesomeIcon
+                className="arrow_icon"
+                icon={faAngleLeft}
+                style={{ color: "#3ba590" }}
+              />
+            </button>
           <Swiper
-            onSwiper={setSwiperRef}
+            onSwiper={(swiper) => {
+              setSwiperRef(swiper);
+            }}
             slidesPerView={"auto"}
             spaceBetween={30}
-            navigation={true}
+            navigation={{
+              prevEl: ".my-custom-prev-button",
+              nextEl: ".my-custom-next-button",
+            }}
             modules={[Pagination, Navigation]}
             className="mySwiper hidden"
             breakpoints={{
@@ -210,6 +226,14 @@ const Support = () => {
               </div>
             </SwiperSlide>
           </Swiper>
+          <button className="my-custom-next-button">
+              {" "}
+              <FontAwesomeIcon
+                className="arrow_icon"
+                icon={faAngleRight}
+                style={{ color: "#3ba590" }}
+              />
+            </button>
         </motion.div>
         <div className="support_button">
           <motion.button

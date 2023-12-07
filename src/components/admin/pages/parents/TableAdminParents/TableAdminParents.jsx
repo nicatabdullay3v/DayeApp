@@ -18,9 +18,7 @@ const TableAdminParents = ({
   const ParentsData = useSelector(
     (state) => state.babysitters.babysitterswanted
   );
-
   const dispatch = useDispatch();
-
   const handleDelete = (id) => {
     axios
       .delete(`http://localhost:3000/babysitterswanted/${id}`)
@@ -30,7 +28,6 @@ const TableAdminParents = ({
   useEffect(() => {
     dispatch(fetcBabysitterJobs());
   }, []);
-
   const columns = [
     { field: "id", headerName: "Parents ID", flex: 1 },
     { field: "firstName", headerName: "First Name", flex: 1 },

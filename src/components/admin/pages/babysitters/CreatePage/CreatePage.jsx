@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import "./createPage.scss";
 import axios from "axios";
@@ -8,6 +8,14 @@ import YupPassword from "yup-password";
 YupPassword(Yup);
 import { fetchUserById } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 const CreatePage = ({ setcreatePage }) => {
+  const [sitterData, setSitterData] = useState([]);
+  useEffect(() => {
+    axios("http://localhost:3000/babysitters/").then((res) => {
+      // console.log(res.data);
+      setSitterData(res.data);
+    });
+  }, []);
+
   const dispatch = useDispatch();
   // const [formData, setFormData] = useState({
   //   name: "",
@@ -65,7 +73,7 @@ const CreatePage = ({ setcreatePage }) => {
         .min(2, "Too Short!")
         .max(15, "Too Long!")
         .required("Required"),
-        image: Yup.string().url("Invalid URL").required("Image URL is required"),
+      image: Yup.string().url("Invalid URL").required("Image URL is required"),
       email: Yup.string().email("Invalid email").required("Required"),
       country: Yup.string().required("Required"),
       description: Yup.string()
@@ -92,25 +100,29 @@ const CreatePage = ({ setcreatePage }) => {
         .required("Required"),
     }),
     onSubmit: (values) => {
-      let obj = {
-        firstName: values.firstName,
-        lastName: values.lastName,
-        country: values.country,
-        email: values.email,
-        age: values.age,
-        price: values.price,
-        password: values.password,
-        references: values.references,
-        activities: values.activities,
-        description: values.description,
-        image: values.image,
-
-      };
-      console.log(obj);
-      axios.post(`http://localhost:3000/babysitters/`, obj).then(() => {
-        dispatch(fetchUserById());
-        setcreatePage(false);
-      });
+      let find = sitterData.find((elem) => elem.email == values.email);
+      if (!find) {
+        let obj = {
+          firstName: values.firstName,
+          lastName: values.lastName,
+          country: values.country,
+          email: values.email,
+          age: values.age,
+          price: values.price,
+          password: values.password,
+          references: values.references,
+          activities: values.activities,
+          description: values.description,
+          image: values.image,
+        };
+        console.log(obj);
+        axios.post(`http://localhost:3000/babysitters/`, obj).then(() => {
+          dispatch(fetchUserById());
+          setcreatePage(false);
+        });
+      } else {
+        alert("this username already used!");
+      }
     },
   });
 
@@ -296,7 +308,7 @@ const CreatePage = ({ setcreatePage }) => {
                       value={formik.values.image}
                       onChange={formik.handleChange}
                     />
-                      {formik.touched.image && formik.errors.image ? (
+                    {formik.touched.image && formik.errors.image ? (
                       <div
                         style={{
                           textAlign: "center",
@@ -308,7 +320,6 @@ const CreatePage = ({ setcreatePage }) => {
                       </div>
                     ) : null}
                   </div>
-
 
                   <div className="description_input">
                     <label htmlFor="description">Description:</label>

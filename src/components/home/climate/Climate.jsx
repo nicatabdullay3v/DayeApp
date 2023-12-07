@@ -4,7 +4,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "./climate.scss";
 import "swiper/css";
 import "swiper/css/pagination";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faStar,
+  faAngleLeft,
+  faAngleRight,
+} from "@fortawesome/free-solid-svg-icons";
 import "swiper/css/navigation";
 import { motion } from "framer-motion";
 
@@ -169,13 +174,24 @@ const Climate = () => {
           className="right_side"
         >
           <div className="climate_cards">
+
+          <button className="my-custom-prev-button">
+              <FontAwesomeIcon
+                className="arrow_icon"
+                icon={faAngleLeft}
+                style={{ color: "#3ba590" }}
+              />
+            </button>
             <Swiper
               spaceBetween={30}
               autoplay={{
                 delay: 2000,
                 disableOnInteraction: false,
               }}
-              navigation={true}
+              navigation={{
+                prevEl: ".my-custom-prev-button",
+                nextEl: ".my-custom-next-button",
+              }}
               modules={[Autoplay, Navigation]}
               className="mySwiper"
             >
@@ -232,6 +248,14 @@ const Climate = () => {
                 </div>
               </SwiperSlide>
             </Swiper>
+            <button className="my-custom-next-button">
+              {" "}
+              <FontAwesomeIcon
+                className="arrow_icon"
+                icon={faAngleRight}
+                style={{ color: "#3ba590" }}
+              />
+            </button>
           </div>
         </motion.div>
       </div>

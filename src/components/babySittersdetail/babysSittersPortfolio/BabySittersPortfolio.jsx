@@ -7,14 +7,12 @@ import { useParams } from "react-router-dom";
 import { fetchUserByIdDetail } from "../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { useDispatch } from "react-redux";
 const BabySittersPortfolio = () => {
-  
   const babysittersData = useSelector((state) => state.babysitters.babysitter);
   const dispatch = useDispatch();
   let { id } = useParams();
   useEffect(() => {
     dispatch(fetchUserByIdDetail(id));
   }, []);
-  
 
   return (
     <section id="baby_sitters_portfolio">
@@ -26,14 +24,14 @@ const BabySittersPortfolio = () => {
           <div>
             <div className="baby_sitters_portfolio_name_age_icon">
               <div className="baby_sitters_portfolio_name">
-                <p> {babysittersData.name}</p>
+                <p> {babysittersData.firstName}</p>
               </div>
               <div className="baby_sitters_portfolio_icon">
                 <FontAwesomeIcon icon={faCircleCheck} />
               </div>
-              <div className="baby_sitters_portfolio_age">
-                <p>{babysittersData.age}</p>
-              </div>
+            </div>
+            <div className="baby_sitters_portfolio_age">
+              <p>{babysittersData.age}</p>
             </div>
             <div className="baby_sitters_portfolio_country">
               <span>Babysitter in {babysittersData.country}</span>

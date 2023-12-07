@@ -2,6 +2,32 @@
   background-color: #eff7f8;
   padding: 70px 30px 70px 30px;
   .baby_support {
+    .my-custom-prev-button {
+      height: 30px;
+      background-color: #eff7f8;
+  
+      border-radius: 50%;
+      // border: 1px solid #3ba590;
+      padding: 6px 10px;
+  margin-top: 142px;
+  .arrow_icon {
+    font-size: 24px; 
+  }
+  
+    }
+    .my-custom-next-button {
+      
+      height: 30px;
+      border-radius: 50%;
+      // border: 1px solid #3ba590;
+      padding: 6px 10px;
+  margin-top: 142px;
+  background-color: #eff7f8;
+  .arrow_icon {
+    font-size: 24px; 
+  }
+    }
+  
     .support_details {
       text-align: center;
       .stars_support {
