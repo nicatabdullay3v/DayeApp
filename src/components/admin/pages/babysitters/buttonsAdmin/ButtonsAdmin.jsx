@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import "./ButtonsAdmin.scss";
-const ButtonsAdmin = ({ seteditPage, setcreatePage }) => {
+const ButtonsAdmin = ({ seteditPage, setcreatePage, setdetailPage }) => {
   return (
     <section id="buttons_admin">
       <div className="edit_delete">
@@ -10,6 +10,7 @@ const ButtonsAdmin = ({ seteditPage, setcreatePage }) => {
           onClick={() => {
             setcreatePage(true);
             seteditPage(false);
+            setdetailPage(false);
           }}
         >
           Create

@@ -10,6 +10,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 const TableAdminParents = ({
   seteditPage,
+  setdetailPage,
   setcreatePage,
   seteditID,
   editID,
@@ -25,7 +26,7 @@ const TableAdminParents = ({
       .delete(`http://localhost:3000/babysitterswanted/${id}`)
       .then(dispatch(fetcBabysitterJobs()));
   };
-  console.log(ParentsData);
+  // console.log(ParentsData);
   useEffect(() => {
     dispatch(fetcBabysitterJobs());
   }, []);
@@ -40,6 +41,24 @@ const TableAdminParents = ({
     { field: "childrenAge", headerName: "ChildAge", flex: 1 },
 
     {
+      field: "detail",
+      headerName: "Detail",
+      flex: 1,
+      renderCell: (params) => (
+        <button
+          className="button_employee"
+          onClick={() => {
+            setdetailPage(true);
+            seteditPage(false);
+            setcreatePage(false);
+            seteditID(params.row.id);
+          }}
+        >
+          Detail
+        </button>
+      ),
+    },
+    {
       field: "edit",
       headerName: "Edit",
       flex: 1,
@@ -48,6 +67,7 @@ const TableAdminParents = ({
           className="button_employee"
           onClick={() => {
             seteditPage(true);
+            setdetailPage(false);
             setcreatePage(false);
             seteditID(params.row.id);
           }}
@@ -64,6 +84,7 @@ const TableAdminParents = ({
         <button
           className="button_employee"
           onClick={() => {
+            setdetailPage(false);
             seteditPage(false);
             setcreatePage(false);
             handleDelete(params.row.id);
