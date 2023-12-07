@@ -309,39 +309,7 @@
           "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg"
         }
       ],
-      "id": 1,
-      "filteredReviews": [
-        {
-          "comment": "asdas",
-          "id": 3,
-          "whoSend": "ekas",
-          "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg"
-        },
-        {
-          "comment": "sadsadsa",
-          "id": 1,
-          "whoSend": "ekas",
-          "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg"
-        },
-        {
-          "comment": "ad.ahdasd",
-          "id": 4,
-          "whoSend": "ekas",
-          "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg"
-        },
-        {
-          "comment": "asdgvasvda",
-          "id": 5,
-          "whoSend": "ekas",
-          "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg"
-        },
-        {
-          "comment": "hec xosum gelmedi",
-          "id": 6,
-          "whoSend": "ekas",
-          "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg"
-        }
-      ]
+      "id": 1
     },
     {
       "firstName": "Melanie",
