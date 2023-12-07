@@ -5,6 +5,8 @@ import "./BabySittingJobsDetailPortfolio.scss";
 import { useParams } from "react-router-dom";
 import { fetcBabysitterJobsDeatil } from "../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { motion } from "framer-motion";
+
 const BabySittersPortfolio = () => {
   const babysitterswantedData = useSelector(
     (state) => state.babysitters.babysitterwanted
@@ -34,6 +36,267 @@ const BabySittersPortfolio = () => {
             <div className="baby_sitters_portfolio_country">
               <span>Babysitting Job in {babysitterswantedData.address}</span>
             </div>
+            <div className="comets">
+            <motion.div
+              initial={{ x: 0, opacity: 0 }}
+              animate={{ x: -1600, opacity: 1 }}
+              exit={{ x: 0, opacity: 0 }}
+              transition={{ repeat: Infinity, duration: 3, delay: 8.4 }}
+              className="comet"
+            >
+              {" "}
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [0.8, 2, 0.8] }}
+                transition={{ duration: 1 }}
+                className="comett"
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ x: 0, opacity: 0 }}
+              animate={{ x: -1600, opacity: 1 }}
+              exit={{ x: 0, opacity: 0 }}
+              transition={{ repeat: Infinity, duration: 3, delay: 8 }}
+              className="comet"
+            >
+              {" "}
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [0.8, 2, 0.8] }}
+                transition={{ duration: 1 }}
+                className="comett"
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ x: 0, opacity: 0 }}
+              animate={{ x: -1600, opacity: 1 }}
+              exit={{ x: 0, opacity: 0 }}
+              transition={{ repeat: Infinity, duration: 3, delay: 7.3 }}
+              className="comet"
+            >
+              {" "}
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [0.8, 2, 0.8] }}
+                transition={{ duration: 1 }}
+                className="comett"
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ x: 0, opacity: 0 }}
+              animate={{ x: -1600, opacity: 1 }}
+              exit={{ x: 0, opacity: 0 }}
+              transition={{ repeat: Infinity, duration: 3, delay: 6.7 }}
+              className="comet"
+            >
+              {" "}
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [0.8, 2, 0.8] }}
+                transition={{ duration: 1 }}
+                className="comett"
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ x: 0, opacity: 0 }}
+              animate={{ x: -1600, opacity: 1 }}
+              exit={{ x: 0, opacity: 0 }}
+              transition={{ repeat: Infinity, duration: 3, delay: 6.3 }}
+              className="comet"
+            >
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [0.8, 2, 0.8] }}
+                transition={{ duration: 1 }}
+                className="comett"
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ x: 0, opacity: 0 }}
+              animate={{ x: -1600, opacity: 1 }}
+              exit={{ x: 0, opacity: 0 }}
+              transition={{ repeat: Infinity, duration: 3, delay: 5.9 }}
+              className="comet"
+            >
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [0.8, 2, 0.8] }}
+                transition={{ duration: 1 }}
+                className="comett"
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ x: 0, opacity: 0 }}
+              animate={{ x: -1600, opacity: 1 }}
+              exit={{ x: 0, opacity: 0 }}
+              transition={{ repeat: Infinity, duration: 3, delay: 5.3 }}
+              className="comet"
+            >
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [0.8, 2, 0.8] }}
+                transition={{ duration: 1 }}
+                className="comett"
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ x: 0, opacity: 0 }}
+              animate={{ x: -1600, opacity: 1 }}
+              exit={{ x: 0, opacity: 0 }}
+              transition={{ repeat: Infinity, duration: 3, delay: 4.9 }}
+              className="comet"
+            >
+              {" "}
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [0.8, 2, 0.8] }}
+                transition={{ duration: 1 }}
+                className="comett"
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ x: 0, opacity: 0 }}
+              animate={{ x: -1600, opacity: 1 }}
+              exit={{ x: 0, opacity: 0 }}
+              transition={{ repeat: Infinity, duration: 3, delay: 4.4 }}
+              className="comet"
+            >
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [0.8, 2, 0.8] }}
+                transition={{ duration: 1 }}
+                className="comett"
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ x: 0, opacity: 0 }}
+              animate={{ x: -1600, opacity: 1 }}
+              exit={{ x: 0, opacity: 0 }}
+              transition={{ repeat: Infinity, duration: 3, delay: 3.4 }}
+              className="comet"
+            >
+              {" "}
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [0.8, 2, 0.8] }}
+                transition={{ duration: 1 }}
+                className="comett"
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ x: 0, opacity: 0 }}
+              animate={{ x: -1600, opacity: 1 }}
+              exit={{ x: 0, opacity: 0 }}
+              transition={{ repeat: Infinity, duration: 3, delay: 2.8 }}
+              className="comet"
+            >
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [0.8, 2, 0.8] }}
+                transition={{ duration: 1 }}
+                className="comett"
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ x: 0, opacity: 0 }}
+              animate={{ x: -1600, opacity: 1 }}
+              exit={{ x: 0, opacity: 0 }}
+              transition={{ repeat: Infinity, duration: 3, delay: 2.4 }}
+              className="comet"
+            >
+              {" "}
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [0.8, 2, 0.8] }}
+                transition={{ duration: 1 }}
+                className="comett"
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ x: 0, opacity: 0 }}
+              animate={{ x: -1600, opacity: 1 }}
+              exit={{ x: 0, opacity: 0 }}
+              transition={{ repeat: Infinity, duration: 3, delay: 1.7 }}
+              className="comet"
+            >
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [0.8, 2, 0.8] }}
+                transition={{ duration: 1 }}
+                className="comett"
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ x: 0, opacity: 0 }}
+              animate={{ x: -1600, opacity: 1 }}
+              exit={{ x: 0, opacity: 0 }}
+              transition={{ repeat: Infinity, duration: 3, delay: 1.22 }}
+              className="comet"
+            >
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [0.8, 2, 0.8] }}
+                transition={{ duration: 1 }}
+                className="comett"
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ x: 0, opacity: 0 }}
+              animate={{ x: -1600, opacity: 1 }}
+              exit={{ x: 0, opacity: 0 }}
+              transition={{ repeat: Infinity, duration: 3, delay: 11.22 }}
+              className="comet"
+            >
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [0.8, 2, 0.8] }}
+                transition={{ duration: 1 }}
+                className="comett"
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ x: 0, opacity: 0 }}
+              animate={{ x: -1600, opacity: 1 }}
+              exit={{ x: 0, opacity: 0 }}
+              transition={{ repeat: Infinity, duration: 3, delay: 10.22 }}
+              className="comet"
+            >
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [0.8, 2, 0.8] }}
+                transition={{ duration: 1 }}
+                className="comett"
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ x: 0, opacity: 0 }}
+              animate={{ x: -1600, opacity: 1 }}
+              exit={{ x: 0, opacity: 0 }}
+              transition={{ repeat: Infinity, duration: 3, delay: 3.7 }}
+              className="comet"
+            >
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [0.8, 2, 0.8] }}
+                transition={{ duration: 1 }}
+                className="comett"
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ x: 0, opacity: 0 }}
+              animate={{ x: -1600, opacity: 1 }}
+              exit={{ x: 0, opacity: 0 }}
+              transition={{ repeat: Infinity, duration: 3, delay: 23 }}
+              className="comet"
+            >
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [0.8, 2, 0.8] }}
+                transition={{ duration: 1 }}
+                className="comett"
+              ></motion.div>
+            </motion.div>
+          </div>
           </div>
         </div>
       </div>

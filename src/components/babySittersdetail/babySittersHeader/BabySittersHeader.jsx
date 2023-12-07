@@ -31,7 +31,7 @@ const BabySittersHeader = () => {
   return (
     <header>
       <div className="container">
-        <div className="baby_sitters_header">
+        <div className="baby_sitters_headerr">
           <div className="header_left">
             <span>Babysits</span>/<span>Babysitter wanted</span>/
             <span>Babysitter Raleigh</span>/<span>Jaida</span>

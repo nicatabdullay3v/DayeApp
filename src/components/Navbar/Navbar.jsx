@@ -77,7 +77,7 @@ const Navbar = () => {
         <Outlet />
       </nav>
       {sidebarOpen ? (
-        <div className="side_bar">
+        <motion.div initial={{x:280 , opacity:0}} animate={{x:0,opacity:1}} transition={{duration:0.5}}   exit={{ x: 280, opacity: 0 }} className="side_bar">
           <motion.div
             whileHover={{ scale: 1.2 }}
             animate={{ scale: [1, 1.2, 1] }}
@@ -125,7 +125,7 @@ const Navbar = () => {
               </button>
             </Link>
           </div>
-        </div>
+        </motion.div>
       ) : null}
     </>
   );

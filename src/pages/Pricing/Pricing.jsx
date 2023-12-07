@@ -17,6 +17,7 @@ import NavbarSecond from "../../components/NavbarSecond/NavbarSecond";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import Navbar from "../../components/Navbar/Navbar";
 const Pricing = () => {
   let isParent = JSON.parse(localStorage.getItem("isParent"));
   const [swiperRef, setSwiperRef] = useState(null);
@@ -29,7 +30,7 @@ const Pricing = () => {
       {isParent ? (
         <NavbarParents />
       ) : (
-        <NavbarSecond />
+        <Navbar />
       )}
 
 

@@ -18,6 +18,7 @@ const BabySittersDetailPage = () => {
   return (
     <>
       {/* <NavbarThird /> */}
+      
       {isParent ? <NavbarParents /> : <NavBar />}
       <BabySittersHeader />
       <BabySittersPortfolio />

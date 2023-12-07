@@ -1,15 +1,14 @@
-#baby_sitters_portfolio {
+#baby_sitters_portfolioo {
   padding: 30px 30px;
-  background-color: rgba(240, 235, 235, 0.551);
+  background-color: rgba(211, 209, 209, 0.99);
   .container {
     .baby_sitters_portfolio {
       display: flex;
       gap: 40px;
       align-items: center;
-      @media (max-width:767px) {
+      @media (max-width: 767px) {
         display: flex;
         flex-direction: column;
-        
       }
       .baby_sitters_portfolio_country {
         font-weight: 500;
@@ -42,14 +41,17 @@
         }
       }
       .baby_sitters_portfolio_image {
-        max-width: 300px;
+        width: 300px;
 
-        max-height: 250px;
+        height: 250px;
 
         overflow: hidden;
         border-radius: 18px;
+        border: 2px solid white;
 
         img {
+          position: relative;
+          z-index: 1;
           object-fit: cover;
           width: 100%;
           height: 100%;
@@ -58,4 +60,16 @@
       }
     }
   }
+}
+.comets {
+  position: absolute;
+  right: 0;
+  top: 210px;
+}
+
+.comett {
+  width: 10px;
+  height: 10px;
+  background-color:rgb(8, 116, 116);
+
 }

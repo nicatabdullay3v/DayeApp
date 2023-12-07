@@ -14,6 +14,7 @@ import LearnMoreSearch from '../../components/HowItworks/LearnMoreSearch/LearnMo
 import Discover from "../../components/home/discover/Discover"
 import FooterMiddle from "./../../components/home/footermiddle/FooterMiddle"
 import FooterDown from "./../../components/home/footerdown/FooterDown"
+import Navbar from '../../components/Navbar/Navbar';
 const Howitworks = () => {
   let isParent = JSON.parse(localStorage.getItem("isParent"));
   return (
@@ -22,7 +23,7 @@ const Howitworks = () => {
 {isParent ? (
         <NavbarParents />
       ) : (
-        <NavbarSecond />
+        <Navbar />
       )}
 
 <Header/>
