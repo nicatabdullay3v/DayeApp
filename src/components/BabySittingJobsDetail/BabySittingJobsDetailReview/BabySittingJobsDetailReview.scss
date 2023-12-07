@@ -14,19 +14,30 @@
     border-radius: 20px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
       rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    @media (max-width: 767px) {
+      width: 200px;
+    }
   }
   .review {
-  
+    display: flex;
+    flex-direction: column;
+    @media (max-width: 767px) {
+      align-items: center;
+    }
     .review_boxx {
       display: flex;
       flex-direction: column;
       gap: 10px;
       max-width: 201px;
       background-color: #edf7f8;
+
       padding: 20px;
       border-radius: 10px;
-      .review_box_middle {
 
+      @media (max-width: 767px) {
+        margin: 0 auto;
+      }
+      .review_box_middle {
         // overflow-x: auto;
 
         p {
@@ -80,10 +91,10 @@
   }
 }
 
-.add_review{
+.add_review {
   display: block !important;
-button{
-  margin:  0 auto;
-  margin-top: 10px;
-}
+  button {
+    margin: 0 auto;
+    margin-top: 10px;
+  }
 }

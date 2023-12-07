@@ -12,6 +12,7 @@ import NavbarSecond from '../../components/NavbarSecond/NavbarSecond';
 import NavbarLoginregister from "./../../components/NavbarLoginregister/NavbarLoginregister"
 import NavBarBabysitters from "./../../components/NavbarBabysitters/NavbarBabysitters"
 import Navbar from '../../components/Navbar/Navbar';
+import "./DownBar.scss"
 const BabySittingJobsDetail = () => {
   let isBabySitters = JSON.parse(localStorage.getItem("login"))
   return (
@@ -28,6 +29,19 @@ const BabySittingJobsDetail = () => {
 <BabySittingJobsDetailShare/>
 <FooterMiddle/>
 <FooterDown/>
+
+<div className='down_bar'>
+     <div className="price">
+ 99$
+     </div>
+     <div className="text">
+Salam
+     </div>
+     <div className="name">
+ Contact Eldar
+     </div>
+    </div>
+
 </>
   )
 }

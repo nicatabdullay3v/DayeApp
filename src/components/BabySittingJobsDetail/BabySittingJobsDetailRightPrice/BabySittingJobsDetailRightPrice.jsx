@@ -14,13 +14,13 @@ const BabySittersdetailRightPrice = () => {
                 </div>
                 <div className="button">
                     <button>
-                        Contact Jaida
+                        Contact Jaid
                     </button>
                 </div>
             </div>
         </div>
     </section>
-
+  
     </>
   )
 }

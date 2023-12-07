@@ -27,6 +27,17 @@ const BabySittersDetailPage = () => {
       <BabySittersDetailShare />
       <FooterMiddle />
       <FooterDown />
+      <div className='down_bar'>
+     <div className="price">
+ 99$
+     </div>
+     <div className="text">
+Salam
+     </div>
+     <div className="name">
+ Contact Eldar
+     </div>
+    </div>
     </>
   );
 };
