@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
@@ -7,13 +7,33 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
+import axios from "axios";
+// import { useParams } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+
+import { fetchUserById } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-
-import "./BabysitterProfilePage.scss"; // SCSS dosyasını ekleyin
+import { useDispatch, useSelector } from "react-redux";
+import "./BabysitterProfilePage.scss";
 
 const BabysitterProfilePage = () => {
+  const [situation, setsituation] = useState(true);
+
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchUserById());
+  }, []);
+  //   let { id } = useParams();
   let login = JSON.parse(localStorage.getItem("login"));
+
+  const handleDelete = (id) => {
+    axios
+      .delete(`http://localhost:3000/babysitters/${id}`)
+      .then(dispatch(fetchUserById()));
+  };
 
   return (
     <section id="baby_profile">
@@ -26,17 +46,32 @@ const BabysitterProfilePage = () => {
           {login.firstName}
         </Typography>
         <Typography variant="body2" color="textSecondary" gutterBottom>
-            Email: {login.email}
+          Email: {login.email}
           {/* Age: {login.age} */}
         </Typography>
-       <div className="profile_buttons">
-       <Button variant="contained" color="error" className="delete-button">
-          Delete
-        </Button>
-        <Button variant="outlined" className="edit-button">
-          Edit
-        </Button>
-       </div>
+        <div className="profile_buttons">
+          <Button
+            variant="contained"
+            color="error"
+            className="delete-button"
+            onClick={() => {
+              {
+                handleDelete(login.id);
+                navigate("/");
+                localStorage.removeItem("login");
+                localStorage.removeItem("isParent");
+                localStorage.removeItem("isBabysitter");
+                setsituation((state) => !state);
+                localStorage.removeItem("admin");
+              }
+            }}
+          >
+            Delete
+          </Button>
+          <Button variant="outlined" className="edit-button">
+            Edit
+          </Button>
+        </div>
 
         {/* <Paper elevation={3} className="contact-info">
           <Typography variant="body2" color="textSecondary">
@@ -71,13 +106,10 @@ const BabysitterProfilePage = () => {
 
       {/* Reviews Section */}
       <div className="container reviewscards">
-
         <div className="reviews-section">
           <Typography variant="h4" gutterBottom>
             Reviews
           </Typography>
-
-
 
           <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
             {login?.reviews.map((elem, index) => {
@@ -96,7 +128,11 @@ const BabysitterProfilePage = () => {
                       </div>
                       <div className="rate">
                         {[...Array(5)].map((_, i) => (
-                          <FontAwesomeIcon key={i} className="icon" icon={faStar} />
+                          <FontAwesomeIcon
+                            key={i}
+                            className="icon"
+                            icon={faStar}
+                          />
                         ))}
                       </div>
                     </div>
@@ -116,7 +152,6 @@ const BabysitterProfilePage = () => {
               );
             })}
           </div>
-
         </div>
       </div>
     </section>
