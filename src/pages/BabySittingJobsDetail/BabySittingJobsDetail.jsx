@@ -1,7 +1,7 @@
-import React from 'react'
-import BabySittersPortfolio from  "./../../components/BabySittingJobsDetail/BabySittingJobsDetailPortfolio/BabySittingJobsDetailPortfolio"
-import NavBarThird from "./../../components/NavBarThird/NavbarThird"
-import BabySittingJobsDetailCenter from '../../components/BabySittingJobsDetail/BabySittingJobsDetailCenter/BabySittingJobsDetailCenter'
+import React from "react";
+import BabySittersPortfolio from "./../../components/BabySittingJobsDetail/BabySittingJobsDetailPortfolio/BabySittingJobsDetailPortfolio";
+import NavBarThird from "./../../components/NavBarThird/NavbarThird";
+import BabySittingJobsDetailCenter from "../../components/BabySittingJobsDetail/BabySittingJobsDetailCenter/BabySittingJobsDetailCenter";
 import BabySittingJobsDetailLocation from "../../components/BabySittingJobsDetail/BabySittingJobsDetailLocation/BabySittingJobsDetailLocation";
 import  BabySittingJobsDetailActivities from "./../../components/BabySittingJobsDetail/BabySittingJobsDetailActivities/BabySittingJobsDetailActivities"
 import BabySittingJobsDetailShare from "./../../components/BabySittingJobsDetail/BabySittingJobsDetailShare/BabySittingJobsDetailShare"
@@ -32,4 +32,4 @@ const BabySittingJobsDetail = () => {
   )
 }
 
-export default BabySittingJobsDetail
+export default BabySittingJobsDetail;

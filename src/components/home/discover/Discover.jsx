@@ -49,7 +49,7 @@ const Discover = () => {
                 setSwiperRef(swiper);
               }}
             slidesPerView={"auto"}
-            spaceBetween={10}
+            spaceBetween={90}
             navigation={{
               prevEl: ".my-custom-prev-button",
               nextEl: ".my-custom-next-button",
@@ -63,7 +63,7 @@ const Discover = () => {
               767: {
                 slidesPerView: 3,
               },
-              992: {
+              998: {
                 slidesPerView: 4,
               },
               1200: {

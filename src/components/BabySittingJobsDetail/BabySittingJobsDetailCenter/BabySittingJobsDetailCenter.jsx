@@ -6,8 +6,8 @@ import BabySittingJobsDetailCildren from "./../BabySittingJobsDetailCildren/Baby
 import BabySittingJobsDetailAchievements from "../BabySittingJobsDetailAchievements/BabySittingJobsDetailAchievements";
 import BabySittingJobsDetailSafety from "../BabySittingJobsDetailSafety/BabySittingJobsDetailSafety";
 import BabySittingJobsDetailAvailability from "../BabySittingJobsDetailAvailability/BabySittingJobsDetailAvailability";
-import BabySittingJobDetailAbout from "./../BabySittingJobsDetailAbout/BabySittingJobsDetailAbout"
-import BabySittingJobsDetailCom  from './../BabySittingJobsDetailCom/BabySittingJobsDetailCom'
+import BabySittingJobDetailAbout from "./../BabySittingJobsDetailAbout/BabySittingJobsDetailAbout";
+import BabySittingJobsDetailCom from "./../BabySittingJobsDetailCom/BabySittingJobsDetailCom";
 import BabySittingJobsDetailReview from "../BabySittingJobsDetailReview/BabySittingJobsDetailReview";
 import BabySittingJobsDetailReferences from "../BabySittingJobsDetailReferences/BabySittingJobsDetailReferences";
 const BabySittingJobsDetailCenter = () => {
@@ -19,12 +19,13 @@ const BabySittingJobsDetailCenter = () => {
             <div className="baby_sttiers_datail_center_left">
               <BabySittingJobsDetailRating />
               <BabySittingJobsDetailCildren />
-              <BabySittingJobsDetailAchievements />
-              <BabySittingJobsDetailSafety/>
+              {/* <BabySittingJobsDetailAchievements /> */}
+              <BabySittingJobsDetailSafety />
               {/* <BabySittingJobsDetailAvailability/> */}
-              <BabySittingJobDetailAbout/>
-              <BabySittingJobsDetailCom/>
-              <BabySittingJobsDetailReview/>
+              <BabySittingJobDetailAbout />
+              {/* <BabySittingJobsDetailCom /> */}
+              {/* /// */}
+              <BabySittingJobsDetailReview />
               {/* <BabySittingJobsDetailReferences/> */}
             </div>
             <div className="baby_sttiers_datail_center_right">
@@ -32,9 +33,10 @@ const BabySittingJobsDetailCenter = () => {
             </div>
           </div>
         </div>
+        {/* // */}
       </div>
     </>
-  );
+  ); ///
 };
 
 export default BabySittingJobsDetailCenter;
