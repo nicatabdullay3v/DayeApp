@@ -30,14 +30,9 @@ const BabySittersPortfolio = () => {
               <div className="baby_sitters_portfolio_icon">
                 <FontAwesomeIcon icon={faCircleCheck} />
               </div>
-              <div className="baby_sitters_portfolio_age">
-                <p>99</p>
-              </div>
             </div>
             <div className="baby_sitters_portfolio_country">
-              <span>
-                Babysitting Job in {babysitterswantedData.address?.country}
-              </span>
+              <span>Babysitting Job in {babysitterswantedData.address}</span>
             </div>
           </div>
         </div>

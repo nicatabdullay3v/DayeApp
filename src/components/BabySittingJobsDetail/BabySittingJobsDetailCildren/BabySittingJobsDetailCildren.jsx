@@ -1,8 +1,20 @@
 import React from "react";
-import "./BabySittingJobsDetailCildren.scss"
+import "./BabySittingJobsDetailCildren.scss";
+import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useParams } from "react-router-dom";
+import { fetcBabysitterJobsDeatil } from "../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import { useSelector, useDispatch } from "react-redux";
 import { faBriefcase, faCakeCandles } from "@fortawesome/free-solid-svg-icons";
 const BabySittersExperience = () => {
+  const babysitterswantedData = useSelector(
+    (state) => state.babysitters.babysitterwanted
+  );
+  const dispatch = useDispatch();
+  let { id } = useParams();
+  useEffect(() => {
+    dispatch(fetcBabysitterJobsDeatil(id));
+  }, []);
   return (
     <section id="experince">
       <div className="experince">
@@ -12,10 +24,10 @@ const BabySittersExperience = () => {
           </div>
           <div className="experince_babysitting_text">
             <div className="experience_babysitting_title">
-              <h2>Experience with babysitting</h2>
+              <h2>Number of children</h2>
             </div>
             <div className="experience_babysitting_description">
-              <p> 6 years</p>
+              <p> {babysitterswantedData.numberofChildren}</p>
             </div>
           </div>
         </div>
@@ -25,10 +37,21 @@ const BabySittersExperience = () => {
           </div>
           <div className="experince_babysitting_text">
             <div className="experience_babysitting_title">
-              <h2>Experience with age(s)</h2>
+              <h2>Age of children</h2>
             </div>
             <div className="experience_babysitting_description">
-              <p> Baby • Toddler • Preschooler • Gradeschooler • Teenager</p>
+              <p>
+                {" "}
+                {babysitterswantedData?.childrenAge === "5-7" ? (
+                  <p>Gradeschooler</p>
+                ) : babysitterswantedData?.childrenAge === "3-5" ? (
+                  <p>Presschooler</p>
+                ) : babysitterswantedData?.childrenAge === "1-3" ? (
+                  <p>Toddler</p>
+                ) : babysitterswantedData?.childrenAge === "0-1" ? (
+                  <p>Baby</p>
+                ) : null}
+              </p>
             </div>
           </div>
         </div>
