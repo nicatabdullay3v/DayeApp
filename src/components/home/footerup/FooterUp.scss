@@ -51,6 +51,9 @@
           height: 50px;
           overflow: scroll;
         }
+        .countries::-webkit-scrollbar {
+          display: none;
+        }
         .svgdes {
           color: #389ba7;
           display: flex;

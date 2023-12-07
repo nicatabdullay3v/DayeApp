@@ -26,32 +26,30 @@
       }
     }
     .right_side {
-      width: 320px;
+      width: 390px;
       .climate_cards {
         .my-custom-prev-button {
           height: 30px;
           background-color: white;
-      
+
           border-radius: 50%;
           // border: 1px solid #3ba590;
           padding: 6px 10px;
-      margin-top: 142px;
-      .arrow_icon {
-        font-size: 24px; 
-      }
-      
+          margin-top: 142px;
+          .arrow_icon {
+            font-size: 24px;
+          }
         }
         .my-custom-next-button {
-          
           height: 30px;
           border-radius: 50%;
           // border: 1px solid #3ba590;
           padding: 6px 10px;
-      margin-top: 142px;
-      background-color: white;
-      .arrow_icon {
-        font-size: 24px; 
-      }
+          margin-top: 142px;
+          background-color: white;
+          .arrow_icon {
+            font-size: 24px;
+          }
         }
         display: flex;
         .climate_card {
