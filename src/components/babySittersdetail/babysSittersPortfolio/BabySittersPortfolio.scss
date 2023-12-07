@@ -37,10 +37,8 @@
         }
       }
       .baby_sitters_portfolio_image {
-        max-width: 300px;
-        min-width: 300px;
-        max-height: 250px;
-        min-height: 250px;
+        max-width: 250px;
+        max-height: 176px;
         overflow: hidden;
         border-radius: 18px;
 
@@ -48,7 +46,6 @@
           object-fit: cover;
           width: 100%;
           height: 100%;
-          border-radius: 18px;
         }
       }
     }

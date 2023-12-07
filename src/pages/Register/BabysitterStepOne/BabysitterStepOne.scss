@@ -93,6 +93,102 @@
         }
       }
     }
+    .driver {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .input {
+        display: flex;
+        gap: 4px;
+        input {
+          width: 20px;
+        }
+        label {
+          font-size: 17px;
+          font-weight: 500;
+        }
+      }
+    }
+    .haveChildren {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .input {
+        display: flex;
+        gap: 4px;
+        input {
+          width: 20px;
+        }
+        label {
+          font-size: 17px;
+          font-weight: 500;
+        }
+      }
+    }
+    .location {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .input {
+        display: flex;
+        gap: 4px;
+        input {
+          width: 20px;
+        }
+        label {
+          font-size: 17px;
+          font-weight: 500;
+        }
+      }
+    }
+    .haveCar {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .input {
+        display: flex;
+        gap: 4px;
+        input {
+          width: 20px;
+        }
+        label {
+          font-size: 17px;
+          font-weight: 500;
+        }
+      }
+    }
+    .smoker {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .input {
+        display: flex;
+        gap: 4px;
+        input {
+          width: 20px;
+        }
+        label {
+          font-size: 17px;
+          font-weight: 500;
+        }
+      }
+    }
+    .selectLanguage {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .input {
+        display: flex;
+        gap: 4px;
+        input {
+          width: 20px;
+        }
+        label {
+          font-size: 17px;
+          font-weight: 500;
+        }
+      }
+    }
   }
   .description {
     display: flex;
