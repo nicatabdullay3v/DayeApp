@@ -123,7 +123,7 @@ const EditPage = ({ editID, seteditPage }) => {
   return (
     <section id="edit_page_sister">
       <div className="container">
-        <h1 className="change_size">Edit BabySitters</h1>
+        <h1 className="change_size">Edit {currentlySister.firstName}</h1>
         <div className="sides_edit">
           {currentlySister ? (
             <div className="currently_data">
