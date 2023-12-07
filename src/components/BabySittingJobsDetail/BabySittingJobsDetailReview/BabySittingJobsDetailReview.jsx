@@ -1,11 +1,11 @@
 import React from "react";
-import "./BabySittingJobsDetailReview.scss"
+import "./BabySittingJobsDetailReview.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { fetcBabysitterJobs } from "../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 const BabySittersDetailReview = () => {
   const [inputOpen, setInputOpen] = useState(false);
@@ -23,8 +23,13 @@ const BabySittersDetailReview = () => {
     <>
       <section id="review">
         <div className="review">
-            <h2 style={{marginBottom:"20px"}}> <span>1</span> Reviews</h2>
-         <div style={{display:"flex",gap:"10px",flexWrap:"wrap"}}>   {parent?.reviews.map((elem) => {
+          <h2 style={{ marginBottom: "20px" }}>
+            {" "}
+            <span>1</span> Reviews
+          </h2>
+          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+            {" "}
+            {parent?.reviews.map((elem) => {
               return (
                 <div className="review_boxx">
                   <div className="review_box_up">
@@ -60,7 +65,8 @@ const BabySittersDetailReview = () => {
                   </div>
                 </div>
               );
-            })}</div>
+            })}
+          </div>
         </div>
         <div
           style={{
@@ -81,13 +87,24 @@ const BabySittersDetailReview = () => {
             />
           ) : null}
           <div>
-            <button
-              onClick={() => {
-                setInputOpen(inputOpen === true ? false : true);
-              }}
-            >
-              Add Review
-            </button>
+            {inputOpen == false ? (
+              <button
+                onClick={() => {
+                  setInputOpen(true);
+                }}
+              >
+                Add Review
+              </button>
+            ) : null}
+            {inputOpen == true ? (
+              <button
+                onClick={() => {
+                  setInputOpen(false);
+                }}
+              >
+                Cancel
+              </button>
+            ) : null}
           </div>
           {inputOpen === true ? (
             <div>
@@ -108,8 +125,8 @@ const BabySittersDetailReview = () => {
                           },
                         ],
                       })
-                      .then(()=>{
-                        dispatch(fetcBabysitterJobs())
+                      .then(() => {
+                        dispatch(fetcBabysitterJobs());
                       });
                     setInputOpen(false);
                     setInputValue("");

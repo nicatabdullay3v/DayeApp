@@ -15,6 +15,7 @@ import FooterDown from "../../components/home/footerdown/FooterDown";
 import { useSelector, useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 import { fetchUserById } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import Navbar from "../../components/Navbar/Navbar";
 function index() {
   let isParent = JSON.parse(localStorage.getItem("isParent"));
 
@@ -27,7 +28,7 @@ function index() {
 
   return (
     <div>
-      {isParent ? <NavbarParents /> : <NavbarBabysit />}
+      {isParent ? <NavbarParents /> : <Navbar />}
 
       <div className="topics"></div>
       <div className="find-babysitter">

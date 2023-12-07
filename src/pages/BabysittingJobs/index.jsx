@@ -11,26 +11,25 @@ import Discover from "../../components/home/discover/Discover";
 import FooterMiddle from "../../components/home/footermiddle/FooterMiddle";
 import FooterDown from "../../components/home/footerdown/FooterDown";
 import FindJobCard from "../../components/FindJobCard";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import { fetcBabysitterJobs } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import Navbar from "./../../components/Navbar/Navbar";
 function index() {
   let isBabySitters = JSON.parse(localStorage.getItem("isBabysitter"));
   let isParent = JSON.parse(localStorage.getItem("isParent"));
-  const babysitterswanted = useSelector((state)=> state.babysitters.babysitterswanted)
+  const babysitterswanted = useSelector(
+    (state) => state.babysitters.babysitterswanted
+  );
 
-  const dispatch = useDispatch()
-useEffect(() => {
-dispatch(fetcBabysitterJobs())
-}, [])
-console.log(babysitterswanted);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetcBabysitterJobs());
+  }, []);
+  console.log(babysitterswanted);
   return (
     <div>
-       {isBabySitters ? (
-        <NavbarBabysitters />
-      ) : (
-        <NavbarBabysit />
-      )}
+      {isBabySitters ? <NavbarBabysitters /> : <Navbar />}
       <div className="topics">
         <div className="topic">
           <p>Type of babysitter needed</p>
@@ -65,12 +64,9 @@ console.log(babysitterswanted);
             </div>
           </div>
           <div className="babysitterCards">
-            {babysitterswanted.map((elem)=>{
-              return    <FindJobCard key={uuidv4()} elem={elem} />
-
-
+            {babysitterswanted.map((elem) => {
+              return <FindJobCard key={uuidv4()} elem={elem} />;
             })}
-  
           </div>
           <div className="pagesDiv">
             <div className="pages">
