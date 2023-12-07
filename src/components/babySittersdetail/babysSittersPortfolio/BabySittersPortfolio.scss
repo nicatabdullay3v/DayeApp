@@ -6,10 +6,9 @@
       display: flex;
       gap: 40px;
       align-items: center;
-      @media (max-width:767px) {
+      @media (max-width: 767px) {
         display: flex;
         flex-direction: column;
-        
       }
       .baby_sitters_portfolio_country {
         font-weight: 500;
@@ -42,15 +41,8 @@
         }
       }
       .baby_sitters_portfolio_image {
-<<<<<<< HEAD
         max-width: 250px;
         max-height: 176px;
-=======
-        max-width: 300px;
-
-        max-height: 250px;
-
->>>>>>> 0c59f8ecdfe8926cc000bbbd8522c7d6296f4692
         overflow: hidden;
         border-radius: 18px;
 
