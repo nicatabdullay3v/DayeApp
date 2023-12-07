@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import "./CreatePage.scss";
@@ -12,8 +12,15 @@ import { fetcBabysitterJobs } from "../../../../../redux/Slice/BabySittersSlice/
 const SignupSchema = Yup.object().shape({});
 
 const CreatePage = ({ setcreatePage }) => {
+  const [parentData, setParentdata] = useState([]);
   const dispatch = useDispatch();
-  const [image, setImage] = useState(null); 
+  const [image, setImage] = useState(null);
+  useEffect(() => {
+    axios("http://localhost:3000/babysitterswanted/").then((res) => {
+      // console.log(res.data);
+      setParentdata(res.data);
+    });
+  }, []);
 
   // const [formData, setFormData] = useState({
   //   firstName: "",
@@ -77,7 +84,6 @@ const CreatePage = ({ setcreatePage }) => {
       description: "",
       // image: null,
       image: "",
-
     },
 
     validationSchema: Yup.object({
@@ -113,21 +119,26 @@ const CreatePage = ({ setcreatePage }) => {
         .required("Required"),
     }),
     onSubmit: (values) => {
-      let obj = {
-        firstName: values.firstName,
-        lastName: values.lastName,
-        email: values.email,
-        address: values.address,
-        numberofChildren: values.numberofChildren,
-        childrenAge: values.childrenAge,
-        description: values.description,
-        image: values.image,
-      };
-      console.log(obj);
-      axios.post(`http://localhost:3000/babysitterswanted/`, obj).then(() => {
-        dispatch(fetcBabysitterJobs());
-        setcreatePage(false);
-      });
+      let find = parentData.map((elem) => elem.email == values.email);
+      if (!find) {
+        let obj = {
+          firstName: values.firstName,
+          lastName: values.lastName,
+          email: values.email,
+          address: values.address,
+          numberofChildren: values.numberofChildren,
+          childrenAge: values.childrenAge,
+          description: values.description,
+          image: values.image,
+        };
+        console.log(obj);
+        axios.post(`http://localhost:3000/babysitterswanted/`, obj).then(() => {
+          dispatch(fetcBabysitterJobs());
+          setcreatePage(false);
+        });
+      } else {
+        alert("this email already used");
+      }
     },
   });
 
@@ -136,7 +147,6 @@ const CreatePage = ({ setcreatePage }) => {
   //   setImage(selectedImage);
   //   formik.setFieldValue("image", selectedImage);
   // };
-
 
   return (
     <section id="create_pagee">
@@ -327,7 +337,7 @@ const CreatePage = ({ setcreatePage }) => {
                       value={formik.values.image}
                       onChange={formik.handleChange}
                     />
-                      {formik.touched.image && formik.errors.image ? (
+                    {formik.touched.image && formik.errors.image ? (
                       <div
                         style={{
                           textAlign: "center",
@@ -376,7 +386,6 @@ const CreatePage = ({ setcreatePage }) => {
                       onChange={handleImageChange}
                     />
                   </div> */}
-               
 
                   <div className="create_btn">
                     <button type="submit">Create</button>
