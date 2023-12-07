@@ -4,7 +4,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "./cards.scss";
 import { v4 as uuidv4 } from "uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faStar,
+  faAngleLeft,
+  faAngleRight,
+} from "@fortawesome/free-solid-svg-icons";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -29,11 +33,24 @@ const Cards = () => {
         <div className="container">
           <h3>Meet verified babysitters in your area</h3>
           <div className="cards">
+            <button className="my-custom-prev-button">
+              <FontAwesomeIcon
+                className="arrow_icon"
+                icon={faAngleLeft}
+                style={{ color: "#3ba590" }}
+              />
+            </button>
+
             <Swiper
-              onSwiper={setSwiperRef}
+              onSwiper={(swiper) => {
+                setSwiperRef(swiper);
+              }}
               slidesPerView={"auto"}
               spaceBetween={30}
-              navigation={true}
+              navigation={{
+                prevEl: ".my-custom-prev-button",
+                nextEl: ".my-custom-next-button",
+              }}
               modules={[Pagination, Navigation]}
               className="mySwiper hidden"
               breakpoints={{
@@ -94,6 +111,14 @@ const Cards = () => {
                 );
               })}
             </Swiper>
+            <button className="my-custom-next-button">
+              {" "}
+              <FontAwesomeIcon
+                className="arrow_icon"
+                icon={faAngleRight}
+                style={{ color: "#3ba590" }}
+              />
+            </button>
           </div>
         </div>
         <div className="cards_footer">

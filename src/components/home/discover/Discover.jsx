@@ -5,6 +5,12 @@ import "./discover.scss";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faStar,
+  faAngleLeft,
+  faAngleRight,
+} from "@fortawesome/free-solid-svg-icons";
 const Discover = () => {
   const [swiperRef, setSwiperRef] = useState(null);
 
@@ -31,11 +37,23 @@ const Discover = () => {
           </svg>
         </h3>
         <div className="discover_cards">
+        <button className="my-custom-prev-button">
+              <FontAwesomeIcon
+                className="arrow_icon"
+                icon={faAngleLeft}
+                style={{ color: "#3ba590" }}
+              />
+            </button>
           <Swiper
-            onSwiper={setSwiperRef}
+              onSwiper={(swiper) => {
+                setSwiperRef(swiper);
+              }}
             slidesPerView={"auto"}
             spaceBetween={10}
-            navigation={true}
+            navigation={{
+              prevEl: ".my-custom-prev-button",
+              nextEl: ".my-custom-next-button",
+            }}
             modules={[Pagination, Navigation]}
             className="mySwiper hidden"
             breakpoints={{
@@ -96,6 +114,14 @@ const Discover = () => {
               </div>
             </SwiperSlide>
           </Swiper>
+          <button className="my-custom-next-button">
+              {" "}
+              <FontAwesomeIcon
+                className="arrow_icon"
+                icon={faAngleRight}
+                style={{ color: "#3ba590" }}
+              />
+            </button>
         </div>
       </div>
     </section>
