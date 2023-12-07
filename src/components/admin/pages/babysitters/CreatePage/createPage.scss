@@ -24,147 +24,160 @@
       .create_to {
         .card_parent {
           .firstName_input {
-            display: flex;
-            gap: 12px;
-            padding-top: 15px;
-            input {
-              width: 266px;
-              height: 34px;
-              border: none;
-              border: 1px solid #4d565e;
-              border-radius: 10px;
-            }
+            padding-top: 20px;
           }
+          //   display: flex;
+          //   gap: 12px;
+          //   padding-top: 15px;
+          //   input {
+          //     width: 266px;
+          //     height: 34px;
+          //     border: none;
+          //     border: 1px solid #4d565e;
+          //     border-radius: 10px;
+          //   }
+          // }
           .lastName_input {
-            display: flex;
-            gap: 13.5px;
-            padding-top: 15px;
-            input {
-              width: 266px;
-              height: 34px;
-              border: none;
-              border: 1px solid #4d565e;
-              border-radius: 10px;
-            }
+            padding-top: 20px;
           }
+          //   display: flex;
+          //   gap: 13.5px;
+          //   padding-top: 15px;
+          //   input {
+          //     width: 266px;
+          //     height: 34px;
+          //     border: none;
+          //     border: 1px solid #4d565e;
+          //     border-radius: 10px;
+          //   }
+          // }
 
-          .agesister_input {
-            display: flex;
-            gap: 59px;
-            padding-top: 15px;
-
-            input {
-              width: 266px;
-              height: 34px;
-              border: none;
-              border: 1px solid #4d565e;
-              border-radius: 10px;
-            }
+           .agesister_input {
+            padding-top: 20px;
           }
+          //   display: flex;
+          //   gap: 59px;
+          //   padding-top: 15px;
 
-          .email_input {
-            display: flex;
-            gap: 45px;
-            padding-top: 15px;
+          //   input {
+          //     width: 266px;
+          //     height: 34px;
+          //     border: none;
+          //     border: 1px solid #4d565e;
+          //     border-radius: 10px;
+          //   }
+          // }
 
-            input {
-              width: 266px;
-              height: 34px;
-              border: none;
-              border: 1px solid #4d565e;
-              border-radius: 10px;
-            }
+           .email_input {
+            padding-top: 20px;
           }
+          //   display: flex;
+          //   gap: 45px;
+          //   padding-top: 15px;
+
+          //   input {
+          //     width: 266px;
+          //     height: 34px;
+          //     border: none;
+          //     border: 1px solid #4d565e;
+          //     border-radius: 10px;
+          //   }
+          // }
 
           .price_input {
-            display: flex;
-            gap: 51px;
-            padding-top: 15px;
-            input {
-              width: 266px;
-              height: 34px;
-              border: none;
-              border: 1px solid #4d565e;
-              border-radius: 10px;
-            }
+            padding-top: 20px;
           }
 
-          .age_input {
-            display: flex;
-            gap: 43px;
-            padding-top: 15px;
-            input {
-              width: 266px;
-              height: 34px;
-              border: none;
-              border: 1px solid #4d565e;
-              border-radius: 10px;
-            }
-          }
 
-          .country_input {
-            display: flex;
-            gap: 26px;
-            padding-top: 15px;
-            input {
-              width: 266px;
-              height: 34px;
-              border: none;
-              border: 1px solid #4d565e;
-              border-radius: 10px;
-            }
+           .age_input {
+            padding-top: 20px;
           }
+          //   display: flex;
+          //   gap: 43px;
+          //   padding-top: 15px;
+          //   input {
+          //     width: 266px;
+          //     height: 34px;
+          //     border: none;
+          //     border: 1px solid #4d565e;
+          //     border-radius: 10px;
+          //   }
+          // }
+
+           .country_input {
+            padding-top: 20px;
+          }
+          //   display: flex;
+          //   gap: 26px;
+          //   padding-top: 15px;
+          //   input {
+          //     width: 266px;
+          //     height: 34px;
+          //     border: none;
+          //     border: 1px solid #4d565e;
+          //     border-radius: 10px;
+          //   }
+          // }
           .image_input {
-            display: flex;
-            gap: 38px;
-            padding-top: 15px;
-            input {
-              width: 266px;
-              height: 30px;
-              border: none;
-              border: 1px solid #4d565e;
-              border-radius: 10px;
-            }
+            padding-top: 20px;
           }
-          .password_input {
-            display: flex;
-            gap: 14px;
-            padding-top: 15px;
-            input {
-              width: 266px;
-              height: 34px;
-              border: none;
-              border: 1px solid #4d565e;
-              border-radius: 10px;
-            }
+          //   display: flex;
+          //   gap: 38px;
+          //   padding-top: 15px;
+          //   input {
+          //     width: 266px;
+          //     height: 30px;
+          //     border: none;
+          //     border: 1px solid #4d565e;
+          //     border-radius: 10px;
+          //   }
+          // }
+           .password_input {
+            padding-top: 20px;
           }
+          //   display: flex;
+          //   gap: 14px;
+          //   padding-top: 15px;
+          //   input {
+          //     width: 266px;
+          //     height: 34px;
+          //     border: none;
+          //     border: 1px solid #4d565e;
+          //     border-radius: 10px;
+          //   }
+          // }
 
           .child_input {
-            display: flex;
-            gap: 27px;
-            padding-top: 15px;
-            input {
-              width: 266px;
-              height: 34px;
-              border: none;
-              border: 1px solid #4d565e;
-              border-radius: 10px;
-            }
+            padding-top: 20px;
           }
+          //   display: flex;
+          //   gap: 27px;
+          //   padding-top: 15px;
+          //   input {
+          //     width: 266px;
+          //     height: 34px;
+          //     border: none;
+          //     border: 1px solid #4d565e;
+          //     border-radius: 10px;
+          //   }
+          // }
 
-          .description_input,
+
+           .description_input,
           .comments_input {
-            label {
-              display: block;
-              padding-top: 20px;
-
-            }
-            textarea{
-              padding: 0px;
-              width: 300px;
-              height: 80px;
-            }
+padding-top: 20px;
           }
+          //   label {
+          //     display: block;
+          //     padding-top: 20px;
+
+          //   }
+          //   textarea{
+          //     padding: 0px;
+          //     width: 300px;
+          //     height: 80px;
+          //   }
+          // }
         }
       }
     }

@@ -23,109 +23,114 @@
         }
         .create_to {
           .card_parent {
-            .firstname_input {
-              display: flex;
-              gap: 18px;
+            .firstName_input {
+              // display: flex;
+              // gap: 18px;
               padding-top: 15px;
               input {
-                width: 266px;
-                height: 30px;
-                border: none;
-                border: 1px solid #4d565e;
-                border-radius: 10px;
+                // width: 266px;
+                // height: 30px;
+                // border: none;
+                // border: 1px solid #4d565e;
+                // border-radius: 10px;
               }
             }
-            .lastname_input {
-                display: flex;
-                gap: 20px;
+            .lastName_input {
+                // display: flex;
+                // gap: 20px;
                 padding-top: 15px;
                 input {
-                  width: 266px;
-                  height: 30px;
-                  border: none;
-                  border: 1px solid #4d565e;
-                  border-radius: 10px;
+                  // width: 266px;
+                  // height: 30px;
+                  // border: none;
+                  // border: 1px solid #4d565e;
+                  // border-radius: 10px;
                 }
               }
               .image_input {
-                display: flex;
-                gap: 44px;
+                // display: flex;
+                // gap: 44px;
                 padding-top: 15px;
                 input {
-                  width: 266px;
-                  height: 30px;
-                  border: none;
-                  border: 1px solid #4d565e;
-                  border-radius: 10px;
+                  // width: 266px;
+                  // height: 30px;
+                  // border: none;
+                  // border: 1px solid #4d565e;
+                  // border-radius: 10px;
                 }
               }
 
   
             .email_input {
-              display: flex;
-              gap: 51px;
+              // display: flex;
+              // gap: 51px;
               padding-top: 15px;
   
               input {
-                width: 266px;
-                height: 30px;
-                border: none;
-                border: 1px solid #4d565e;
-                border-radius: 10px;
+                // width: 266px;
+                // height: 30px;
+                // border: none;
+                // border: 1px solid #4d565e;
+                // border-radius: 10px;
               }
             }
+
+            .password_input{
+              padding-top: 15px;
+            }
             .address_input {
-                display: flex;
-                gap: 32px;
+                // display: flex;
+                // gap: 32px;
                 padding-top: 15px;
     
                 input {
-                  width: 266px;
-                  height: 30px;
-                  border: none;
-                  border: 1px solid #4d565e;
-                  border-radius: 10px;
+                  // width: 266px;
+                  // height: 30px;
+                  // border: none;
+                  // border: 1px solid #4d565e;
+                  // border-radius: 10px;
                 }
               }
   
             .age_input {
-              display: flex;
-              gap: 64px;
+              // display: flex;
+              // gap: 64px;
               padding-top: 15px;
               input {
-                width: 266px;
-                height: 30px;
-                border: none;
-                border: 1px solid #4d565e;
-                border-radius: 10px;
+                // width: 266px;
+                // height: 30px;
+                // border: none;
+                // border: 1px solid #4d565e;
+                // border-radius: 10px;
               }
             }
   
             .child_input {
-              display: flex;
-              gap: 55px;
+              // display: flex;
+              // gap: 55px;
               padding-top: 15px;
               input {
-                width: 266px;
-                height: 30px;
-                border: none;
-                border: 1px solid #4d565e;
-                border-radius: 10px;
+                // width: 266px;
+                // height: 30px;
+                // border: none;
+                // border: 1px solid #4d565e;
+                // border-radius: 10px;
               }
             }
   
             .description_input,
             .comments_input {
-              label {
-                display: block;
-                padding-top: 20px;
+              padding-top: 15px;
+              // label {
+              //   display: block;
+              //   padding-top: 20px;
   
-              }
-              textarea{
-                padding: 0px;
-                width: 300px;
-                height: 80px;
-              }
+              // }
+              // textarea{
+              //   padding: 0px;
+              //   width: 300px;
+              //   height: 80px;
+              // }
             }
           }
         }

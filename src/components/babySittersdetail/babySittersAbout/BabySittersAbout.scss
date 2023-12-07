@@ -1,12 +1,13 @@
 #baby_sitters_about {
   padding: 60px 30px;
   border-top: 1px solid lightgray;
-  .baby_sitters_about {
+  .baby_sitters_abouts {
     background-color: #f7f9fa;
     border-radius: 20px;
 
     display: flex;
     flex-wrap: wrap;
+    gap: 20px;
 
     .baby_sitters_about_left {
       padding: 20px;

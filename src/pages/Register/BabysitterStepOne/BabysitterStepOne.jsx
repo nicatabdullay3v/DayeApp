@@ -9,19 +9,29 @@ import * as Yup from "yup";
 import YupPassword from "yup-password";
 YupPassword(Yup);
 import axios from "axios";
+import { Sledding } from "@mui/icons-material";
 function BabysitterStepOne() {
   const Babysitter = JSON.parse(localStorage.getItem("userBabysitter"));
 
   const [selected, setSelected] = useState("");
   const [selectedAge, setSelectedAge] = useState("");
+  const [selectDrive, setSelectDrive] = useState("");
+  const [haveChildren, sethaveChildren] = useState("");
+  const [location, setLocation] = useState("");
+  const [haveCar, setHaveCar] = useState("");
+  const [smoke, setSmoke] = useState("");
   ///
 
   let navigate = useNavigate();
   const handleChangeRadio = (event) => {
     setSelected(event.target.value);
   };
+
   const handleChange = (event) => {
     setSelectedAge(event.target.value);
+  };
+  const handleChangeLocation = (event) => {
+    setLocation(event.target.value);
   };
   const formik = useFormik({
     initialValues: {
@@ -30,6 +40,7 @@ function BabysitterStepOne() {
       childrenAge: "",
       education: "",
       money: "",
+      driverLicense: "",
     },
     validationSchema: Yup.object({
       address: Yup.string()
@@ -55,6 +66,12 @@ function BabysitterStepOne() {
         Babysitter.price = values.money;
         Babysitter.about = values.about;
         Babysitter.wishList = [];
+        Babysitter.driverLicense = selectDrive;
+        Babysitter.Haschildren = haveChildren;
+        Babysitter.location = location;
+        Babysitter.car = haveCar;
+        Babysitter.smoker = smoke;
+
         axios
           .post("http://localhost:3000/babysitters", Babysitter)
           .then((res) => {
@@ -71,6 +88,15 @@ function BabysitterStepOne() {
       <div className="babysitter-step-one">
         <div className="head-img">
           <div className="text">
+            <div className="back-button">
+              <button
+                onClick={() => {
+                  navigate(-1);
+                }}
+              >
+                Back
+              </button>
+            </div>
             <p>Create your profile</p>
           </div>
           <div className="img-box"></div>
@@ -259,6 +285,158 @@ function BabysitterStepOne() {
               ) : (
                 <div style={{ color: "white", fontSize: "16px" }}>sadasd</div>
               )}
+            </div>
+            <div className="driver">
+              <p>Do you have Driver's license ?</p>
+              <div className="input">
+                <input
+                  name="selectDriver"
+                  value="Yes"
+                  id="driveryes"
+                  onChange={() => {
+                    setSelectDrive(true);
+                  }}
+                  type="radio"
+                />
+                <label htmlFor="driveryes">Yes</label>
+              </div>
+              <div className="input">
+                <input
+                  name="selectDriver"
+                  value="No"
+                  id="driverno"
+                  onChange={() => {
+                    setSelectDrive(false);
+                  }}
+                  type="radio"
+                />
+                <label htmlFor="driverno">No</label>
+              </div>
+            </div>
+            <div className="haveChildren">
+              <p>Do you Have Children ?</p>
+              <div className="input">
+                <input
+                  name="selectHaveChildren"
+                  value="Yes"
+                  id="havechildyes"
+                  type="radio"
+                  onChange={() => {
+                    sethaveChildren(true);
+                  }}
+                />
+                <label htmlFor="havechildyes">Yes</label>
+              </div>
+              <div className="input">
+                <input
+                  name="selectHaveChildren"
+                  value="No"
+                  id="havechildno"
+                  onChange={() => {
+                    sethaveChildren(false);
+                  }}
+                  type="radio"
+                />
+                <label htmlFor="havechildno">No</label>
+              </div>
+            </div>
+            <div className="location">
+              <p>Preferred babysitting location:</p>
+              <div className="input">
+                <input
+                  name="selectLocation"
+                  value="At the babysitters's"
+                  id="locationBabysitter"
+                  type="radio"
+                  onChange={handleChangeLocation}
+                />
+                <label htmlFor="locationBabysitter">At the babysitters's</label>
+              </div>
+              <div className="input">
+                <input
+                  name="selectLocation"
+                  value="At the my home"
+                  id="locationHome"
+                  type="radio"
+                  onChange={handleChangeLocation}
+                />
+                <label htmlFor="havechildno">At the my home</label>
+              </div>
+            </div>
+            <div className="haveCar">
+              <p>Do you have a car ?</p>
+              <div className="input">
+                <input
+                  onChange={() => {
+                    setHaveCar(true);
+                  }}
+                  name="haveCar"
+                  value="Yes"
+                  id="carYes"
+                  type="radio"
+                />
+                <label htmlFor="carYes">Yes</label>
+              </div>
+              <div className="input">
+                <input
+                  onChange={() => {
+                    setHaveCar(false);
+                  }}
+                  name="haveCar"
+                  value="No"
+                  id="carNo"
+                  type="radio"
+                />
+                <label htmlFor="carNo">No</label>
+              </div>
+            </div>
+            <div className="smoker">
+              <p>Do you smoke ?</p>
+              <div className="input">
+                <input
+                  onChange={() => {
+                    setSmoke(true);
+                  }}
+                  name="Smoke"
+                  value="Yes"
+                  id="smokeYes"
+                  type="radio"
+                />
+                <label htmlFor="smokeYes">Yes</label>
+              </div>
+              <div className="input">
+                <input
+                  onChange={() => {
+                    setSmoke(false);
+                  }}
+                  name="Smoke"
+                  value="No"
+                  id="smokeNO"
+                  type="radio"
+                />
+                <label htmlFor="smokeNO">No</label>
+              </div>
+            </div>
+            <div className="selectLanguage">
+              <p>Which languages ​​do you know?</p>
+              <div className="input">
+                <input
+                  name="selectlanguage"
+                  value="Yes"
+                  id="langeageOne"
+                  type="radio"
+                />
+                <label htmlFor="langeageOne">Yes</label>
+              </div>
+              <div className="input">
+                <input
+                  name="selectlanguage"
+                  value="No"
+                  id="languageTwo"
+                  type="radio"
+                />
+                <label htmlFor="languageTwo">No</label>
+              </div>
             </div>
             <div className="moneyInp">
               <label htmlFor="money">
