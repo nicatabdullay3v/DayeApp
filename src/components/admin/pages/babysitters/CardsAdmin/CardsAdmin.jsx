@@ -7,7 +7,7 @@ import "./CardsAdmin.scss";
 import { fetchUserById } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const CardsAdmin = ({ seteditPage, setcreatePage, seteditID, editID }) => {
+const CardsAdmin = ({ seteditPage, setcreatePage, seteditID, editID,setdetailPage }) => {
   const babysittersData = useSelector((state) => state.babysitters.babysitters);
 
   const dispatch = useDispatch();
@@ -31,6 +31,24 @@ const CardsAdmin = ({ seteditPage, setcreatePage, seteditID, editID }) => {
     { field: "country", headerName: "Country", flex: 1 },
     { field: "price", headerName: "Price", flex: 1 },
     {
+      field: "detail",
+      headerName: "Detail",
+      flex: 1,
+      renderCell: (params) => (
+        <button
+          className="button_employee"
+          onClick={() => {
+            setdetailPage(true);
+            seteditPage(false);
+            setcreatePage(false);
+            seteditID(params.row.id);
+          }}
+        >
+          Detail
+        </button>
+      ),
+    },
+    {
       field: "edit",
       headerName: "Edit",
       flex: 1,
@@ -39,6 +57,7 @@ const CardsAdmin = ({ seteditPage, setcreatePage, seteditID, editID }) => {
           className="button_employee"
           onClick={() => {
             seteditPage(true);
+            setdetailPage(false);
             setcreatePage(false);
             seteditID(params.row.id);
           }}
@@ -55,6 +74,7 @@ const CardsAdmin = ({ seteditPage, setcreatePage, seteditID, editID }) => {
         <button
           className="button_employee"
           onClick={() => {
+            setdetailPage(false);
             seteditPage(false);
             setcreatePage(false);
             handleDelete(params.row.id);
