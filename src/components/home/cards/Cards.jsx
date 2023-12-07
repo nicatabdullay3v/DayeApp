@@ -64,8 +64,8 @@ const Cards = () => {
                         <img src={elem.image} alt="" />
                       </div>
                       <div className="card_detail">
-                        <p>{elem.name}</p>
-                        <span>City</span>
+                        <p>{elem.firstName}</p>
+                        <span>{elem.country}</span>
                       </div>
                       <div className="raiting_stars">
                         <FontAwesomeIcon
