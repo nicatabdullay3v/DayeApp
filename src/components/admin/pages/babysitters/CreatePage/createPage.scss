@@ -104,7 +104,7 @@
 
           .country_input {
             display: flex;
-            gap: 27px;
+            gap: 26px;
             padding-top: 15px;
             input {
               width: 266px;
@@ -114,7 +114,18 @@
               border-radius: 10px;
             }
           }
-
+          .image_input {
+            display: flex;
+            gap: 38px;
+            padding-top: 15px;
+            input {
+              width: 266px;
+              height: 30px;
+              border: none;
+              border: 1px solid #4d565e;
+              border-radius: 10px;
+            }
+          }
           .password_input {
             display: flex;
             gap: 14px;

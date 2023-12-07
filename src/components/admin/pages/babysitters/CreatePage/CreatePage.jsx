@@ -7,7 +7,7 @@ import { useFormik } from "formik";
 import YupPassword from "yup-password";
 YupPassword(Yup);
 import { fetchUserById } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
-const CreatePage = ({setcreatePage}) => {
+const CreatePage = ({ setcreatePage }) => {
   const dispatch = useDispatch();
   // const [formData, setFormData] = useState({
   //   name: "",
@@ -53,6 +53,7 @@ const CreatePage = ({setcreatePage}) => {
       references: "",
       country: "",
       description: "",
+      image: "",
     },
 
     validationSchema: Yup.object({
@@ -60,21 +61,22 @@ const CreatePage = ({setcreatePage}) => {
         .min(2, "Too Short!")
         .max(15, "Too Long!")
         .required("Required"),
-        lastName: Yup.string()
+      lastName: Yup.string()
         .min(2, "Too Short!")
         .max(15, "Too Long!")
         .required("Required"),
+        image: Yup.string().url("Invalid URL").required("Image URL is required"),
       email: Yup.string().email("Invalid email").required("Required"),
       country: Yup.string().required("Required"),
       description: Yup.string()
         .max(200, "Must be 200 characters or less")
         .min(50, "Must be 50 characters or more")
         .required("Required"),
-        references: Yup.string()
+      references: Yup.string()
         .max(200, "Must be 200 characters or less")
         .min(50, "Must be 50 characters or more")
         .required("Required"),
-        activities: Yup.string()
+      activities: Yup.string()
         .max(200, "Must be 200 characters or less")
         .min(50, "Must be 50 characters or more")
         .required("Required"),
@@ -101,6 +103,8 @@ const CreatePage = ({setcreatePage}) => {
         references: values.references,
         activities: values.activities,
         description: values.description,
+        image: values.image,
+
       };
       console.log(obj);
       axios.post(`http://localhost:3000/babysitters/`, obj).then(() => {
@@ -119,12 +123,8 @@ const CreatePage = ({setcreatePage}) => {
           <div className="right_side_create">
             <div className="create_to">
               <div className="card_parent">
-
-
-
-              <form onSubmit={formik.handleSubmit} action="">
-
-              <div className="firstName_input">
+                <form onSubmit={formik.handleSubmit} action="">
+                  <div className="firstName_input">
                     <label htmlFor="firstName">firstName:</label>
 
                     <input
@@ -147,7 +147,6 @@ const CreatePage = ({setcreatePage}) => {
                     ) : null}
                   </div>
 
-                  
                   <div className="lastName_input">
                     <label htmlFor="lastName">lastName:</label>
 
@@ -171,7 +170,7 @@ const CreatePage = ({setcreatePage}) => {
                     ) : null}
                   </div>
 
-                <div className="agesister_input">
+                  <div className="agesister_input">
                     <label htmlFor="age">Age: </label>
 
                     <input
@@ -194,7 +193,7 @@ const CreatePage = ({setcreatePage}) => {
                     ) : null}
                   </div>
 
-                <div className="email_input">
+                  <div className="email_input">
                     <label htmlFor="email">Email:</label>
 
                     <input
@@ -217,7 +216,7 @@ const CreatePage = ({setcreatePage}) => {
                     ) : null}
                   </div>
 
-                <div className="password_input">
+                  <div className="password_input">
                     <label htmlFor="password">Password:</label>
 
                     <input
@@ -240,8 +239,7 @@ const CreatePage = ({setcreatePage}) => {
                     ) : null}
                   </div>
 
-
-                <div className="country_input">
+                  <div className="country_input">
                     <label htmlFor="country">Country:</label>
 
                     <input
@@ -264,7 +262,7 @@ const CreatePage = ({setcreatePage}) => {
                     ) : null}
                   </div>
 
-                <div className="price_input">
+                  <div className="price_input">
                     <label htmlFor="price">Price:</label>
 
                     <input
@@ -287,7 +285,32 @@ const CreatePage = ({setcreatePage}) => {
                     ) : null}
                   </div>
 
-                <div className="description_input">
+                  <div className="image_input">
+                    <label htmlFor="image">Image:</label>
+                    <input
+                      type="text"
+                      id="image"
+                      name="image"
+                      accept="image/*"
+                      placeholder="push image address"
+                      value={formik.values.image}
+                      onChange={formik.handleChange}
+                    />
+                      {formik.touched.image && formik.errors.image ? (
+                      <div
+                        style={{
+                          textAlign: "center",
+                          color: "red",
+                          fontSize: "small",
+                        }}
+                      >
+                        {formik.errors.image}
+                      </div>
+                    ) : null}
+                  </div>
+
+
+                  <div className="description_input">
                     <label htmlFor="description">Description:</label>
 
                     <textarea
@@ -313,8 +336,7 @@ const CreatePage = ({setcreatePage}) => {
                     ) : null}
                   </div>
 
-
-                <div className="comments_input">
+                  <div className="comments_input">
                     <label htmlFor="references">References:</label>
 
                     <textarea
@@ -340,8 +362,7 @@ const CreatePage = ({setcreatePage}) => {
                     ) : null}
                   </div>
 
-
-                <div className="comments_input">
+                  <div className="comments_input">
                     <label htmlFor="activities">Activities:</label>
 
                     <textarea
@@ -366,26 +387,13 @@ const CreatePage = ({setcreatePage}) => {
                       </div>
                     ) : null}
                   </div>
-             
-
-       
 
                   <div className="create_btn">
                     <button type="submit">Create</button>
                   </div>
                 </form>
-
-
-
-
-             
-
-
-
-
               </div>
             </div>
-       
           </div>
         </div>
       </div>

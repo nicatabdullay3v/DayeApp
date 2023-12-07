@@ -13,6 +13,7 @@ const SignupSchema = Yup.object().shape({});
 
 const CreatePage = ({ setcreatePage }) => {
   const dispatch = useDispatch();
+  const [image, setImage] = useState(null); 
 
   // const [formData, setFormData] = useState({
   //   firstName: "",
@@ -74,6 +75,9 @@ const CreatePage = ({ setcreatePage }) => {
       numberofChildren: "",
       childrenAge: "",
       description: "",
+      // image: null,
+      image: "",
+
     },
 
     validationSchema: Yup.object({
@@ -86,6 +90,7 @@ const CreatePage = ({ setcreatePage }) => {
         .max(15, "Too Long!")
         .required("Required"),
       email: Yup.string().email("Invalid email").required("Required"),
+      image: Yup.string().url("Invalid URL").required("Image URL is required"),
       address: Yup.string()
         .min(10, "Must be 10 characters or more")
         .required("Required"),
@@ -116,6 +121,7 @@ const CreatePage = ({ setcreatePage }) => {
         numberofChildren: values.numberofChildren,
         childrenAge: values.childrenAge,
         description: values.description,
+        image: values.image,
       };
       console.log(obj);
       axios.post(`http://localhost:3000/babysitterswanted/`, obj).then(() => {
@@ -124,6 +130,13 @@ const CreatePage = ({ setcreatePage }) => {
       });
     },
   });
+
+  // const handleImageChange = (e) => {
+  //   const selectedImage = e.target.files[0];
+  //   setImage(selectedImage);
+  //   formik.setFieldValue("image", selectedImage);
+  // };
+
 
   return (
     <section id="create_pagee">
@@ -303,6 +316,30 @@ const CreatePage = ({ setcreatePage }) => {
                     {/* <ErrorMessage name="childrenAge" /> */}
                   </div>
 
+                  <div className="image_input">
+                    <label htmlFor="image">Image:</label>
+                    <input
+                      type="text"
+                      id="image"
+                      name="image"
+                      accept="image/*"
+                      placeholder="push image address"
+                      value={formik.values.image}
+                      onChange={formik.handleChange}
+                    />
+                      {formik.touched.image && formik.errors.image ? (
+                      <div
+                        style={{
+                          textAlign: "center",
+                          color: "red",
+                          fontSize: "small",
+                        }}
+                      >
+                        {formik.errors.image}
+                      </div>
+                    ) : null}
+                  </div>
+
                   <div className="description_input">
                     <label htmlFor="description">Description:</label>
 
@@ -329,6 +366,17 @@ const CreatePage = ({ setcreatePage }) => {
                     ) : null}
                     {/* <ErrorMessage name="description" /> */}
                   </div>
+                  {/* <div className="image_input">
+                    <label htmlFor="image">Image:</label>
+                    <input
+                      type="file"
+                      id="image"
+                      name="image"
+                      accept="image/*"
+                      onChange={handleImageChange}
+                    />
+                  </div> */}
+               
 
                   <div className="create_btn">
                     <button type="submit">Create</button>
