@@ -9,8 +9,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import NavbarLoginregister from "./../../../components/NavbarLoginregister/NavbarLoginregister"
 
 import NavbarSecond from "../../../components/NavbarSecond/NavbarSecond";
+import Navbar from "../../../components/Navbar/Navbar";
 function RegisterStepOne() {
   const Parent = JSON.parse(localStorage.getItem("userParent"));
   const Babysitter = JSON.parse(localStorage.getItem("userBabysitter"));
@@ -83,8 +85,10 @@ function RegisterStepOne() {
     },
   });
   return (
-    <div>
-      <NavbarSecond />
+  <>
+      <NavbarLoginregister />
+
+   <div style={{marginTop:"50px"}}>
       <div className="SignUpBox">
         <div className="BoxHeader">
           <div className="header">
@@ -242,6 +246,8 @@ function RegisterStepOne() {
         </div>
       </div>
     </div>
+  </>
+   
   );
 }
 

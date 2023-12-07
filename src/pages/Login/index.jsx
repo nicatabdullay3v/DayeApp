@@ -3,6 +3,8 @@ import "./Login.scss";
 import axios from "axios";
 import NavbarSecond from "../../components/NavbarSecond/NavbarSecond";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../../components/Navbar/Navbar";
+import NavbarLoginRegister from "./../../components/NavbarLoginregister/NavbarLoginregister";
 function index() {
   const [parents, setParents] = useState([]);
   const [babysitters, setBabysitters] = useState([]);
@@ -25,7 +27,7 @@ function index() {
 
   return (
     <>
-      <NavbarSecond />
+      <NavbarLoginRegister />
       <div className="LoginBox">
         <div className="BoxHeader">
           <div className="header">
@@ -84,10 +86,7 @@ function index() {
                     localStorage.setItem("isBabysitter", true);
                     navigate("/");
                   } else if (findAdmin) {
-                    localStorage.setItem(
-                      "login",
-                      JSON.stringify(findAdmin)
-                    );
+                    localStorage.setItem("login", JSON.stringify(findAdmin));
                     navigate("/admin");
                     localStorage.setItem("admin", JSON.stringify(true));
                   }
