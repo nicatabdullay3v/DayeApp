@@ -87,6 +87,10 @@ function NavbarFourth() {
                 <FontAwesomeIcon icon={faArrowRightFromBracket} />
               </button>
             </div>
+
+            <Link to="/Profile" className="link">
+            <div className="profile_img"></div>
+            </Link>
             {User ? (
               <h2 style={{ fontSize: "16px" }}>{User.firstName}</h2>
             ) : null}
@@ -103,6 +107,9 @@ function NavbarFourth() {
       </nav>
       {sidebarOpen ? (
         <div className="side_bar">
+            <Link to="/Profile" className="link">
+            <div className="profile_img"></div>
+            </Link>
           <Link to="/BabySitters" className="link">
             Babysitters
           </Link>

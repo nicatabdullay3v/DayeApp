@@ -25,7 +25,7 @@ const NavbarBabysit = () => {
           <img src="./../../../src/assets/images/logo.main.png" alt="" />
         </div>
       </div>
-      <div className="nav-center">
+      {/* <div className="nav-center">
         <input placeholder="Start your search" type="text" />
         <div className="search-icon">
           <FontAwesomeIcon
@@ -33,9 +33,11 @@ const NavbarBabysit = () => {
             style={{ color: "#389ba7" }}
           />
         </div>
-      </div>
+      </div> */}
 
       <div className="nav_right">
+      {User ? <h2>{User.firstName}</h2> : null}
+
         {login ? (
           <div className="comment-icon">
             <button
@@ -64,9 +66,8 @@ const NavbarBabysit = () => {
             </div>
           </>
         )}
-        {User ? <h2>{User.firstName}</h2> : null}
-
-        <FontAwesomeIcon  icon={faBars} />
+        
+        {/* <FontAwesomeIcon  icon={faBars} /> */}
       </div>
       <Outlet />
     </nav>

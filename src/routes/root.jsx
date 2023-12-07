@@ -17,6 +17,7 @@ import RegisterStepTwo from "../pages/Register/RegisterStepTwo/RegisterStepTwo";
 import ParentRegisterStepOne from "../pages/Register/ParentRegisterStepOne/ParentRegisterStepOne";
 import RegisterStepOne from "../pages/Register/RegisterStepOne/RegisterStepOne";
 import BabysitterStepOne from "../pages/Register/BabysitterStepOne/BabysitterStepOne";
+import Profile from "../pages/Profile";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
   {
     path: "/Register/CreateProfile/ComplateSignUpLikeBabysitter",
     element: <BabysitterStepOne />,
+  },
+  {
+    path: "/Profile",
+    element: <Profile/>,
   },
 ]);
 export default router;

@@ -1,0 +1,75 @@
+#baby_profile {
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #eff7f8;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      .profile_buttons{
+        display: flex;
+        gap: 10px;
+      }
+  
+      .avatar {
+        background-color: #389ba7;
+      }
+  
+      .name {
+        color: #389ba7;
+        margin-bottom: 10px;
+      }
+  
+      .contact-info {
+        padding: 15px;
+        margin-top: 20px;
+        text-align: center;
+        color: white;
+        border-radius: 8px;
+        background-color: #4d565e;
+      }
+  
+      .phone {
+        margin-top: 10px;
+      }
+  
+      .delete-button {
+        margin-top: 10px;
+        color: white;
+        &:hover {
+          background-color: #30687e;
+        }
+      }
+  
+      .edit-button {
+        margin-top: 10px;
+        color: #389ba7;
+        border-color: #389ba7;
+      }
+    }
+  
+    .divider {
+      margin: 20px 0;
+    }
+  
+    .user-info-container {
+      margin-bottom: 20px;
+  
+      .MuiGrid-item {
+        display: flex;
+        align-items: center;
+      }
+  
+      Typography {
+        color: #4d565e;
+      }
+    }
+  
+    .reviewscards {
+      .reviews-section {
+        margin-top: 20px;
+      }
+    }
+  }
+  

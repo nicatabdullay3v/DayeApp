@@ -1,0 +1,126 @@
+import React from "react";
+import Avatar from "@mui/material/Avatar";
+import Typography from "@mui/material/Typography";
+import Paper from "@mui/material/Paper";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Grid from "@mui/material/Grid";
+import Divider from "@mui/material/Divider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+
+import "./BabysitterProfilePage.scss"; // SCSS dosyasını ekleyin
+
+const BabysitterProfilePage = () => {
+  let login = JSON.parse(localStorage.getItem("login"));
+
+  return (
+    <section id="baby_profile">
+      <div className="profile-container">
+        <Avatar
+          className="avatar"
+          sx={{ width: 100, height: 100, mt: 3, mb: 1 }}
+        ></Avatar>
+        <Typography variant="h5" gutterBottom className="name">
+          {login.firstName}
+        </Typography>
+        <Typography variant="body2" color="textSecondary" gutterBottom>
+            Email: {login.email}
+          {/* Age: {login.age} */}
+        </Typography>
+       <div className="profile_buttons">
+       <Button variant="contained" color="error" className="delete-button">
+          Delete
+        </Button>
+        <Button variant="outlined" className="edit-button">
+          Edit
+        </Button>
+       </div>
+
+        {/* <Paper elevation={3} className="contact-info">
+          <Typography variant="body2" color="textSecondary">
+            Email: {login.email}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" className="phone">
+            Phone: +1234567890
+          </Typography>
+        </Paper> */}
+
+        {/* Edit Button */}
+        {/* <Button variant="outlined" className="edit-button">
+          Edit Profile
+        </Button> */}
+      </div>
+
+      {/* <Divider className="divider" />
+      <Grid container spacing={3} className="user-info-container">
+        <Grid item xs={6} sm={3}>
+          <Typography variant="body2">Country: {login.country}</Typography>
+        </Grid>
+        <Grid item xs={6} sm={3}>
+          <Typography variant="body2">Price: {login.price}</Typography>
+        </Grid>
+        <Grid item xs={6} sm={3}>
+          <Typography variant="body2">Experience Years: {login.experienceYear}</Typography>
+        </Grid>
+        <Grid item xs={6} sm={3}>
+          <Typography variant="body2">Bookings: {login.bookings}</Typography>
+        </Grid>
+      </Grid> */}
+
+      {/* Reviews Section */}
+      <div className="container reviewscards">
+
+        <div className="reviews-section">
+          <Typography variant="h4" gutterBottom>
+            Reviews
+          </Typography>
+
+
+
+          <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+            {login?.reviews.map((elem, index) => {
+              return (
+                <div key={index} className="review_boxx">
+                  <div className="review_box_up">
+                    <div className="review_box_image">
+                      <img
+                        src="./../../../../src/assets/images/babysitter-5257240-1695824808-rc-w350-h350.avif"
+                        alt=""
+                      />
+                    </div>
+                    <div className="review_box_name_rate">
+                      <div className="name">
+                        <h3>{elem.whoSend}</h3>
+                      </div>
+                      <div className="rate">
+                        {[...Array(5)].map((_, i) => (
+                          <FontAwesomeIcon key={i} className="icon" icon={faStar} />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="review_box_middle">
+                    <div className="review_box_middle_text">
+                      <p>{elem.comment}</p>
+                    </div>
+                    <div className="read">
+                      <p>Read more</p>
+                    </div>
+                  </div>
+                  <div className="review_box_down_time">
+                    <p>May 2023</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default BabysitterProfilePage;

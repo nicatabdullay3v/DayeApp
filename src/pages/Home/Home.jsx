@@ -33,9 +33,9 @@ const Home = () => {
         <Navbar />
       )}
 
-{/* <NavBarThird/>
-<NavbarBabysit />
-<Navbar />
+{/* <NavBarThird/> */}
+{/* <NavbarBabysit /> */}
+{/* <Navbar />
 <NavbarBabysitters /> */}
 
       <HeroSection />
