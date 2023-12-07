@@ -16,7 +16,7 @@
       flex-wrap: wrap;
       flex-direction: column;
       justify-content: space-between;
-      height: 300px;
+
       @media (max-width: 767px) {
       }
       .yes_no {
@@ -57,7 +57,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
 
-      height: 300px;
+
       .yes_no {
         text-align: end;
         font-size: 18px;

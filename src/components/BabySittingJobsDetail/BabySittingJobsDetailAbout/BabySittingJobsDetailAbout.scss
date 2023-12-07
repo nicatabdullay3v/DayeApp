@@ -15,8 +15,7 @@
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
-      justify-content: space-between;
-      height: 150px;
+
       @media (max-width: 767px) {
       }
       .yes_no {
@@ -30,22 +29,31 @@
       .driver_license {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
       }
       .location {
         display: flex;
+        flex-wrap: wrap;
+
         justify-content: space-between;
       }
       .education {
+        flex-wrap: wrap;
+
         display: flex;
         justify-content: space-between;
       }
       .has_children {
+        flex-wrap: wrap;
+
         display: flex;
         justify-content: space-between;
       }
       .icon_text {
         display: flex;
         gap: 10px;
+        flex-wrap: wrap;
+
         align-items: center;
       }
     }
@@ -54,10 +62,9 @@
       max-width: 400px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+
       flex-wrap: wrap;
 
-      height: 150px;
       .yes_no {
         text-align: end;
         font-size: 18px;
@@ -69,27 +76,33 @@
       .icon_text {
         display: flex;
         gap: 10px;
+        flex-wrap: wrap;
+
         align-items: center;
       }
       .smoker {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
       }
       .car {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
       }
       .favorited {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
       }
       .language {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
       }
     }
   }

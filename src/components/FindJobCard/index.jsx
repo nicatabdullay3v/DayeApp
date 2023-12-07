@@ -50,6 +50,7 @@ function index({ elem }) {
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
+                    console.log(isBabysitter);
                     if (isBabysitter === true) {
                       if (babysitter?.wishList.find((x) => x.id == elem.id)) {
                         axios

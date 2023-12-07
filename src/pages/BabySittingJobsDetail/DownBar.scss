@@ -1,0 +1,44 @@
+body{
+    position: relative;
+}
+.down_bar{
+    position: fixed;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    background-color: rgba(127, 255, 212, 0.331);
+    width: 100%;
+    text-align: center;
+    height: 100px;
+    color: black;
+    font-weight: 700;
+
+display: flex;
+justify-content: space-around;
+align-items: center;
+border: 1px solid lightgray;
+.price{
+    background-color: #389ca796;
+
+padding: 10px 12px;
+border-radius: 10px;
+}
+.text{
+    padding: 10px 12px;
+    background-color: #389ca78f;
+border-radius: 10px;
+
+}
+.name{
+padding: 10px 12px;
+background-color: #389ca79c;
+border-radius: 10px;
+
+
+
+}
+@media (min-width:767px) {
+    display: none;
+    
+}
+}
