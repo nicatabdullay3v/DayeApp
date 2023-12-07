@@ -55,9 +55,11 @@ const BabySittersAbout = () => {
           <div className="car">
             <div className="car_icon_text icon_text">
               <FontAwesomeIcon className="icon" icon={faHouse} />
-              <p>Car</p>
+              <p>Preferred babysitting location</p>
             </div>
-            <div className="car_yes_no yes_no">No</div>
+            <div className="car_yes_no yes_no">
+              {babysitterswantedData.location}
+            </div>
           </div>
 
           <div className="favorited">
@@ -65,7 +67,9 @@ const BabySittersAbout = () => {
               <FontAwesomeIcon className="icon" icon={faHeart} />
               <p>Favorited</p>
               <br />
-              <div className="favorited_yes_no yes_no">15times</div>
+            </div>
+            <div className="favorited_yes_no yes_no">
+              {babysitterswantedData.Favorited}
             </div>
           </div>
         </div>
