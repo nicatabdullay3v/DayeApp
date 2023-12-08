@@ -68,13 +68,13 @@ function index() {
               </Link>
             </div>
           </div>
-          <div className="babysitterCards">
+          <div  className="babysitterCards">
             {currentItems &&
               currentItems.map((elem) => {
                 return <FindJobCard key={uuidv4()} elem={elem} />;
               })}
           </div>
-          <Stack spacing={2}>
+          <Stack style={{position:"relative",zIndex:0 }} spacing={2}>
             <Pagination
               count={Math.ceil(babysitterswanted.length / itemsPerPage)}
               page={currentPage}

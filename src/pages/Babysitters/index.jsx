@@ -72,7 +72,7 @@ function index() {
               })}
           </div>
 
-          <Stack spacing={2}>
+          <Stack style={{position:"relative",zIndex:0 }} spacing={2}>
             <Pagination
               count={Math.ceil(babysitters.length / itemsPerPage)}
               page={currentPage}

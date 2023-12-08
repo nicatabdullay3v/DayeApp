@@ -63,8 +63,9 @@
       .babysits_card_premium {
         border: 1px solid lightgray;
         border-radius: 15px;
+        max-width: 320px;
         .get_free_button {
-          padding: 10px 130px;
+          max-width: 130px;
           border: 1px solid #389ba7;
           background-color: white;
           border-radius: 15px;
@@ -72,7 +73,7 @@
           margin: 20px 20px;
         }
         .premium_button {
-          padding: 10px 130px;
+          max-width: 130px;
           background-color: #389ba7;
           border-radius: 15px;
           color: white;
@@ -196,7 +197,8 @@
     }
   }
   .satisfaction_and_guarantee {
-    padding: 70px 0px;
+    padding: 0px 30px;
+
     .side_side {
       max-width: 900px;
       display: flex;
@@ -209,6 +211,9 @@
         width: 70px;
         height: 70px;
         background-size: cover;
+        @media (max-width: 767px) {
+          display: none;
+        }
       }
       .text_right {
         max-width: 730px;
@@ -252,6 +257,8 @@
 
 @media screen and (max-width: 767px) {
   .pricing_media {
+    padding: 0px 30px;
+
     flex-direction: column;
     align-items: center;
     .babysits_card_classic,

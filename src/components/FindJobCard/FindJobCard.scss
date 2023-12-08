@@ -15,15 +15,15 @@
       width: 100%;
     }
     .card-left {
-      width: 300px;
+      max-width: 300px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       gap: 4px;
       align-items: center;
       .imagess {
-        max-width: 260px;
-        min-width: 260px;
+        max-width: 250px;
+
         height: 260px;
         overflow: hidden;
         border-radius: 10px;

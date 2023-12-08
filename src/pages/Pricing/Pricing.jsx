@@ -492,7 +492,8 @@ const Pricing = () => {
               </div>
             </div>
           </div>
-          <div className="fair_policy">
+       <div style={{padding:"0px 30px"}}>
+       <div className="fair_policy">
             <p>
               * Fair use Policy: we set a limit on the number of messages that a
               user can send in order to prevent spam and other misuses. We can
@@ -526,6 +527,7 @@ const Pricing = () => {
             </svg>
             <a href="">Are you an agency? View pricing for companies</a>
           </div>
+       </div>
         </div>
         <div className="line_bottom"></div>
         <div className="container">
