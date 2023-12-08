@@ -49,7 +49,7 @@ const Discover = () => {
                 setSwiperRef(swiper);
               }}
             slidesPerView={"auto"}
-            spaceBetween={90}
+            spaceBetween={20}
             navigation={{
               prevEl: ".my-custom-prev-button",
               nextEl: ".my-custom-next-button",
@@ -73,7 +73,8 @@ const Discover = () => {
           >
             <SwiperSlide>
               <div className="discover_card">
-                <div className="discover_card_image1"></div>
+                <div className="discover_card_image1">
+                </div>
                 <p>Platform tips</p>
               </div>
             </SwiperSlide>
