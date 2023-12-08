@@ -6,6 +6,11 @@ import { useFormik } from "formik";
 import YupPassword from "yup-password";
 YupPassword(Yup);
 import "./EditPage.scss";
+import TextField from "@mui/material/TextField";
+import InputAdornment from "@mui/material/InputAdornment";
+import IconButton from "@mui/material/IconButton";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 import { useDispatch, useSelector } from "react-redux";
 const EditPage = ({ editID, seteditPage }) => {
@@ -17,70 +22,29 @@ const EditPage = ({ editID, seteditPage }) => {
     });
   }, []);
   const babysittersData = useSelector((state) => state.babysitters.babysitters);
+  console.log(babysittersData);
   const currentlySister = babysittersData.find((elem) => elem.id === editID);
+
+  console.log(currentlySister);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchUserById(editID));
   }, [dispatch, editID]);
 
-  // const [formData, setFormData] = useState({
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   price: "",
-  //   description: "",
-  //   references: "",
-  //   activities: "",
-  // });
-
-  // useEffect(() => {
-  //   if (currentlySister) {
-  //     setFormData({
-  //       firstName: currentlySister.firstName,
-  //       lastName: currentlySister.lastName,
-  //       age: currentlySister.age,
-  //       email: currentlySister.email,
-  //       country: currentlySister.country,
-  //       price: currentlySister.price,
-  //       description: currentlySister.description,
-  //       references: currentlySister.references,
-  //       activities: currentlySister.activities,
-  //     });
-  //   }
-  // }, [currentlySister]);
-
-  // const handleEdit = () => {
-  //   const updatedData = {
-  //     firstName: formData.firstName,
-  //     lastName: formData.lastName,
-  //     age: formData.age,
-  //     email: formData.email,
-  //     country: formData.country,
-  //     price: formData.price,
-  //     description: formData.description,
-  //     references: formData.references,
-  //     activities: formData.activities,
-  //   };
-  //   axios
-  //     .patch(`http://localhost:3000/babysitters/${editID}`, updatedData)
-  //     .then(dispatch(fetchUserById()));
-
-  //   seteditPage(false);
-  // };
 
   const formik = useFormik({
     initialValues: {
-      firstName: "",
-      lastName: "",
-      age: "",
-      country: "",
-      price: "",
-      email: "",
-      password: "",
-      activities: "",
-      references: "",
-      description: "",
+      firstName: currentlySister.firstName || "",
+      lastName: currentlySister.lastName || "",
+      age: currentlySister.age || "",
+      country: currentlySister.country || "",
+      price: currentlySister.price || "",
+      email: currentlySister.email || "",
+      // password: "",
+      activities: currentlySister.activities || "",
+      references: currentlySister.references || "",
+      description: currentlySister.description || "",
     },
     validationSchema: Yup.object({
       firstName: Yup.string()
@@ -91,6 +55,8 @@ const EditPage = ({ editID, seteditPage }) => {
         .min(2, "Too Short!")
         .max(15, "Too Long!")
         .required("Required"),
+        age: Yup.number().min(0).positive().required("Required"),
+      price: Yup.number().min(0).positive().required("Required"),
       email: Yup.string().email("Invalid email").required("Required"),
       country: Yup.string().required("Required"),
       description: Yup.string()
@@ -157,7 +123,7 @@ const EditPage = ({ editID, seteditPage }) => {
 
                 <div className="currently_span">
                   <b>Email:</b>
-                  <span>JohnDoe2000@gmail.com</span>
+                  <span>{currentlySister.email}</span>
                 </div>
 
                 <div className="currently_span">
@@ -199,28 +165,23 @@ const EditPage = ({ editID, seteditPage }) => {
             <h2>Change to</h2>
             <div className="card_parent">
               <form onSubmit={formik.handleSubmit} action="">
-                <div className="firstName_input">
-                  <label htmlFor="firstName">firstName:</label>
-
-                  <input
-                    // value={formData.firstName}
+              <div className="firstNamee_input" style={{ width: "300px" , marginTop:"20px"}}>
+                  <TextField
+                    fullWidth
+                    id="firstName"
+                    name="firstName"
+                    label="First Name"
+                    type="text"
                     value={formik.values.firstName}
                     onChange={formik.handleChange}
-                    type="text"
-                    name="firstName"
-                    placeholder="Name"
+                    error={
+                      formik.touched.firstName &&
+                      Boolean(formik.errors.firstName)
+                    }
+                    helperText={
+                      formik.touched.firstName && formik.errors.firstName
+                    }
                   />
-                  {formik.touched.firstName && formik.errors.firstName ? (
-                    <div
-                      style={{
-                        textAlign: "center",
-                        color: "red",
-                        fontSize: "small",
-                      }}
-                    >
-                      {formik.errors.firstName}
-                    </div>
-                  ) : null}
                 </div>
 
                 {/* <div className="firstName_input">
@@ -238,28 +199,22 @@ const EditPage = ({ editID, seteditPage }) => {
                 />
               </div> */}
 
-                <div className="lastName_input">
-                  <label htmlFor="lastName">lastName:</label>
-
-                  <input
-                    // value={formData.lastName}
-                    value={formik.values.lastName}
-                    type="text"
-                    onChange={formik.handleChange}
+<div className="lastNamee_input"style={{ width: "300px" , marginTop:"20px"}}>
+                  <TextField
+                    fullWidth
+                    id="lastName"
                     name="lastName"
-                    placeholder="lastName"
+                    label="Last Name"
+                    type="text"
+                    value={formik.values.lastName}
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.lastName && Boolean(formik.errors.lastName)
+                    }
+                    helperText={
+                      formik.touched.lastName && formik.errors.lastName
+                    }
                   />
-                  {formik.touched.lastName && formik.errors.lastName ? (
-                    <div
-                      style={{
-                        textAlign: "center",
-                        color: "red",
-                        fontSize: "small",
-                      }}
-                    >
-                      {formik.errors.lastName}
-                    </div>
-                  ) : null}
                 </div>
 
                 {/* <div className="lastName_input">
@@ -277,28 +232,18 @@ const EditPage = ({ editID, seteditPage }) => {
                 />
               </div> */}
 
-                <div className="agesisters_input">
-                  <label htmlFor="age">Age: </label>
-
-                  <input
-                    // value={formData.age}
-                    value={formik.values.age}
-                    type="text"
+<div className="agesisterss_input" style={{ width: "300px" , marginTop:"20px"}}>
+                  <TextField
+                    fullWidth
+                    id="age"
                     name="age"
+                    label="Age"
+                    type="text"
+                    value={formik.values.age}
                     onChange={formik.handleChange}
-                    placeholder="Age"
+                    error={formik.touched.age && Boolean(formik.errors.age)}
+                    helperText={formik.touched.age && formik.errors.age}
                   />
-                  {formik.touched.age && formik.errors.age ? (
-                    <div
-                      style={{
-                        textAlign: "center",
-                        color: "red",
-                        fontSize: "small",
-                      }}
-                    >
-                      {formik.errors.age}
-                    </div>
-                  ) : null}
                 </div>
 
                 {/* 
@@ -317,28 +262,19 @@ const EditPage = ({ editID, seteditPage }) => {
                 />
               </div> */}
 
-                <div className="email_input">
-                  <label htmlFor="email">Email:</label>
-
-                  <input
-                    // value={formData.email}
-                    value={formik.values.email}
-                    type="email"
-                    onChange={formik.handleChange}
+           
+<div className="emaill_input" style={{ width: "300px" , marginTop:"20px"}}>
+                  <TextField
+                    fullWidth
+                    id="email"
                     name="email"
-                    placeholder="Email"
+                    label="Email"
+                    type="email"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    error={formik.touched.email && Boolean(formik.errors.email)}
+                    helperText={formik.touched.email && formik.errors.email}
                   />
-                  {formik.touched.email && formik.errors.email ? (
-                    <div
-                      style={{
-                        textAlign: "center",
-                        color: "red",
-                        fontSize: "small",
-                      }}
-                    >
-                      {formik.errors.email}
-                    </div>
-                  ) : null}
                 </div>
 
                 {/* 
@@ -356,28 +292,20 @@ const EditPage = ({ editID, seteditPage }) => {
                 />
               </div> */}
 
-                <div className="countrys_input">
-                  <label htmlFor="country">Country:</label>
-
-                  <input
-                    // value={formData.country}
-                    value={formik.values.country}
-                    type="text"
-                    onChange={formik.handleChange}
+<div className="countryss_input" style={{ width: "300px" , marginTop:"20px"}}>
+                  <TextField
+                    fullWidth
+                    id="country"
                     name="country"
-                    placeholder="country"
+                    label="Country"
+                    type="text"
+                    value={formik.values.country}
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.country && Boolean(formik.errors.country)
+                    }
+                    helperText={formik.touched.country && formik.errors.country}
                   />
-                  {formik.touched.country && formik.errors.country ? (
-                    <div
-                      style={{
-                        textAlign: "center",
-                        color: "red",
-                        fontSize: "small",
-                      }}
-                    >
-                      {formik.errors.country}
-                    </div>
-                  ) : null}
                 </div>
 
                 {/* <div className="countrys_input">
@@ -394,28 +322,18 @@ const EditPage = ({ editID, seteditPage }) => {
                 />
               </div> */}
 
-                <div className="price_input">
-                  <label htmlFor="price">Price:</label>
-
-                  <input
-                    // value={formData.price}
-                    value={formik.values.price}
-                    type="number"
-                    onChange={formik.handleChange}
+<div className="pricee_input" style={{ width: "300px" , marginTop:"20px"}}>
+                  <TextField
+                    fullWidth
+                    id="price"
                     name="price"
-                    placeholder="price"
+                    label="Price"
+                    type="number"
+                    value={formik.values.price}
+                    onChange={formik.handleChange}
+                    error={formik.touched.price && Boolean(formik.errors.price)}
+                    helperText={formik.touched.price && formik.errors.price}
                   />
-                  {formik.touched.price && formik.errors.price ? (
-                    <div
-                      style={{
-                        textAlign: "center",
-                        color: "red",
-                        fontSize: "small",
-                      }}
-                    >
-                      {formik.errors.price}
-                    </div>
-                  ) : null}
                 </div>
 
                 {/* <div className="price_input">
@@ -432,31 +350,23 @@ const EditPage = ({ editID, seteditPage }) => {
                 />
               </div> */}
 
-                <div className="description_input">
-                  <label htmlFor="description">Description:</label>
-
-                  <textarea
-                    // value={formData.description}
-                    value={formik.values.description}
-                    as="textarea"
-                    name="description"
-                    onChange={formik.handleChange}
+<div className="descriptionn_input" style={{ width: "300px" , marginTop:"20px"}}>
+                  <TextField
+                    fullWidth
                     id="description"
-                    cols="40"
-                    rows="5"
-                    placeholder="At least 100 characters"
+                    name="description"
+                    label="Description"
+                    type="text"
+                    value={formik.values.description}
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.description &&
+                      Boolean(formik.errors.description)
+                    }
+                    helperText={
+                      formik.touched.description && formik.errors.description
+                    }
                   />
-                  {formik.touched.description && formik.errors.description ? (
-                    <div
-                      style={{
-                        textAlign: "center",
-                        color: "red",
-                        fontSize: "small",
-                      }}
-                    >
-                      {formik.errors.description}
-                    </div>
-                  ) : null}
                 </div>
 
                 {/* <div className="description_input">
@@ -474,89 +384,45 @@ const EditPage = ({ editID, seteditPage }) => {
                 ></textarea>
               </div> */}
 
-                <div className="comments_input">
-                  <label htmlFor="references">References:</label>
-
-                  <textarea
-                    // value={formData.references}
-                    value={formik.values.references}
-                    as="textarea"
-                    name="references"
-                    onChange={formik.handleChange}
+<div className="commentss_input" style={{ width: "300px" , marginTop:"20px"}}>
+                  <TextField
+                    fullWidth
                     id="references"
-                    cols="40"
-                    rows="5"
-                    placeholder="At least 100 characters"
-                  />
-                  {formik.touched.references && formik.errors.references ? (
-                    <div
-                      style={{
-                        textAlign: "center",
-                        color: "red",
-                        fontSize: "small",
-                      }}
-                    >
-                      {formik.errors.references}
-                    </div>
-                  ) : null}
-                </div>
-
-                {/* <div className="comments_input">
-                <label htmlFor="reference">References:</label>
-                <textarea
-                  name="reference"
-                  id="reference"
-                  cols="40"
-                  rows="5"
-                  placeholder="Your reference here"
-                  value={formData.references}
-                  onChange={(e) =>
-                    setFormData({ ...formData, references: e.target.value })
-                  }
-                ></textarea>
-              </div> */}
-
-                <div className="comments_input">
-                  <label htmlFor="activities">Activities:</label>
-
-                  <textarea
-                    // value={formData.activities}
-                    value={formik.values.activities}
-                    as="textarea"
-                    name="activities"
+                    name="references"
+                    label="References"
+                    type="text"
+                    value={formik.values.references}
                     onChange={formik.handleChange}
-                    id="activities"
-                    cols="40"
-                    rows="5"
-                    placeholder="At least 100 characters"
+                    error={
+                      formik.touched.references &&
+                      Boolean(formik.errors.references)
+                    }
+                    helperText={
+                      formik.touched.references && formik.errors.references
+                    }
                   />
-                  {formik.touched.activities && formik.errors.activities ? (
-                    <div
-                      style={{
-                        textAlign: "center",
-                        color: "red",
-                        fontSize: "small",
-                      }}
-                    >
-                      {formik.errors.activities}
-                    </div>
-                  ) : null}
                 </div>
 
-                {/* <div className="comments_input">
-                <label htmlFor="activity">Activities:</label>
-                <textarea
-                  name="activity"
-                  id="activity"
-                  cols="40"
-                  rows="5"
-                  placeholder="Your activity here"
-                  value={formData.activities}
-                  onChange={(e) =>
-                    setFormData({ ...formData, activities: e.target.value })
-                  }
-                ></textarea>
-              </div> */}
+                <div className="commentss_input" style={{ width: "300px" , marginTop:"20px"}}>
+                  <TextField
+                    fullWidth
+                    id="activities"
+                    name="activities"
+                    label="Activities"
+                    type="text"
+                    value={formik.values.activities}
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.activities &&
+                      Boolean(formik.errors.activities)
+                    }
+                    helperText={
+                      formik.touched.activities && formik.errors.activities
+                    }
+                  />
+                </div>
+
+        
                 <div className="edit_btn">
                   <button type="submit">Edit</button>
                 </div>
