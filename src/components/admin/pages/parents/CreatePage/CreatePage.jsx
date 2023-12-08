@@ -164,9 +164,7 @@ const CreatePage = ({ setcreatePage }) => {
             <div className="create_to">
               <div className="card_parent">
                 <form onSubmit={formik.handleSubmit} action="">
-
-
-                <div className="firstName_input">
+                  <div className="firstName_input">
                     <TextField
                       fullWidth
                       id="firstName"
@@ -184,8 +182,6 @@ const CreatePage = ({ setcreatePage }) => {
                       }
                     />
                   </div>
-
-
 
                   <div className="lastName_input">
                     <TextField
@@ -206,9 +202,6 @@ const CreatePage = ({ setcreatePage }) => {
                     />
                   </div>
 
-
-
-
                   <div className="email_input">
                     <TextField
                       fullWidth
@@ -224,9 +217,6 @@ const CreatePage = ({ setcreatePage }) => {
                       helperText={formik.touched.email && formik.errors.email}
                     />
                   </div>
-
-
-
 
                   <div className="password_input">
                     <TextField
@@ -268,7 +258,6 @@ const CreatePage = ({ setcreatePage }) => {
                     />
                   </div>
 
-
                   <div className="address_input">
                     <TextField
                       fullWidth
@@ -296,11 +285,16 @@ const CreatePage = ({ setcreatePage }) => {
                       type="text"
                       value={formik.values.numberofChildren}
                       onChange={formik.handleChange}
-                      error={formik.touched.numberofChildren && Boolean(formik.errors.numberofChildren)}
-                      helperText={formik.touched.numberofChildren && formik.errors.numberofChildren}
+                      error={
+                        formik.touched.numberofChildren &&
+                        Boolean(formik.errors.numberofChildren)
+                      }
+                      helperText={
+                        formik.touched.numberofChildren &&
+                        formik.errors.numberofChildren
+                      }
                     />
                   </div>
-
 
                   <div className="age_input">
                     <TextField
@@ -311,12 +305,15 @@ const CreatePage = ({ setcreatePage }) => {
                       type="text"
                       value={formik.values.childrenAge}
                       onChange={formik.handleChange}
-                      error={formik.touched.childrenAge && Boolean(formik.errors.childrenAge)}
-                      helperText={formik.touched.childrenAge && formik.errors.childrenAge}
+                      error={
+                        formik.touched.childrenAge &&
+                        Boolean(formik.errors.childrenAge)
+                      }
+                      helperText={
+                        formik.touched.childrenAge && formik.errors.childrenAge
+                      }
                     />
                   </div>
-
-
 
                   <div className="image_input">
                     <TextField
@@ -333,11 +330,6 @@ const CreatePage = ({ setcreatePage }) => {
                       helperText={formik.touched.image && formik.errors.image}
                     />
                   </div>
-
-
-
-
-
 
                   <div className="description_input">
                     <TextField
@@ -357,8 +349,6 @@ const CreatePage = ({ setcreatePage }) => {
                       }
                     />
                   </div>
-
-
 
                   {/* <div className="image_input">
                     <label htmlFor="image">Image:</label>

@@ -19,11 +19,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import "./BabysitterProfilePage.scss";
+import EditProfilePage from "./EditProfilePage/EditProfilePage";
+import AboutProfilePage from "./AboutProfilePage/AboutProfilePage";
 
 const BabysitterProfilePage = () => {
   let isBabySitters = JSON.parse(localStorage.getItem("isBabysitter"));
   let isParent = JSON.parse(localStorage.getItem("isParent"));
   const [situation, setsituation] = useState(true);
+  const [editPage, setEditPage] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -78,41 +81,24 @@ const BabysitterProfilePage = () => {
             Delete
           </Button>
 
-          <Button variant="outlined" className="edit-button">
+          <Button
+            variant="outlined"
+            className="edit-button"
+            onClick={() => {
+              setEditPage(true);
+            }}
+          >
             Edit
           </Button>
         </div>
-
-        {/* <Paper elevation={3} className="contact-info">
-          <Typography variant="body2" color="textSecondary">
-            Email: {login.email}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" className="phone">
-            Phone: +1234567890
-          </Typography>
-        </Paper> */}
-
-        {/* Edit Button */}
-        {/* <Button variant="outlined" className="edit-button">
-          Edit Profile
-        </Button> */}
       </div>
 
-      {/* <Divider className="divider" />
-      <Grid container spacing={3} className="user-info-container">
-        <Grid item xs={6} sm={3}>
-          <Typography variant="body2">Country: {login.country}</Typography>
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Typography variant="body2">Price: {login.price}</Typography>
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Typography variant="body2">Experience Years: {login.experienceYear}</Typography>
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Typography variant="body2">Bookings: {login.bookings}</Typography>
-        </Grid>
-      </Grid> */}
+      {/* Detail Section */}
+
+      <AboutProfilePage/>
+
+
+      {editPage ? <EditProfilePage /> : null}
 
       {/* Reviews Section */}
       <div className="container reviewscards">
