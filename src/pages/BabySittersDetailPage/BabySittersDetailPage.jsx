@@ -9,16 +9,15 @@ import BabySittersDetailShare from "../../components/babySittersdetail/BabySitte
 import FooterMiddle from "./../../components/home/footermiddle/FooterMiddle";
 import FooterDown from "./../../components/home/footerdown/FooterDown";
 import NavbarSecond from "../../components/NavbarSecond/NavbarSecond";
-import NavbarParents from "./../../components/NavbarParents/NavbarParents"
-import NavBar from "./../../components/Navbar/Navbar"
+import NavbarParents from "./../../components/NavbarParents/NavbarParents";
+import NavBar from "./../../components/Navbar/Navbar";
 
 const BabySittersDetailPage = () => {
-
-  let isParent = JSON.parse(localStorage.getItem("login"))
+  let isParent = JSON.parse(localStorage.getItem("login"));
   return (
     <>
       {/* <NavbarThird /> */}
-      
+
       {isParent ? <NavbarParents /> : <NavBar />}
       <BabySittersHeader />
       <BabySittersPortfolio />
@@ -28,17 +27,11 @@ const BabySittersDetailPage = () => {
       <BabySittersDetailShare />
       <FooterMiddle />
       <FooterDown />
-      <div className='down_bar'>
-     <div className="price">
- 99$
-     </div>
-     <div className="text">
-Salam
-     </div>
-     <div className="name">
- Contact Eldar
-     </div>
-    </div>
+      <div className="down_bar">
+        <div className="price">99$</div>
+        <div className="text">Salam</div>
+        <div className="name">Contact Eldar</div>
+      </div>
     </>
   );
 };

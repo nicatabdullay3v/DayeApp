@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./BabySittersExperince.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBriefcase, faCakeCandles } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { fetchUserByIdDetail } from "../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import { useDispatch } from "react-redux";
 const BabySittersExperience = () => {
+  const babysittersData = useSelector((state) => state.babysitters.babysitter);
+
+  const dispatch = useDispatch();
+  let { id } = useParams();
+  useEffect(() => {
+    dispatch(fetchUserByIdDetail(id));
+  }, []);
   return (
     <section id="experince">
       <div className="experince">
@@ -15,7 +26,7 @@ const BabySittersExperience = () => {
               <h2>Experience with babysitting</h2>
             </div>
             <div className="experience_babysitting_description">
-              <p> 6 years</p>
+              <p>{babysittersData?.experienceYear} year</p>
             </div>
           </div>
         </div>
@@ -28,7 +39,17 @@ const BabySittersExperience = () => {
               <h2>Experience with age(s)</h2>
             </div>
             <div className="experience_babysitting_description">
-              <p> Baby • Toddler • Preschooler • Gradeschooler • Teenager</p>
+              <p>
+                {babysittersData.experienceChildrenAge === "0-1"
+                  ? "Baby"
+                  : babysittersData.experienceChildrenAge === "1-3"
+                  ? "Toddler"
+                  : babysittersData.experienceChildrenAge === "3-5"
+                  ? "Presschooler"
+                  : babysittersData.experienceChildrenAge === "5-7"
+                  ? "Gradeschooler"
+                  : null}
+              </p>
             </div>
           </div>
         </div>

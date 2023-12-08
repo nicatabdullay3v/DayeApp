@@ -22,7 +22,7 @@ const BabySittersDetailCenter = () => {
             <div className="baby_sttiers_datail_center_left">
               <BabySittersDetailrating />
               <BabySittersExperience />
-              <BabySittersAchievements />
+              {/* <BabySittersAchievements /> */}
               <BabySittersdetailSafety />
               {/* {isLogin ? <BabySittersAvailability /> : null} */}
 
