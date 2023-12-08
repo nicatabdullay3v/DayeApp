@@ -5,6 +5,12 @@ import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
+
 import "./createPage.scss";
 import axios from "axios";
 import * as Yup from "yup";
@@ -12,7 +18,16 @@ import { useFormik } from "formik";
 import YupPassword from "yup-password";
 YupPassword(Yup);
 import { fetchUserById } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import { Language } from "@mui/icons-material";
 const CreatePage = ({ setcreatePage }) => {
+  const [drive, setDrive] = useState("secilmedi");
+  const [selectLanguage, setSelectLanguage] = useState("");
+  const [haveCar, setHaveCar] = useState("secilmedi");
+  const [haveChild, setHaveChild] = useState("secilmedi");
+  const [smoke, setSmoke] = useState("secilmedi");
+  const [location, setLocation] = useState("");
+
+  console.log(drive);
   const [sitterData, setSitterData] = useState([]);
   useEffect(() => {
     axios("http://localhost:3000/babysitters/").then((res) => {
@@ -20,7 +35,13 @@ const CreatePage = ({ setcreatePage }) => {
       setSitterData(res.data);
     });
   }, []);
-
+  const handleChangeLocation = (event) => {
+    setLocation(event.target.value);
+  };
+  const handleChangeLanguage = (event) => {
+    setSelectLanguage(event.target.value);
+  };
+  console.log(location);
   const dispatch = useDispatch();
   // const [formData, setFormData] = useState({
   //   name: "",
@@ -109,7 +130,15 @@ const CreatePage = ({ setcreatePage }) => {
     }),
     onSubmit: (values) => {
       let find = sitterData.find((elem) => elem.email == values.email);
-      if (!find) {
+      if (
+        !find &&
+        drive !== "secilmedi" &&
+        haveChild !== "secilmedi" &&
+        location &&
+        selectLanguage &&
+        haveCar !== "secilmedi" &&
+        smoke !== "secilmedi"
+      ) {
         let obj = {
           firstName: values.firstName,
           lastName: values.lastName,
@@ -122,6 +151,12 @@ const CreatePage = ({ setcreatePage }) => {
           activities: values.activities,
           description: values.description,
           image: values.image,
+          driverLicense: drive,
+          Haschildren: haveChild,
+          location: location,
+          Languages: selectLanguage,
+          car: haveCar,
+          smoker: smoke,
         };
         console.log(obj);
         axios.post(`http://localhost:3000/babysitters/`, obj).then(() => {
@@ -144,7 +179,6 @@ const CreatePage = ({ setcreatePage }) => {
             <div className="create_to">
               <div className="card_parent">
                 <form onSubmit={formik.handleSubmit} action="">
-
                   <div className="firstName_input">
                     <TextField
                       fullWidth
@@ -163,7 +197,6 @@ const CreatePage = ({ setcreatePage }) => {
                       }
                     />
                   </div>
-                  
 
                   <div className="lastName_input">
                     <TextField
@@ -286,6 +319,220 @@ const CreatePage = ({ setcreatePage }) => {
                       }
                       helperText={formik.touched.price && formik.errors.price}
                     />
+                  </div>
+                  <div className="price_input">
+                    <FormLabel id="demo-radio-buttons-group-label">
+                      Drive License
+                    </FormLabel>
+                    <RadioGroup
+                      aria-labelledby="demo-radio-buttons-group-label"
+                      name="radio-buttons-group"
+                    >
+                      <FormControlLabel
+                        value="female"
+                        control={<Radio />}
+                        label="Yes"
+                        onChange={() => {
+                          setDrive(true);
+                        }}
+                      />
+                      <FormControlLabel
+                        value="male"
+                        control={<Radio />}
+                        label="No"
+                        onChange={() => {
+                          setDrive(false);
+                        }}
+                      />
+                    </RadioGroup>
+                    {drive === "secilmedi" ? (
+                      <div
+                        style={{
+                          textAlign: "center",
+                          color: "red",
+                          fontSize: "16px",
+                        }}
+                      >
+                        no selected
+                      </div>
+                    ) : null}
+                  </div>
+                  <div className="price_input">
+                    <FormLabel id="demo-radio-buttons-group-label">
+                      Have children:
+                    </FormLabel>
+                    <RadioGroup
+                      aria-labelledby="demo-radio-buttons-group-label"
+                      name="radio-buttons-group"
+                    >
+                      <FormControlLabel
+                        value="female"
+                        control={<Radio />}
+                        label="Yes"
+                        onChange={() => {
+                          setHaveChild(true);
+                        }}
+                      />
+                      <FormControlLabel
+                        value="male"
+                        control={<Radio />}
+                        label="No"
+                        onChange={() => {
+                          setHaveChild(false);
+                        }}
+                      />
+                    </RadioGroup>
+                    {haveChild === "secilmedi" ? (
+                      <div
+                        style={{
+                          textAlign: "center",
+                          color: "red",
+                          fontSize: "16px",
+                        }}
+                      >
+                        no selected
+                      </div>
+                    ) : null}
+                  </div>
+                  <div className="price_input">
+                    <FormLabel id="demo-radio-buttons-group-label">
+                      Preferred babysitting location
+                    </FormLabel>
+                    <RadioGroup
+                      aria-labelledby="demo-radio-buttons-group-label"
+                      name="radio-buttons-group"
+                    >
+                      <FormControlLabel
+                        value="At the babysitters's"
+                        control={<Radio />}
+                        label="At the babysitters's"
+                        onChange={handleChangeLocation}
+                      />
+                      <FormControlLabel
+                        value="At the my home"
+                        control={<Radio />}
+                        label="At the my home"
+                        onChange={handleChangeLocation}
+                      />
+                    </RadioGroup>
+                    {!location ? (
+                      <div
+                        style={{
+                          textAlign: "center",
+                          color: "red",
+                          fontSize: "16px",
+                        }}
+                      >
+                        no selected
+                      </div>
+                    ) : null}
+                  </div>
+                  <div className="price_input">
+                    <FormLabel id="demo-radio-buttons-group-label">
+                      which language do you know better?
+                    </FormLabel>
+                    <RadioGroup
+                      aria-labelledby="demo-radio-buttons-group-label"
+                      name="radio-buttons-group"
+                    >
+                      <FormControlLabel
+                        value="English"
+                        control={<Radio />}
+                        label="English"
+                        onChange={handleChangeLanguage}
+                      />
+                      <FormControlLabel
+                        value="Russian"
+                        control={<Radio />}
+                        label="Russian"
+                        onChange={handleChangeLanguage}
+                      />
+                    </RadioGroup>
+                    {!selectLanguage ? (
+                      <div
+                        style={{
+                          textAlign: "center",
+                          color: "red",
+                          fontSize: "16px",
+                        }}
+                      >
+                        no selected
+                      </div>
+                    ) : null}
+                  </div>
+                  <div className="price_input">
+                    <FormLabel id="demo-radio-buttons-group-label">
+                      Have Car:
+                    </FormLabel>
+                    <RadioGroup
+                      aria-labelledby="demo-radio-buttons-group-label"
+                      name="radio-buttons-group"
+                    >
+                      <FormControlLabel
+                        value="female"
+                        control={<Radio />}
+                        label="Yes"
+                        onChange={() => {
+                          setHaveCar(true);
+                        }}
+                      />
+                      <FormControlLabel
+                        value="male"
+                        control={<Radio />}
+                        label="No"
+                        onChange={() => {
+                          setHaveCar(false);
+                        }}
+                      />
+                    </RadioGroup>
+                    {haveCar === "secilmedi" ? (
+                      <div
+                        style={{
+                          textAlign: "center",
+                          color: "red",
+                          fontSize: "16px",
+                        }}
+                      >
+                        no selected
+                      </div>
+                    ) : null}
+                  </div>
+                  <div className="price_input">
+                    <FormLabel id="demo-radio-buttons-group-label">
+                      Smoke:
+                    </FormLabel>
+                    <RadioGroup
+                      aria-labelledby="demo-radio-buttons-group-label"
+                      name="radio-buttons-group"
+                    >
+                      <FormControlLabel
+                        value="female"
+                        control={<Radio />}
+                        label="Yes"
+                        onChange={() => {
+                          setSmoke(true);
+                        }}
+                      />
+                      <FormControlLabel
+                        value="male"
+                        control={<Radio />}
+                        label="No"
+                        onChange={() => {
+                          setSmoke(false);
+                        }}
+                      />
+                    </RadioGroup>
+                    {smoke === "secilmedi" ? (
+                      <div
+                        style={{
+                          textAlign: "center",
+                          color: "red",
+                          fontSize: "16px",
+                        }}
+                      >
+                        no selected
+                      </div>
+                    ) : null}
                   </div>
 
                   <div className="image_input">

@@ -12,11 +12,20 @@ import axios from "axios";
 function ParentRegisterStepOne() {
   const Parent = JSON.parse(localStorage.getItem("userParent"));
   const [post, setPost] = useState(false);
+  const [location, setLocation] = useState("");
+
+  const [selectLanguage, setselectLanguage] = useState("");
   const [selected, setSelected] = useState("");
   useEffect(() => {}, [post]);
   let navigate = useNavigate();
   const handleChange = (event) => {
     setSelected(event.target.value);
+  };
+  const handleChangeLanguage = (event) => {
+    setselectLanguage(event.target.value);
+  };
+  const handleChangeLocation = (event) => {
+    setLocation(event.target.value);
   };
   const formik = useFormik({
     initialValues: {
@@ -45,6 +54,9 @@ function ParentRegisterStepOne() {
         Parent.about = values.about;
         Parent.childrenAge = selected;
         Parent.wishList = [];
+        Parent.location = location;
+        Parent.Languages = selectLanguage;
+
         axios
           .post("http://localhost:3000/babysitterswanted", Parent)
           .then((res) => console.log(res.data));
@@ -61,6 +73,13 @@ function ParentRegisterStepOne() {
       <div className="parent-step-one">
         <div className="head-img">
           <div className="text">
+            <button
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
+              Back
+            </button>
             <p>Create you profile</p>
           </div>
           <div className="img-box">
@@ -178,6 +197,78 @@ function ParentRegisterStepOne() {
                 <label htmlFor="grade">Gradeschooler</label>
               </div>
               {!selected ? (
+                <div
+                  style={{
+                    textAlign: "center",
+                    color: "red",
+                    fontSize: "16px",
+                  }}
+                >
+                  no selected
+                </div>
+              ) : (
+                <div style={{ color: "white", fontSize: "16px" }}>sadasd</div>
+              )}
+            </div>
+            <div className="selectLanguage">
+              <p>which language do you know better?</p>
+              <div className="input">
+                <input
+                  name="selectlanguage"
+                  value="English"
+                  onChange={handleChangeLanguage}
+                  id="langeageOne"
+                  type="radio"
+                />
+                <label htmlFor="langeageOne">English</label>
+              </div>
+              <div className="input">
+                <input
+                  onChange={handleChangeLanguage}
+                  name="selectlanguage"
+                  value="Russian"
+                  id="languageTwo"
+                  type="radio"
+                />
+                <label htmlFor="languageTwo">Russian</label>
+              </div>
+              {!selectLanguage ? (
+                <div
+                  style={{
+                    textAlign: "center",
+                    color: "red",
+                    fontSize: "16px",
+                  }}
+                >
+                  no selected
+                </div>
+              ) : (
+                <div style={{ color: "white", fontSize: "16px" }}>sadasd</div>
+              )}
+            </div>
+            <div className="location">
+              <p>Preferred babysitting location:</p>
+              <div className="input">
+                <input
+                  name="selectLocation"
+                  value="At the babysitters's"
+                  id="locationBabysitter"
+                  type="radio"
+                  onChange={handleChangeLocation}
+                />
+                <label htmlFor="locationBabysitter">At the babysitters's</label>
+              </div>
+              <div className="input">
+                <input
+                  name="selectLocation"
+                  value="At the my home"
+                  id="locationHome"
+                  type="radio"
+                  onChange={handleChangeLocation}
+                />
+                <label htmlFor="havechildno">At the my home</label>
+              </div>
+              {!location ? (
                 <div
                   style={{
                     textAlign: "center",
