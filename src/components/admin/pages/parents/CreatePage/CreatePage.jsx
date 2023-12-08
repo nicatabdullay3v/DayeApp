@@ -182,269 +182,322 @@ const CreatePage = ({ setcreatePage }) => {
             <div className="create_to">
               <div className="card_parent">
                 <form onSubmit={formik.handleSubmit} action="">
-                  <div className="firstName_input">
-                    <TextField
-                      fullWidth
-                      id="firstName"
-                      name="firstName"
-                      label="First Name"
-                      type="text"
-                      value={formik.values.firstName}
-                      onChange={formik.handleChange}
-                      error={
-                        formik.touched.firstName &&
-                        Boolean(formik.errors.firstName)
-                      }
-                      helperText={
-                        formik.touched.firstName && formik.errors.firstName
-                      }
-                    />
-                  </div>
-
-                  <div className="lastName_input">
-                    <TextField
-                      fullWidth
-                      id="lastName"
-                      name="lastName"
-                      label="Last Name"
-                      type="text"
-                      value={formik.values.lastName}
-                      onChange={formik.handleChange}
-                      error={
-                        formik.touched.lastName &&
-                        Boolean(formik.errors.lastName)
-                      }
-                      helperText={
-                        formik.touched.lastName && formik.errors.lastName
-                      }
-                    />
-                  </div>
-
-                  <div className="email_input">
-                    <TextField
-                      fullWidth
-                      id="email"
-                      name="email"
-                      label="Email"
-                      type="email"
-                      value={formik.values.email}
-                      onChange={formik.handleChange}
-                      error={
-                        formik.touched.email && Boolean(formik.errors.email)
-                      }
-                      helperText={formik.touched.email && formik.errors.email}
-                    />
-                  </div>
-
-                  <div className="password_input">
-                    <TextField
-                      fullWidth
-                      id="password"
-                      name="password"
-                      label="Password"
-                      type={formik.values.showPassword ? "text" : "password"}
-                      value={formik.values.password}
-                      onChange={formik.handleChange}
-                      error={
-                        formik.touched.password &&
-                        Boolean(formik.errors.password)
-                      }
-                      helperText={
-                        formik.touched.password && formik.errors.password
-                      }
-                      InputProps={{
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <IconButton
-                              onClick={() =>
-                                formik.setFieldValue(
-                                  "showPassword",
-                                  !formik.values.showPassword
-                                )
-                              }
-                              onMouseDown={(e) => e.preventDefault()}
-                            >
-                              {formik.values.showPassword ? (
-                                <VisibilityOff />
-                              ) : (
-                                <Visibility />
-                              )}
-                            </IconButton>
-                          </InputAdornment>
-                        ),
+                  <div
+                    style={{
+                      width: "auto",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "50px",
+                      flexWrap: "wrap",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: "20px",
+                        justifyContent: "space-between",
+                        flexWrap: "wrap",
                       }}
-                    />
-                  </div>
-
-                  <div className="address_input">
-                    <TextField
-                      fullWidth
-                      id="address"
-                      name="address"
-                      label="Address"
-                      type="text"
-                      value={formik.values.address}
-                      onChange={formik.handleChange}
-                      error={
-                        formik.touched.address && Boolean(formik.errors.address)
-                      }
-                      helperText={
-                        formik.touched.address && formik.errors.address
-                      }
-                    />
-                  </div>
-
-                  <div className="child_input">
-                    <TextField
-                      fullWidth
-                      id="numberofChildren"
-                      name="numberofChildren"
-                      label="Child"
-                      type="text"
-                      value={formik.values.numberofChildren}
-                      onChange={formik.handleChange}
-                      error={
-                        formik.touched.numberofChildren &&
-                        Boolean(formik.errors.numberofChildren)
-                      }
-                      helperText={
-                        formik.touched.numberofChildren &&
-                        formik.errors.numberofChildren
-                      }
-                    />
-                  </div>
-
-                  <div className="age_input">
-                    <TextField
-                      fullWidth
-                      id="childrenAge"
-                      name="childrenAge"
-                      label="Age Children"
-                      type="text"
-                      value={formik.values.childrenAge}
-                      onChange={formik.handleChange}
-                      error={
-                        formik.touched.childrenAge &&
-                        Boolean(formik.errors.childrenAge)
-                      }
-                      helperText={
-                        formik.touched.childrenAge && formik.errors.childrenAge
-                      }
-                    />
-                  </div>
-
-                  <div className="language_input">
-                    <FormLabel id="demo-radio-buttons-group-label">
-                      which language do you know better?
-                    </FormLabel>
-                    <RadioGroup
-                      aria-labelledby="demo-radio-buttons-group-label"
-                      name="radio-buttons-group"
                     >
-                      <FormControlLabel
-                        value="English"
-                        control={<Radio />}
-                        label="English"
-                        onChange={handleChangeLanguage}
-                      />
-                      <FormControlLabel
-                        value="Russian"
-                        control={<Radio />}
-                        label="Russian"
-                        onChange={handleChangeLanguage}
-                      />
-                    </RadioGroup>
-                    {!selectLanguage ? (
-                      <div
-                        style={{
-                          textAlign: "center",
-                          color: "red",
-                          fontSize: "16px",
-                        }}
-                      >
-                        no selected
+                      <div className="firstName_input">
+                        <TextField
+                          fullWidth
+                          id="firstName"
+                          name="firstName"
+                          label="First Name"
+                          type="text"
+                          value={formik.values.firstName}
+                          onChange={formik.handleChange}
+                          error={
+                            formik.touched.firstName &&
+                            Boolean(formik.errors.firstName)
+                          }
+                          helperText={
+                            formik.touched.firstName && formik.errors.firstName
+                          }
+                        />
                       </div>
-                    ) : null}
-                  </div>
-                  <div className="location_input">
-                    <FormLabel id="demo-radio-buttons-group-label">
-                      Preferred babysitting location
-                    </FormLabel>
-                    <RadioGroup
-                      aria-labelledby="demo-radio-buttons-group-label"
-                      name="radio-buttons-group"
+
+                      <div className="lastName_input">
+                        <TextField
+                          fullWidth
+                          id="lastName"
+                          name="lastName"
+                          label="Last Name"
+                          type="text"
+                          value={formik.values.lastName}
+                          onChange={formik.handleChange}
+                          error={
+                            formik.touched.lastName &&
+                            Boolean(formik.errors.lastName)
+                          }
+                          helperText={
+                            formik.touched.lastName && formik.errors.lastName
+                          }
+                        />
+                      </div>
+                    </div>
+
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: "20px",
+                        justifyContent: "space-between",
+                        flexWrap: "wrap",
+                      }}
                     >
-                      <FormControlLabel
-                        value="At the babysitters's"
-                        control={<Radio />}
-                        label="At the babysitters's"
-                        onChange={handleChangeLocation}
-                      />
-                      <FormControlLabel
-                        value="At the my home"
-                        control={<Radio />}
-                        label="At the my home"
-                        onChange={handleChangeLocation}
-                      />
-                    </RadioGroup>
-                    {!location ? (
-                      <div
-                        style={{
-                          textAlign: "center",
-                          color: "red",
-                          fontSize: "16px",
-                        }}
-                      >
-                        no selected
+                      <div className="email_input">
+                        <TextField
+                          fullWidth
+                          id="email"
+                          name="email"
+                          label="Email"
+                          type="email"
+                          value={formik.values.email}
+                          onChange={formik.handleChange}
+                          error={
+                            formik.touched.email && Boolean(formik.errors.email)
+                          }
+                          helperText={
+                            formik.touched.email && formik.errors.email
+                          }
+                        />
                       </div>
-                    ) : null}
-                  </div>
 
-                  <div className="image_input">
-                    <TextField
-                      fullWidth
-                      id="image"
-                      name="image"
-                      label="Image"
-                      type="text"
-                      value={formik.values.image}
-                      onChange={formik.handleChange}
-                      error={
-                        formik.touched.image && Boolean(formik.errors.image)
-                      }
-                      helperText={formik.touched.image && formik.errors.image}
-                    />
-                  </div>
+                      <div className="password_input">
+                        <TextField
+                          fullWidth
+                          id="password"
+                          name="password"
+                          label="Password"
+                          type={
+                            formik.values.showPassword ? "text" : "password"
+                          }
+                          value={formik.values.password}
+                          onChange={formik.handleChange}
+                          error={
+                            formik.touched.password &&
+                            Boolean(formik.errors.password)
+                          }
+                          helperText={
+                            formik.touched.password && formik.errors.password
+                          }
+                          InputProps={{
+                            endAdornment: (
+                              <InputAdornment position="end">
+                                <IconButton
+                                  onClick={() =>
+                                    formik.setFieldValue(
+                                      "showPassword",
+                                      !formik.values.showPassword
+                                    )
+                                  }
+                                  onMouseDown={(e) => e.preventDefault()}
+                                >
+                                  {formik.values.showPassword ? (
+                                    <VisibilityOff />
+                                  ) : (
+                                    <Visibility />
+                                  )}
+                                </IconButton>
+                              </InputAdornment>
+                            ),
+                          }}
+                        />
+                      </div>
+                    </div>
 
-                  <div className="description_input">
-                    <TextField
-                      fullWidth
-                      id="description"
-                      name="description"
-                      label="Description"
-                      type="text"
-                      value={formik.values.description}
-                      onChange={formik.handleChange}
-                      error={
-                        formik.touched.description &&
-                        Boolean(formik.errors.description)
-                      }
-                      helperText={
-                        formik.touched.description && formik.errors.description
-                      }
-                    />
-                  </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: "20px",
+                        justifyContent: "space-between",
+                        flexWrap: "wrap",
+                      }}
+                    >
+                      <div className="address_input">
+                        <TextField
+                          fullWidth
+                          id="address"
+                          name="address"
+                          label="Address"
+                          type="text"
+                          value={formik.values.address}
+                          onChange={formik.handleChange}
+                          error={
+                            formik.touched.address &&
+                            Boolean(formik.errors.address)
+                          }
+                          helperText={
+                            formik.touched.address && formik.errors.address
+                          }
+                        />
+                      </div>
 
-                  {/* <div className="image_input">
-                    <label htmlFor="image">Image:</label>
-                    <input
-                      type="file"
-                      id="image"
-                      name="image"
-                      accept="image/*"
-                      onChange={handleImageChange}
-                    />
-                  </div> */}
+                      <div className="child_input">
+                        <TextField
+                          fullWidth
+                          id="numberofChildren"
+                          name="numberofChildren"
+                          label="Child"
+                          type="text"
+                          value={formik.values.numberofChildren}
+                          onChange={formik.handleChange}
+                          error={
+                            formik.touched.numberofChildren &&
+                            Boolean(formik.errors.numberofChildren)
+                          }
+                          helperText={
+                            formik.touched.numberofChildren &&
+                            formik.errors.numberofChildren
+                          }
+                        />
+                      </div>
+                    </div>
+
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: "20px",
+                        justifyContent: "space-between",
+                        flexWrap: "wrap",
+                      }}
+                    >
+                      <div className="age_input">
+                        <TextField
+                          fullWidth
+                          id="childrenAge"
+                          name="childrenAge"
+                          label="Age Children"
+                          type="text"
+                          value={formik.values.childrenAge}
+                          onChange={formik.handleChange}
+                          error={
+                            formik.touched.childrenAge &&
+                            Boolean(formik.errors.childrenAge)
+                          }
+                          helperText={
+                            formik.touched.childrenAge &&
+                            formik.errors.childrenAge
+                          }
+                        />
+                      </div>
+                      <div className="image_input">
+                        <TextField
+                          fullWidth
+                          id="image"
+                          name="image"
+                          label="Image"
+                          type="text"
+                          value={formik.values.image}
+                          onChange={formik.handleChange}
+                          error={
+                            formik.touched.image && Boolean(formik.errors.image)
+                          }
+                          helperText={
+                            formik.touched.image && formik.errors.image
+                          }
+                        />
+                      </div>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: "40px",
+                        justifyContent: "space-between",
+                        flexWrap: "wrap",
+                      }}
+                    >
+                      <div className="location_input">
+                        <FormLabel id="demo-radio-buttons-group-label">
+                          Preferred babysitting location
+                        </FormLabel>
+                        <RadioGroup
+                          aria-labelledby="demo-radio-buttons-group-label"
+                          name="radio-buttons-group"
+                        >
+                          <FormControlLabel
+                            value="At the babysitters's"
+                            control={<Radio />}
+                            label="At the babysitters's"
+                            onChange={handleChangeLocation}
+                          />
+                          <FormControlLabel
+                            value="At the my home"
+                            control={<Radio />}
+                            label="At the my home"
+                            onChange={handleChangeLocation}
+                          />
+                        </RadioGroup>
+                        {!location ? (
+                          <div
+                            style={{
+                              textAlign: "center",
+                              color: "red",
+                              fontSize: "16px",
+                            }}
+                          >
+                            no selected
+                          </div>
+                        ) : null}
+                      </div>
+
+                      <div className="language_input">
+                        <FormLabel id="demo-radio-buttons-group-label">
+                          which language do you know better?
+                        </FormLabel>
+                        <RadioGroup
+                          aria-labelledby="demo-radio-buttons-group-label"
+                          name="radio-buttons-group"
+                        >
+                          <FormControlLabel
+                            value="English"
+                            control={<Radio />}
+                            label="English"
+                            onChange={handleChangeLanguage}
+                          />
+                          <FormControlLabel
+                            value="Russian"
+                            control={<Radio />}
+                            label="Russian"
+                            onChange={handleChangeLanguage}
+                          />
+                        </RadioGroup>
+                        {!selectLanguage ? (
+                          <div
+                            style={{
+                              textAlign: "center",
+                              color: "red",
+                              fontSize: "16px",
+                            }}
+                          >
+                            no selected
+                          </div>
+                        ) : null}
+                      </div>
+                    </div>
+
+                    <div className="description_input">
+                      <TextField
+                        fullWidth
+                        id="description"
+                        name="description"
+                        label="Description"
+                        type="text"
+                        value={formik.values.description}
+                        onChange={formik.handleChange}
+                        error={
+                          formik.touched.description &&
+                          Boolean(formik.errors.description)
+                        }
+                        helperText={
+                          formik.touched.description &&
+                          formik.errors.description
+                        }
+                      />
+                    </div>
+                  </div>
 
                   <div className="create_btn">
                     <button type="submit">Create</button>

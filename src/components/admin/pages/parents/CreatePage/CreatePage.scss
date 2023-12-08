@@ -1,142 +1,140 @@
 #create_pagee {
-    background-color: #eff7f8;
-    margin-top: 40px;
-    padding-bottom: 50px;
-    .change_size {
-      font-size: 30px;
-      padding-bottom: 30px;
-    }
-    .create_sides {
-      display: flex;
-      justify-content: center;
-      .right_side_create {
-        .create_btn {
-          padding-top: 20px;
-          button {
-            padding: 10px 15px;
-            border-radius: 15px;
-            background-color: #389ba7;
-            border: none;
-            color: #f7f9fa;
-            cursor: pointer;
-          }
+  background-color: #eff7f8;
+  margin-top: 40px;
+  padding-bottom: 50px;
+  .change_size {
+    font-size: 30px;
+    padding-bottom: 30px;
+  }
+  .create_sides {
+    display: flex;
+    justify-content: center;
+    .right_side_create {
+      .create_btn {
+        padding-top: 20px;
+        button {
+          padding: 10px 15px;
+          border-radius: 15px;
+          background-color: #389ba7;
+          border: none;
+          color: #f7f9fa;
+          cursor: pointer;
         }
-        .create_to {
-          .card_parent {
-            .firstName_input {
-           
-              // display: flex;
-              // gap: 18px;
-              // background-color: #fff;
-              padding-top: 15px;
-              input {
-                // width: 266px;
-                // height: 30px;
-                // border: none;
-                // border: 1px solid #4d565e;
-                // border-radius: 10px;
-              }
+      }
+      .create_to {
+        .card_parent {
+          .firstName_input {
+            // display: flex;
+            // gap: 18px;
+            // background-color: #fff;
+            // padding-top: 15px;
+            input {
+              // width: 266px;
+              // height: 30px;
+              // border: none;
+              // border: 1px solid #4d565e;
+              // border-radius: 10px;
             }
-            .lastName_input {
-                // display: flex;
-                // gap: 20px;
-                padding-top: 15px;
-                input {
-                  // width: 266px;
-                  // height: 30px;
-                  // border: none;
-                  // border: 1px solid #4d565e;
-                  // border-radius: 10px;
-                }
-              }
-              .image_input {
-                // display: flex;
-                // gap: 44px;
-                padding-top: 15px;
-                input {
-                  // width: 266px;
-                  // height: 30px;
-                  // border: none;
-                  // border: 1px solid #4d565e;
-                  // border-radius: 10px;
-                }
-              }
+          }
+          .lastName_input {
+            // display: flex;
+            // gap: 20px;
+            // padding-top: 15px;
+            input {
+              // width: 266px;
+              // height: 30px;
+              // border: none;
+              // border: 1px solid #4d565e;
+              // border-radius: 10px;
+            }
+          }
+          .image_input {
+            // display: flex;
+            // gap: 44px;
+            // padding-top: 15px;
+            input {
+              // width: 266px;
+              // height: 30px;
+              // border: none;
+              // border: 1px solid #4d565e;
+              // border-radius: 10px;
+            }
+          }
 
-  
-            .email_input {
-              // display: flex;
-              // gap: 51px;
-              padding-top: 15px;
-  
-              input {
-                // width: 266px;
-                // height: 30px;
-                // border: none;
-                // border: 1px solid #4d565e;
-                // border-radius: 10px;
-              }
-            }
+          .email_input {
+            // display: flex;
+            // gap: 51px;
+            // padding-top: 15px;
 
-            .password_input{
-              padding-top: 15px;
+            input {
+              // width: 266px;
+              // height: 30px;
+              // border: none;
+              // border: 1px solid #4d565e;
+              // border-radius: 10px;
             }
-            .address_input {
-                // display: flex;
-                // gap: 32px;
-                padding-top: 15px;
-    
-                input {
-                  // width: 266px;
-                  // height: 30px;
-                  // border: none;
-                  // border: 1px solid #4d565e;
-                  // border-radius: 10px;
-                }
-              }
-  
-            .age_input {
-              // display: flex;
-              // gap: 64px;
-              padding-top: 15px;
-              input {
-                // width: 266px;
-                // height: 30px;
-                // border: none;
-                // border: 1px solid #4d565e;
-                // border-radius: 10px;
-              }
+          }
+
+          .password_input {
+            // padding-top: 15px;
+            max-width: 200px;
+          }
+          .address_input {
+            // display: flex;
+            // gap: 32px;
+            // padding-top: 15px;
+
+            input {
+              // width: 266px;
+              // height: 30px;
+              // border: none;
+              // border: 1px solid #4d565e;
+              // border-radius: 10px;
             }
-  
-            .child_input {
-              // display: flex;
-              // gap: 55px;
-              padding-top: 15px;
-              input {
-                // width: 266px;
-                // height: 30px;
-                // border: none;
-                // border: 1px solid #4d565e;
-                // border-radius: 10px;
-              }
+          }
+
+          .age_input {
+            // display: flex;
+            // gap: 64px;
+            // padding-top: 15px;
+            input {
+              // width: 266px;
+              // height: 30px;
+              // border: none;
+              // border: 1px solid #4d565e;
+              // border-radius: 10px;
             }
-  
-            .description_input,
-            .comments_input {
-              padding-top: 15px;
-              // label {
-              //   display: block;
-              //   padding-top: 20px;
-  
-              // }
-              // textarea{
-              //   padding: 0px;
-              //   width: 300px;
-              //   height: 80px;
-              // }
+          }
+
+          .child_input {
+            // display: flex;
+            // gap: 55px;
+            // padding-top: 15px;
+            input {
+              // width: 266px;
+              // height: 30px;
+              // border: none;
+              // border: 1px solid #4d565e;
+              // border-radius: 10px;
             }
+          }
+
+          .description_input,
+          .comments_input {
+            // padding-top: 15px;
+            // label {
+            //   display: block;
+            //   padding-top: 20px;
+
+            // }
+            // textarea{
+            //   padding: 0px;
+            //   width: 300px;
+            //   height: 80px;
+            // }
           }
         }
       }
     }
   }
-  
+}
