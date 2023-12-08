@@ -157,6 +157,10 @@ const CreatePage = ({ setcreatePage }) => {
           Languages: selectLanguage,
           car: haveCar,
           smoker: smoke,
+          reviews: [],
+          references: [],
+          provided: [],
+          activities: [],
         };
         console.log(obj);
         axios.post(`http://localhost:3000/babysitters/`, obj).then(() => {

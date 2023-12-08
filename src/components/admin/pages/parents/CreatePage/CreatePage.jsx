@@ -152,6 +152,8 @@ const CreatePage = ({ setcreatePage }) => {
           image: values.image,
           Languages: selectLanguage,
           location: location,
+          reviews: [],
+          wishList: [],
         };
         console.log(obj);
         axios.post(`http://localhost:3000/babysitterswanted/`, obj).then(() => {

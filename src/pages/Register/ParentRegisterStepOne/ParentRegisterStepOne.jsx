@@ -56,6 +56,7 @@ function ParentRegisterStepOne() {
         Parent.wishList = [];
         Parent.location = location;
         Parent.Languages = selectLanguage;
+        Parent.reviews = [];
 
         axios
           .post("http://localhost:3000/babysitterswanted", Parent)
