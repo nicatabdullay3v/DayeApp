@@ -10,6 +10,8 @@ import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { faSuitcaseRolling } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { motion } from "framer-motion";
+
 import { fetcBabysitterJobs } from "../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 const BabySittersHeader = () => {
   let { id } = useParams();
@@ -42,7 +44,7 @@ const BabySittersHeader = () => {
               <FontAwesomeIcon className="icon" icon={faShareFromSquare} />
               <span>Share</span>
             </div>
-            <div className="header_right_save">
+            <motion.div whileTap={{scale:2}} className="header_right_save">
               <FontAwesomeIcon
                 onClick={() => {
                   if (isParent === true) {
@@ -71,8 +73,7 @@ const BabySittersHeader = () => {
                 style={{ color: isParent === true ? color : "gray" }}
                 icon={faHeart}
               />
-              <span>Save</span>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

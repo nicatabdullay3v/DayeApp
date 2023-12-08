@@ -7,6 +7,7 @@ import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { faSuitcaseRolling } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import "./BabysittersCard.scss";
+import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import {
   PatchWishList,
@@ -74,7 +75,7 @@ console.log(elem);
             <div className="name">
               <p>{elem.firstName}</p>
 
-              <div className="heart">
+              <motion.div  whileTap={{scale:2}}className="heart">
                 <FontAwesomeIcon
                   onClick={(e) => {
                     e.preventDefault();
@@ -109,7 +110,7 @@ console.log(elem);
                     color: isParent === true ? color : "gray",
                   }}
                 />
-              </div>
+              </motion.div>
             </div>
             <div className="supersitter">
               <p>SUPPERSITTER</p>

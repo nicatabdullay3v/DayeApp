@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import NavbarBabysit from "../../components/NavbarBabysit/NavbarBabysit";
 import NavbarBabysitters from "../../components/NavbarBabysitters/NavbarBabysitters";
 import NavbarParents from "../../components/NavbarParents/NavbarParents";
 
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 import "./Babysitters.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BabysittersCard from "../../components/BabysittersCard";
@@ -17,14 +19,27 @@ import { v4 as uuidv4 } from "uuid";
 import { fetchUserById } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import Navbar from "../../components/Navbar/Navbar";
 function index() {
-  let isParent = JSON.parse(localStorage.getItem("isParent"));
-
   const dispatch = useDispatch();
   const babysitters = useSelector((state) => state.babysitters.babysitters);
-  console.log(babysitters);
+
   useEffect(() => {
     dispatch(fetchUserById());
   }, []);
+  let isParent = JSON.parse(localStorage.getItem("isParent"));
+  const itemsPerPage = 5;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = babysitters.slice(indexOfFirstItem, indexOfLastItem);
+
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+    console.log("Current Page:", value);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  console.log(babysitters);
 
   return (
     <div>
@@ -51,38 +66,22 @@ function index() {
             </div>
           </div>
           <div className="babysitterCards">
-            {babysitters &&
-              babysitters.map((elem) => {
+            {currentItems &&
+              currentItems.map((elem) => {
                 return <BabysittersCard key={uuidv4()} elem={elem} />;
               })}
           </div>
-          <div className="pagesDiv">
-            <div className="pages">
-              <Link style={{ textDecoration: "none" }}>
-                <div className="page">1</div>
-              </Link>
-              <Link style={{ textDecoration: "none" }}>
-                <div className="page">2</div>
-              </Link>
-              <Link style={{ textDecoration: "none" }}>
-                <div className="page">3</div>
-              </Link>
-              <Link style={{ textDecoration: "none" }}>
-                <div className="page">...</div>
-              </Link>
-              <Link style={{ textDecoration: "none" }}>
-                <div className="page">20</div>
-              </Link>
-              <Link style={{ textDecoration: "none" }}>
-                <div className="pagee">
-                  <FontAwesomeIcon
-                    icon={faCaretRight}
-                    style={{ color: "#000000" }}
-                  />
-                </div>
-              </Link>
-            </div>
-          </div>
+
+          <Stack spacing={2}>
+            <Pagination
+              count={Math.ceil(babysitters.length / itemsPerPage)}
+              page={currentPage}
+              variant="outlined"
+              shape="rounded"
+              onChange={handlePageChange}
+            />
+          </Stack>
+
           <div className="babysitLink">
             <Link style={{ color: "black" }} to="/">
               Babysits
