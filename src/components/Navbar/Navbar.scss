@@ -56,13 +56,14 @@ nav {
     display: flex;
     align-items: center;
 
-    @media (max-width: 992px) {
-      display: none;
-    }
+    
     .nav_center_text {
       .link {
         color: #4d565e;
         text-decoration: none;
+      }
+      @media (max-width: 992px) {
+        display: none;
       }
 
       p {

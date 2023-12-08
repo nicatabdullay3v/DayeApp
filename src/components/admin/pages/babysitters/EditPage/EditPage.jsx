@@ -14,6 +14,13 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 import { useDispatch, useSelector } from "react-redux";
 const EditPage = ({ editID, seteditPage }) => {
+  const [sitterData, setSitterData] = useState([]);
+  useEffect(() => {
+    axios("http://localhost:3000/babysitters/").then((res) => {
+      // console.log(res.data);
+      setSitterData(res.data);
+    });
+  }, []);
   const babysittersData = useSelector((state) => state.babysitters.babysitters);
   console.log(babysittersData);
   const currentlySister = babysittersData.find((elem) => elem.id === editID);
@@ -25,50 +32,6 @@ const EditPage = ({ editID, seteditPage }) => {
     dispatch(fetchUserById(editID));
   }, [dispatch, editID]);
 
-  // const [formData, setFormData] = useState({
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   price: "",
-  //   description: "",
-  //   references: "",
-  //   activities: "",
-  // });
-
-  // useEffect(() => {
-  //   if (currentlySister) {
-  //     setFormData({
-  //       firstName: currentlySister.firstName,
-  //       lastName: currentlySister.lastName,
-  //       age: currentlySister.age,
-  //       email: currentlySister.email,
-  //       country: currentlySister.country,
-  //       price: currentlySister.price,
-  //       description: currentlySister.description,
-  //       references: currentlySister.references,
-  //       activities: currentlySister.activities,
-  //     });
-  //   }
-  // }, [currentlySister]);
-
-  // const handleEdit = () => {
-  //   const updatedData = {
-  //     firstName: formData.firstName,
-  //     lastName: formData.lastName,
-  //     age: formData.age,
-  //     email: formData.email,
-  //     country: formData.country,
-  //     price: formData.price,
-  //     description: formData.description,
-  //     references: formData.references,
-  //     activities: formData.activities,
-  //   };
-  //   axios
-  //     .patch(`http://localhost:3000/babysitters/${editID}`, updatedData)
-  //     .then(dispatch(fetchUserById()));
-
-  //   seteditPage(false);
-  // };
 
   const formik = useFormik({
     initialValues: {
@@ -110,23 +73,28 @@ const EditPage = ({ editID, seteditPage }) => {
         .required("Required"),
     }),
     onSubmit: (values) => {
-      let obj = {
-        firstName: values.firstName,
-        lastName: values.lastName,
-        country: values.country,
-        age: values.age,
-        email: values.email,
-        price: values.price,
-        password: values.password,
-        references: values.references,
-        activities: values.activities,
-        description: values.description,
-      };
-      console.log(obj);
-      axios.post(`http://localhost:3000/babysitters/`, obj).then(() => {
-        dispatch(fetchUserById());
-        setcreatePage(false);
-      });
+      let find = sitterData.find((elem) => elem.email == values.email);
+      if (!find) {
+        let obj = {
+          firstName: values.firstName,
+          lastName: values.lastName,
+          country: values.country,
+          age: values.age,
+          email: values.email,
+          price: values.price,
+          password: values.password,
+          references: values.references,
+          activities: values.activities,
+          description: values.description,
+        };
+        console.log(obj);
+        axios.post(`http://localhost:3000/babysitters/`, obj).then(() => {
+          dispatch(fetchUserById());
+          setcreatePage(false);
+        });
+      } else {
+        alert("this email already used");
+      }
     },
   });
 
@@ -155,7 +123,7 @@ const EditPage = ({ editID, seteditPage }) => {
 
                 <div className="currently_span">
                   <b>Email:</b>
-                  <span>JohnDoe2000@gmail.com</span>
+                  <span>{currentlySister.email}</span>
                 </div>
 
                 <div className="currently_span">

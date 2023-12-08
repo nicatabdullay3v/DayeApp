@@ -27,7 +27,13 @@
     }
     .right_side {
       width: 390px;
+      @media (max-width:389px) {
+        display: none;
+        
+      }
+    
       .climate_cards {
+
         .my-custom-prev-button {
           height: 30px;
           background-color: white;
@@ -38,6 +44,7 @@
           margin-top: 142px;
           .arrow_icon {
             font-size: 24px;
+         
           }
         }
         .my-custom-next-button {
@@ -49,12 +56,13 @@
           background-color: white;
           .arrow_icon {
             font-size: 24px;
+         
           }
         }
         display: flex;
         .climate_card {
-          width: 320px;
-          height: 290px;
+
+
           text-align: center;
           border-radius: 15px;
           padding: 10px;

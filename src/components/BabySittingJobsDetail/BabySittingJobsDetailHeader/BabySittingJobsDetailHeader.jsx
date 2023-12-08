@@ -7,9 +7,10 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { fetchUserById } from "../../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { fetcBabysitterJobs } from "../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import { motion } from "framer-motion";
 const BabySittersHeader = () => {
   let { id } = useParams();
-console.log(id);
+  console.log(id);
   let dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,7 +19,7 @@ console.log(id);
   }, []);
 
   let parents = useSelector((state) => state.babysitters.babysitterswanted);
-console.log(parents);
+  console.log(parents);
   let parent = parents.find((x) => x.id == id);
   console.log(parent);
   let isBabysitter = JSON.parse(localStorage.getItem("isBabysitter")) || [];
@@ -42,10 +43,11 @@ console.log(parents);
               <FontAwesomeIcon className="icon" icon={faShareFromSquare} />
               <span>Share</span>
             </div>
-            <div className="header_right_save">
+            <motion.div whileTap={{ scale: 2 }} className="header_right_save">
               <FontAwesomeIcon
                 onClick={() => {
-                  if (isBabysitter === true) {
+                  console.log(isBabysitter);
+                  if (isBabysitter) {
                     if (babysitter?.wishList.find((x) => x.id == id)) {
                       axios
                         .patch(
@@ -70,11 +72,10 @@ console.log(parents);
                   }
                 }}
                 className="icon"
-                style={{ color: isBabysitter === true ? color : "gray" }}
+                style={{ color: isBabysitter ? color : "gray" }}
                 icon={faHeart}
               />
-              <span>Save</span>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

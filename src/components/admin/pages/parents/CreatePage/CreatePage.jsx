@@ -10,6 +10,11 @@ import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
 YupPassword(Yup);
 
 import { fetcBabysitterJobs } from "../../../../../redux/Slice/BabySittersSlice/BabySittersSlice";
@@ -19,6 +24,9 @@ const SignupSchema = Yup.object().shape({});
 const CreatePage = ({ setcreatePage }) => {
   const [parentData, setParentdata] = useState([]);
   const dispatch = useDispatch();
+  const [selectLanguage, setSelectLanguage] = useState("");
+  const [location, setLocation] = useState("");
+
   const [image, setImage] = useState(null);
   useEffect(() => {
     axios("http://localhost:3000/babysitterswanted/").then((res) => {
@@ -26,7 +34,12 @@ const CreatePage = ({ setcreatePage }) => {
       setParentdata(res.data);
     });
   }, []);
-
+  const handleChangeLanguage = (event) => {
+    setSelectLanguage(event.target.value);
+  };
+  const handleChangeLocation = (event) => {
+    setLocation(event.target.value);
+  };
   // const [formData, setFormData] = useState({
   //   firstName: "",
   //   lastName: "",
@@ -125,8 +138,9 @@ const CreatePage = ({ setcreatePage }) => {
         .required("Required"),
     }),
     onSubmit: (values) => {
-      let find = parentData.map((elem) => elem.email == values.email);
-      if (!find) {
+      let find = parentData.find((elem) => elem.email === values.email);
+      console.log(find);
+      if (!find && selectLanguage && location) {
         let obj = {
           firstName: values.firstName,
           lastName: values.lastName,
@@ -136,6 +150,8 @@ const CreatePage = ({ setcreatePage }) => {
           childrenAge: values.childrenAge,
           description: values.description,
           image: values.image,
+          Languages: selectLanguage,
+          location: location,
         };
         console.log(obj);
         axios.post(`http://localhost:3000/babysitterswanted/`, obj).then(() => {
@@ -313,6 +329,73 @@ const CreatePage = ({ setcreatePage }) => {
                         formik.touched.childrenAge && formik.errors.childrenAge
                       }
                     />
+                  </div>
+
+                  <div className="language_input">
+                    <FormLabel id="demo-radio-buttons-group-label">
+                      which language do you know better?
+                    </FormLabel>
+                    <RadioGroup
+                      aria-labelledby="demo-radio-buttons-group-label"
+                      name="radio-buttons-group"
+                    >
+                      <FormControlLabel
+                        value="English"
+                        control={<Radio />}
+                        label="English"
+                        onChange={handleChangeLanguage}
+                      />
+                      <FormControlLabel
+                        value="Russian"
+                        control={<Radio />}
+                        label="Russian"
+                        onChange={handleChangeLanguage}
+                      />
+                    </RadioGroup>
+                    {!selectLanguage ? (
+                      <div
+                        style={{
+                          textAlign: "center",
+                          color: "red",
+                          fontSize: "16px",
+                        }}
+                      >
+                        no selected
+                      </div>
+                    ) : null}
+                  </div>
+                  <div className="location_input">
+                    <FormLabel id="demo-radio-buttons-group-label">
+                      Preferred babysitting location
+                    </FormLabel>
+                    <RadioGroup
+                      aria-labelledby="demo-radio-buttons-group-label"
+                      name="radio-buttons-group"
+                    >
+                      <FormControlLabel
+                        value="At the babysitters's"
+                        control={<Radio />}
+                        label="At the babysitters's"
+                        onChange={handleChangeLocation}
+                      />
+                      <FormControlLabel
+                        value="At the my home"
+                        control={<Radio />}
+                        label="At the my home"
+                        onChange={handleChangeLocation}
+                      />
+                    </RadioGroup>
+                    {!location ? (
+                      <div
+                        style={{
+                          textAlign: "center",
+                          color: "red",
+                          fontSize: "16px",
+                        }}
+                      >
+                        no selected
+                      </div>
+                    ) : null}
                   </div>
 
                   <div className="image_input">

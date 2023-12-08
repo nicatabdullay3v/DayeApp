@@ -11,6 +11,8 @@ import "./FindJobCard.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchUserById } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import axios from "axios";
+import { motion } from "framer-motion";
+
 function index({ elem }) {
   let isBabysitter = JSON.parse(localStorage.getItem("isBabysitter")) || [];
   let dispatch = useDispatch();
@@ -45,7 +47,7 @@ function index({ elem }) {
                 icon={faCircleCheck}
                 style={{ color: "#59bec9" }}
               />
-              <div className="heart">
+              <motion.div whileTap={{scale:2}} className="heart">
                 <FontAwesomeIcon
                   onClick={(e) => {
                     e.preventDefault();
@@ -78,7 +80,7 @@ function index({ elem }) {
                   icon={faHeart}
                   style={{ color: isBabysitter === true ? color : "gray" }}
                 />
-              </div>
+              </motion.div>
             </div>
 
             <div className="description">

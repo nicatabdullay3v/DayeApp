@@ -1,10 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import NavbarBabysit from "../../components/NavbarBabysit/NavbarBabysit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BabysittersCard from "../../components/BabysittersCard";
 import NavbarBabysitters from "../../components/NavbarBabysitters/NavbarBabysitters";
 import NavbarParents from "../../components/NavbarParents/NavbarParents";
 import { Link } from "react-router-dom";
+
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import FindBaby from "../../components/home/findbaby/FindBaby";
 import Discover from "../../components/home/discover/Discover";
@@ -26,24 +29,26 @@ function index() {
   useEffect(() => {
     dispatch(fetcBabysitterJobs());
   }, []);
+  const itemsPerPage = 5;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = babysitterswanted.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+    console.log("Current Page:", value);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   console.log(babysitterswanted);
   return (
     <div>
       {isBabySitters ? <NavbarBabysitters /> : <Navbar />}
-      <div className="topics">
-        <div className="topic">
-          <p>Type of babysitter needed</p>
-        </div>
-        <div className="topic">
-          <p>Children</p>
-        </div>
-        <div className="topic">
-          <p>Verification</p>
-        </div>
-        <div className="topic">
-          <p>More Filters</p>
-        </div>
-      </div>
+    
       <div className="find-babysitter">
         <div className="left">
           <div className="left-head">
@@ -64,37 +69,20 @@ function index() {
             </div>
           </div>
           <div className="babysitterCards">
-            {babysitterswanted.map((elem) => {
-              return <FindJobCard key={uuidv4()} elem={elem} />;
-            })}
+            {currentItems &&
+              currentItems.map((elem) => {
+                return <FindJobCard key={uuidv4()} elem={elem} />;
+              })}
           </div>
-          <div className="pagesDiv">
-            <div className="pages">
-              <Link style={{ textDecoration: "none" }}>
-                <div className="page">1</div>
-              </Link>
-              <Link style={{ textDecoration: "none" }}>
-                <div className="page">2</div>
-              </Link>
-              <Link style={{ textDecoration: "none" }}>
-                <div className="page">3</div>
-              </Link>
-              <Link style={{ textDecoration: "none" }}>
-                <div className="page">...</div>
-              </Link>
-              <Link style={{ textDecoration: "none" }}>
-                <div className="page">20</div>
-              </Link>
-              <Link style={{ textDecoration: "none" }}>
-                <div className="pagee">
-                  <FontAwesomeIcon
-                    icon={faCaretRight}
-                    style={{ color: "#000000" }}
-                  />
-                </div>
-              </Link>
-            </div>
-          </div>
+          <Stack spacing={2}>
+            <Pagination
+              count={Math.ceil(babysitterswanted.length / itemsPerPage)}
+              page={currentPage}
+              variant="outlined"
+              shape="rounded"
+              onChange={handlePageChange}
+            />
+          </Stack>
           <div className="babysitLink">
             <Link style={{ color: "black" }} to="/">
               Babysits

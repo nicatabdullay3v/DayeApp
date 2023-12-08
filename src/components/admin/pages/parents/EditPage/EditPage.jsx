@@ -16,6 +16,15 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 YupPassword(Yup);
 const EditPage = ({ editID, seteditPage }) => {
+  const [parentData, setParentdata] = useState([]);
+
+  const [selectLanguage, setSelectLanguage] = useState("");
+  useEffect(() => {
+    axios("http://localhost:3000/babysitterswanted/").then((res) => {
+      // console.log(res.data);
+      setParentdata(res.data);
+    });
+  }, []);
   const ParentsData = useSelector(
     (state) => state.babysitters.babysitterswanted
   );
@@ -25,7 +34,9 @@ const EditPage = ({ editID, seteditPage }) => {
   useEffect(() => {
     dispatch(fetcBabysitterJobs(editID));
   }, [dispatch, editID]);
-
+  const handleChangeLanguage = (event) => {
+    setSelectLanguage(event.target.value);
+  };
   // const [formData, setFormData] = useState({
   //   firstName: "",
   //   lastName: "",
@@ -100,21 +111,28 @@ const EditPage = ({ editID, seteditPage }) => {
         numberofChildren: Yup.number().min(0).positive().required("Required"),
       childrenAge: Yup.string().required("Required"),
     }),
+
     onSubmit: (values) => {
-      let obj = {
-        firstName: values.firstName,
-        lastName: values.lastName,
-        email: values.email,
-        address: values.address,
-        numberofChildren: values.numberofChildren,
-        childrenAge: values.childrenAge,
-        description: values.description,
-      };
-      console.log(obj);
-      axios.post(`http://localhost:3000/babysitterswanted/`, obj).then(() => {
-        dispatch(fetcBabysitterJobs());
-        setcreatePage(false);
-      });
+      let find = parentData.find((elem) => elem.email == values.email);
+      if (!find) {
+        let obj = {
+          firstName: values.firstName,
+          lastName: values.lastName,
+          email: values.email,
+          address: values.address,
+          numberofChildren: values.numberofChildren,
+          childrenAge: values.childrenAge,
+          description: values.description,
+          Languages: values.language,
+        };
+        console.log(obj);
+        axios.post(`http://localhost:3000/babysitterswanted/`, obj).then(() => {
+          dispatch(fetcBabysitterJobs());
+          setcreatePage(false);
+        });
+      } else {
+        alert("this email already used");
+      }
     },
   });
 
