@@ -342,7 +342,6 @@
       "Favorited": 10,
       "id": 13
     },
-
     {
       "isBabysitter": true,
       "firstName": "Joshua",
@@ -368,7 +367,6 @@
       "phone": "0505555555",
       "Favorited": 10,
       "id": 15
-
     }
   ],
   "babysitterswanted": [
@@ -504,68 +502,6 @@
           "bookings": 6,
           "driverLicense": false,
           "Haschildren": false,
-          "location": "At the my home",
-          "Education": "In High School",
-          "description": "burada description olacaq",
-          "car": false,
-          "smoker": false,
-          "Languages": "Turkish",
-          "Favorited": 15
-        },
-        {
-          "id": 2,
-          "firstName": "Sindi2",
-          "lastName": "Sindi2",
-          "age": 19,
-          "email": "sindi@gmail.com",
-          "password": "Sindi123",
-          "country": "London",
-          "price": 99,
-          "experienceYear": 6,
-          "experienceChildrenAge": "",
-          "reviews": [
-            {
-              "comment": "mnbvcvbn"
-            }
-          ],
-          "references": [],
-          "provided": [],
-          "activities": [],
-          "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
-          "about": "Hello to all inquires. My name is Jaida Morris, I am 19 years old and I am passionate about reading, painting, writing, music and even photography. I love children and believe that they are the gateway to heaven. I spent time watching kids for most of my life that includes cousins, nieces, nephews and even kids I didn’t know. I love children … any child is a safe child with me.",
-          "wishList": [],
-          "bookings": 6,
-          "driverLicense": false,
-          "Haschildren": false,
-          "location": "At the babysitters's",
-          "Education": "In High School",
-          "description": "burada description olacaq",
-          "car": false,
-          "smoker": false,
-          "Languages": "English",
-          "Favorited": 15
-        },
-        {
-          "id": 5,
-          "firstName": "Sindi5",
-          "lastName": "Sindi2",
-          "age": 19,
-          "email": "sindi@gmail.com",
-          "password": "Sindi123",
-          "country": "London",
-          "price": 99,
-          "experienceYear": 6,
-          "experienceChildrenAge": "",
-          "reviews": [],
-          "references": [],
-          "provided": [],
-          "activities": [],
-          "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
-          "about": "Hello to all inquires. My name is Jaida Morris, I am 19 years old and I am passionate about reading, painting, writing, music and even photography. I love children and believe that they are the gateway to heaven. I spent time watching kids for most of my life that includes cousins, nieces, nephews and even kids I didn’t know. I love children … any child is a safe child with me.",
-          "wishList": [],
-          "bookings": 6,
-          "driverLicense": false,
-          "Haschildren": false,
           "location": "At the babysitters's",
           "Education": "In High School",
           "description": "burada description olacaq",
@@ -647,7 +583,6 @@
       "childrenAge": "5-7",
       "wishList": [],
       "id": 15
-
     },
     {
       "isParent": true,
@@ -676,7 +611,6 @@
       "Languages": "Russian",
       "location": "At the babysitters's",
       "id": 17
-
     },
     {
       "firstName": "Omar",
@@ -699,8 +633,6 @@
       "description": "Qui tenetur deserujandjasndkjasnkdnaskjdnakjsdnkjasndjant",
       "Languages": "Irure ea et in dolor",
       "id": 19
-
-
     }
   ],
   "admin": [
