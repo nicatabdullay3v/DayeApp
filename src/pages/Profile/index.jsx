@@ -1,26 +1,28 @@
-import React from 'react'
-import NavbarBabysit from '../../components/NavbarBabysit/NavbarBabysit'
-import ParentProfilePage from '../../components/ParentProfilePage/ParentProfilePage'
-import BabysitterProfilePage from '../../components/BabysitterProfilePage/BabysitterProfilePage';
+import React from "react";
+import NavbarBabysit from "../../components/NavbarBabysit/NavbarBabysit";
+import BabysitterProfilePage from "../../components/BabysitterProfilePage/BabysitterProfilePage";
 
 let isParent = JSON.parse(localStorage.getItem("isParent"));
 let isBabysitter = JSON.parse(localStorage.getItem("isBabysitter"));
-
-
+let login = JSON.parse(localStorage.getItem("login"));
 
 const Profile = () => {
   return (
     <>
-    <NavbarBabysit/>
+      {login ? (
+        <>
+          <NavbarBabysit />
+          <BabysitterProfilePage />
+        </>
+      ) : null}
 
-    {isBabysitter ? (
+      {/* {isBabysitter ? (
        <BabysitterProfilePage/>
       ) : isParent ? (
         <ParentProfilePage/>
-) : null}
-
+) : null} */}
     </>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

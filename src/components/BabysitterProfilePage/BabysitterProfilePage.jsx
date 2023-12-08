@@ -1,38 +1,57 @@
 import React, { useEffect, useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-import Paper from "@mui/material/Paper";
+// import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Grid from "@mui/material/Grid";
-import Divider from "@mui/material/Divider";
+// import Card from "@mui/material/Card";
+// import CardContent from "@mui/material/CardContent";
+// import Grid from "@mui/material/Grid";
+// import Divider from "@mui/material/Divider";
 import axios from "axios";
 // import { useParams } from "react-router-dom";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
-import { fetchUserById } from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import {
+  fetchUserById,
+  fetcBabysitterJobs,
+} from "../../redux/Slice/BabySittersSlice/BabySittersSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import "./BabysitterProfilePage.scss";
 
 const BabysitterProfilePage = () => {
+  let isBabySitters = JSON.parse(localStorage.getItem("isBabysitter"));
+  let isParent = JSON.parse(localStorage.getItem("isParent"));
   const [situation, setsituation] = useState(true);
-
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchUserById());
   }, []);
+
+  useEffect(() => {
+    dispatch(fetcBabysitterJobs());
+  }, []);
+
   //   let { id } = useParams();
   let login = JSON.parse(localStorage.getItem("login"));
-
   const handleDelete = (id) => {
-    axios
-      .delete(`http://localhost:3000/babysitters/${id}`)
-      .then(dispatch(fetchUserById()));
+    const url = isBabySitters
+      ? `http://localhost:3000/babysitters/${id}`
+      : `http://localhost:3000/babysitterswanted/${id}`;
+    axios.delete(url).then(() => {
+      isBabySitters
+        ? dispatch(fetchUserById())
+        : dispatch(fetcBabysitterJobs());
+      navigate("/");
+      localStorage.removeItem("login");
+      localStorage.removeItem("isParent");
+      localStorage.removeItem("isBabysitter");
+      setsituation((state) => !state);
+      localStorage.removeItem("admin");
+    });
   };
 
   return (
@@ -54,20 +73,11 @@ const BabysitterProfilePage = () => {
             variant="contained"
             color="error"
             className="delete-button"
-            onClick={() => {
-              {
-                handleDelete(login.id);
-                navigate("/");
-                localStorage.removeItem("login");
-                localStorage.removeItem("isParent");
-                localStorage.removeItem("isBabysitter");
-                setsituation((state) => !state);
-                localStorage.removeItem("admin");
-              }
-            }}
+            onClick={() => handleDelete(login.id)}
           >
             Delete
           </Button>
+
           <Button variant="outlined" className="edit-button">
             Edit
           </Button>
