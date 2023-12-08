@@ -36,48 +36,25 @@ const Pricing = () => {
 
         <div className="container">
           <div className="li_links">
-          <Swiper
-              onSwiper={setSwiperRef}
-              slidesPerView={'auto'}
-              spaceBetween={0}
-              navigation={true}
-              modules={[Pagination, Navigation]}
-              className="mySwiper hidden"
-              breakpoints={{
-                600: {
-                  slidesPerView: 3
-                },
-                767: {
-                  slidesPerView: 4
-                },
-                992: {
-                  slidesPerView: 5
-                },
-                1200: {
-                  slidesPerView: 6
-                }
-              }}
-            >
-               <SwiperSlide>
+        
 
             <a href="">About us</a>
-               </SwiperSlide>
-               <SwiperSlide>
+          
+        
             <a href="">How it works</a>
-            </SwiperSlide>
-               <SwiperSlide>
+      
+        
             <a href="">Company details</a>
-            </SwiperSlide>
-               <SwiperSlide>
+      
+        
             <a href="">Dispute policy</a>
-            </SwiperSlide>
-               <SwiperSlide>
+      
+        
             <a href="">Partners</a>
-            </SwiperSlide>
-               <SwiperSlide>
+      
+        
             <a href="">For the press</a>
-            </SwiperSlide>
-               </Swiper>
+
           </div>
         </div>
         <div className="pricing_image">

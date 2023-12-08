@@ -105,14 +105,14 @@ const HeroSection = () => {
                   onFocus={() => {
                     setfocus(true);
                   }}
-                  placeholder="City or postal code"
+                  placeholder="By name"
                   type="text"
                 />
               </div>
               <FontAwesomeIcon className="glass" icon={faMagnifyingGlass} />
               {focus === true ? (
                 <div
-                  style={{ border: "1px solid  #389ba7" }}
+                 
                   className="babysitters"
                 >
                   {inputValue == ""
