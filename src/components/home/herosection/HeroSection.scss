@@ -11,18 +11,19 @@
     margin: 0 auto;
     .hero {
       .babysitters {
-
         border-radius: 10px;
-        background-color: lightgray;
+        background-color: #dbf1f3;
         position: absolute;
         z-index: 20;
-        top: 60px;
+        top: 70px;
         right: 0;
-overflow: hidden;
+        max-height: 200px;
+        overflow: scroll;
+
         width: 100%;
         .filtered_data {
-          border-bottom: 1px solid black;
-            padding: 10px 12px;
+          border-bottom: 1px solid rgb(255, 255, 255);
+          padding: 10px 12px;
         }
       }
       .circle1 {

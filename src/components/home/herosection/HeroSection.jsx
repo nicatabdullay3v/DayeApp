@@ -4,23 +4,36 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faStar } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 const HeroSection = () => {
   const [indexOfSpan, setIndexOfSpan] = useState(0);
   let heroTitleSpan = ["nanies", "families", "babysitters"];
   const [babysittersData, setbabysittersData] = useState([]);
+  const [babysittersWanted, setbabysittersWanted] = useState([]);
   const [inputValue, setInputValue] = useState("");
-
+  const navigate = useNavigate();
+  const [focus, setfocus] = useState(false);
+  const [colorr, setColorr] = useState(true);
   let filteredData = babysittersData.filter((elem) => {
     return elem.firstName
       .toLowerCase()
       .trim()
       .includes(inputValue.toLowerCase().trim());
   });
-
+  let jobFilteredData = babysittersWanted.filter((elem) => {
+    return elem.firstName
+      .toLowerCase()
+      .trim()
+      .includes(inputValue.toLowerCase().trim());
+  });
   console.log(filteredData);
   useEffect(() => {
     axios("http://localhost:3000/babysitters").then((res) => {
       setbabysittersData(res.data);
+    });
+    axios("http://localhost:3000/babysitterswanted").then((res) => {
+      setbabysittersWanted(res.data);
     });
     setInterval(() => {
       setIndexOfSpan((prevIndex) =>
@@ -28,7 +41,7 @@ const HeroSection = () => {
       );
     }, 4000);
   }, []);
-
+  console.log(jobFilteredData);
   return (
     <section id="hero">
       <div className="container">
@@ -42,37 +55,97 @@ const HeroSection = () => {
             </div>
             <div className="hero_text_wanted_jobs">
               <div className="hero_text_wanted">
-                <p>Babysitter wanted </p>
+                <p
+                  onClick={() => {
+                    setColorr(true);
+                  }}
+                >
+                  Babysitter wanted{" "}
+                </p>
               </div>
               <div className="hero_text_jobs">
-                <p>Babysitting jobs</p>
+                <p
+                  onClick={() => {
+                    setColorr(false);
+                  }}
+                >
+                  Babysitting jobs
+                </p>
               </div>
             </div>
-            {/* <div className="hero_text_line"> */}
-            {/* <div className="line1"></div> */}
-            {/* <div className="line2"></div> */}
-            {/* </div> */}
+            <div className="hero_text_line">
+              {
+                <div
+                  style={{ backgroundColor: colorr ? "black" : "white" }}
+                  className="line1"
+                ></div>
+              }
+              {
+                <div
+                  style={{ backgroundColor: colorr ? "white" : "black" }}
+                  className="line2"
+                ></div>
+              }
+            </div>
             <div className="hero_input">
               <div style={{ width: "100%" }}>
-                <p style={{ fontSize: "11.2px" }}>Quickly find a babysitter</p>
+                {colorr ? (
+                  <p style={{ fontSize: "11.2px" }}>
+                    Quickly find a babysitter
+                  </p>
+                ) : null}
+                {colorr === false ? (
+                  <p style={{ fontSize: "11.2px" }}>Quickly find a Jobs</p>
+                ) : null}
+
                 <input
                   onChange={(e) => {
                     setInputValue(e.target.value);
+                  }}
+                  onFocus={() => {
+                    setfocus(true);
                   }}
                   placeholder="City or postal code"
                   type="text"
                 />
               </div>
               <FontAwesomeIcon className="glass" icon={faMagnifyingGlass} />
-              <div className="babysitters">
-                { inputValue== ""? null : filteredData.map((elem, i) => {
-                  return (
-                    <div key={i} className="filtered_data">
-                      {elem.firstName}
-                    </div>
-                  );
-                })}
-              </div>
+              {focus === true ? (
+                <div
+                  style={{ border: "1px solid  #389ba7" }}
+                  className="babysitters"
+                >
+                  {inputValue == ""
+                    ? null
+                    : colorr
+                    ? filteredData.map((elem, i) => {
+                        return (
+                          <div
+                            onClick={() => {
+                              navigate(`/babysittersDetail/${elem.id}`);
+                            }}
+                            key={i}
+                            className="filtered_data"
+                          >
+                            {elem.firstName} .....from..... {elem.country}
+                          </div>
+                        );
+                      })
+                    : jobFilteredData.map((elem, i) => {
+                        return (
+                          <div
+                            onClick={() => {
+                              navigate(`/BabySittingJobsDetail/${elem.id}`);
+                            }}
+                            key={i}
+                            className="filtered_data"
+                          >
+                            {elem.firstName} .....from..... {elem.country}
+                          </div>
+                        );
+                      })}
+                </div>
+              ) : null}
             </div>
             <div className="sing_up_for_free">
               <button>Sign up for free</button>
