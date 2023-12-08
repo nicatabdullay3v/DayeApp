@@ -22,6 +22,7 @@
         overflow: scroll;
 
         width: 100%;
+
         .filtered_data {
           border-bottom: 1px solid rgb(0, 0, 0);
           padding: 10px 12px;
@@ -200,4 +201,7 @@
   to {
     transform: translateX(-100%);
   }
+}
+.babysitters::-webkit-scrollbar {
+  display: none;
 }
