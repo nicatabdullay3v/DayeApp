@@ -18,6 +18,9 @@ const BabySittersdetailRightPrice = () => {
       <section id="price_left">
         <div className="price_left">
           <div className="price_left_box">
+            <div className="price">
+              <p>Telephone:</p>
+            </div>
             <div className="text">
               <p>{babysitterswantedData.phone}</p>
             </div>
