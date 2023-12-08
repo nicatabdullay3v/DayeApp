@@ -381,23 +381,6 @@
       "Haschildren": false,
       "location": "At the babysitters's",
       "car": false,
-<<<<<<< HEAD
-=======
-      "firstName": "Madonna",
-      "lastName": "Daniel",
-      "email": "toka@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "education": "Doloremque suscipit ",
-      "experienceYear": "More than 1 year",
-      "experienceChildrenAge": "3-5",
-      "price": 84,
-      "about": "Rerum et voluptates ",
-      "wishList": [],
-      "driverLicense": true,
-      "Haschildren": true,
-      "location": "At the babysitters's",
-      "car": true,
->>>>>>> 68019ddf1dd4acc555650d2a42c676ac2c34980d
       "smoker": true,
       "Languages": "Russian",
       "reviews": [],
@@ -406,40 +389,7 @@
       "activities": [],
       "phone": "0504354353",
       "Favorited": 10,
-<<<<<<< HEAD
       "id": 14
-=======
-      "id": 14,
-      "phone": "050",
-      "Favorited": 10,
-      "id": 14
-    },
-    {
-      "isBabysitter": true,
-      "firstName": "Joshua",
-      "lastName": "Pittman",
-      "email": "supiluxa@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "education": "Velit expedita asper",
-      "experienceYear": "More than 4 year",
-      "experienceChildrenAge": "5-7",
-      "price": 68,
-      "about": "Esse provident voladasdas",
-      "wishList": [],
-      "driverLicense": false,
-      "Haschildren": false,
-      "location": "At the babysitters's",
-      "car": false,
-      "smoker": true,
-      "Languages": "English",
-      "reviews": [],
-      "references": [],
-      "provided": [],
-      "activities": [],
-      "phone": "0505555555",
-      "Favorited": 10,
-      "id": 15
->>>>>>> 68019ddf1dd4acc555650d2a42c676ac2c34980d
     }
   ],
   "babysitterswanted": [
@@ -718,37 +668,6 @@
       "childrenAge": "5-7",
       "wishList": [],
       "id": 15
-<<<<<<< HEAD
-=======
-    },
-    {
-      "isParent": true,
-      "firstName": "Fuller",
-      "lastName": "Williamson",
-      "email": "xesuguki@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "address": "Praesentium dolore q",
-      "numberofChildren": "825",
-      "about": "Perferendis sapiente",
-      "childrenAge": "0-1",
-      "wishList": [],
-      "location": "At the my home",
-      "Languages": "Russian",
-      "id": 16
-    },
-    {
-      "firstName": "helloparent",
-      "lastName": "Irwin",
-      "email": "helloasjkdaskjdhkajshdkja@gmail.com",
-      "address": "Vero dolor occaecat ",
-      "numberofChildren": "339",
-      "childrenAge": "Ut quia beatae sit ",
-      "description": "Voluptatem dolorum cfdgfhgfgasjdhajsdhjashdjkashdkjahsdkja",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGyiDVtISU9tL79ctgfyhiZ7DBtzAgku3Uiw&usqp=CAU",
-      "Languages": "Russian",
-      "location": "At the babysitters's",
-      "id": 17
->>>>>>> 68019ddf1dd4acc555650d2a42c676ac2c34980d
     }
   ],
   "admin": [

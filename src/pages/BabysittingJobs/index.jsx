@@ -48,20 +48,7 @@ function index() {
   return (
     <div>
       {isBabySitters ? <NavbarBabysitters /> : <Navbar />}
-      <div className="topics">
-        <div className="topic">
-          <p>Type of babysitter needed</p>
-        </div>
-        <div className="topic">
-          <p>Children</p>
-        </div>
-        <div className="topic">
-          <p>Verification</p>
-        </div>
-        <div className="topic">
-          <p>More Filters</p>
-        </div>
-      </div>
+    
       <div className="find-babysitter">
         <div className="left">
           <div className="left-head">
