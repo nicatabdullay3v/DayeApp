@@ -8,8 +8,10 @@
       "email": "sindi@gmail.com",
       "password": "Sindi123",
       "country": "London",
-      "price": 99,
+      "price": 9,
       "experienceYear": 6,
+      "phone": "+1 (557) 504-8664",
+
       "experienceChildrenAge": "0-1",
       "reviews": [
         {
@@ -47,6 +49,8 @@
       "email": "sindi@gmail.com",
       "password": "Sindi123",
       "country": "London",
+      "phone": "+1 (557) 504-8664",
+
       "price": 99,
       "experienceYear": 6,
       "experienceChildrenAge": "",
@@ -89,6 +93,8 @@
       "country": "London",
       "price": 99,
       "experienceYear": 6,
+      "phone": "+1 (557) 504-8664",
+
       "experienceChildrenAge": "",
       "reviews": [],
       "references": [],
@@ -119,6 +125,8 @@
       "price": 99,
       "experienceYear": 6,
       "experienceChildrenAge": "",
+      "phone": "+1 (557) 504-8664",
+
       "reviews": [],
       "references": [],
       "provided": [],
@@ -146,6 +154,8 @@
       "password": "Lusy123!",
       "country": "London",
       "price": 99,
+      "phone": "+1 (557) 504-8664",
+
       "experienceYear": 6,
       "experienceChildrenAge": "",
       "reviews": [
@@ -179,6 +189,8 @@
       "email": "fatime1@gmail.com",
       "age": "Quo explicabo Liber",
       "price": 828,
+      "phone": "+1 (557) 504-8664",
+
       "password": "Pa$$w0rd!",
       "references": "Maxime repeDistinctio Sint estasdfghjksdfghjkasdasdasdasdasdadadllendus ",
       "activities": "Exercitation conDistinctio Sint estasdfghjksdfghjkasdasdasdasdasdadadsequ",
@@ -194,6 +206,7 @@
       "password": "Pa$$w0rd!",
       "education": "Minus Nam accusamus ",
       "experienceYear": "More than 1 year",
+
       "experienceChildrenAge": "1-3",
       "price": 44,
       "about": "Molestias eaque loreasdasdasdasdasdasd",
@@ -375,13 +388,18 @@
       "lastName": "Alvarez",
       "email": "nikemo@mailinator.com",
       "location": "At the babysitters's",
+      "address": "New York",
       "Favorited": 15,
       "password": "Hamida123!",
       "Languages": "English",
+      "numberofChildren": "3",
+      "childrenAge": "5-7",
+
       "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
       "about": "Hello to all inquires. My name is Jaida Morris, I am 19 years old and I am passionate about reading, painting, writing, music and even photography. I love children and believe that they are the gateway to heaven. I spent time watching kids for most of my life that includes cousins, nieces, nephews and even kids I didn’t know. I love children … any child is a safe child with me.",
       "description": "",
       "wishList": [],
+      "phone": "0505555555",
       "reviews": [
         {
           "comment": "ad.ahdasd",
@@ -423,6 +441,7 @@
       "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
       "isAdmin": false,
       "password": "Hamida123!",
+      "phone": "0505555555",
       "address": "Repudiandae cupidata",
       "numberofChildren": "326",
       "childrenAge": "5-7",
@@ -444,6 +463,7 @@
       "email": "tyjac@mailinator.com",
       "password": "Hamida123!",
       "isAdmin": false,
+      "phone": "0505555555",
       "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
       "address": "Expedit",
       "numberofChildren": "3",
@@ -461,6 +481,7 @@
       "isParent": true,
       "firstName": "Kerry",
       "lastName": "Morales",
+      "phone": "0505555555",
       "email": "fatime1@gmail.com",
       "password": "fatime",
       "image": "https://www.perfocal.com/blog/content/images/size/w1920/2021/01/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
@@ -531,6 +552,7 @@
       "reviews": [],
       "childrenAge": "5-7",
       "Languages": "English",
+      "phone": "0505555555",
       "wishList": [],
       "id": 10
     },
@@ -544,6 +566,9 @@
       "location": "At the babysitters's",
       "Favorited": 15,
       "childrenAge": "1-3",
+      "reviews": [],
+
+      "phone": "0505555555",
       "description": "asdfghjklpoiuytrewqaxcvbnmkuytresvbnmkuytrdbnmkuytf",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGyiDVtISU9tL79ctgfyhiZ7DBtzAgku3Uiw&usqp=CAU",
       "id": 12
@@ -556,6 +581,9 @@
       "password": "Pa$$w0rd!",
       "address": "Amet dolore reprehe",
       "numberofChildren": "56",
+      "phone": "0505555555",
+      "reviews": [],
+
       "about": "Commodi fuga Proideasdasdas",
       "childrenAge": "0-1",
       "wishList": [],
@@ -572,6 +600,9 @@
       "about": "Minus aliqua Qui qukkljjkljkjkl",
       "childrenAge": "3-5",
       "wishList": [],
+      "reviews": [],
+
+      "phone": "0505555555",
       "id": 14
     },
     {
@@ -584,6 +615,8 @@
       "numberofChildren": "748",
       "about": "Ducimus quaerat a esadasdasdasd",
       "childrenAge": "5-7",
+      "reviews": [],
+
       "wishList": [],
       "id": 15
     },
@@ -598,6 +631,9 @@
       "about": "Perferendis sapiente",
       "childrenAge": "0-1",
       "wishList": [],
+      "phone": "0505555555",
+      "reviews": [],
+
       "location": "At the my home",
       "Languages": "Russian",
       "id": 16
@@ -613,6 +649,7 @@
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGyiDVtISU9tL79ctgfyhiZ7DBtzAgku3Uiw&usqp=CAU",
       "Languages": "Russian",
       "location": "At the babysitters's",
+      "phone": "0505555555",
       "id": 17
     },
     {
@@ -624,7 +661,10 @@
       "childrenAge": "Necessitatibus repud",
       "description": "Laboriosam est loasjdhakjshdajshdjashdkjashdkjashdkjhar",
       "Languages": "Fuga Nihil dolor es",
-      "id": 18
+      "reviews": [],
+
+      "id": 18,
+      "phone": "0505555555"
     },
     {
       "firstName": "Yoshi",
@@ -632,6 +672,9 @@
       "email": "veto@mailinator.com",
       "address": "Odio ut est deserun",
       "numberofChildren": "710",
+      "reviews": [],
+
+      "phone": "0505555555",
       "childrenAge": "Amet voluptatem in",
       "description": "Qui tenetur deserujandjasndkjasnkdnaskjdnakjsdnkjasndjant",
       "Languages": "Irure ea et in dolor",

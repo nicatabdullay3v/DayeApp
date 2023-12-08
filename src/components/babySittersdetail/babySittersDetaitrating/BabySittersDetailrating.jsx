@@ -1,8 +1,20 @@
 import React from "react";
 import "./BabySittersdetailrating.scss";
+import { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMedal, faStar } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { fetchUserByIdDetail } from "../../../redux/Slice/BabySittersSlice/BabySittersSlice";
+import { useDispatch } from "react-redux";
 const BabySittersDetailrating = () => {
+  const babysittersData = useSelector((state) => state.babysitters.babysitter);
+  const dispatch = useDispatch();
+  let { id } = useParams();
+  useEffect(() => {
+    dispatch(fetchUserByIdDetail(id));
+  }, []);
+  console.log(babysittersData);
   return (
     <>
       <section id="baby_sitters_detail_rating">
@@ -13,7 +25,9 @@ const BabySittersDetailrating = () => {
             <FontAwesomeIcon className="icon" icon={faStar} />
             <FontAwesomeIcon className="icon" icon={faStar} />
             <FontAwesomeIcon className="icon" icon={faStar} />
-            <span className="rew">1 Review</span>
+            <span className="rew">
+              {babysittersData.reviews && babysittersData.reviews.length} Review
+            </span>
             ·
             <FontAwesomeIcon className="medal" icon={faMedal} />
             <span>SuperSitter</span>

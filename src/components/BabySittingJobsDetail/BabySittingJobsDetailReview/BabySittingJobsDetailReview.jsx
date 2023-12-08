@@ -19,53 +19,59 @@ const BabySittersDetailReview = () => {
     dispatch(fetcBabysitterJobs());
   }, []);
   let parent = parents.find((x) => x.id == id);
+  console.log(parent);
   return (
     <>
       <section id="review">
         <div className="review">
           <h2 style={{ marginBottom: "20px" }}>
             {" "}
-            <span>1</span> Reviews
+            <span>
+              {parent && parent.reviews && parent.reviews.length}
+            </span>{" "}
+            Reviews
           </h2>
           <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
             {" "}
-            {parent?.reviews.map((elem) => {
-              return (
-                <div className="review_boxx">
-                  <div className="review_box_up">
-                    <div className="review_box_image">
-                      <img
-                        src="./../../../../src/assets/images/babysitter-5257240-1695824808-rc-w350-h350.avif"
-                        alt=""
-                      />
-                    </div>
-                    <div className="review_box_name_rate">
-                      <div className="name">
-                        <h3>{elem.whoSend}</h3>
+            {parent &&
+              parent.reviews != [] &&
+              parent?.reviews.map((elem) => {
+                return (
+                  <div className="review_boxx">
+                    <div className="review_box_up">
+                      <div className="review_box_image">
+                        <img
+                          src="./../../../../src/assets/images/babysitter-5257240-1695824808-rc-w350-h350.avif"
+                          alt=""
+                        />
                       </div>
-                      <div className="rate">
-                        <FontAwesomeIcon className="icon" icon={faStar} />
-                        <FontAwesomeIcon className="icon" icon={faStar} />
-                        <FontAwesomeIcon className="icon" icon={faStar} />
-                        <FontAwesomeIcon className="icon" icon={faStar} />
-                        <FontAwesomeIcon className="icon" icon={faStar} />
+                      <div className="review_box_name_rate">
+                        <div className="name">
+                          <h3>{elem.whoSend}</h3>
+                        </div>
+                        <div className="rate">
+                          <FontAwesomeIcon className="icon" icon={faStar} />
+                          <FontAwesomeIcon className="icon" icon={faStar} />
+                          <FontAwesomeIcon className="icon" icon={faStar} />
+                          <FontAwesomeIcon className="icon" icon={faStar} />
+                          <FontAwesomeIcon className="icon" icon={faStar} />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="review_box_middle">
-                    <div className="review_box_middle_text">
-                      <p>{elem.comment}</p>
+                    <div className="review_box_middle">
+                      <div className="review_box_middle_text">
+                        <p>{elem.comment}</p>
+                      </div>
+                      <div className="read">
+                        <p>Read more</p>
+                      </div>
                     </div>
-                    <div className="read">
-                      <p>Read more</p>
+                    <div className="review_box_down_time">
+                      <p>May 2022</p>
                     </div>
                   </div>
-                  <div className="review_box_down_time">
-                    <p>May 2022</p>
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
         </div>
         <div
