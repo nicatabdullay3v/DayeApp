@@ -3,12 +3,25 @@ import "./HeroSection.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faStar } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
-
+import axios from "axios";
 const HeroSection = () => {
   const [indexOfSpan, setIndexOfSpan] = useState(0);
   let heroTitleSpan = ["nanies", "families", "babysitters"];
+  const [babysittersData, setbabysittersData] = useState([]);
+  const [inputValue, setInputValue] = useState("");
 
+  let filteredData = babysittersData.filter((elem) => {
+    return elem.firstName
+      .toLowerCase()
+      .trim()
+      .includes(inputValue.toLowerCase().trim());
+  });
+
+  console.log(filteredData);
   useEffect(() => {
+    axios("http://localhost:3000/babysitters").then((res) => {
+      setbabysittersData(res.data);
+    });
     setInterval(() => {
       setIndexOfSpan((prevIndex) =>
         prevIndex === heroTitleSpan.length - 1 ? 0 : prevIndex + 1
@@ -35,16 +48,31 @@ const HeroSection = () => {
                 <p>Babysitting jobs</p>
               </div>
             </div>
-            <div className="hero_text_line">
-              <div className="line1"></div>
-              <div className="line2"></div>
-            </div>
+            {/* <div className="hero_text_line"> */}
+            {/* <div className="line1"></div> */}
+            {/* <div className="line2"></div> */}
+            {/* </div> */}
             <div className="hero_input">
               <div style={{ width: "100%" }}>
                 <p style={{ fontSize: "11.2px" }}>Quickly find a babysitter</p>
-                <input placeholder="City or postal code" type="text" />
+                <input
+                  onChange={(e) => {
+                    setInputValue(e.target.value);
+                  }}
+                  placeholder="City or postal code"
+                  type="text"
+                />
               </div>
               <FontAwesomeIcon className="glass" icon={faMagnifyingGlass} />
+              <div className="babysitters">
+                { inputValue== ""? null : filteredData.map((elem, i) => {
+                  return (
+                    <div key={i} className="filtered_data">
+                      {elem.firstName}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
             <div className="sing_up_for_free">
               <button>Sign up for free</button>

@@ -10,6 +10,21 @@
 
     margin: 0 auto;
     .hero {
+      .babysitters {
+
+        border-radius: 10px;
+        background-color: lightgray;
+        position: absolute;
+        z-index: 20;
+        top: 60px;
+        right: 0;
+overflow: hidden;
+        width: 100%;
+        .filtered_data {
+          border-bottom: 1px solid black;
+            padding: 10px 12px;
+        }
+      }
       .circle1 {
         width: 450px;
         height: 450px;
@@ -97,6 +112,7 @@
           margin-bottom: 24px;
           padding: 5px 10px 5px 20px;
           margin-top: 20px;
+          position: relative;
           background-color: white;
           width: 45%;
           height: 58px;
@@ -136,7 +152,7 @@
           }
           .line2 {
             width: 100px;
-            // background-color: black;
+            background-color: white;
             height: 2px;
           }
         }
