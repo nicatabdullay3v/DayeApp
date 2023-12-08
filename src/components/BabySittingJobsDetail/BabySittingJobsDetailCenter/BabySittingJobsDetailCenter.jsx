@@ -11,6 +11,8 @@ import BabySittingJobsDetailCom from "./../BabySittingJobsDetailCom/BabySittingJ
 import BabySittingJobsDetailReview from "../BabySittingJobsDetailReview/BabySittingJobsDetailReview";
 import BabySittingJobsDetailReferences from "../BabySittingJobsDetailReferences/BabySittingJobsDetailReferences";
 const BabySittingJobsDetailCenter = () => {
+  let isLogin = JSON.parse(localStorage.getItem("login"));
+
   return (
     <>
       <div>
@@ -25,7 +27,9 @@ const BabySittingJobsDetailCenter = () => {
               <BabySittingJobDetailAbout />
               {/* <BabySittingJobsDetailCom /> */}
               {/* /// */}
-              <BabySittingJobsDetailReview />
+
+              {isLogin ? <BabySittingJobsDetailReview /> : null}
+
               {/* <BabySittingJobsDetailReferences/> */}
             </div>
             <div className="baby_sttiers_datail_center_right">
