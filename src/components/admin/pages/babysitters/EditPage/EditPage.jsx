@@ -9,6 +9,13 @@ import "./EditPage.scss";
 
 import { useDispatch, useSelector } from "react-redux";
 const EditPage = ({ editID, seteditPage }) => {
+  const [sitterData, setSitterData] = useState([]);
+  useEffect(() => {
+    axios("http://localhost:3000/babysitters/").then((res) => {
+      // console.log(res.data);
+      setSitterData(res.data);
+    });
+  }, []);
   const babysittersData = useSelector((state) => state.babysitters.babysitters);
   const currentlySister = babysittersData.find((elem) => elem.id === editID);
 
@@ -100,23 +107,28 @@ const EditPage = ({ editID, seteditPage }) => {
         .required("Required"),
     }),
     onSubmit: (values) => {
-      let obj = {
-        firstName: values.firstName,
-        lastName: values.lastName,
-        country: values.country,
-        age: values.age,
-        email: values.email,
-        price: values.price,
-        password: values.password,
-        references: values.references,
-        activities: values.activities,
-        description: values.description,
-      };
-      console.log(obj);
-      axios.post(`http://localhost:3000/babysitters/`, obj).then(() => {
-        dispatch(fetchUserById());
-        setcreatePage(false);
-      });
+      let find = sitterData.find((elem) => elem.email == values.email);
+      if (!find) {
+        let obj = {
+          firstName: values.firstName,
+          lastName: values.lastName,
+          country: values.country,
+          age: values.age,
+          email: values.email,
+          price: values.price,
+          password: values.password,
+          references: values.references,
+          activities: values.activities,
+          description: values.description,
+        };
+        console.log(obj);
+        axios.post(`http://localhost:3000/babysitters/`, obj).then(() => {
+          dispatch(fetchUserById());
+          setcreatePage(false);
+        });
+      } else {
+        alert("this email already used");
+      }
     },
   });
 

@@ -11,6 +11,15 @@ import { useFormik } from "formik";
 import YupPassword from "yup-password";
 YupPassword(Yup);
 const EditPage = ({ editID, seteditPage }) => {
+  const [parentData, setParentdata] = useState([]);
+
+  const [selectLanguage, setSelectLanguage] = useState("");
+  useEffect(() => {
+    axios("http://localhost:3000/babysitterswanted/").then((res) => {
+      // console.log(res.data);
+      setParentdata(res.data);
+    });
+  }, []);
   const ParentsData = useSelector(
     (state) => state.babysitters.babysitterswanted
   );
@@ -20,7 +29,9 @@ const EditPage = ({ editID, seteditPage }) => {
   useEffect(() => {
     dispatch(fetcBabysitterJobs(editID));
   }, [dispatch, editID]);
-
+  const handleChangeLanguage = (event) => {
+    setSelectLanguage(event.target.value);
+  };
   // const [formData, setFormData] = useState({
   //   firstName: "",
   //   lastName: "",
@@ -94,21 +105,28 @@ const EditPage = ({ editID, seteditPage }) => {
 
       childrenAge: Yup.string().required("Required"),
     }),
+
     onSubmit: (values) => {
-      let obj = {
-        firstName: values.firstName,
-        lastName: values.lastName,
-        email: values.email,
-        address: values.address,
-        numberofChildren: values.numberofChildren,
-        childrenAge: values.childrenAge,
-        description: values.description,
-      };
-      console.log(obj);
-      axios.post(`http://localhost:3000/babysitterswanted/`, obj).then(() => {
-        dispatch(fetcBabysitterJobs());
-        setcreatePage(false);
-      });
+      let find = parentData.find((elem) => elem.email == values.email);
+      if (!find) {
+        let obj = {
+          firstName: values.firstName,
+          lastName: values.lastName,
+          email: values.email,
+          address: values.address,
+          numberofChildren: values.numberofChildren,
+          childrenAge: values.childrenAge,
+          description: values.description,
+          Languages: values.language,
+        };
+        console.log(obj);
+        axios.post(`http://localhost:3000/babysitterswanted/`, obj).then(() => {
+          dispatch(fetcBabysitterJobs());
+          setcreatePage(false);
+        });
+      } else {
+        alert("this email already used");
+      }
     },
   });
 
@@ -292,6 +310,29 @@ const EditPage = ({ editID, seteditPage }) => {
                     placeholder="Age Children"
                   />
                   {formik.touched.childrenAge && formik.errors.childrenAge ? (
+                    <div
+                      style={{
+                        textAlign: "center",
+                        color: "red",
+                        fontSize: "small",
+                      }}
+                    >
+                      {formik.errors.childrenAge}
+                    </div>
+                  ) : null}
+                  {/* <ErrorMessage name="childrenAge" /> */}
+                </div>
+                <div className="childAge_input">
+                  <label htmlFor="language">language</label>
+
+                  <input
+                    value={formik.values.language}
+                    type="text"
+                    name="language"
+                    onChange={formik.handleChange}
+                    placeholder="English or Russian"
+                  />
+                  {formik.touched.language && formik.errors.language ? (
                     <div
                       style={{
                         textAlign: "center",
