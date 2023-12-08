@@ -13,6 +13,7 @@
       padding: 20px;
       max-width: 900px;
       display: flex;
+      gap: 20px;
       flex-wrap: wrap;
       flex-direction: column;
 
@@ -30,24 +31,28 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        gap: 20px;
       }
       .location {
         display: flex;
         flex-wrap: wrap;
 
         justify-content: space-between;
+        gap: 20px;
       }
       .education {
         flex-wrap: wrap;
 
         display: flex;
         justify-content: space-between;
+        gap: 20px;
       }
       .has_children {
         flex-wrap: wrap;
 
         display: flex;
         justify-content: space-between;
+        gap: 20px;
       }
       .icon_text {
         display: flex;
@@ -59,9 +64,11 @@
     }
     .baby_sitters_about_right {
       padding: 20px;
-      max-width: 400px;
+      max-width: max-content;
       display: flex;
       flex-direction: column;
+
+      gap: 20px;
 
       flex-wrap: wrap;
 
@@ -85,24 +92,28 @@
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
+        gap: 20px;
       }
       .car {
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
+        gap: 10px;
       }
       .favorited {
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
+        gap: 20px;
       }
       .language {
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
+        gap: 20px;
       }
     }
   }
