@@ -68,6 +68,12 @@
   
     .reviewscards {
       .reviews-section {
+        .review_media{
+          @media (max-width: 640px) {
+           display: flex;
+           justify-content: center;
+          }
+        }
         .review_boxx{
 .review_box_up{
     img{

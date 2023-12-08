@@ -23,7 +23,7 @@ let login = JSON.parse(localStorage.getItem("login"));
       <h1 style={{ backgroundColor: "white", marginBottom: "20px" }}>
         About Me
       </h1>
-      <div className="baby_sitters_abouts">
+      <div className="baby_sitters_abouts" style={{display:"flex", justifyContent:"space-around"}}>
         <div className="baby_sitters_about_left">
           <div className="driver_license">
             <div className="driver_license_icon_text icon_text">

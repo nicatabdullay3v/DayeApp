@@ -95,19 +95,20 @@ const BabysitterProfilePage = () => {
 
       {/* Detail Section */}
 
-      <AboutProfilePage/>
-
+      <AboutProfilePage />
 
       {editPage ? <EditProfilePage /> : null}
 
       {/* Reviews Section */}
       <div className="container reviewscards">
-        <div className="reviews-section">
-          <Typography variant="h4" gutterBottom>
-            Reviews
-          </Typography>
-
-          <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+        <Typography variant="h4" gutterBottom>
+          Reviews
+        </Typography>
+        <div
+          className="reviews-section"
+          style={{ display: "flex", justifyContent: "center" }}
+        >
+          <div className="review_media" style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
             {login?.reviews.map((elem, index) => {
               return (
                 <div key={index} className="review_boxx">
