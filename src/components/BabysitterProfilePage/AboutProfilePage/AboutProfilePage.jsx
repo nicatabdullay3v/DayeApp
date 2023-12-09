@@ -71,7 +71,7 @@ let login = JSON.parse(localStorage.getItem("login"));
               {login.car ? "Yes" : "No"}
             </div>
           </div>
-          <div className="smoker">
+          <div className="smoker" style={{paddingTop:"15px"}}>
             <div className="smoker_icon_text icon_text">
               <FontAwesomeIcon className="icon" icon={faSmoking} />
               <p>Smoker</p>
@@ -80,14 +80,14 @@ let login = JSON.parse(localStorage.getItem("login"));
               {login.smoker ? "Yes" : "NO"}
             </div>
           </div>
-          <div className="language">
+          <div className="language" style={{paddingTop:"15px"}}>
             <div className="language_icon_text icon_text">
               <FontAwesomeIcon className="icon" icon={faLanguage} />
               <p>Languages that i speak</p>
             </div>
             <div className="language_yes_no yes_no">{login.Languages}</div>
           </div>
-          <div className="favorited">
+          <div className="favorited" style={{paddingTop:"15px"}}>
             <div className="favorited_icon_text icon_text">
               <FontAwesomeIcon className="icon" icon={faHeart} />
               <p>Favorited</p>

@@ -126,7 +126,7 @@ const EditPage = ({ editID, seteditPage }) => {
           Languages: values.language,
         };
         console.log(obj);
-        axios.post(`http://localhost:3000/babysitterswanted/`, obj).then(() => {
+        axios.patch(`http://localhost:3000/babysitterswanted/${editID}`, obj).then(() => {
           dispatch(fetcBabysitterJobs());
           setcreatePage(false);
         });

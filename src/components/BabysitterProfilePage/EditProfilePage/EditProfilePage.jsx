@@ -113,11 +113,11 @@ const EditProfilePage = ({ editID, seteditPage }) => {
       };
 
       console.log(obj);
-      axios.post(`http://localhost:3000/babysitters/`, obj).then(() => {
+      axios.patch(`http://localhost:3000/babysitters/${login.id}`, obj).then(() => {
         dispatch(fetchUserById());
       });
       console.log(objParent);
-      axios.post(`http://localhost:3000/babysitters/`, obj).then(() => {
+      axios.patch(`http://localhost:3000/babysitterswanted/${login.id}`, objParent).then(() => {
         dispatch(fetcBabysitterJobs());
       });
     },
@@ -131,7 +131,7 @@ const EditProfilePage = ({ editID, seteditPage }) => {
             <h1 className="change_size">Edit {login.firstName}</h1>
             <div className="sides_edit">
               {login ? (
-                <div className="currently_data">
+                <div className="currently_data"  style={{width:"300px"}}>
                   <h2>Currently</h2>
                   <div className="card_parent_currently">
                     <div className="currently_p">
@@ -167,7 +167,7 @@ const EditProfilePage = ({ editID, seteditPage }) => {
                       <b>Description:</b>
                       <p>{login.description}</p>
                     </div>
-                    <div className="comments_span">
+                    <div className="comments_span" >
                       <b>References:</b>
                       <p>
                         Lorem, ipsum dolor sit amet consectetur adipisicing
@@ -188,7 +188,7 @@ const EditProfilePage = ({ editID, seteditPage }) => {
                 console.log("not found sister")
               )}
 
-              <div className="change_to">
+              <div className="change_to"  style={{width:"300px"}}>
                 <h2>Change to</h2>
                 <div className="card_parent">
                   <form onSubmit={formik.handleSubmit} action="">
@@ -423,9 +423,12 @@ const EditProfilePage = ({ editID, seteditPage }) => {
                       />
                     </div>
 
+
                     <div className="edit_btn">
                       <button type="submit">Edit</button>
                     </div>
+
+
                   </form>
                 </div>
               </div>
@@ -649,9 +652,12 @@ const EditProfilePage = ({ editID, seteditPage }) => {
             }
           ></textarea>
         </div> */}
+
                     <div className="edit_btn">
                       <button type="submit">Edit</button>
                     </div>
+
+
                   </form>
                 </div>
               </div>

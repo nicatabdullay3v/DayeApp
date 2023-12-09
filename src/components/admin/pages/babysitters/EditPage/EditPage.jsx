@@ -88,7 +88,7 @@ const EditPage = ({ editID, seteditPage }) => {
           description: values.description,
         };
         console.log(obj);
-        axios.post(`http://localhost:3000/babysitters/`, obj).then(() => {
+        axios.patch(`http://localhost:3000/babysitters/${editID}`, obj).then(() => {
           dispatch(fetchUserById());
           setcreatePage(false);
         });

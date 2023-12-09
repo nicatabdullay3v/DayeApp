@@ -27,7 +27,7 @@ const HeroSection = () => {
       .trim()
       .includes(inputValue.toLowerCase().trim());
   });
-  console.log(filteredData);
+  // console.log(filteredData);
   useEffect(() => {
     axios("http://localhost:3000/babysitters").then((res) => {
       setbabysittersData(res.data);
@@ -41,7 +41,7 @@ const HeroSection = () => {
       );
     }, 4000);
   }, []);
-  console.log(jobFilteredData);
+  // console.log(jobFilteredData);
   return (
     <section id="hero">
       <div className="container">
