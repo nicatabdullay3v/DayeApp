@@ -76,13 +76,19 @@ const HeroSection = () => {
             <div className="hero_text_line">
               {
                 <div
-                  style={{ backgroundColor: colorr ? "black" : "white" }}
+                  style={{
+                    backgroundColor: colorr ? "black" : "#edf7f8"
+
+                  }}
                   className="line1"
                 ></div>
               }
               {
                 <div
-                  style={{ backgroundColor: colorr ? "white" : "black" }}
+                  style={{
+                    backgroundColor: colorr ? "#edf7f8" : "black"
+
+                  }}
                   className="line2"
                 ></div>
               }
@@ -111,10 +117,7 @@ const HeroSection = () => {
               </div>
               <FontAwesomeIcon className="glass" icon={faMagnifyingGlass} />
               {focus === true ? (
-                <div
-                 
-                  className="babysitters"
-                >
+                <div className="babysitters">
                   {inputValue == ""
                     ? null
                     : colorr
